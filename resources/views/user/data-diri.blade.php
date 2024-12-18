@@ -106,7 +106,8 @@
                             </svg>
                         </span>
                         <!-- Teks -->
-                        <p class="mb-0 text-center">Informasi Pribadi</p>
+                        {{-- type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" --}}
+                        <p class="mb-0 text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Informasi Pribadi</p>
                     </li>
                     <li class="list-group-item d-flex align-items-center justify-content-start gap-3 ms-2 mb-2">
                         <!-- Ikon -->
@@ -180,6 +181,56 @@
                     </li>
                 </ul>
             </div>
+    </div>
+
+    <div>
+        {{-- modal --}}
+        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Informasi Pribadi</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <!-- Checklist Name -->
+                        <div class="mb-3">
+                            <label for="checklistName" class="form-label">Nama Pengguna</label>
+                            <input type="text" class="form-control" id="checklistName" placeholder="Enter checklist name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="checklistName" class="form-label">Email Pengguna</label>
+                            <input type="text" class="form-control" id="checklistName" placeholder="Email Pengguna">
+                        </div>
+
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Alamat Pengguna <span class="text-muted">(Optional)</span></label>
+                            <textarea class="form-control" id="description" rows="3" placeholder="Alamat Pengguna"></textarea>
+                        </div>
+
+                        <!-- Equipment Type -->
+                        <div class="mb-3">
+                            <label for="equipmentType" class="form-label">Equipment Type</label>
+                            <select class="form-select" id="equipmentType">
+                                <option selected>Capsule Filling Machine</option>
+                                <option>Tablet Press Machine</option>
+                                <option>Coating Machine</option>
+                            </select>
+                        </div>
+
+                    
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Simpan</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 @endsection
 
