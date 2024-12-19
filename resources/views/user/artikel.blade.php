@@ -129,7 +129,40 @@ padding: 12px;
     z-index: 1;
     text-decoration: none;
 }
-
+.article-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .article-subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .article-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .article-card img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+        
+        
+        .truncated-text {
+        display: -webkit-box; /* Membuat elemen menjadi box untuk mendukung line-clamp */
+        -webkit-line-clamp: 2; /* Menentukan jumlah baris maksimum */
+        -webkit-box-orient: vertical; /* Mengatur orientasi box ke vertikal */
+        overflow: hidden; /* Menyembunyikan teks yang melampaui batas */
+        text-overflow: ellipsis; /* Menambahkan titik-titik (...) di akhir teks */
+    }
+    a {
+            color: inherit;
+            /* Mengambil warna dari elemen pembungkus */
+            text-decoration: none;
+            /* Menghilangkan garis bawah */
+        }
 
 </style>
 @endsection
@@ -143,7 +176,7 @@ padding: 12px;
             <section class="splide mt-0 bg-white" style="padding-bottom: 10px">
                 <a href="/user">
 
-                    <button class="btn btn-light position-absolute top-0 start-0 m-3 rounded-circle p-2 shadow">
+                    <button class="btn btn-light position-absolute top-0 start-0 m-3 rounded-circle p-2 shadow fixed">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
@@ -183,11 +216,24 @@ padding: 12px;
                             </a>
                         </li>
                         <li class="splide__slide">
-                            <img src="{{ asset('image/download.jpeg') }}" alt="Slide 03" class="splide__image1" />
+                            <a href="/detailartikel">
+                                <img src="{{ asset('image/ball.jpg') }}" alt="Slide 03" class="splide__image1" />
+                                <div class="slide-caption">
+                                    <h3>Sepak Bola</h3>
+                                    <p>Menjadi Olahraga Populer</p>
+                                </div>
+                            </a>
                         </li>
                         <li class="splide__slide">
-                            <img src="{{ asset('image/lapangan-golf.jpg') }}" alt="Slide 03" class="splide__image1" />
+                            <a href="/detailartikel">
+                                <img src="{{ asset('image/ball.jpg') }}" alt="Slide 03" class="splide__image1" />
+                                <div class="slide-caption">
+                                    <h3>Sepak Bola</h3>
+                                    <p>Menjadi Olahraga Populer</p>
+                                </div>
+                            </a>
                         </li>
+                        
                     </ul>
                 </div>
             </section>
@@ -201,66 +247,58 @@ padding: 12px;
                 <div class="container mb-5">
                     <div style="padding-top:4px">
 
-                        <p style="font-size: 22px " class="mt-1 fw-semibold">Recomendasi</p>
+                        <p style="font-size: 20px " class="mt-1 fw-medium">Rekomendasi</p>
                     </div>
                     
                             
-                        <div class="col-12 col-md-6 mb-2">
-                            <div class="card border-0 shadow rounded-4 overflow-hidden">
-                                <a href="/detailartikel" class="stretched-link"></a>
-                                <div class="row g-0">
-                                    <!-- Gambar -->
-                                    <div class="col-4">
-                                        <img src="{{ asset('image/lari.jpg') }}" alt="Boulder Flatirons Rock Climbing" class="img-fluid h-100 w-100 object-fit-cover">
-                                    </div>
-                                    <!-- Konten -->
-                                    <div class="col-8">
-                                        <div class="card-body">
-                                            <p class="card-title mb-2">Bahaya Lari</p>
-                                            <p style="font-size: 12px" class="mt-4"> Bila Dilakukan Setiap Hati</p>
-                                            <a href="#" class="btn btn-success  fw-bold rounded-pill px-3 py-1 mt-5">Read more</a>
-                                        </div>
-                                    </div>
+                    <div class="row g-3">
+                        <!-- Artikel 1 -->
+                        <a href="/detailartikel">
+
+                            <div class="col-12">
+                                <div class="article-card bg-white">
+                                    <img src="{{ asset('image/badminton.jpg') }}" alt="Artikel">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 mb-2">
-                            <div class="card border-0 shadow rounded-4 overflow-hidden">
-                                <a href="/detailartikel" class="stretched-link"></a>
-                                <div class="row g-0">
-                                    <!-- Gambar -->
-                                    <div class="col-4">
-                                        <img src="{{ asset('image/lari.jpg') }}" alt="Boulder Flatirons Rock Climbing" class="img-fluid h-100 w-100 object-fit-cover">
-                                    </div>
-                                    <!-- Konten -->
-                                    <div class="col-8">
-                                        <div class="card-body">
-                                            <p class="card-title mb-2">Bahaya Lari</p>
-                                            <p style="font-size: 12px" class="mt-4"> Bila Dilakukan Setiap Hati</p>
-                                            <a href="#" class="btn btn-success  fw-bold rounded-pill px-3 py-1 mt-5">Read more</a>
-                                        </div>
-                                    </div>
+                                
+                                <div class="text-start me-3">
+                                    <p class=" mt-2 mb-0 truncated-text" style="font-size: 12px">
+                                        Badminton merupakan salah satu olahraga yang populer di berbagai kalangan, baik anak-anak maupun dewasa bbubiuibjbibi.
+                                    </p>
                                 </div>
+                                
                             </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="card border-0 shadow rounded-4 overflow-hidden">
-                                <div class="row g-0">
-                                    <!-- Gambar -->
-                                    <div class="col-4">
-                                        <img src="{{ asset('image/lari.jpg') }}" alt="Boulder Flatirons Rock Climbing" class="img-fluid h-100 w-100 object-fit-cover">
-                                    </div>
-                                    <!-- Konten -->
-                                    <div class="col-8">
-                                        <div class="card-body">
-                                            <p class="card-title mb-2">Bahaya Lari</p>
-                                            <p style="font-size: 12px" class="mt-4"> Bila Dilakukan Setiap Hati</p>
-                                            <a href="#" class="btn btn-success  fw-bold rounded-pill px-3 py-1 mt-5">Read more</a>
-                                        </div>
-                                    </div>
+                        </a>
+                
+                        <!-- Artikel 2 -->
+                        <div class="col-12">
+                            <a href="/detailartikel">
+
+                                <div class="article-card bg-white">
+                                    <img src="{{ asset('image/kolam-renang.jpg') }}" alt="Artikel">
                                 </div>
-                            </div>
+                                <div class="text-start me-3">
+                                    <p class=" mt-2 mb-0 truncated-text" style="font-size: 12px">
+                                        Badminton merupakan salah satu olahraga yang populer di berbagai kalangan, baik anak-anak maupun dewasa bbubiuibjbibi.
+                                    </p>
+                                </div>
+                            </a>
                         </div>
+                
+                        <!-- Artikel 3 -->
+                        <div class="col-12">
+                            <a href="/detailartikel">
+
+                                <div class="article-card bg-white">
+                                    <img src="{{ asset('image/sepeda.jpg') }}" alt="Artikel">
+                                </div>
+                                <div class="text-start me-3">
+                                    <p class=" mt-2 mb-0 truncated-text text-start" style="font-size: 12px">
+                                        Badminton merupakan salah satu olahraga yang populer di berbagai kalangan, baik anak-anak maupun dewasa bbubiuibjbibi.
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                        
                         <!-- Kartu 2 -->
                         
                     </div>

@@ -94,15 +94,31 @@
             }
         }
 
-        .form-control, .form-select {
-    background-color: #ffffff; /* Latar belakang putih */
-    color: #000000; /* Teks warna hitam */
-    border: 1px solid #626060; /* Warna border abu-abu */
-    border-radius: 10px; /* Membuat sudut border melengkung */
-    padding: 12px; /* Memberi jarak dalam elemen */
-}
+        .form-control,
+        .form-select {
+            background-color: #ffffff;
+            /* Latar belakang putih */
+            color: #000000;
+            /* Teks warna hitam */
+            border: 1px solid #626060;
+            /* Warna border abu-abu */
+            border-radius: 10px;
+            /* Membuat sudut border melengkung */
+            padding: 12px;
+            /* Memberi jarak dalam elemen */
+        }
 
+        .modal-body {
+            max-height: 300px;
+            /* Tentukan tinggi maksimal */
+            overflow-y: auto;
+            /* Aktifkan scroll jika konten lebih panjang dari yang ditampilkan */
+        }
 
+        .modal-body::-webkit-scrollbar {
+            display: none;
+            /* Untuk Chrome, Safari, dan Edge */
+        }
     </style>
 @endsection
 
@@ -122,7 +138,7 @@
                         </svg>
                     </button>
                 </a>
-    
+
                 <!-- Right Button -->
                 <button class="btn btn-light position-absolute top-0 end-0 m-3 rounded-circle p-2 shadow like-btn"
                     data-state="not-liked">
@@ -133,33 +149,30 @@
                         <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                     </svg>
                 </button>
-            
+
                 <!-- Splide Slides -->
                 <div class="splide__track">
-                    
+
                     <ul class="splide__list">
                         <li class="splide__slide">
-                            <img src="{{ asset('image/kolam-renang.jpg') }}" alt="Slide 01"
-                                class="splide__image1 " />
+                            <img src="{{ asset('image/kolam-renang.jpg') }}" alt="Slide 01" class="splide__image1 " />
                         </li>
                         <li class="splide__slide">
                             <img src="{{ asset('image/badminton.jpg') }}" alt="Slide 02" class="splide__image1" />
                         </li>
                         <li class="splide__slide">
-                            <img src="{{ asset('image/lapangan volly.jpeg') }}" alt="Slide 03"
-                                class="splide__image1 " />
+                            <img src="{{ asset('image/lapangan volly.jpeg') }}" alt="Slide 03" class="splide__image1 " />
                         </li>
                         <li class="splide__slide">
                             <img src="{{ asset('image/download.jpeg') }}" alt="Slide 04" class="splide__image1" />
                         </li>
                         <li class="splide__slide">
-                            <img src="{{ asset('image/lapangan-golf.jpg') }}" alt="Slide 05"
-                                class="splide__image1 " />
+                            <img src="{{ asset('image/lapangan-golf.jpg') }}" alt="Slide 05" class="splide__image1 " />
                         </li>
                     </ul>
                 </div>
             </section>
-            
+
 
 
 
@@ -190,11 +203,15 @@
                                     <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
                                         class="text-center">
                                         <div class="text-center mt-1 mr-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-droplet-half">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="icon icon-tabler icons-tabler-outline icon-tabler-droplet-half">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z" />
+                                                <path
+                                                    d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z" />
                                                 <path d="M12 3v18" />
-                                              </svg>
+                                            </svg>
                                             <div class="mt-2 text-center">
                                                 <p class="mb-0" style="font-size: 12px; color: #333;">Air Mineral</p>
                                             </div>
@@ -256,10 +273,14 @@
                                     <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
                                         class="text-center">
                                         <div class="text-center mt-1 mr-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-hanger">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                class="icon icon-tabler icons-tabler-outline icon-tabler-hanger">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M14 6a2 2 0 1 0 -4 0c0 1.667 .67 3 2 4h-.008l7.971 4.428a2 2 0 0 1 1.029 1.749v.823a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-.823a2 2 0 0 1 1.029 -1.749l7.971 -4.428" />
-                                              </svg>
+                                                <path
+                                                    d="M14 6a2 2 0 1 0 -4 0c0 1.667 .67 3 2 4h-.008l7.971 4.428a2 2 0 0 1 1.029 1.749v.823a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-.823a2 2 0 0 1 1.029 -1.749l7.971 -4.428" />
+                                            </svg>
                                             </svg>
                                             <div class="mt-2 text-center">
                                                 <p class="mb-0" style="font-size: 12px; color: #333;">Kamar Ganti</p>
@@ -273,13 +294,21 @@
                             </div>
                         </section>
                         <!-- Price and Availability -->
+                        <div class="d-flex align-items-center">
+                            <p class="mt-1 mb-2" style="font-size:20px;">Deskripsi</p>
+                            <p href="" class="ms-auto mt-1 mb-0 text-success" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Lihat Semua</p>
+                        </div>
                         <div
-                            class="d-flex justify-content-between align-items-center mb-3 border border-secondary rounded p-2 mt-1">
+                            class="d-flex justify-content-between align-items-center mb-3 border border-secondary rounded p-2 ">
                             <!-- Kolom Kiri -->
                             <!-- Kolom Kanan -->
-                            <div class="w-100 ps-1 text-start">
-                                <p style="font-size: 15px;" class="text-dark">Jarak</p>
-                                <p class="mt-0 mb-0 text-secondary" style="font-size: 14px">2.5KM dari Lokasi Anda</p>
+                            <div class="w-100 ps-1 px-2 text-start">
+                                <p class="mt-0 mb-0 text-secondary" style="font-size: 14px; text-align: justify;">Seleruh
+                                    Lapangan di Hokky Memiliki kualitas
+                                    yang sudah teruji dengan lantai yang berstandar nasional
+
+                                </p>
                             </div>
                         </div>
 
@@ -289,14 +318,15 @@
                 </div>
             </div>
             <div class="fixed-bottom mt-1 mb-1 bg-white shadow-lg rounded-lg">
-                <div class="mb-1 mt-2 p-3">
+                <div class="mb-1 mt-2 p-2">
                     <p class="text-muted small mb-2 mt-2">Tersedia: <strong>3 Lapangan</strong></p>
-                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
                         Booking Lapangan
                     </button>
                 </div>
             </div>
-            
+
         </div>
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -383,6 +413,39 @@
                             <button type="button" class="btn btn-success">Lanjutkan</button>
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deskripsi</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="text-align: justify;">
+                        <strong style="font-size: 16px" class="fw-semibold"> Deskripsi</strong><br/>
+                        Lapangan Futsal Hokky menawarkan fasilitas bermain futsal dengan kualitas terbaik dan berstandar
+                        nasional, memastikan kenyamanan dan keamanan para pemain. Permukaan lantai anti-slip dan pencahayaan
+                        LED yang terang memberikan pengalaman bermain optimal, baik siang maupun malam. Selain itu,
+                        fasilitas pendukung seperti ruang ganti, area parkir luas, kantin yang menyediakan minuman segar,
+                        serta tribun penonton yang nyaman menjadikan venue ini pilihan terbaik bagi pemain dan penonton.<br/>
+                        <span></span>
+                        <strong style="font-size: 16px" class="mt-2">Aturan Vanue</strong><br/>
+                        Kebersihan dan kenyamanan dijaga dengan ketat melalui aturan bebas rokok di seluruh area dan
+                        larangan membawa makanan atau minuman ke dalam lapangan. Dengan lokasi strategis dan lingkungan yang
+                        tertib, Lapangan Hokky cocok untuk latihan rutin maupun pertandingan resmi.<br/>
+                        <strong style="font-size: 16px" class="mt-2">Jam Oprasional</strong><br/> 
+                        Lapangan ini beroperasi
+                        setiap hari dengan jam operasional 08.00 - 22.00 WIB, sehingga Anda bisa mengatur waktu bermain
+                        sesuai kebutuhan.
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

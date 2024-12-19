@@ -30,6 +30,9 @@ Route::get('/tes', function () {
 Route::get('/data-diri', function () {
     return view('user.data-diri');
 });
+Route::get('/informasi-pembayaran', function () {
+    return view('user.informasi-pembayaran');
+});
 // Route::get('/riwayat', function () {
 //     return view('user.riwayat');
 // });

@@ -25,10 +25,26 @@
                 <h5 class="fw-semibold mb-2 mt-2 ms-2">Pembayaran</h5>
 
             </div>
-            <p class="text-muted mb-0 ms-2">Anda</p>
-            <p class="fw-semibold ms-auto" style="padding-bottom: 10px">
-                <i class="bi bi-geo-alt-fill text-success ms-2"></i> Ridho Ilham Ds
-            </p>
+            
+            <p class="fw-normal text-secondary container">Informasi Pemesan</p>
+            <div class="d-flex align-items-center">
+                <p class="fw-semibold mb-0" style="padding-bottom: 10px; flex-grow: 1;">
+                    <i class="bi bi-geo-alt-fill text-success ms-2"></i> Ridho Ilham Ds
+                </p>
+                <div class="mb-3 me-3">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="icon icon-tabler icon-tabler-chevron-right" data-bs-toggle="collapse"
+                                class="me-2">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M9 6l6 6l-6 6" />
+                                </svg>
+                </div>
+            </div>
+            
+            
         </div>
     </div>
     <div class="bg-white mb-2" style="padding-top: 5px; padding-bottom:5px">
@@ -273,7 +289,7 @@
 
             <!-- Tombol Checkout -->
             <div class="text-center ">
-                <a href="/informasi pembayaran">
+                <a href="/informasi-pembayaran">
 
                     <button class="btn btn-success w-100 custom-button" 
         style="background-color: #a8da05; color: #ffffff; padding: 12px; border-radius: 8px; border: none; font-weight: bold;">
