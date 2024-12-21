@@ -67,8 +67,8 @@
         <!-- Promo Section -->
 
 
-        <div class="container px-3" style="margin-top:56px; padding-top:1px; padding-bottom:10px;">
-            <section class="splide mt-4">
+        <div class="container px-3" style="margin-top:56px; padding-bottom:10px;">
+            <section class="splide mt-5" style="padding-top: 10px;">
                 <div class="splide__track">
                     <ul class="splide__list">
                         <li class="splide__slide">
@@ -97,7 +97,7 @@
     {{-- halaman kastegori atau card --}}
     <div class="container px-3">
         <div class="d-flex align-items-center">
-            <p class="mt-1 mb-2" style="font-size:20px;">Kategori</p>
+            <p class="mt-3 mb-2" style="font-size:20px;">Kategori</p>
             <p href="" class="ms-auto mt-1 mb-0 text-success">Lihat Semua</p>
         </div>
         <div class="row row-cols-4 g-2 text-center items-center blackdop-blur-sm ">
@@ -105,7 +105,7 @@
                 <div class="card rounded border-0  " style="padding: 24px">
                     <div class="d-flex justify-content-center align-items-center " style="color: #A9DA05;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-football">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
@@ -121,7 +121,7 @@
                 <div class="card rounded border-0  " style="padding: 24px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-ball-basketball">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -139,7 +139,7 @@
                 <div class="card rounded border-0  " style="padding: 24px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-ball-volleyball">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -159,7 +159,7 @@
                 <div class="card rounded border-0  " style="padding: 24px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bowling">
                             <path stroke="none" d="M0 0h30v30H0z" fill="none" />
                             <path d="M7 11v.01" />
@@ -178,7 +178,7 @@
                 <div class="card rounded border-0  " style="padding: 24px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-tennis">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
@@ -192,7 +192,7 @@
             <div class="col m-0">
                 <div class="card rounded border-0  " style="padding: 26px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                        <img src="{{ asset('image/shuttlecock.png') }}" style="width: 35px; height:35px;" alt="">
+                        <img src="{{ asset('image/shuttlecock.png') }}" style="width: 30px; height:30px;" alt="">
                     </div>
                 </div>
                 <p class="mt-1" style="font-size:12px;">Badminton</p>
@@ -201,7 +201,7 @@
                 <div class="card  rounded border-0  " style="padding: 24px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ping-pong">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path
@@ -265,7 +265,7 @@
                     </div>
 
                     <!-- Slide 3 -->
-                    <div style="flex-shrink: 0; width: 120px; margin-right: 10px; position: relative;" class="me-3">
+                    <div style="flex-shrink: 0; width: 120px; margin-right: 10px; position: relative;">
                         <img src="{{ asset('image/futsal.jpeg') }}" alt="Styling Rambut" class="rounded d-block"
                             style="height: 140px; width: 100%; border: none; box-shadow: none; object-fit: cover;">
                         <div class="mt-1 text-center">
@@ -484,7 +484,7 @@
                                 <p class="mb-0" style="font-size: 10px">Jln Nginden Sukolilo No 5</p>
                             </div>
                         </div>
-                        <div style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
+                        <div style="flex-shrink: 0; height:180px; width: 250px; position: relative;">
                             <img src="{{ asset('image/futsal.jpeg') }}" alt="Semir Rambut" class="rounded d-block"
                                 style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
                             <div

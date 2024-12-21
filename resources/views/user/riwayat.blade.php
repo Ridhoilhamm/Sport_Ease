@@ -457,7 +457,7 @@
 
             <!-- Content untuk tab "Ditolak" -->
             <div class="tab-pane fade" id="rejected" role="tabpanel" aria-labelledby="rejected-tab">
-                <p class="text-danger m-3 p-3 abu rounded">Belum ada layanan yang ditolak</p>
+                <p class="text-danger m-3 p-3 abu rounded">Belum ada Pembookingan yang dibatalkan</p>
             </div>
         </div>
 

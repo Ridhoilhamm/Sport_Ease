@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SportEase</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
@@ -14,8 +15,12 @@
     <link href="/your-path-to-uicons/css/uicons-[your-style].css" rel="stylesheet">
     <link href="/your-path-to-uicons/css/uicons-rounded-regular.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/css/bootstrap-timepicker.min.css"> --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
+   
 
     <style>
         body {
@@ -880,6 +885,139 @@ loadState();
         });
     });
 </script>
+<script>
+    // Ambil semua tombol
+const buttons = document.querySelectorAll('.btn');
+
+// Tambahkan event listener ke setiap tombol
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+        // Toggle kelas 'selected' pada tombol yang ditekan
+        this.classList.toggle('selected');
+    });
+});
+</script>
+
+<script>
+    flatpickr("#tanggalPicker", {
+        mode: "multiple", // Mode untuk memilih banyak tanggal
+        dateFormat: "Y-m-d", // Format tanggal
+        minDate: "today", // Opsional: Mulai dari hari ini
+        locale: {
+            firstDayOfWeek: 1// Pilihan: Set minggu mulai dari Senin
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+    document.getElementById('confirmTransaction').addEventListener('click', function() {
+            confirmTransaction(); 
+        });
+
+        document.querySelector('#transactionModal .kuning').addEventListener('click', function() {
+            copyAccountNumber(); 
+        });
 
 
+        function add_image(dt) {
+            var data = $(dt.element).data();
+            var text = $(dt.element).text();
+
+            if (data && data['image']) {
+                var image = data['image']; // Nama file gambar
+                var dt_image = $(
+                    "<span><img src='" + "{{ asset('images/') }}" + "/" + image +
+                    "' style='width:30px; height:30px; border-radius:25%; margin-right:10px;' />" + text + "</span>"
+                );
+                return dt_image;
+            }
+
+            return text;
+        }
+
+        var pilihan = {
+            'templateSelection': add_image, 
+            'templateResult': add_image, 
+            'minimumResultsForSearch': -1
+        };
+
+        $("#metode_pembayaran").select2(pilihan);
+
+        function showModal(name, imageUrl) {
+            Swal.fire({
+                title: name,
+                imageUrl: imageUrl,
+                imageWidth: 200,
+                imageHeight: 200,
+                imageAlt: ${name}'s image,
+                confirmButtonText: 'Close',
+                customClass: {
+                    image: 'rounded-image'
+                }
+            });
+        }
+    </script>
+
+</script>
+<script>
+    document.getElementById("readMoreBtn").addEventListener("click", function () {
+        const dots = document.getElementById("dots");
+        const moreText = document.getElementById("more");
+        const btnText = document.getElementById("readMoreBtn");
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            moreText.style.display = "none";
+            btnText.textContent = "Lihat Selengkapnya";
+        } else {
+            dots.style.display = "none";
+            moreText.style.display = "inline";
+            btnText.textContent = "Tampilkan Lebih Sedikit";
+        }
+    });
+</script>
+
+<script>
+    const header = document.getElementById('header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            header.style.backgroundColor = 'white'; // Ubah menjadi putih
+            header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; // Tambahkan bayangan (opsional)
+        } else {
+            header.style.backgroundColor = 'transparent'; // Kembali ke transparan
+            header.style.boxShadow = 'none'; // Hilangkan bayangan
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#bankSelector').select2({
+            templateResult: formatOption,
+            templateSelection: formatOption
+        });
+
+        function formatOption(option) {
+            if (!option.id) {
+                return option.text;
+            }
+            var img = $(option.element).data('image');
+            var $option = $(
+                '<span><img src="' + img + '" style="width: 20px; height: 20px; margin-right: 10px;"/>' + option.text + '</span>'
+            );
+            return $option;
+        }
+    });
+</script>
+<script>
+    $('.your-select-element').select2({
+    placeholder: 'Pilih opsi',
+    allowClear: true  // Opsi ini memungkinkan pengguna untuk menghapus pilihan
+});
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 </html>

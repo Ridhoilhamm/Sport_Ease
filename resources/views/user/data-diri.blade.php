@@ -392,7 +392,7 @@
                             <div class="modal-body2 container">
                                 <form>
                                     <!-- Checklist Name -->
-                                    <div class="mb-3 container">
+                                    <div class="mb-3 container mt-2">
                                         <label for="checklistName" class="form-label">Nama Pengguna</label>
                                         <input type="text" class="form-control" id="checklistName"
                                             placeholder="Ridho Ilham">
@@ -411,8 +411,8 @@
 
                                     <!-- Description -->
                                     <div class="mb-3 container">
-                                        <label for="description" class="form-label">Alamat Pengguna <span
-                                                class="text-muted">(Optional)</span></label>
+                                        <label for="description" class="form-label">Alamat Pengguna
+                                                </label>
                                         <textarea class="form-control" id="description" rows="3" placeholder="Jalan Patimura uang 1000perak Kanan jalan"></textarea>
                                     </div>
 
@@ -552,14 +552,15 @@
                                             <p class="subtitle" style="font-size: 12px">Saat ini Anda dapat menghubungkan kartu debit / kredit
                                                 Mandiri
                                             </p>
-
+                                            <a href="/">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right mb-2 ms-3">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M9 6l6 6l-6 6" />
-                                            </svg>
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right mb-2 ms-3">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M9 6l6 6l-6 6" />
+                                        </svg>
+                                    </a>
 
                                         </div>
                                     </div>

@@ -94,8 +94,7 @@
             }
         }
 
-        .form-control,
-        .form-select {
+        .form-control.form-select {
             background-color: #ffffff;
             /* Latar belakang putih */
             color: #000000;
@@ -110,45 +109,81 @@
 
         .modal-body {
             max-height: 300px;
-            /* Tentukan tinggi maksimal */
+
             overflow-y: auto;
-            /* Aktifkan scroll jika konten lebih panjang dari yang ditampilkan */
+
+        }
+
+        .modal-title {
+            mar
         }
 
         .modal-body::-webkit-scrollbar {
             display: none;
-            /* Untuk Chrome, Safari, dan Edge */
+
         }
+
+        /* Warna tombol ketika dipilih */
+        .btn.selected {
+            background-color: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+        .kuning1 {
+            background-color: #7c6727b9;
+        }
+
+        #header {
+            background-color: transparent;
+            /* Default background */
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            /* Transisi untuk latar belakang */
+        }
+
+        #header.scrolled a {
+            background-color: #00000000;
+        }
+
+        #header.scrolled {
+            background-color: #212529 !important;
+            /* Tambahkan !important untuk memastikan aturan CSS diterapkan */
+        }
+     
+
     </style>
 @endsection
 
 @section('content')
     <div>
+        <div id="header">
+
+            <a href="/kategory">
+                <button class="btn btn-light position-fixed top-0 start-0 m-3 rounded-circle p-2 shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 6l-6 6l6 6" />
+                    </svg>
+                </button>
+            </a>
+
+            <!-- Right Button -->
+            <button class="btn btn-light position-fixed top-0 end-0 m-3 rounded-circle p-2 shadow like-btn"
+                data-state="not-liked">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                </svg>
+            </button>
+        </div>
         <div class="bg-white">
             <!-- Slider -->
             <section class="splide position-relative">
                 <!-- Left Button -->
-                <a href="/kategory">
-                    <button class="btn btn-light position-absolute top-0 start-0 m-3 rounded-circle p-2 shadow">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M15 6l-6 6l6 6" />
-                        </svg>
-                    </button>
-                </a>
-
-                <!-- Right Button -->
-                <button class="btn btn-light position-absolute top-0 end-0 m-3 rounded-circle p-2 shadow like-btn"
-                    data-state="not-liked">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                    </svg>
-                </button>
 
                 <!-- Splide Slides -->
                 <div class="splide__track">
@@ -177,7 +212,7 @@
 
 
             <!-- Card -->
-            <div class=" position-relative" style="margin-top: -20px; z-index: 10; padding-bottom:40px;">
+            <div class=" position-relative" style="margin-top: -20px; z-index: 10; padding-bottom:50px;">
                 <div class="card shadow-sm rounded-4 overflow-hidden mx-auto" style="max-width: 400px;">
                     <!-- Image -->
 
@@ -193,7 +228,7 @@
 
                         </div>
                         <!-- Features -->
-                        <p class="fw-medium" style="font-size: 16px">Fasilitas</p>
+                        <p class="fw-medium mb-0" style="font-size: 18px">Fasilitas</p>
 
                         <section class="px-1 pt-0 mb-4">
                             <div style="overflow-x:scroll; white-space: nowrap; position: relative;">
@@ -295,20 +330,43 @@
                         </section>
                         <!-- Price and Availability -->
                         <div class="d-flex align-items-center">
-                            <p class="mt-1 mb-2" style="font-size:20px;">Deskripsi</p>
-                            <p href="" class="ms-auto mt-1 mb-0 text-success" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Lihat Semua</p>
+                            <p class="mt-1 mb-2" style="font-size:18px;">Deskripsi</p>
+
                         </div>
-                        <div
-                            class="d-flex justify-content-between align-items-center mb-3 border border-secondary rounded p-2 ">
+                        <div class="d-flex justify-content-between align-items-center mb-3  rounded p-2 ">
                             <!-- Kolom Kiri -->
                             <!-- Kolom Kanan -->
                             <div class="w-100 ps-1 px-2 text-start">
-                                <p class="mt-0 mb-0 text-secondary" style="font-size: 14px; text-align: justify;">Seleruh
-                                    Lapangan di Hokky Memiliki kualitas
-                                    yang sudah teruji dengan lantai yang berstandar nasional
-
+                                <p class="text-secondary" id="description" style="text-align: justify;">
+                                    Lapangan Futsal Hokky menawarkan fasilitas bermain futsal dengan kualitas terbaik dan
+                                    berstandar
+                                    nasional, memastikan kenyamanan dan keamanan para pemain. Permukaan lantai anti-slip dan
+                                    pencahayaan
+                                    LED yang terang memberikan pengalaman bermain optimal, baik siang maupun malam. Selain
+                                    itu,
+                                    fasilitas pendukung seperti ruang ganti, area parkir luas, kantin yang menyediakan
+                                    minuman segar,
+                                    serta tribun penonton yang nyaman menjadikan venue ini pilihan terbaik bagi pemain dan
+                                    penonton.
+                                    <span id="dots">...</span>
+                                    <span id="more" style="display: none;">
+                                        <br />
+                                        <strong style="font-size: 16px" class="mt-2">Aturan Venue</strong><br />
+                                        Kebersihan dan kenyamanan dijaga dengan ketat melalui aturan bebas rokok di seluruh
+                                        area dan
+                                        larangan membawa makanan atau minuman ke dalam lapangan. Dengan lokasi strategis dan
+                                        lingkungan yang
+                                        tertib, Lapangan Hokky cocok untuk latihan rutin maupun pertandingan resmi.<br />
+                                        <strong style="font-size: 16px" class="mt-2">Jam Operasional</strong><br />
+                                        Lapangan ini beroperasi
+                                        setiap hari dengan jam operasional 08.00 - 22.00 WIB, sehingga Anda bisa mengatur
+                                        waktu bermain
+                                        sesuai kebutuhan.
+                                    </span>
                                 </p>
+                                <button id="readMoreBtn" class="btn btn-link p-0 text-primary"
+                                    style="background: none; border: none; text-decoration: none;">Lihat
+                                    Selengkapnya</button>
                             </div>
                         </div>
 
@@ -317,8 +375,8 @@
                     </div>
                 </div>
             </div>
-            <div class="fixed-bottom mt-1 mb-1 bg-white shadow-lg rounded-lg">
-                <div class="mb-1 mt-2 p-2">
+            <div class="fixed-bottom mt-1 mb-0 bg-white shadow-lg rounded-lg">
+                <div class="mb-1 mt-0 p-2">
                     <p class="text-muted small mb-2 mt-2">Tersedia: <strong>3 Lapangan</strong></p>
                     <button type="button" class="btn btn-success w-100" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
@@ -330,31 +388,39 @@
         </div>
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="bottomModalLabel">Pilih Tanggal Sewa</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable container">
+                <div class="modal-content container">
+                    <div class="modal-header d-flex justify-content-center">
+                        <h5 class="modal-title text-center" id="bottomModalLabel">Pilih Tanggal Sewa</h5>
                     </div>
-                    <div class="modal-body">
-                        <form>
+                    <div class="modal-body1">
+                        <form class="mt-2">
                             <!-- Input Tanggal Sewa -->
                             <div class="mb-3">
                                 <label for="tanggal" class="form-label">Tanggal Sewa</label>
-                                <div class="input-group">
+                                <div class="input-group justify-content-center">
                                     <span class="input-group-text bg-light">
                                         <i class="fas fa-calendar-alt"></i>
                                     </span>
-                                    <input type="date" class="form-control" id="tanggal"
-                                        placeholder="Pilih Tanggal">
+                                    <input type="text"  id="tanggalPicker" class="form-control w-50"  placeholder="Pilih Tanggal">
                                 </div>
                             </div>
+                            
 
                             <!-- Pilih Jam Sewa -->
                             <div class="mb-3">
+                                <div class="mb-3 ">
+                                    <label for="durasi" class="form-label">Durasi Sewa</label>
+                                    <select class="form-select" id="durasi">
+                                        <option value="1">1 Jam</option>
+                                        <option value="2">2 Jam</option>
+                                        <option value="3">3 Jam</option>
+                                        <option value="4">4 Jam</option>
+                                        <option value="5">5 Jam</option>
+                                    </select>
+                                </div>
                                 <label for="jam" class="form-label">Jam Sewa</label>
-                                <div class="d-flex flex-wrap gap-2">
+                                <div class="d-flex flex-wrap gap-2" id="timeButtons">
                                     <button type="button" class="btn btn-outline-success btn-sm"
                                         data-time="08:00">08:00</button>
                                     <button type="button" class="btn btn-outline-success btn-sm"
@@ -363,8 +429,8 @@
                                         data-time="10:00">10:00</button>
                                     <button type="button" class="btn btn-outline-success btn-sm"
                                         data-time="11:00">11:00</button>
-                                    <button type="button"
-                                        class="btn btn-outline-success btn-sm"data-time="12:00">12:00</button>
+                                    <button type="button" class="btn btn-outline-success btn-sm"
+                                        data-time="12:00">12:00</button>
                                     <button type="button" class="btn btn-outline-success btn-sm"
                                         data-time="13:00">13:00</button>
                                     <button type="button" class="btn btn-outline-success btn-sm"
@@ -389,22 +455,9 @@
                                         data-time="23:00">23:00</button>
                                 </div>
                             </div>
-
                             <!-- Pilih Durasi Sewa -->
-                            <div class="mb-3">
-                                <label for="durasi" class="form-label">Durasi Sewa</label>
-                                <select class="form-select" id="durasi">
-                                    <option value="1">1 Jam</option>
-                                    <option value="2">2 Jam</option>
-                                    <option value="3">3 Jam</option>
-                                    <option value="4">4 Jam</option>
-                                    <option value="5">5 Jam</option>
-                                </select>
-                            </div>
 
-                            <!-- Button Lanjutkan -->
-                            <div class="d-grid">
-                            </div>
+
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -418,38 +471,7 @@
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered ">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Deskripsi</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p style="text-align: justify;">
-                        <strong style="font-size: 16px" class="fw-semibold"> Deskripsi</strong><br/>
-                        Lapangan Futsal Hokky menawarkan fasilitas bermain futsal dengan kualitas terbaik dan berstandar
-                        nasional, memastikan kenyamanan dan keamanan para pemain. Permukaan lantai anti-slip dan pencahayaan
-                        LED yang terang memberikan pengalaman bermain optimal, baik siang maupun malam. Selain itu,
-                        fasilitas pendukung seperti ruang ganti, area parkir luas, kantin yang menyediakan minuman segar,
-                        serta tribun penonton yang nyaman menjadikan venue ini pilihan terbaik bagi pemain dan penonton.<br/>
-                        <span></span>
-                        <strong style="font-size: 16px" class="mt-2">Aturan Vanue</strong><br/>
-                        Kebersihan dan kenyamanan dijaga dengan ketat melalui aturan bebas rokok di seluruh area dan
-                        larangan membawa makanan atau minuman ke dalam lapangan. Dengan lokasi strategis dan lingkungan yang
-                        tertib, Lapangan Hokky cocok untuk latihan rutin maupun pertandingan resmi.<br/>
-                        <strong style="font-size: 16px" class="mt-2">Jam Oprasional</strong><br/> 
-                        Lapangan ini beroperasi
-                        setiap hari dengan jam operasional 08.00 - 22.00 WIB, sehingga Anda bisa mengatur waktu bermain
-                        sesuai kebutuhan.
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     {{-- modals --}}
 @endsection

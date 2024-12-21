@@ -24,7 +24,7 @@
     <div class="flex bg-white p-0 rounded-lg shadow-md" style="margin-top: 40px; margin-bottom: 20px;">
         <div class="fixed-top bg-white d-flex justify-content-between align-items-center mb-4 mt-0"
             style="padding-bottom: 20px;">
-            <input type="text" class="form-control mt-4 ms-2" placeholder="apa yang anda pikirkan">
+            <input type="text" class="form-control mt-4 ms-2" placeholder="Cari Lapangan">
             <button class="btn btn-outline-danger ms-2 mt-4 me-2">
                 <i class="bi bi-filter"></i> Cari
             </button>
@@ -36,10 +36,7 @@
             <div style="overflow-x:scroll; white-space: nowrap; position: relative;">
                 <div style="display: inline-flex; min-width: 100%; width: fit-content;">
                     <!-- Slide 1 -->
-                        
-                   
-                    
-                
+                                  
                     
                     <div style="flex-shrink: 0; width: 75px; margin-right: 5px; position: relative;" class="text-center ">
                         <div class="text-center mt-1 mr-0 ">
