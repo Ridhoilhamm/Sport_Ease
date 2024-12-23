@@ -151,12 +151,17 @@
 
 .pencil-icon {
     position: absolute;
-    bottom: 70px; /* Sesuaikan jarak vertikal dengan gambar */
+    bottom: 52px; /* Sesuaikan jarak vertikal dengan gambar */
     left: 50%;    /* Posisikan di tengah */
     transform: translateX(-50%);
     background-color: white; /* Opsional, jika ingin membuat latar belakang untuk ikon */
     border-radius: 50%;      /* Opsional, untuk memberikan efek lingkaran */
     padding: 5px;            /* Opsional, untuk memberi jarak di sekitar ikon */
+}
+
+.card-profile{
+    border-radius: 0 0 15px 15px; 
+    background-color: #fff; 
 }
     </style>
 @endsection
@@ -176,7 +181,7 @@
                         </svg>
                     </button>
                 </a>
-                <div class="card shadow p-4 rounded-4 mx-auto" style="max-width: 400px;">
+                <div class="card-profile shadow p-4 mx-auto" style="max-width: 400px;">
                     <!-- Profile Picture & Info -->
                     <div class="text-center mb-3 position-relative">
                         <img src="{{ asset('image/Perfil.png') }}" alt="Profile Picture" class="profile-pic mb-2">
@@ -219,7 +224,7 @@
             </div>
             <div class="bg-white mt-2" style="padding-bottom: 200px">
                 <ul class="list-group list-group-flush ">
-                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3 ms-2 mb-2">
+                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3  mb-2">
                         <!-- Ikon -->
                         <span class="icon d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"
@@ -246,7 +251,7 @@
                             </svg>
                         </div>
                     </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3 ms-2 mb-2">
+                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3  mb-2">
                         <!-- Ikon -->
                         <span class="icon d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -277,7 +282,7 @@
                             </a>
                         </div>
                     </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3 ms-2 mb-2">
+                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3 mb-2">
                         <!-- Ikon -->
                         <span class="icon d-flex align-items-center justify-content-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -301,7 +306,7 @@
                             </svg>
                         </div>
                     </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3 ms-2 mb-2"
+                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3  mb-2"
                         data-bs-toggle="modal" data-bs-target="#pembayaran">
                         <!-- Ikon -->
                         <span class="icon d-flex align-items-center justify-content-center" data-bs-toggle="modal"
@@ -386,8 +391,7 @@
                             <div class="modal-header border-2 bg-success">
                                 <h5 class="modal-title" id="staticBackdropLabel" style="color: #f8f9fa">Informasi Pribadi
                                 </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" style="color: #f8f9fa"
-                                    aria-label="Close"></button>
+                                
                             </div>
                             <div class="modal-body2 container">
                                 <form>
@@ -421,7 +425,7 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                                 <button type="button" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
@@ -505,7 +509,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                         </div>
                     </div>
                 </div>
@@ -599,7 +603,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">batal</button>
                         </div>
                     </div>
                 </div>

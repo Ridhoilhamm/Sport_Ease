@@ -90,7 +90,7 @@
 
             <div class="d-flex justify-content-center fixed py-4 align-items-center position-relative bg-white">
                 <!-- Icon Kembali -->
-                <a href="/user" class="position-absolute start-0 p-2  "
+                {{-- <a href="/user" class="position-absolute start-0 p-2  "
                     style="font-size: 24px; border-radius: 50%; background-color: transparent;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -98,7 +98,7 @@
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M15 6l-6 6l6 6" />
                     </svg>
-                </a>
+                </a> --}}
 
                 <!-- Judul Teks -->
                 <h5 class="fw-semibold text-center">Riwayat</h5>

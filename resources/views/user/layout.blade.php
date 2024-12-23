@@ -538,6 +538,11 @@
     .nav-link:focus, .nav-link:hover {
     
 }
+.selected-day {
+    background-color: #28a745 !important;  /* Warna hijau (success) */
+    color: white !important;  /* Teks berwarna putih */
+    border-color: #28a745 !important;
+}
 
     
     </style>
@@ -899,14 +904,125 @@ buttons.forEach(button => {
 </script>
 
 <script>
-    flatpickr("#tanggalPicker", {
-        mode: "multiple", // Mode untuk memilih banyak tanggal
-        dateFormat: "Y-m-d", // Format tanggal
-        minDate: "today", // Opsional: Mulai dari hari ini
-        locale: {
-            firstDayOfWeek: 1// Pilihan: Set minggu mulai dari Senin
+   document.addEventListener("DOMContentLoaded", function () {
+    const display = document.getElementById("tanggalPickerDisplay");
+
+    const tanggalPicker = flatpickr(display, {
+        dateFormat: "d", // Hanya menampilkan tanggal
+        mode: "multiple", // Memungkinkan memilih beberapa tanggal
+        onChange: function (selectedDates) {
+            // Konversi tanggal menjadi angka dan urutkan
+            const sortedDates = selectedDates.map(date => date.getDate()).sort((a, b) => a - b);
+
+            // Proses rentang tanggal
+            const ranges = [];
+            let start = sortedDates[0];
+
+            for (let i = 1; i <= sortedDates.length; i++) {
+                if (i === sortedDates.length || sortedDates[i] !== sortedDates[i - 1] + 1) {
+                    if (start === sortedDates[i - 1]) {
+                        ranges.push(`${start}`);
+                    } else {
+                        ranges.push(`${start}-${sortedDates[i - 1]}`);
+                    }
+                    start = sortedDates[i];
+                }
+            }
+
+            // Menampilkan bulan dan tahun terakhir
+            const lastDate = selectedDates[selectedDates.length - 1];
+            const monthYear = lastDate ? `${lastDate.toLocaleString('default', { month: 'long' })} ${lastDate.getFullYear()}` : '';
+
+            // Tampilkan hasil rentang tanggal dan bulan-tahun di akhir
+            const result = ranges.length ? `${ranges.join(", ")} ${monthYear}` : "Pilih Tanggal";
+            display.textContent = result;
+
+            // Tambahkan warna hijau untuk tombol yang dipilih
+            const allDates = document.querySelectorAll('.flatpickr-day');
+            allDates.forEach(day => {
+                if (selectedDates.some(date => date.getDate() === parseInt(day.textContent))) {
+                    day.classList.add("selected-day");
+                } else {
+                    day.classList.remove("selected-day");
+                }
+            });
         }
     });
+
+    // Tambahkan kursor pointer untuk membuka kalender saat klik
+    display.addEventListener("click", function () {
+        tanggalPicker.open();
+    });
+});
+
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    let selectedTimes = [];
+    const timeButtons = document.querySelectorAll('#timeButtons button');
+    const durasiDiv = document.getElementById('durasi');
+
+    // Fungsi untuk mengonversi waktu string menjadi objek Date
+    function convertToDate(timeStr) {
+        const [hours, minutes] = timeStr.split(':').map(num => parseInt(num, 10));
+        const date = new Date();
+        date.setHours(hours, minutes, 0, 0);
+        return date;
+    }
+
+    // Fungsi untuk menghitung durasi
+    function calculateDuration(start, end) {
+        const duration = (end - start) / (1000 * 60 * 60);  // Durasi dalam jam
+        const durationText = duration >= 1 ? `${duration} jam` : `${(duration * 60).toFixed(0)} menit`;
+        return durationText;
+    }
+
+    // Menambahkan event listener ke setiap button
+    timeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const selectedTime = this.getAttribute('data-time');
+
+            // Tambahkan waktu yang dipilih ke dalam array
+            if (selectedTimes.length < 2 && !selectedTimes.includes(selectedTime)) {
+                selectedTimes.push(selectedTime);
+                this.classList.add('btn-primary');  // Tandai button yang dipilih
+            }
+
+            // Jika sudah ada dua waktu yang dipilih
+            if (selectedTimes.length === 2) {
+                // Urutkan waktu berdasarkan urutan
+                const [startTime, endTime] = selectedTimes.map(time => convertToDate(time)).sort((a, b) => a - b);
+                const durationText = calculateDuration(startTime, endTime);
+                durasiDiv.textContent = `Durasi penyewaan: ${durationText}`;
+
+                // Menyorot tombol di antara dua waktu yang dipilih
+                let isBetween = false;
+                timeButtons.forEach(button => {
+                    const buttonTime = button.getAttribute('data-time');
+                    if (buttonTime === selectedTimes[0]) {
+                        isBetween = true;
+                    }
+                    if (isBetween && buttonTime !== selectedTimes[1]) {
+                        button.classList.add('btn-warning');  // Beri warna berbeda untuk tombol di antara
+                    }
+                    if (buttonTime === selectedTimes[1]) {
+                        isBetween = false;
+                    }
+                });
+            }
+
+            // Jika sudah memilih dua waktu, disable tombol lain
+            if (selectedTimes.length === 2) {
+                timeButtons.forEach(button => {
+                    if (!selectedTimes.includes(button.getAttribute('data-time'))) {
+                        button.disabled = true;  // Disable tombol yang tidak dipilih
+                    }
+                });
+            }
+        });
+    });
+});
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -960,6 +1076,7 @@ buttons.forEach(button => {
     </script>
 
 </script>
+
 <script>
     document.getElementById("readMoreBtn").addEventListener("click", function () {
         const dots = document.getElementById("dots");
@@ -1017,6 +1134,18 @@ buttons.forEach(button => {
     allowClear: true  // Opsi ini memungkinkan pengguna untuk menghapus pilihan
 });
 </script>
+<script>
+    window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    if (window.scrollY > 100) { // Jika halaman digulir lebih dari 50px
+        header.classList.add('scrolled'); // Tambahkan class 'scrolled' ke header
+    } else {
+        header.classList.remove('scrolled'); // Hapus class 'scrolled' ketika kembali ke atas
+    }
+});
+
+</script>
+
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>

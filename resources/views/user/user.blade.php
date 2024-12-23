@@ -102,9 +102,9 @@
         </div>
         <div class="row row-cols-4 g-2 text-center items-center blackdop-blur-sm ">
             <div class="col">
-                <div class="card rounded border-0  " style="padding: 24px">
+                <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center " style="color: #A9DA05;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-football">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -118,9 +118,9 @@
                 <p class="mt-1" style="font-size:12px;">Futsal</p>
             </div>
             <div class="col">
-                <div class="card rounded border-0  " style="padding: 24px">
+                <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-ball-basketball">
@@ -136,9 +136,9 @@
                 <p class="mt-1" style="font-size:12px;">Basket</p>
             </div>
             <div class="col">
-                <div class="card rounded border-0  " style="padding: 24px">
+                <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-ball-volleyball">
@@ -156,9 +156,9 @@
                 <p class="mt-1" style="font-size:12px;">Volly</p>
             </div>
             <div class="col backdrop-blur-2xl">
-                <div class="card rounded border-0  " style="padding: 24px">
+                <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bowling">
                             <path stroke="none" d="M0 0h30v30H0z" fill="none" />
@@ -175,9 +175,9 @@
                 <p class="mt-1" style="font-size:12px;">Bowling</p>
             </div>
             <div class="col m-0">
-                <div class="card rounded border-0  " style="padding: 24px">
+                <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-tennis">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -190,7 +190,7 @@
                 <p class="mt-1" style="font-size:12px;">Tenis</p>
             </div>
             <div class="col m-0">
-                <div class="card rounded border-0  " style="padding: 26px">
+                <div class="card rounded border-0  " style="padding: 28px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
                         <img src="{{ asset('image/shuttlecock.png') }}" style="width: 30px; height:30px;" alt="">
                     </div>
@@ -198,9 +198,9 @@
                 <p class="mt-1" style="font-size:12px;">Badminton</p>
             </div>
             <div class="col m-0">
-                <div class="card  rounded border-0  " style="padding: 24px">
+                <div class="card  rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ping-pong">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -214,10 +214,10 @@
                 <p class="mt-1" style="font-size:12px;">Tenis Meja</p>
             </div>
             <div class="col m-0">
-                <div class="card  rounded border-0  " style="padding: 21px">
+                <div class="card  rounded border-0  " style="padding: 19px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-sport-billard">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />

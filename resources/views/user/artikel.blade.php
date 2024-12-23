@@ -174,7 +174,7 @@ padding: 12px;
         <div class="bg-white mb-2" style="padding-bottom: 10px">
 
             <section class="splide mt-0 bg-white" style="padding-bottom: 10px">
-                <a href="/user">
+                {{-- <a href="/user">
 
                     <button class="btn btn-light position-absolute top-0 start-0 m-3 rounded-circle p-2 shadow fixed">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -184,7 +184,7 @@ padding: 12px;
                             <path d="M15 6l-6 6l6 6" />
                         </svg>
                     </button>
-                </a>
+                </a> --}}
                 <div class="splide__track" style="padding-bottom: 5px">
                     <ul class="splide__list"> 
                         <li class="splide__slide">

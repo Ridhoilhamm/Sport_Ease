@@ -73,37 +73,92 @@
             display: none;
             /* Untuk Chrome, Safari, dan Edge */
         }
+
+        .img {
+            height: 150px;
+            width: 100%;
+            object-fit: contain;
+            background-color: #f0f0f0;
+        }
+
+        #header {
+            background-color: transparent;
+            /* Default background */
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            /* Transisi untuk latar belakang */
+            border: none;
+        }
+
+        #header.scrolled a {
+            background-color: #c2bcbcf2;
+        }
+
+        #header.scrolled {
+            background-color: #fdfdfd !important;
+            /* Tambahkan !important untuk memastikan aturan CSS diterapkan */
+        }
+
+        #row,
+        #like {
+            /* Styling khusus hanya untuk tombol ini */
+            background-color: #f8f9fa;
+            color: #495057;
+            border: none;
+        }
+
+        #header {
+            background-color: transparent;
+            /* Default background */
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            /* Transisi latar belakang */
+        }
+
+        #header.scrolled {
+            background-color: #cad3db;
+            /* Warna gelap ketika digulir */
+        }
+
+        #header a,
+        #header button {
+            transition: background-color 0.3s ease;
+            /* Efek transisi untuk tombol */
+        }
+
+        /* Penyesuaian tombol ketika digulir */
+        #header.scrolled a,
+        #header.scrolled button {
+            background-color: rgba(255, 255, 255, 0.953);
+            /* Warna tombol */
+        }
     </style>
 @endsection
 
 @section('content')
     <div class="image-container ">
-        <a href="/user">
-            <button class="btn btn-light position-fixed  top-0 start-0 m-3 rounded-pill p-2 shadow">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M15 6l-6 6l6 6" />
-                </svg>
-            </button>
-        </a>
+        <div id="header" class="position-fixed w-100 top-0 start-0 bg-transparent transition-all">
+            <div class="d-flex justify-content-between align-items-center p-2">
+                <!-- Tombol Kembali -->
+                <a href="/kategory" class="btn btn-light rounded-circle p-2 shadow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 6l-6 6l6 6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
         <img src="{{ asset('image/sepeda.jpg') }}" alt="Slide 02" class="splide__image1" />
 
 
-        <div class="content-overlay" >
-            <div class="container d-flex mt-2 mb-2">
-                <img src="{{ asset('image/logo.png') }}" style="height:30px; width:20px" alt="logo">
-                <p style="font-size: 18px;" class="ms-2 fw-medium">Sport Ease</p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="icon icon-tabler icons-tabler-filled icon-tabler-rosette-discount-check icon-custom">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                        d="M12.01 2.011a3.2 3.2 0 0 1 2.113 .797l.154 .145l.698 .698a1.2 1.2 0 0 0 .71 .341l.135 .008h1a3.2 3.2 0 0 1 3.195 3.018l.005 .182v1c0 .27 .092 .533 .258 .743l.09 .1l.697 .698a3.2 3.2 0 0 1 .147 4.382l-.145 .154l-.698 .698a1.2 1.2 0 0 0 -.341 .71l-.008 .135v1a3.2 3.2 0 0 1 -3.018 3.195l-.182 .005h-1a1.2 1.2 0 0 0 -.743 .258l-.1 .09l-.698 .697a3.2 3.2 0 0 1 -4.382 .147l-.154 -.145l-.698 -.698a1.2 1.2 0 0 0 -.71 -.341l-.135 -.008h-1a3.2 3.2 0 0 1 -3.195 -3.018l-.005 -.182v-1a1.2 1.2 0 0 0 -.258 -.743l-.09 -.1l-.697 -.698a3.2 3.2 0 0 1 -.147 -4.382l.145 -.154l.698 -.698a1.2 1.2 0 0 0 .341 -.71l.008 -.135v-1l.005 -.182a3.2 3.2 0 0 1 3.013 -3.013l.182 -.005h1a1.2 1.2 0 0 0 .743 -.258l.1 -.09l.698 -.697a3.2 3.2 0 0 1 2.269 -.944zm3.697 7.282a1 1 0 0 0 -1.414 0l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.32 1.497l2 2l.094 .083a1 1 0 0 0 1.32 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" />
-                </svg>
+        <div class="content-overlay">
+            <div class="d-flex ">
+                <p style="font-size: 18px;" class="ms-2 fw-semibold mb-0">Manfaat Bersepeda setiap Hari</p>
             </div>
-            <p class="fw-medium manfaat-text" style="font-size: 14px">
+            <p class="fw-medium manfaat-text mt-1" style="font-size: 14px">
                 Manfaat Bersepeda untuk Kesehatan dan Lingkungan
                 Bersepeda bukan hanya aktivitas rekreasi, tetapi juga salah satu bentuk olahraga yang memberikan banyak
                 manfaat. Selain membantu menjaga kesehatan tubuh, bersepeda juga ramah lingkungan.
@@ -125,51 +180,57 @@
                 </span>
             </p>
 
-            
-                <div class="container mt-1">
-                    <h5 class="mb-3 text-start">Artikel Terkait</h5>
-                    <div class="row row-cols-2 row-cols-md-3 g-3">
-                        <!-- Card 1 -->
-                        <div class="col">
-                            <div class="card-body rounded text-start">
-                                <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" style="height:150px; width:100%" alt="Artikel 1">
-                            </div>
-                            <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil dimenangkan</p>
+
+            <div class="container mt-1">
+                <h5 class="mb-3 text-start">Artikel Terkait</h5>
+                <div class="row row-cols-2 row-cols-md-3 g-3">
+                    <!-- Card 1 -->
+                    <div class="col">
+                        <div class="card-body rounded text-start">
+                            <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
                         </div>
-                        <div class="col">
-                            <div class="card-body rounded text-start">
-                                <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" style="height:150px; width:100%" alt="Artikel 1">
-                            </div>
-                            <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil dimenangkan</p>
-                        </div>
-                        <div class="col">
-                            <div class="card-body rounded text-start">
-                                <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" style="height:150px; width:100%" alt="Artikel 1">
-                            </div>
-                            <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil dimenangkan</p>
-                        </div>
-                        <div class="col">
-                            <div class="card-body rounded text-start">
-                                <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" style="height:150px; width:100%" alt="Artikel 1">
-                            </div>
-                            <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil dimenangkan</p>
-                        </div>
-                        <div class="col">
-                            <div class="card-body rounded text-start">
-                                <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" style="height:150px; width:100%" alt="Artikel 1">
-                            </div>
-                            <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil dimenangkan</p>
-                        </div>
-                        <div class="col">
-                            <div class="card-body rounded text-start">
-                                <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" style="height:150px; width:100%" alt="Artikel 1">
-                            </div>
-                            <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil dimenangkan</p>
-                        </div>
-                
+                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
+                            dimenangkan</p>
                     </div>
+                    <div class="col">
+                        <div class="card-body rounded text-start">
+                            <img src="{{ asset('image/ball.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
+                        </div>
+                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
+                            dimenangkan</p>
+                    </div>
+                    <div class="col">
+                        <div class="card-body rounded text-start">
+                            <img src="{{ asset('image/badminton.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
+                        </div>
+                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
+                            dimenangkan</p>
+                    </div>
+                    <div class="col">
+                        <div class="card-body rounded text-start">
+                            <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
+                        </div>
+                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
+                            dimenangkan</p>
+                    </div>
+                    <div class="col">
+                        <div class="card-body rounded text-start">
+                            <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
+                        </div>
+                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
+                            dimenangkan</p>
+                    </div>
+                    <div class="col">
+                        <div class="card-body rounded text-start">
+                            <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
+                        </div>
+                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
+                            dimenangkan</p>
+                    </div>
+
                 </div>
-                
+            </div>
+
 
 
         </div>

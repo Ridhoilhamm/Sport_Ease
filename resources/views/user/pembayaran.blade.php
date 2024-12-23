@@ -6,17 +6,18 @@
             font-size: 18px;
         }
 
-         .dropdown-item {
+        .dropdown-item {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .dropdown-item img {
-            width: 30px;
-            height: 30px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
         }
+
         .bank-option {
             cursor: pointer;
             transition: transform 0.2s ease;
@@ -54,7 +55,6 @@
             background-color: #222;
         }
 
-        
 
         .select2-container--default .select2-results__option {
             display: flex;
@@ -91,10 +91,10 @@
         }
 
         /* .select2-search--dropdown {
-            display: block;
-            padding: 4px;
-            background-color: #bfa946;
-        } */
+                display: block;
+                padding: 4px;
+                background-color: #bfa946;
+            } */
 
         .select2-container--default .select2-results__options::-webkit-scrollbar {
             width: 8px;
@@ -117,6 +117,7 @@
             top: 23px;
             width: 0;
         }
+
         .bank-option {
             cursor: pointer;
             transition: transform 0.2s ease;
@@ -153,16 +154,19 @@
         .select2-container--default .select2-selection--single:hover {
             background-color: #efebeb;
         }
+
         .select2-container--default .select2-selection--single .select2-selection__placeholder {
-    color: #999;  /* Gaya warna placeholder */
-    font-style: italic;  /* Menambahkan gaya font italic */
-}
+            color: #999;
+            /* Gaya warna placeholder */
+            font-style: italic;
+            /* Menambahkan gaya font italic */
+        }
 
 
         /* .select2-container--default .select2-search--dropdown .select2-search__field {
-            border: 1px solid #dddddd;
-            background-color: #ede9e9;
-        } */
+                border: 1px solid #dddddd;
+                background-color: #ede9e9;
+            } */
 
         .select2-container--default .select2-results__option {
             display: flex;
@@ -199,11 +203,11 @@
         }
 
         /* .select2-search--dropdown {
-            display: block;
-            padding: 4px;
-            background-color: #A9DA05;
-            
-        } */
+                display: block;
+                padding: 4px;
+                background-color: #A9DA05;
+                
+            } */
 
         .select2-container--default .select2-results__options::-webkit-scrollbar {
             width: 8px;
@@ -236,89 +240,125 @@
             max-width: 600px;
             min-width: 330px;
         }
-    
 
     </style>
 @endsection
 
 @section('content')
     <!-- Header -->
-    <div class="mb-1 bg-white rounded">
+    <div class="mb-1 bg-white rounded" style="padding-bottom: 10px">
         <div class="container" style="padding-top: 10px">
-            <div class="mb-2 d-flex align-items-center" >
+            <div class="mb-2 d-flex align-items-center justify-content-between">
                 <a href="/detaillapangan">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
                         class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" style="color: black">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M15 6l-6 6l6 6" />
                     </svg>
-
                 </a>
-                <h5 class="fw-semibold mb-2 mt-2 ms-2">Pembayaran</h5>
-
-            </div>
-
-            <p class="fw-normal text-secondary container mb-0 mt-0">Informasi Pemesan</p>
-            <div class="d-flex align-items-center">
-                <p class="fw-medium mb-0 container" style="padding-bottom: 5px; flex-grow: 1;">
-                    Ridho Ilham
-                </p>
-                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
-
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icon-tabler-chevron-right" data-bs-toggle="collapse" class="me-2">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M9 6l6 6l-6 6" />
-                    </svg>
+                <div style="flex: 1; display: flex; justify-content: center;">
+                    <h5 class="fw-medium mt-2">Informasi Pemesanan</h5>
                 </div>
             </div>
 
+        </div>
+
+    </div>
+    <div>
+
+    </div>
+    <div class="container ">
+
+        <div class="mt-3 bg-white rounded" style="padding: 10px 0 20px;">
+
+            <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Data Pemesan
+            </p>
+            <div class="d-flex align-items-center container">
+                <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                    Nama Lengkap
+                </p>
+                <div class="ms-auto" style="font-size:14px">
+                    Ridho Ilham
+                </div>
+                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
+                    {{-- Icon atau tombol lainnya --}}
+                </div>
+            </div>
+            <div class="d-flex align-items-center container">
+                <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                    No Handphone
+                </p>
+                <div class="ms-auto" style="font-size:14px">
+                    08970915625
+                </div>
+                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
+                    {{-- Icon atau tombol lainnya --}}
+                </div>
+            </div>
+            <div class="d-flex align-items-center container">
+                <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                    Pesan untuk Tgl
+                </p>
+                <div class="ms-auto" style="font-size:14px">
+                    25/12/24
+                </div>
+                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
+                    {{-- Icon atau tombol lainnya --}}
+                </div>
+            </div>
+            <div class="d-flex align-items-center container">
+                <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                    Jam Dipilih
+                </p>
+                <div class="ms-auto" style="font-size:14px">
+                    14:00-16.00 WIB
+                </div>
+                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
+                    {{-- Icon atau tombol lainnya --}}
+                </div>
+            </div>
 
         </div>
     </div>
-    <div class="bg-white mb-2" style="padding-top: 5px; padding-bottom:5px">
+    <div class="container ">
 
-        <div class="container mt-2">
+        <div class="mt-3 bg-white rounded" style="padding: 10px 0 20px;">
 
-            <!-- Produk -->
-            <div class="card mb-3">
-                <div class="card-body">
+            <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Detail
+                Sewa</p>
+            <div class="mt-3 container">
+                <div class="">
                     <div class="d-flex">
                         <img src="{{ asset('image/futsal.jpeg') }}" style="height: 80px; width:80px"
                             class="img-fluid rounded me-3" alt="Produk">
                         <div>
                             <h6 class="mb-1">Lapangan Futsal Hokky</h6>
-                            <small class="text-muted">Sewa: 10:00 - 11:00</small>
-                            <p class="fw-bold mt-1">Rp120.000</p>
+                            <small class="text-muted">Sewa: 14:00 - 16:00</small>
+                            <p class="fw-bold mt-1" style="color: #101010c2">Rp240.000</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Pilih Pengiriman -->
-            <div class="mt-4">
-                <!-- Pilih Opsi Pembayaran -->
-                <label for="metode_pembayaran" class="form-label text-white mt-4 fs-6 fw-bolder from-sky-600">Metode
-                    Pembayaran</label>
-                    <select id="bankSelector" class="form-select" required>
-                        <option value="" disabled selected class="fs-10">Pilih Bank</option>
+        </div>
+        <div class="mt-3 mb-4 bg-white rounded" style="padding: 10px 0 20px;">
+
+            <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Motade
+                Pembayaran</p>
+            <div class="mt-0 container">
+                <div class="mt-2">
+                    <!-- Pilih Opsi Pembayaran -->
+                    <select id="bankSelector" class="form-select"  required>
                         <option value="BRI" data-image="{{ asset('image/bri.png') }}">Bank BRI</option>
                         <option value="BCA" data-image="{{ asset('image/bca.png') }}">Bank BCA</option>
-                        <option value="BNI" data-image="{{ asset('image/bni.png') }}">Bank BNI</option>
+                        <option value="BNI" data-image="{{ asset('image/bniupdate.jpg') }}">Bank BNI</option>
                     </select>
-    
-                <!-- Dropdown Options -->
+                </div>
 
             </div>
+            <div class="container mt-3">
 
-        </div>
-
-
-        <div class="container mt-1">
-            <!-- Catatan -->
-            <div class="card mb-2">
                 <div class="card-body d-flex align-items-center justify-content-between">
                     <!-- Teks dengan modal -->
                     <h6 class="fw-bold mb-0" style="margin-bottom: 4px;">
@@ -337,30 +377,75 @@
                         </p>
                     </div>
                 </div>
-                <!-- Catatan -->
-                <p id="note-display" class="mb-2 ms-3 mt-0 text-secondary" style="margin-top: 4px; margin-bottom: 0;">
-                    Belum ada catatan.
-                </p>
             </div>
-
-
-
-            <!-- Modal -->
-
-            <div class="modal" id="modal">
-                <div class="modal-content">
-                    <div class="modal-header">Catatan buat pesanan ini</div>
-                    <div class="modal-body">
-                        <textarea id="order-note" placeholder="Pastikan tidak ada data pribadi, ya."></textarea>
+            <!-- Catatan -->
+            <p id="note-display" class="mb-2 ms-3 mt-0 text-secondary" style="margin-top: 4px; margin-bottom: 0;">
+                Belum ada catatan.
+            </p>
+            <div class="container mt-3">
+                <h6 class="fw-semibold">
+                    Rincian Pembayaran
+                </h6>
+                <div class="d-flex align-items-center container">
+                    <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                        Biaya Lapangan
+                    </p>
+                    <div class="ms-auto" style="font-size:14px">
+                        Rp.240.000
                     </div>
-                    <div class="modal-footer">
-                        <button class="close-btn" onclick="closeModal()">Batal</button>
-                        <button class="save-btn" onclick="saveNote()">Simpan</button>
+                </div>
+                <div class="d-flex align-items-center container">
+                    <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                        Biaya Aplikasi
+                    </p>
+                    <div class="ms-auto" style="font-size:14px">
+                        Rp.1.000
+                    </div>
+                </div>
+                <div class="d-flex align-items-center container">
+                    <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                        Biaya Aplikasi
+                    </p>
+                    <div class="ms-auto" style="font-size:14px">
+                        Rp.1.000
+                    </div>
+
+                </div>
+                <div class="d-flex align-items-center container">
+                    <p class="fw-bold mb-0 " style="flex: 1; font: size 16px; padding-bottom: 5px; color:#A9DA05">
+                        Total Pembayaran
+                    </p>
+                    <div class="ms-auto fw-bold" style="font-size:16px;color:#A9DA05">
+                        Rp242.000
                     </div>
                 </div>
             </div>
-
         </div>
+
+
+    </div>
+    <div class="container mt-1">
+
+
+
+        <!-- Modal -->
+
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="modal-header">Catatan buat pesanan ini</div>
+                <div class="modal-body">
+                    <textarea id="order-note" placeholder="Pastikan tidak ada data pribadi, ya."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="close-btn" onclick="closeModal()">Batal</button>
+                    <button class="save-btn" onclick="saveNote()">Simpan</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
     </div>
 
     </div>
@@ -369,7 +454,7 @@
         <div class="modal-dialog modal-dialog-centered" style="font-family: ubuntu">
             <div class="modal-content">
                 <!-- Header Modal -->
-                <div class="modal-header modal-header-custom" style="background-color: #a8da05">
+                <div class="modal-header modal-header-custom" style="background-color: #A9DA05">
                     <h5 class="modal-title" id="promoModalLabel">Spesial buat kamu!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -443,61 +528,54 @@
             </label>
         </div> --}}
     </div>
-    <div class="bg-white" style="padding-top: 3px; padding-bottom:60px">
 
-        <div class="container">
-            <!-- Button to open the modal -->
 
-            <!-- Modal Structure -->
-            <div class="modal fade" id="noteModal" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="noteModalLabel">Catatan buat pesanan ini</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <textarea class="form-control" id="orderNote" placeholder="Pastikan tidak ada data pribadi, ya." rows="4"
-                                        maxlength="200"></textarea>
-                                    <div class="d-flex justify-content-between mt-1">
-                                        <small class="text-muted">0/200</small>
-                                    </div>
+    <div class="container">
+        <!-- Button to open the modal -->
+
+        <!-- Modal Structure -->
+        <div class="modal fade" id="noteModal" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="noteModalLabel">Catatan buat pesanan ini</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="orderNote" placeholder="Pastikan tidak ada data pribadi, ya." rows="4"
+                                    maxlength="200"></textarea>
+                                <div class="d-flex justify-content-between mt-1">
+                                    <small class="text-muted">0/200</small>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">
-                                Simpan
-                            </button>
-                        </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">
+                            Simpan
+                        </button>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Ringkasan Transaksi -->
-            <div class="mb-2 bg-white rounded" style="padding-bottom: 10px; padding-top: 8px">
-                <h6 class="fw-semibold ms-2">Cek ringkasan transaksimu, yuk</h6>
-                <div class="d-flex justify-content-between ms-2 me-2">
-                    <span>Total Harga</span>
-                    <span class="fw-bold">Rp120.000</span>
-                </div>
-                <div class="d-flex justify-content-between ms-2 me-2">
-                    <span>Total Tagihan</span>
-                    <span class="fw-bold">Rp120.000</span>
-                </div>
-            </div>
+        <!-- Ringkasan Transaksi -->
 
-            <!-- Tombol Checkout -->
-            <div class="text-center ">
+        <!-- Tombol Checkout -->
+    </div>
 
-                    <button class="btn btn-success w-100 custom-button" data-bs-toggle="modal" data-bs-target="#detail-pembayaran"
-                        style="background-color: #a8da05; color: #ffffff; padding: 12px; border-radius: 8px; border: none; font-weight: bold;">
-                        Lanjutkan
-                    </button>
-            </div>
+    <div class=" fixed-bottom bg-white" style="padding-top: 3px; padding-bottom:20px; ">
+        <div class=" container text-center d-flex justify-items-center" style="padding-top: 10px; font-family: ubuntu">
+            <p class="fw-bold" style="font-size: 18px; color:#A9DA05">
+                Rp.242.000
+            </p>
+            <button class=" ms-auto btn btn-success  custom-button" data-bs-toggle="modal"
+                data-bs-target="#detail-pembayaran"
+                style="background-color: #A9DA05; color: #ffffff; padding: 12px; border-radius: 8px; border: none; font-weight: bold;">
+                Lanjutkan
+            </button>
         </div>
 
         {{-- modal --}}
@@ -552,24 +630,92 @@
     </div>
 
     {{-- modals detail-pembayaran --}}
-    <div class="modal fade" id="detail-pembayaran" tabindex="-1" aria-labelledby="detaipembayaran" aria-hidden="true">
+    <div class="modal fade" id="detail-pembayaran" tabindex="-1" aria-labelledby="detaipembayaran" aria-hidden="true" style="font-family: ubuntu">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title text-start" id="exampleModalLabel">Detail Pembayaran</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              
-              <button type="button" class="btn" style="background-color: #a8da05">Bayar</button>
-            </div>
-          </div>
-        </div>
-      </div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-start" id="exampleModalLabel">Detail Pemesanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="container fw-semibold mb-0 justify-content-center">
+                        Data Pemesan
+                    </p>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
+                            Nama lengkap
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                        Ridho Ilham
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
+                            No Handphone
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                        08970915625
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
+                            Sewa:
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                        Lapagan Futsal Hokky
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
+                            Jam Sewa
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                        14.00-16.00
+                        </div>
+                    </div>
+                    <p class=" container fw-semibold mt-2 justify-content-center mb-0">
+                    Pembayaran
+                    </p>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">
+                            Motade Pembayaran
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                        Transfer
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">
+                            No Rekening
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                        122333444
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">
+                            Total Pembayaran
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                        Rp.242.000
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">
+                            Nama Bank
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                        Bca(a.n Sport Ease)
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
 
+                    <button type="button" class="btn fw-semibold"  style="background-color: #a8da05; color: #ffff">Bayar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @php
