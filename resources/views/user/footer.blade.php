@@ -2,7 +2,7 @@
     <footer class="fixed-bottom bg-white py-2 d-flex justify-content-around border-top">
         <!-- Menu Utama -->
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <a href="/user" class="{{ request()->is('user') ? 'text-success' : 'text-secondary' }}">
+            <a href="/" class="{{ request()->is('user') ? 'text-success' : 'text-secondary' }}">
                 <i class="fas fa-home fa-lg"></i>
             </a>
             <h6 class="m-0 {{ request()->is('user') ? 'fw-semibold' : 'fw-light' }}" style="font-size: 12px;">

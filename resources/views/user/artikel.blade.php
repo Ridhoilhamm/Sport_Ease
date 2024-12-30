@@ -168,27 +168,28 @@ padding: 12px;
 @endsection
 
 @section('content')
-
-
+    
+        
+    
     <div>
         <div class="bg-white mb-2" style="padding-bottom: 10px">
-
+            
             <section class="splide mt-0 bg-white" style="padding-bottom: 10px">
                 {{-- <a href="/user">
-
+                    
                     <button class="btn btn-light position-absolute top-0 start-0 m-3 rounded-circle p-2 shadow fixed">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M15 6l-6 6l6 6" />
-                        </svg>
-                    </button>
-                </a> --}}
-                <div class="splide__track" style="padding-bottom: 5px">
-                    <ul class="splide__list"> 
-                        <li class="splide__slide">
-                            <a href="/detailartikel">
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 6l-6 6l6 6" />
+                    </svg>
+                </button>
+            </a> --}}
+            <div class="splide__track" style="padding-bottom: 5px">
+                <ul class="splide__list"> 
+                    <li class="splide__slide">
+                        <a href="/detailartikel">
                                 <img src="{{ asset('image/lari.jpg') }}" alt="Slide 01" class="splide__image1 img-fluid"  />
                                 <div class="slide-caption">
                                     <h3>Bahaya Lari</h3>
@@ -238,70 +239,42 @@ padding: 12px;
                 </div>
             </section>
         </div>
-       
-
+        
+        
+        <section class="bg-white " style="padding-bottom: 20px; padding-top:0px">
             
-            <section class="bg-white " style="padding-bottom: 20px; padding-top:0px">
-
-                <!-- Kartu Daftar -->
-                <div class="container mb-5">
-                    <div style="padding-top:4px">
-
-                        <p style="font-size: 20px " class="mt-1 fw-medium">Rekomendasi</p>
-                    </div>
+            <!-- Kartu Daftar -->
+            <div class="container mb-5">
+                <div style="padding-top:4px">
                     
-                            
-                    <div class="row g-3">
-                        <!-- Artikel 1 -->
-                        <a href="/detailartikel">
-
-                            <div class="col-12">
-                                <div class="article-card bg-white">
-                                    <img src="{{ asset('image/badminton.jpg') }}" alt="Artikel">
+                    <p style="font-size: 20px " class="mt-1 fw-medium">Rekomendasi</p>
+                </div>
+                
+                
+                @foreach ($artikel as $no => $data )
+                <div class="row g-3">
+                    <!-- Artikel 1 -->
+                    <a href="{{ route('artikel-show', $data->id) }}">
+                        
+                        <div class="col-12">
+                            <div class="article-card bg-white">
+                               
+                                <img src="{{ asset('storage/'.$data->image_artikel) }}">
                                 </div>
                                 
                                 <div class="text-start me-3">
-                                    <p class=" mt-2 mb-0 truncated-text" style="font-size: 12px">
-                                        Badminton merupakan salah satu olahraga yang populer di berbagai kalangan, baik anak-anak maupun dewasa bbubiuibjbibi.
+                                    <p class=" mt-2 mb-4 truncated-text" style="font-size: 12px">
+                                        {{ $data->isi_artikel }}
                                     </p>
                                 </div>
                                 
                             </div>
                         </a>
-                
-                        <!-- Artikel 2 -->
-                        <div class="col-12">
-                            <a href="/detailartikel">
-
-                                <div class="article-card bg-white">
-                                    <img src="{{ asset('image/kolam-renang.jpg') }}" alt="Artikel">
-                                </div>
-                                <div class="text-start me-3">
-                                    <p class=" mt-2 mb-0 truncated-text" style="font-size: 12px">
-                                        Badminton merupakan salah satu olahraga yang populer di berbagai kalangan, baik anak-anak maupun dewasa bbubiuibjbibi.
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
-                
-                        <!-- Artikel 3 -->
-                        <div class="col-12">
-                            <a href="/detailartikel">
-
-                                <div class="article-card bg-white">
-                                    <img src="{{ asset('image/sepeda.jpg') }}" alt="Artikel">
-                                </div>
-                                <div class="text-start me-3">
-                                    <p class=" mt-2 mb-0 truncated-text text-start" style="font-size: 12px">
-                                        Badminton merupakan salah satu olahraga yang populer di berbagai kalangan, baik anak-anak maupun dewasa bbubiuibjbibi.
-                                    </p>
-                                </div>
-                            </a>
-                        </div>
                         
-                        <!-- Kartu 2 -->
+                        
                         
                     </div>
+                    @endforeach
                 </div>
                 
             </section>

@@ -444,8 +444,6 @@
         </div>
 
     </div>
-
-
     </div>
 
     </div>
@@ -631,7 +629,7 @@
 
     {{-- modals detail-pembayaran --}}
     <div class="modal fade" id="detail-pembayaran" tabindex="-1" aria-labelledby="detaipembayaran" aria-hidden="true" style="font-family: ubuntu">
-        <div class="modal-dialog">
+        <div class="modal-dialog  modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-start" id="exampleModalLabel">Detail Pemesanan</h5>
@@ -659,7 +657,7 @@
                     </div>
                     <div class="d-flex align-items-center container">
                         <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
-                            Sewa:
+                            Sewa
                         </p>
                         <div class="ms-auto" style="font-size:14px">
                         Lapagan Futsal Hokky

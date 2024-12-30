@@ -21,7 +21,7 @@
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/css/bootstrap-timepicker.min.css"> --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
    
-
+    @livewireStyles
     <style>
         body {
             color: rgb(57, 47, 47);
@@ -553,6 +553,8 @@
 <body style="background-color: hsl(210, 17%, 93%);">
     <div style="font-family: 'Ubuntu', sans-serif;">
         <div>
+           
+            @livewireScripts
 
             @if (!isset($hideNavbar) || !$hideNavbar)
                 @include('user.nav')

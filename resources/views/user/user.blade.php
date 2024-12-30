@@ -56,6 +56,10 @@
             height: auto;
             object-fit: cover;
         }
+        a {
+    text-decoration: none;
+    color: inherit;
+}
     </style>
 @endsection
 
@@ -101,22 +105,25 @@
             <p href="" class="ms-auto mt-1 mb-0 text-success">Lihat Semua</p>
         </div>
         <div class="row row-cols-4 g-2 text-center items-center blackdop-blur-sm ">
-            <div class="col">
-                <div class="card rounded border-0  " style="padding: 22px">
-                    <div class="d-flex justify-content-center align-items-center " style="color: #A9DA05;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                            stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-football">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                            <path d="M12 7l4.76 3.45l-1.76 5.55h-6l-1.76 -5.55z" />
-                            <path
-                                d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45" />
+           <a href="/detailkategory">
+
+               <div class="col">
+                   <div class="card rounded border-0  " style="padding: 22px">
+                       <div class="d-flex justify-content-center align-items-center " style="color: #A9DA05;">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
+                           fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                           stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-football">
+                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                           <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                           <path d="M12 7l4.76 3.45l-1.76 5.55h-6l-1.76 -5.55z" />
+                           <path
+                           d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45" />
                         </svg>
                     </div>
                 </div>
                 <p class="mt-1" style="font-size:12px;">Futsal</p>
             </div>
+        </a>
             <div class="col">
                 <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">

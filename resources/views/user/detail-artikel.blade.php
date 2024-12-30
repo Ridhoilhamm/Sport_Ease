@@ -132,15 +132,22 @@
             background-color: rgba(255, 255, 255, 0.953);
             /* Warna tombol */
         }
+        a {
+            color: inherit;
+            /* Mengambil warna dari elemen pembungkus */
+            text-decoration: none;
+            /* Menghilangkan garis bawah */
+        }
     </style>
 @endsection
 
 @section('content')
+
     <div class="image-container ">
         <div id="header" class="position-fixed w-100 top-0 start-0 bg-transparent transition-all">
             <div class="d-flex justify-content-between align-items-center p-2">
                 <!-- Tombol Kembali -->
-                <a href="/kategory" class="btn btn-light rounded-circle p-2 shadow">
+                <a href="/artikel" class="btn btn-light rounded-circle p-2 shadow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
@@ -150,90 +157,41 @@
                 </a>
             </div>
         </div>
+        <img src="{{ asset('storage/'.$artikel->image_artikel) }}" alt="Slide 02" class="splide__image1" />
 
-        <img src="{{ asset('image/sepeda.jpg') }}" alt="Slide 02" class="splide__image1" />
-
-
+         
         <div class="content-overlay">
             <div class="d-flex ">
-                <p style="font-size: 18px;" class="ms-2 fw-semibold mb-0">Manfaat Bersepeda setiap Hari</p>
+                <p style="font-size: 18px;" class="ms-2 fw-semibold mb-0">{{ $artikel->judul_artikel }}</p>
             </div>
             <p class="fw-medium manfaat-text mt-1" style="font-size: 14px">
-                Manfaat Bersepeda untuk Kesehatan dan Lingkungan
-                Bersepeda bukan hanya aktivitas rekreasi, tetapi juga salah satu bentuk olahraga yang memberikan banyak
-                manfaat. Selain membantu menjaga kesehatan tubuh, bersepeda juga ramah lingkungan.
-                <span>
-                    Selain memberikan dampak positif bagi kesehatan, bersepeda juga ramah lingkungan. Menggunakan sepeda
-                    sebagai alat transportasi dapat mengurangi emisi gas rumah kaca yang dihasilkan oleh kendaraan bermotor,
-                    sehingga membantu mengurangi polusi udara. Bersepeda juga membutuhkan ruang jalan yang lebih kecil,
-                    membantu mengurangi kemacetan di perkotaan. Dengan beralih ke sepeda, kita dapat berkontribusi dalam
-                    menjaga keberlanjutan lingkungan serta menciptakan kota yang lebih hijau dan nyaman untuk dihuni.
-                    <br />
-                    Bersepeda adalah aktivitas sederhana yang memberikan banyak manfaat, baik untuk kesehatan fisik maupun
-                    mental. Dengan rutin bersepeda, Anda dapat meningkatkan kesehatan jantung, memperkuat otot, dan
-                    memperbaiki sirkulasi darah, sehingga mengurangi risiko penyakit kardiovaskular. Selain itu, bersepeda
-                    membantu membakar kalori dan meningkatkan metabolisme tubuh, menjadikannya cara efektif untuk menjaga
-                    berat badan ideal. Tak hanya itu, aktivitas ini juga berdampak positif pada kesehatan mental, seperti
-                    mengurangi stres, meningkatkan mood, dan memberikan efek relaksasi melalui udara segar serta pemandangan
-                    sekitar. Bersepeda juga ramah lingkungan, sehingga bermanfaat sebagai sarana transportasi yang mendukung
-                    keberlanjutan dan mengurangi polusi udara.
-                </span>
+               {{ $artikel->isi_artikel }}
             </p>
-
 
             <div class="container mt-1">
                 <h5 class="mb-3 text-start">Artikel Terkait</h5>
                 <div class="row row-cols-2 row-cols-md-3 g-3">
+                    @foreach ($relatedArticles as $no => $data )
                     <!-- Card 1 -->
-                    <div class="col">
-                        <div class="card-body rounded text-start">
-                            <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
-                        </div>
-                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
-                            dimenangkan</p>
-                    </div>
-                    <div class="col">
-                        <div class="card-body rounded text-start">
-                            <img src="{{ asset('image/ball.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
-                        </div>
-                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
-                            dimenangkan</p>
-                    </div>
-                    <div class="col">
-                        <div class="card-body rounded text-start">
-                            <img src="{{ asset('image/badminton.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
-                        </div>
-                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
-                            dimenangkan</p>
-                    </div>
-                    <div class="col">
-                        <div class="card-body rounded text-start">
-                            <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
-                        </div>
-                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
-                            dimenangkan</p>
-                    </div>
-                    <div class="col">
-                        <div class="card-body rounded text-start">
-                            <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
-                        </div>
-                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
-                            dimenangkan</p>
-                    </div>
-                    <div class="col">
-                        <div class="card-body rounded text-start">
-                            <img src="{{ asset('image/lari.jpg') }}" class="card-img-top rounded" alt="Artikel 1">
-                        </div>
-                        <p style="font-size: 12px" class="fw-medium text-start">Kenjuaraan lari nasional berhasil
-                            dimenangkan</p>
-                    </div>
+                    <a href="{{ route('artikel-show', $data->id) }}">
 
+                        <div class="col">
+                            <div class="card-body rounded text-start">
+                                <img src="{{ asset('storage/'.$data->image_artikel) }}" class="card-img-top rounded" alt="Artikel 1">
+                            </div>
+                            <p style="font-size: 12px" class="fw-medium text-start">{{ $data->judul_artikel }}</p>
+                        </div>
+                    </a>
+                    
+                    
+                    @endforeach
                 </div>
             </div>
 
 
 
         </div>
+        
 
     </div>
 @endsection
