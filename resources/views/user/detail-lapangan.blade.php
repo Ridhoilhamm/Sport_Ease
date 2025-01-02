@@ -291,13 +291,12 @@
                     </div>
                     <!-- Card Content -->
                     <div class="card-body mb-4">
-                        <h5 class="card-title fw-bold text-black-10">GOR Hokky Futsal</h5>
-                        <p class="text-muted mb-2 text-secondary" style="font-size: 14px;">Jl. Batubara No.15, Nginden,
-                            Surabaya
+                        <h5 class="card-title fw-bold text-black-10">{{ $lapangan->name }}</h5>
+                        <p class="text-muted mb-2 text-secondary" style="font-size: 14px;">{{ $lapangan->lokasi_tempat }}
                         </p>
                         <!-- Rating -->
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <span class="badge bg-warning text-dark" style="font-size: 18px">Rp.120.000/Jam</span>
+                            <span class="badge bg-warning text-dark" style="font-size: 18px">Rp.{{ $lapangan->harga }}</span>
 
                         </div>
                         <!-- Features -->
@@ -411,35 +410,12 @@
                             <!-- Kolom Kanan -->
                             <div class="w-100 ps-1 text-start">
                                 <p class="text-secondary" id="description" style="text-align: justify;">
-                                    Lapangan Futsal Hokky menawarkan fasilitas bermain futsal dengan kualitas terbaik dan
-                                    berstandar
-                                    nasional, memastikan kenyamanan dan keamanan para pemain. Permukaan lantai anti-slip dan
-                                    pencahayaan
-                                    LED yang terang memberikan pengalaman bermain optimal, baik siang maupun malam. Selain
-                                    itu,
-                                    fasilitas pendukung seperti ruang ganti, area parkir luas, kantin yang menyediakan
-                                    minuman segar,
-                                    serta tribun penonton yang nyaman menjadikan venue ini pilihan terbaik bagi pemain dan
-                                    penonton.
-                                    <span id="dots">...</span>
-                                    <span id="more" style="display: none;">
-                                        <br />
-                                        <strong style="font-size: 16px" class="mt-2">Aturan Venue</strong><br />
-                                        Kebersihan dan kenyamanan dijaga dengan ketat melalui aturan bebas rokok di seluruh
-                                        area dan
-                                        larangan membawa makanan atau minuman ke dalam lapangan. Dengan lokasi strategis dan
-                                        lingkungan yang
-                                        tertib, Lapangan Hokky cocok untuk latihan rutin maupun pertandingan resmi.<br />
-                                        <strong style="font-size: 16px" class="mt-2">Jam Operasional</strong><br />
-                                        Lapangan ini beroperasi
-                                        setiap hari dengan jam operasional 08.00 - 22.00 WIB, sehingga Anda bisa mengatur
-                                        waktu bermain
-                                        sesuai kebutuhan.
-                                    </span>
+                                   
+                                    {{ $lapangan->deskripsi }}
                                 </p>
                                 <button id="readMoreBtn" class="btn btn-link p-0 text-primary"
-                                    style="background: none; border: none; text-decoration: none;">Lihat
-                                    Selengkapnya</button>
+                                style="background: none; border: none; text-decoration: none;">Lihat Selengkapnya</button>
+                        
                             </div>
                         </div>
 
@@ -450,7 +426,7 @@
             </div>
             <div class="fixed-bottom mt-1 mb-0 container bg-white shadow-lg rounded-lg">
                 <div class="mb-1 mt-0 me-2">
-                    <p class="text-muted small mb-2 mt-2">Tersedia: <strong>3 Lapangan</strong></p>
+                    <p class="text-muted small mb-2 mt-2">Tersedia: <strong>{{ $lapangan->jumlah_lapangan }}</strong></p>
                     <button type="button" class="btn btn-success w-100" style="background-color:#5cb85c"
                         data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                         <p class="fw-semibold mb-0" style="color: #ffffff">Booking Lapangan</p>

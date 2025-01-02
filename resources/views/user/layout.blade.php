@@ -958,6 +958,31 @@ buttons.forEach(button => {
 });
 
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const description = document.getElementById('description');
+        const fullText = description.textContent; // Simpan teks asli
+        const truncatedText = fullText.substring(0, 500) + '...'; // Potong teks hingga 100 karakter
+
+        let isTruncated = true; // Status teks terpotong atau penuh
+
+        // Tampilkan teks terpotong
+        description.textContent = truncatedText;
+
+        document.getElementById('readMoreBtn').addEventListener('click', function () {
+            if (isTruncated) {
+                description.textContent = fullText; // Tampilkan teks penuh
+                this.textContent = 'Tampilkan Lebih Sedikit';
+            } else {
+                description.textContent = truncatedText; // Kembali ke teks terpotong
+                this.textContent = 'Lihat Selengkapnya';
+            }
+            isTruncated = !isTruncated; // Ubah status
+        });
+    });
+</script>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
     let selectedTimes = [];

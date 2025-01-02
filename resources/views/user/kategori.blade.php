@@ -214,7 +214,9 @@
             <div class="ms-3 me-3 mt-2">
                 <div class="row row-cols-2 g-2 bg-white">
                     {{-- @foreach ([['title' => 'Hokky Lapagan Futsal Hokky Lapagan Futsal', 'price' => 'Rp.120.000/Jam', 'discount' => '5%', 'rating' => '4.9', 'sold' => '56', 'image' => asset('image/futsal.jpeg')], ['title' => 'Lapangan Volly', 'price' => 'Rp. 60.000/Jam', 'discount' => '7%', 'rating' => '4.9', 'sold' => '34', 'image' => asset('image/lapangan volly.jpeg')], ['title' => 'Kolam Renang', 'price' => 'Rp. 80.000/Jam', 'discount' => '', 'rating' => '4.8', 'sold' => '20', 'image' => asset('image/kolam-renang.jpg')], ['title' => 'Lapangan Golf ', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-golf.jpg')], ['title' => 'Lapangan Tennis ', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-tenis.jpg')], ['title' => 'Lapangan Tenis Meja', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-tmeja.jpg')]] as $product) --}}
-                    @foreach (App\Models\Lapangan::all() as $product)
+                    @foreach ($lapangan as $no =>$product)
+                    <a href="{{ route('detaillapangan', $product->id) }}">
+                        
                         <div class="col mt-3">
                             <div class="card shadow-sm" style="max-width: 200px;">
                                 <div class="position-relative">
@@ -236,16 +238,17 @@
                                     </p>
 
                                     <!-- Tombol berada di bawah teks -->
-                                    <a href="/detaillapangan">
+                                   
 
                                         <button type="button" class="btn btn-primary w-100 mt-1"
                                             style="height: 30px; font-size: 12px; padding: 0; line-height: 1;">
                                             Booking
                                         </button>
-                                    </a>
+                                   
                                 </div>
                             </div>
                         </div>
+                    </a>
                     @endforeach
                 </div>
 

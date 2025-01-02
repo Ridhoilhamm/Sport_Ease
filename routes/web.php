@@ -8,6 +8,7 @@ use App\Http\Controllers\Kategori;
 use App\Http\Controllers\Lapangan;
 use App\Http\Controllers\LapanganController;
 use App\Http\Controllers\Owner;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\riwayatController;
 use App\Http\Controllers\UserController;
@@ -72,12 +73,15 @@ Route::get('/user', [UserController::class, 'dashboard'])->name('user.user')->mi
 
 
 //halaman kategory
-Route::get('/kategory', [Kategori::class, 'kategori'])->name('kategori');
+
+Route::get('/kategory', [LapanganController::class, 'index'])->name('lapangan');
+Route::get('/detaillapangan/{id}', [LapanganController::class, 'show'])->name('detaillapangan');
 
 //halaman artikel
 Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel');
 Route::get('/detailartikel/{id}', [ArtikelController::class, 'show'])->name('artikel-show');
 
+// Route::get('/detaillapangan/{id}', [Lapangan::class, 'show'])->name('lapangan');
 //auth
 Route::get('/auth/login', [\App\Http\Controllers\authController::class, 'index'])->name('auth-login');
 Route::post('/auth/login', [\App\Http\Controllers\authController::class, 'login'])->name('auth-login');
@@ -86,7 +90,8 @@ Route::post('/auth/login', [\App\Http\Controllers\authController::class, 'login'
 //halaman hightlight
 Route::get('/hightlight', [HightLight::class, 'data'])->name('data');
 
-
+//halaman Owner
+Route::get('/owner', [OwnerController::class, 'index'])->name('owner');
 
 
 // require __DIR__.'/auth.php';
