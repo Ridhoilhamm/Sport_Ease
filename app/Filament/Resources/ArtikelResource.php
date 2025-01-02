@@ -42,13 +42,15 @@ class ArtikelResource extends Resource
                 TextColumn::make('judul_artikel'),
                 ImageColumn::make('image_artikel')
                 ->disk('public'),
-                TextColumn::make('isi_artikel'),
+                TextColumn::make('isi_artikel')
+                ->limit(50)
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

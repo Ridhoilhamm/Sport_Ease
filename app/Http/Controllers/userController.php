@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\artikel;
+use App\Models\Lapangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -12,12 +14,18 @@ class UserController extends Controller
     // Menampilkan halaman dashboard user
     public function dashboard()
     {
-        // Mendapatkan data user yang sedang login
-        // $user = Auth::user();
+        $terdekat = Lapangan::latest()->take(5)->get(); // Atau sesuaikan query sesuai kebutuhan
 
-        // Mengirim data user ke view dashboard
-        return view('user.user');
+        // Ambil data berita seputar olahraga
+        $seputarOlahraga = artikel::latest()->take(5)->get(); // Atau sesuaikan query sesuai kebutuhan
+
+        // Kirim data ke view
+        return view('user.user', compact('terdekat', 'seputarOlahraga'));
+        
     }
+
+
+
 
     // Menampilkan halaman untuk mengedit profil pengguna
     public function editProfile()

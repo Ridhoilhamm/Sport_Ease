@@ -188,56 +188,23 @@ padding: 12px;
             </a> --}}
             <div class="splide__track" style="padding-bottom: 5px">
                 <ul class="splide__list"> 
+                    @foreach ($artikel as $no => $data )
                     <li class="splide__slide">
-                        <a href="/detailartikel">
-                                <img src="{{ asset('image/lari.jpg') }}" alt="Slide 01" class="splide__image1 img-fluid"  />
+                        <a href="{{ route('artikel-show', $data->id) }}">
+                                <img src="{{ asset('storage/'.$data->image_artikel) }}" alt="Slide 01" class="splide__image1 img-fluid"  />
                                 <div class="slide-caption">
-                                    <h3>Bahaya Lari</h3>
+                                    <h3>{{ $data->judul_artikel }}</h3>
                                     <p>Setiap hari</p>
-                                </div>
-                            </a>
-                            
-                        </li>
-                        <li class="splide__slide">
-                            <a href="/detailartikel">
-                                <img src="{{ asset('image/sepeda.jpg') }}" alt="Slide 02" class="splide__image1" />
-                                <div class="slide-caption">
-                                    <h3>Bahaya Lari</h3>
-                                    <p>Setiap hari</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="/detailartikel">
-                                <img src="{{ asset('image/ball.jpg') }}" alt="Slide 03" class="splide__image1" />
-                                <div class="slide-caption">
-                                    <h3>Sepak Bola</h3>
-                                    <p>Menjadi Olahraga Populer</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="/detailartikel">
-                                <img src="{{ asset('image/ball.jpg') }}" alt="Slide 03" class="splide__image1" />
-                                <div class="slide-caption">
-                                    <h3>Sepak Bola</h3>
-                                    <p>Menjadi Olahraga Populer</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="splide__slide">
-                            <a href="/detailartikel">
-                                <img src="{{ asset('image/ball.jpg') }}" alt="Slide 03" class="splide__image1" />
-                                <div class="slide-caption">
-                                    <h3>Sepak Bola</h3>
-                                    <p>Menjadi Olahraga Populer</p>
                                 </div>
                             </a>
                         </li>
                         
-                    </ul>
-                </div>
-            </section>
+                    </li>
+                    @endforeach
+                    
+                </ul>
+            </div>
+        </section>
         </div>
         
         

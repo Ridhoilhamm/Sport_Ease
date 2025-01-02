@@ -6,7 +6,7 @@
                 <img src="{{ asset('image/Perfil.png') }}" style="height: 40px; width:39px; border:2px solid #ddd0d0;" class="rounded-circle me-2 pad" alt="Profile">
                 <div>
                     <p class="m-0 " style="font-size: 12px">hallo</p>
-                    <h5 class="m-0 fw-semi-bold" style="font-size: 15px;">Ridho Ilham</h5>
+                    <h5 class="m-0 fw-semi-bold" style="font-size: 15px;">{{ auth()->user()->name }}</h5>
     
                 </div>
             </div>

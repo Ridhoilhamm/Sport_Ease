@@ -328,28 +328,29 @@
         </div>
 
         <div class="col mb-2">
+            @foreach ($terdekat as $data)
             <div class="card mb-2 me-3 ms-3 border-2 position-relative"
                 style=" border-top-left-radius: 16px; border-bottom-left-radius: 16px;">
+                <a href="{{ route('detaillapangan', $data->id) }}">
                 <div class="d-flex">
                     <!-- Bagian Gambar -->
                     <div style="flex-shrink: 0;">
-                        <img src="{{ asset('image/olahraga1.png') }}"
+                        <img src="{{ asset('storage/'.$data->foto) }}"
                             style="height: 100%; width: 110px; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
                             alt="image artikel">
                     </div>
                     <!-- Bagian Teks -->
                     <div class="ms-2 text-start mt-2" style="flex-grow: 1;">
                         <div class="ms-2">
-                            <p class="mb-0" style="font-size:16px;">Kolam Renang Kota Surabaya</p>
-                            <p class="mb-4 text-secondary" style="font-size:12px;">Jln Nginden Kec Sokulilo</p>
+                            <p class="mb-0" style="font-size:16px;">{{ $data->name }}</p>
+                            <p class="mb-4 text-secondary" style="font-size:12px;">{{ $data->lokasi_tempat }}</p>
                         </div>
                         <p class=" ms-2 mb-0 text-secondary" style="font-size:12px;">2 KM</p>
-                        <p class=" ms-2 mb-2 mt-0" style="font-size:12px;">Rp.90.000/Jam</p>
+                        <p class=" ms-2 mb-2 mt-0" style="font-size:12px;">Rp.{{ $data->harga }}</p>
                     </div>
                     <!-- Button (hidden from flex) -->
                 </div>
                 <!-- Button -->
-                <a href="/detaillapangan">
 
                     <button type="button" class="btn btn-primary position-absolute"
                         style="height: 30px; width: 70px; font-size: 12px; padding: 0; bottom: 8px; right: 10px;">
@@ -357,70 +358,11 @@
                     </button>
                 </a>
             </div>
+            @endforeach
         </div>
-        <div class="col mb-2">
-            <div class="card mb-2 border-2 me-3 ms-3 position-relative"
-                style=" border-top-left-radius: 16px; border-bottom-left-radius: 16px;">
-                <div class="d-flex">
-                    <!-- Bagian Gambar -->
-                    <div style="flex-shrink: 0;">
-                        <img src="{{ asset('image/olahraga1.png') }}"
-                            style="height: 100%; width: 110px; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
-                            alt="image artikel">
-                    </div>
-                    <!-- Bagian Teks -->
-                    <div class="ms-2 text-start mt-2" style="flex-grow: 1;">
-                        <div class="ms-2">
-                            <p class="mb-0" style="font-size:16px;">Kolam Renang Kota Surabaya</p>
-                            <p class="mb-4 text-secondary" style="font-size:12px;">Jln Nginden Kec Sokulilo</p>
-                        </div>
-                        <p class="ms-2 mb-0 text-secondary" style="font-size:12px;">3 KM</p>
-                        <p class="ms-2 mb-2" style="font-size:12px;">Rp.145.000/Jam</p>
-                    </div>
-                    <!-- Button (hidden from flex) -->
-                </div>
-                <!-- Button -->
-                <a href="/detaillapangan">
-
-                    <button type="button" class="btn btn-primary position-absolute"
-                        style="height: 30px; width: 70px; font-size: 12px; padding: 0; line-height: 1; bottom: 8px; right: 10px;">
-                        Booking
-                    </button>
-                </a>
-            </div>
-        </div>
-        <div class="col mb-2">
-            <div class="card mb-2 border-2 me-3 ms-3 position-relative"
-                style=" border-top-left-radius: 16px; border-bottom-left-radius: 16px;">
-                <div class="d-flex">
-                    <!-- Bagian Gambar -->
-                    <div style="flex-shrink: 0;">
-                        <img src="{{ asset('image/olahraga1.png') }}"
-                            style="height: 100%; width: 110px; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
-                            alt="image artikel">
-                    </div>
-                    <!-- Bagian Teks -->
-                    <div class="ms-2 text-start mt-2" style="flex-grow: 1;">
-                        <div class="ms-2">
-                            <p class="mb-0" style="font-size:16px;">Kolam Renang Kota Surabaya</p>
-                            <p class="mb-4 text-secondary" style="font-size:12px;">Jln Nginden Kec Sokulilo</p>
-                        </div>
-                        <p class=" ms-2 mb-0 text-secondary" style="font-size:12px;">4 KM</p>
-                        <p class=" ms-2" style="font-size:12px;">Rp120.000/Jam</p>
-
-                    </div>
-                    <!-- Button (hidden from flex) -->
-                </div>
-                <!-- Button -->
-                <a href="/detaillapangan">
-
-                    <button type="button" class="btn btn-primary position-absolute me-1"
-                        style="height: 30px; width: 70px; font-size: 12px; padding: 0; line-height: 1; bottom: 8px; right: 10px;">
-                        Booking
-                    </button>
-                </a>
-            </div>
-        </div>
+        
+        
+     
 
 
     </div>
@@ -436,70 +378,22 @@
                 <div style="overflow-x: auto; white-space: nowrap; position: relative;" class="pt-0">
                     <div style="display: inline-flex; min-width: 100%; width: fit-content;" class="mt-0">
                         <!-- Slide 1 -->
+                        @foreach ($seputarOlahraga as $news)
+                        <a href="{{ route('artikel-show', $news->id) }}">
                         <div style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
-                            <img src="{{ asset('image/lapangan volly.jpeg') }}" alt="L. volly" class="rounded d-block"
-                                style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
+                            <img src="{{ asset('storage/'.$news->image_artikel) }}" alt="L. volly" class="rounded d-block"
+                            style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
+                            
+                            <div
+                            class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1">
+                            <p class="mb-0" style="font-size: 12px">{{ $news->judul_artikel }}</p>
+                            <p class="mb-0" style="font-size: 10px">{{ Str::limit($news->isi_artikel, 25) }}</p>
+                        </div>
+                    
+                    </div>
+                    @endforeach
 
-                            <div
-                                class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1">
-                                <p class="mb-0" style="font-size: 12px">L. Voli</p>
-                                <p class="mb-0" style="font-size: 10px">Jln Nginden Sukolilo No 5</p>
-                            </div>
-                        </div>
-
-                        <!-- Slide 2 -->
-                        <div style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
-                            <img src="{{ asset('image/futsal.jpeg') }}" alt="Semir Rambut" class="rounded d-block"
-                                style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
-                            <div
-                                class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1">
-                                <p class="mb-0" style="font-size: 12px">L. Voli</p>
-                                <p class="mb-0" style="font-size: 10px">Jln Nginden Sukolilo No 5</p>
-                            </div>
-                        </div>
-                        <!-- Slide 3 -->
-                        <div style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
-                            <img src="{{ asset('image/lapangan volly.jpeg') }}" alt="Styling Rambut"
-                                class="rounded d-block"
-                                style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
-                            <div
-                                class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1">
-                                <p class="mb-0" style="font-size: 12px">L. Voli</p>
-                                <p class="mb-0" style="font-size: 10px">Jln Nginden Sukolilo No 5</p>
-                            </div>
-                        </div>
-
-                        <!-- Slide 4 -->
-                        <div style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
-                            <img src="{{ asset('image/lapangan volly.jpeg') }}" alt="L. volly" class="rounded d-block"
-                                style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
-
-                            <div
-                                class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1">
-                                <p class="mb-0" style="font-size: 12px">L. Voli</p>
-                                <p class="mb-0" style="font-size: 10px">Jln Nginden Sukolilo No 5</p>
-                            </div>
-                        </div>
-
-                        <!-- Slide 5 -->
-                        <div style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
-                            <img src="{{ asset('image/futsal.jpeg') }}" alt="Semir Rambut" class="rounded d-block"
-                                style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
-                            <div
-                                class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1">
-                                <p class="mb-0" style="font-size: 12px">L. Voli</p>
-                                <p class="mb-0" style="font-size: 10px">Jln Nginden Sukolilo No 5</p>
-                            </div>
-                        </div>
-                        <div style="flex-shrink: 0; height:180px; width: 250px; position: relative;">
-                            <img src="{{ asset('image/futsal.jpeg') }}" alt="Semir Rambut" class="rounded d-block"
-                                style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
-                            <div
-                                class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1">
-                                <p class="mb-0" style="font-size: 12px">L. Voli</p>
-                                <p class="mb-0" style="font-size: 10px">Jln Nginden Sukolilo No 5</p>
-                            </div>
-                        </div>
+                      
 
 
 

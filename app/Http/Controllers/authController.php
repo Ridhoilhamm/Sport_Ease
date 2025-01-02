@@ -34,7 +34,7 @@ class authController extends Controller
             } elseif ($user->role === 'owner') {
                 return redirect('/owner');
             } elseif ($user->role === 'user') {
-                return redirect('/');
+                return redirect('/user');
             } else {
                 Auth::logout(); // Logout jika role tidak dikenal
                 return redirect('/auth/login')->withErrors('Role tidak dikenali, silakan hubungi admin.');

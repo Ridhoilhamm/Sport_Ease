@@ -1,3 +1,6 @@
+@extends('owner.layout')
+@section('content')
 <div>
-    halaman owner
+   hallo
 </div>
+@endsection

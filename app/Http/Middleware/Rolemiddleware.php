@@ -16,18 +16,15 @@ class Rolemiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+      
         
-            if (!Auth::check()) {
-                // Jika belum login, arahkan ke halaman login
-                return redirect('/auth/login');
+            if (Auth::check() && Auth::user()->role === $role) {
+                return $next($request);
             }
     
-            if (Auth::user()->role !== $role) {
-                // Jika role tidak sesuai, redirect ke halaman login
-                return redirect('/auth/login')->with('error', 'Anda tidak memiliki akses.');
-            }
-    
-            return $next($request);
+            // Redirect jika user tidak sesuai role
+            return redirect('/')->withErrors('Anda tidak memiliki akses ke halaman ini.');
+        }
         
     }
-}
+

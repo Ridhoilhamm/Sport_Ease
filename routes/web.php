@@ -3,6 +3,7 @@
 use App\Http\Controllers\artikel;
 use App\Http\Controllers\ArtikelController;
 use App\Http\authController;
+use App\Http\Controllers\DatadiriController;
 use App\Http\Controllers\HightLight;
 use App\Http\Controllers\Kategori;
 use App\Http\Controllers\Lapangan;
@@ -14,6 +15,7 @@ use App\Http\Controllers\riwayatController;
 use App\Http\Controllers\UserController;
 // use App\Livewire\AuthController;
 use App\Livewire\Authh;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -41,31 +43,34 @@ Route::get('/pembayaran', function () {
 Route::get('/tes', function () {
     return view('user.tes');
 });
-Route::get('/data-diri', function () {
-    return view('user.data-diri');
-});
 Route::get('/informasi-pembayaran', function () {
     return view('user.informasi-pembayaran');
 });
 // Route::get('/tambahkartu', function () {
-//     return view('user.tambah-kartu');
-// });
-Route::get('/kartudebit', function () {
-    return view('user.form-kartu-debit');
+    //     return view('user.tambah-kartu');
+    // });
+    Route::get('/kartudebit', function () {
+        return view('user.form-kartu-debit');
 });
 Route::get('/riwayat', function () {
     return view('user.riwayat');
 });
 
-// Route::get('/login', authController::class)->name('login');
+Route::middleware('auth')->group(function (): void {
+    
+    Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
+    Route::get('/user', [UserController::class, 'dashboard'])->name('user.user')->middleware('auth');
+});
 
-// Route::get('/login', AuthController::class)->name('login');
+Route::get('/data-diri',[DatadiriController::class, 'index'])->name('datadiri');
 
+
+// Route::get('/data-diri', function () {
+//     return view('user.data-diri');
+// });
 
 //halaman owner
 
-Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
-Route::get('/user', [UserController::class, 'dashboard'])->name('user.user')->middleware("role:user");
 
 
 //halaman lapangan

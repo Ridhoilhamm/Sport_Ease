@@ -193,8 +193,8 @@
                             <path d="M13.5 6.5l4 4" />
                             <path d="M16 19h6" />
                         </svg>
-                        <h4 class="fw-bold mb-0">Ridho Ilham</h4>
-                        <p class="text-secondary">Surabaya, Jawa Timur</p>
+                        <h4 class="fw-bold mb-0">{{ $user->name }}</h4>
+                        <p class="text-secondary">{{ $user->email }}</p>
                     </div>
                     
                     <!-- Stats -->
@@ -398,8 +398,8 @@
                                     <!-- Checklist Name -->
                                     <div class="mb-3 container mt-2">
                                         <label for="checklistName" class="form-label">Nama Pengguna</label>
-                                        <input type="text" class="form-control" id="checklistName"
-                                            placeholder="Ridho Ilham">
+                                        <p type="text" class="form-control" id="checklistName"
+                                            >{{$user->name }}</p>
                                     </div>
                                     <div class="mb-3 container">
                                         <label for="checklistName" class="form-label">No Telpon</label>
@@ -408,8 +408,8 @@
                                     </div>
                                     <div class="mb-3 container">
                                         <label for="checklistName" class="form-label">Email Pengguna</label>
-                                        <input type="text" class="form-control" rows="3" id="checklistName"
-                                            placeholder="Ridhoxyz@gmail.com">
+                                        <p type="text" class="form-control" rows="3" id="checklistName"
+                                            >{{ $user->email }}</p>
                                     </div>
 
 

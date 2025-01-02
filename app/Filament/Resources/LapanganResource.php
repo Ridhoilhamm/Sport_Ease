@@ -33,7 +33,10 @@ class LapanganResource extends Resource
                 FileUpload::make('foto')->label('Image')->directory('lapangans')
                     ->required(),
                 TextInput::make('lokasi_tempat')->label('Lokasi')->placeholder('Masukkan Lokasi Tempat'),
-                TextInput::make('harga')->label('Harga')->placeholder('Masukkan Harga')->numeric()
+                TextInput::make('harga')->label('Harga')->placeholder('Masukkan Harga')->numeric(),
+                TextInput::make('fasilitas')->label('Fasilitas')->placeholder('Masukkan Fasilitas'),
+                TextInput::make('deskripsi')->label('Deskripsi')->placeholder('Masukkan Deskripsi'),
+                TextInput::make('jumlah_lapangan')->label('Jumlah Lapangan')->placeholder('Masukkan Lapangan')->numeric()
             ]);
     }
 
@@ -45,10 +48,12 @@ class LapanganResource extends Resource
                 TextColumn::make('jenis'),
                 ImageColumn::make('foto')
                 ->disk('public') // Menyatakan disk public
-                ->label('Foto Lapangan') ,// Label kolom
-                
-            
+                ->label('Foto Lapangan'),// Label kolom
                 TextColumn::make('lokasi_tempat'),
+                TextColumn::make('deskripsi')
+                ->limit(25),
+                TextColumn::make('jumlah_lapangan'),
+                TextColumn::make('fasilitas'),
                 TextColumn::make('harga')
             ])
             ->filters([
@@ -62,6 +67,7 @@ class LapanganResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    
                 ]),
             ]);
     }
