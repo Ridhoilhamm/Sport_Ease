@@ -13,10 +13,10 @@ class UserController extends Controller
     public function dashboard()
     {
         // Mendapatkan data user yang sedang login
-        $user = Auth::user();
+        // $user = Auth::user();
 
         // Mengirim data user ke view dashboard
-        return view('user.dashboard', compact('user'));
+        return view('user.user');
     }
 
     // Menampilkan halaman untuk mengedit profil pengguna
