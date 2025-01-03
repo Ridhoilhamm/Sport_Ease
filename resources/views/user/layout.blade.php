@@ -16,7 +16,7 @@
     <link href="/your-path-to-uicons/css/uicons-rounded-regular.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/css/bootstrap-timepicker.min.css"> --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
@@ -614,6 +614,22 @@
         });
 
         splide.mount();
+    });
+</script>
+<script>
+
+    document.getElementById('tanggalPickerDisplay').addEventListener('click', function() {
+        // Logika untuk memilih tanggal
+        var tanggal = '2025-01-01'; // Contoh tanggal
+        document.getElementById('tanggal_sewa_input').value = tanggal;
+    });
+    
+    var timeButtons = document.querySelectorAll('#timeButtons button');
+    timeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            var jam = this.getAttribute('data-time');
+            document.getElementById('jam_sewa_input').value = jam;
+        });
     });
 </script>
 

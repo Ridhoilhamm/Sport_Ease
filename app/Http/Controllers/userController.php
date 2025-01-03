@@ -14,13 +14,13 @@ class UserController extends Controller
     // Menampilkan halaman dashboard user
     public function dashboard()
     {
-        $terdekat = Lapangan::latest()->take(5)->get(); // Atau sesuaikan query sesuai kebutuhan
-
+        $terdekat = Lapangan::latest()->take(3)->get(); // Atau sesuaikan query sesuai kebutuhan
+        $rekomendasi = Lapangan::latest()->take(6)->get();
         // Ambil data berita seputar olahraga
         $seputarOlahraga = artikel::latest()->take(5)->get(); // Atau sesuaikan query sesuai kebutuhan
 
         // Kirim data ke view
-        return view('user.user', compact('terdekat', 'seputarOlahraga'));
+        return view('user.user', compact('terdekat', 'seputarOlahraga','rekomendasi'));
         
     }
 

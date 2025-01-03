@@ -217,7 +217,7 @@
                     @foreach ($lapangan as $no =>$product)
                     <a href="{{ route('detaillapangan', $product->id) }}">
                         
-                        <div class="col mt-3">
+                        <div class="col mt-1">
                             <div class="card shadow-sm" style="max-width: 200px;">
                                 <div class="position-relative">
                                     <img src="{{ asset('storage/'.$product->foto) }}" alt="{{ $product->name }}"
@@ -226,7 +226,7 @@
                                         {{-- <span class="badge bg-danger position-absolute top-0 start-0 m-2">Terbaru</span> --}}
                                     @endif
                                 </div>
-                                <div class="card-body mb-2 me-2 ms-2" style="padding: 5px">
+                                <div class="card-body mb-0 me-2 ms-2" style="padding: 5px">
                                     <!-- Hilangkan padding-bottom -->
                                     <h6 class="card-title mb-2 mt-1 text-truncate" style="font-size: 14px;">
                                         {{ $product->name }}</h6>

@@ -15,6 +15,7 @@ use App\Http\Controllers\riwayatController;
 use App\Http\Controllers\UserController;
 // use App\Livewire\AuthController;
 use App\Livewire\Authh;
+use App\Livewire\BookingForm;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
@@ -58,29 +59,17 @@ Route::get('/riwayat', function () {
 
 Route::middleware('auth')->group(function (): void {
     
-    Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
-    Route::get('/user', [UserController::class, 'dashboard'])->name('user.user')->middleware('auth');
 });
+Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
+Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
 
 Route::get('/data-diri',[DatadiriController::class, 'index'])->name('datadiri');
 
 
-// Route::get('/data-diri', function () {
-//     return view('user.data-diri');
-// });
-
-//halaman owner
-
-
-
-//halaman lapangan
-// Route::get('/lapangan', [LapanganController::class, 'index'])->name('lapangan');
-
-
-//halaman kategory
 
 Route::get('/kategory', [LapanganController::class, 'index'])->name('lapangan');
 Route::get('/detaillapangan/{id}', [LapanganController::class, 'show'])->name('detaillapangan');
+Route::post('/detaillapangan', [LapanganController::class, 'BookingLapangan'])->name('booking');
 
 //halaman artikel
 Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel');

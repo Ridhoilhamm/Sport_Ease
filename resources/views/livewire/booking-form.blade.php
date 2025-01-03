@@ -1,3 +1,4 @@
+<div>
 @extends('user.layout')
 
 @section('styles')
@@ -224,6 +225,8 @@
 @section('content')
     <div>
 
+    
+        @livewire('booking-form')
         <div class="bg-white">
             <!-- Slider -->
             <section class="splide position-relative">
@@ -443,46 +446,43 @@
                     <h5 class="modal-title text-center" id="bottomModalLabel">Pilih Tanggal Sewa</h5>
                 </div>
                 <div class="modal-body1">
-                    <form action="{{ route('booking') }}" method="POST" class="mt-2">
-                        @csrf
+                    <form wire:submit.prevent="saveBooking" class="mt-2">
                         <!-- Input Tanggal Sewa -->
                         <div class="mb-3">
-                            <label  name="tanggal_sewa" for="tanggalPickerDisplay" class="form-label">Tanggal Sewa</label>
+                            <label for="tanggalPickerDisplay" class="form-label">Tanggal Sewa</label>
                             <div class="input-group justify-content-center">
                                 <span class="input-group-text bg-light">
                                     <i class="fas fa-calendar-alt"></i>
                                 </span>
-                                <div  name="tanggal_sewa" id="tanggalPickerDisplay" class="form-control w-50 bg-white" style="cursor: pointer;">
-                                    Pilih Tanggal
+                                <div 
+                                    id="tanggalPickerDisplay" 
+                                    class="form-control w-50 bg-white" 
+                                    style="cursor: pointer;"
+                                    wire:click="$emit('showDatePicker')">
+                                    {{ $tanggal_sewa ?? 'Pilih Tanggal' }}
                                 </div>
                             </div>
                         </div>
-    
+                
                         <!-- Pilih Jam Sewa -->
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label id="durasi" class="form-label">Durasi Sewa</label>
                             </div>
-                            <label name="jam_sewa" for="jam_sewa" class="form-label">Jam Sewa</label>
+                            <label for="jam" class="form-label">Jam Sewa</label>
                             <div class="d-flex flex-wrap gap-0" id="timeButtons">
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="08:00">08:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="09:00">09:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="10:00">10:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="11:00">11:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="12:00">12:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="13:00">13:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="14:00">14:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="15:00">15:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="16:00">16:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="17:00">17:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="18:00">18:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="19:00">19:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="20:00">20:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="21:00">21:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="22:00">22:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="23:00">23:00</button>
+                                @foreach (['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'] as $time)
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-outline-success btn-sm" 
+                                        wire:click="$set('jam_sewa', '{{ $time }}')">
+                                        {{ $time }}
+                                    </button>
+                                @endforeach
                             </div>
                         </div>
+                
+                        <button type="submit" class="btn btn-primary">Lanjutkan ke Pembayaran</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -500,6 +500,24 @@
     
     </div>
 
+    {{-- @push('scripts')
+<script>
+    document.addEventListener('livewire:load', function () {
+        // Menambahkan datepicker untuk tanggal
+        $('#tanggalPickerDisplay').datepicker({
+            dateFormat: 'yy-mm-dd',
+            onSelect: function(dateText) {
+                @this.set('tanggal_sewa', dateText); // Menyimpan tanggal yang dipilih
+            }
+        });
+
+        // Menangani perubahan pada waktu yang dipilih
+        Livewire.on('showDatePicker', () => {
+            $('#tanggalPickerDisplay').datepicker('show');
+        });
+    });
+</script>
+@endpush --}}
 
 
     {{-- modals --}}
@@ -508,3 +526,4 @@
     $hideNavbar = true;
     $hideFooter = true;
 @endphp
+</div>

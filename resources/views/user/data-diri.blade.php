@@ -654,6 +654,7 @@
                     </div>
                 </div>
             </div>
+            
         @endsection
         @php
             $hideNavbar = true;

@@ -249,7 +249,7 @@
     <div class="mb-1 bg-white rounded" style="padding-bottom: 10px">
         <div class="container" style="padding-top: 10px">
             <div class="mb-2 d-flex align-items-center justify-content-between">
-                <a href="/detaillapangan">
+               
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
                         class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" style="color: black">
@@ -279,7 +279,7 @@
                     Nama Lengkap
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    Ridho Ilham
+                    Joko
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -301,7 +301,7 @@
                     Pesan untuk Tgl
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    25/12/24
+                    13-14 Januari 2024
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -312,7 +312,7 @@
                     Jam Dipilih
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    14:00-16.00 WIB
+                    12:00-14:00
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -644,7 +644,7 @@
                             Nama lengkap
                         </p>
                         <div class="ms-auto" style="font-size:14px">
-                        Ridho Ilham
+                        Joko User
                         </div>
                     </div>
                     <div class="d-flex align-items-center container">
@@ -660,7 +660,7 @@
                             Sewa
                         </p>
                         <div class="ms-auto" style="font-size:14px">
-                        Lapagan Futsal Hokky
+                        Lapagan Kesatria
                         </div>
                     </div>
                     <div class="d-flex align-items-center container">
@@ -695,7 +695,7 @@
                             Total Pembayaran
                         </p>
                         <div class="ms-auto" style="font-size:14px">
-                        Rp.242.000
+                        Rp.362.000
                         </div>
                     </div>
                     <div class="d-flex align-items-center container">
