@@ -12,6 +12,10 @@
 
 <style>
   
+  .text-success {
+            color: #A9DA05 !important;
+            /* Contoh hijau terang */
+        }
 
 </style>
 
@@ -19,7 +23,7 @@
     <div style="font-family: 'Ubuntu', sans-serif;">
 
         @if (!isset($hideSidebar) || !$hideSidebar)
-        @include('owner.sidebar-owner')
+        @include('owner.footer-owner')
         @include('owner.nav-owner')
     @endif
     @yield('content')

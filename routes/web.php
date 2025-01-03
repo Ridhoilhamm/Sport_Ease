@@ -8,6 +8,7 @@ use App\Http\Controllers\HightLight;
 use App\Http\Controllers\Kategori;
 use App\Http\Controllers\Lapangan;
 use App\Http\Controllers\LapanganController;
+use App\Http\Controllers\lapanganOwnerController;
 use App\Http\Controllers\Owner;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProfileController;
@@ -86,6 +87,7 @@ Route::get('/hightlight', [HightLight::class, 'data'])->name('data');
 
 //halaman Owner
 Route::get('/owner', [OwnerController::class, 'index'])->name('owner');
+Route::get('/owner/lapangan', [lapanganOwnerController::class, 'index'])->name('owner.lapangan');
 
 
-// require __DIR__.'/auth.php';
+
