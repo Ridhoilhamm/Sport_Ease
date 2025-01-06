@@ -19,7 +19,7 @@
       </div>
       <!-- Menu History -->
       <div class="d-flex flex-column align-items-center justify-content-center">
-          <a href="/riwayat" class="{{ request()->is('riwayat') ? 'text-success' : 'text-secondary' }}">
+          <a href="{{ route('owner-riwayat') }}" class="{{ request()->is('riwayat-owner') ? 'text-success' : 'text-secondary' }}">
               <i class="fa-solid fa-wallet fa-lg"></i>
           </a>
           <p class="m-0" style="font-size: 12px;">Riwayat</p>

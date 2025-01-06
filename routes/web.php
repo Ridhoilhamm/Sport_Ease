@@ -57,12 +57,15 @@ Route::get('/informasi-pembayaran', function () {
 Route::get('/riwayat', function () {
     return view('user.riwayat');
 });
+Route::get('/riwayat-owner', function () {
+    return view('owner.riwayat');
+})->name('owner-riwayat');
 
-Route::middleware('auth')->group(function (): void {
-    
-});
+    Route::middleware('auth')->group(function (): void {
+        
+        Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
+    });
 Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
-Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
 
 Route::get('/data-diri',[DatadiriController::class, 'index'])->name('datadiri');
 
@@ -88,6 +91,7 @@ Route::get('/hightlight', [HightLight::class, 'data'])->name('data');
 //halaman Owner
 Route::get('/owner', [OwnerController::class, 'index'])->name('owner');
 Route::get('/owner/lapangan', [lapanganOwnerController::class, 'index'])->name('owner.lapangan');
+Route::get('/owner/detaillapangan/{id}', [lapanganOwnerController::class, 'showlapangan'])->name('detaillapangan-owner');
 
 
 

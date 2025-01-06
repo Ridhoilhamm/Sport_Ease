@@ -221,7 +221,7 @@
                             <div class="card shadow-sm" style="max-width: 200px;">
                                 <div class="position-relative">
                                     <img src="{{ asset('storage/'.$product->foto) }}" alt="{{ $product->name }}"
-                                        style="height: 130px; object-fit: cover; font-size: 12px;" class="rounded-top">
+                                        style="width:100%; height: 130px; object-fit: cover; font-size: 12px;" class="rounded-top">
                                     @if (!empty($product->harga))
                                         {{-- <span class="badge bg-danger position-absolute top-0 start-0 m-2">Terbaru</span> --}}
                                     @endif
@@ -237,7 +237,7 @@
                                         @endif
                                     </p>
 
-                                    <!-- Tombol berada di bawah teks -->
+                                    
                                    
 
                                         <button type="button" class="btn btn-primary w-100 mt-1"

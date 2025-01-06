@@ -208,7 +208,7 @@ padding: 12px;
         </div>
         
         
-        <section class="bg-white " style="padding-bottom: 20px; padding-top:0px">
+        <section class="bg-white " style="padding-bottom: 5px; padding-top:0px">
             
             <!-- Kartu Daftar -->
             <div class="container mb-5">
@@ -230,7 +230,7 @@ padding: 12px;
                                 </div>
                                 
                                 <div class="text-start me-3">
-                                    <p class=" mt-2 mb-4 truncated-text" style="font-size: 12px">
+                                    <p class=" mt-2 mb-2 truncated-text" style="font-size: 12px">
                                         {{ $data->isi_artikel }}
                                     </p>
                                 </div>

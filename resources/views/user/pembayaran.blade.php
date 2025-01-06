@@ -344,7 +344,7 @@
         </div>
         <div class="mt-3 mb-4 bg-white rounded" style="padding: 10px 0 20px;">
 
-            <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Motade
+            {{-- <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Motade
                 Pembayaran</p>
             <div class="mt-0 container">
                 <div class="mt-2">
@@ -356,7 +356,7 @@
                     </select>
                 </div>
 
-            </div>
+            </div> --}}
             <div class="container mt-3">
 
                 <div class="card-body d-flex align-items-center justify-content-between">
@@ -505,7 +505,7 @@
 
 
     <!-- Promo -->
-    <div class=" promo-banner  mb-2 text-center d-flex ">
+    {{-- <div class=" promo-banner  mb-2 text-center d-flex ">
         <div class="container d-flex">
 
             <i class="bi bi-tag-fill me-1"></i> Yuk, pakai kupon promo! <strong>Bisa hemat hingga Rp30.000</strong>
@@ -517,7 +517,7 @@
                     <path d="M9 6l6 6l-6 6" />
                 </svg>
             </div>
-        </div>
+        </div> --}}
         {{-- <div class="ms-auto">
 
             <label class="toggle-switch">
@@ -525,7 +525,7 @@
                 <span class="slider"></span>
             </label>
         </div> --}}
-    </div>
+    {{-- </div> --}}
 
 
     <div class="container">
