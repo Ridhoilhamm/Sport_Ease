@@ -249,14 +249,16 @@
     <div class="mb-1 bg-white rounded" style="padding-bottom: 10px">
         <div class="container" style="padding-top: 10px">
             <div class="mb-2 d-flex align-items-center justify-content-between">
-               
+                <a href="/kategory">
+
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" style="color: black">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M15 6l-6 6l6 6" />
-                    </svg>
-                </a>
+                    stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                    class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" style="color: black">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M15 6l-6 6l6 6" />
+                </svg>
+            </a>
+                
                 <div style="flex: 1; display: flex; justify-content: center;">
                     <h5 class="fw-medium mt-2">Informasi Pemesanan</h5>
                 </div>

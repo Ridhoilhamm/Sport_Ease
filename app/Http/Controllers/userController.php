@@ -102,4 +102,13 @@ class UserController extends Controller
         // Redirect ke halaman dashboard dengan pesan sukses
         return redirect()->route('user.dashboard')->with('success', 'Password berhasil diperbarui!');
     }
+
+    public function logout(Request $request)
+{
+    Auth::logout();  // Mengeluarkan pengguna dari sesi
+    $request->session()->invalidate();  // Menghapus sesi
+    $request->session()->regenerateToken();  // Menghindari serangan CSRF
+    return redirect('/auth/login');  // Redirect ke halaman utama atau login
+}
+
 }

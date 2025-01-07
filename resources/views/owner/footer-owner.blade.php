@@ -6,7 +6,7 @@
               <i class="fas fa-home fa-lg"></i>
           </a>
           <h6 class="m-0 {{ request()->is('user') ? 'fw-semibold' : 'fw-light' }}" style="font-size: 12px;">
-              Dasboard
+              Utama
           </h6>
       </div>
       <div class="d-flex flex-column align-items-center justify-content-center">

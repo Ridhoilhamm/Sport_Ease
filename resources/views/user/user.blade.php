@@ -309,7 +309,7 @@
 
                     <button type="button" class="btn btn-primary position-absolute"
                         style="height: 30px; width: 70px; font-size: 12px; padding: 0; bottom: 8px; right: 10px;">
-                        Booking
+                        Pesan
                     </button>
                 </a>
             </div>

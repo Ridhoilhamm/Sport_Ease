@@ -1,18 +1,21 @@
 @extends('owner.layout')
 
 @section('content')
+@section('styles')
+<style>
 
+</style>
 <div style="padding-top: 60px;">
 <div class="bg-white mt-2" style="padding-bottom: 10px;">
-    <div class="ms-3 container">
+    <div class="ms-3">
         <div class="d-flex align-items-center" style="padding-top: 5px">
-            <h5 class="mb-0 ms-1" style="font-size: 20px;">Lapangan Anda</h5>
-            <p href="" class="ms-auto mt-2 mb-1 me-4" style="color: #A9DA05;">Tambah Lapangan</p>
+            <h5 class="mb-0 ms-3" style="font-size: 20px;">Lapangan Anda</h5>
+            <a href="/owner/tambahlapangan" class=" btn ms-auto mt-2 mb-1 me-4 rounded-pill border-0" style="background-color: #A9DA05; color: white; font-size: 12px">Tambah</a>
         </div>
     </div>
     <section class="px-3 pt-0">
-        <div class="ms-3 me-3 mt-2">
-            <div class="row row-cols-2 g-1 bg-white">
+        <div class="ms-3 me-3 mt-2 mb-5">
+            <div class="row row-cols-2 g-2 bg-white">
                 {{-- @foreach ([['title' => 'Hokky Lapagan Futsal Hokky Lapagan Futsal', 'price' => 'Rp.120.000/Jam', 'discount' => '5%', 'rating' => '4.9', 'sold' => '56', 'image' => asset('image/futsal.jpeg')], ['title' => 'Lapangan Volly', 'price' => 'Rp. 60.000/Jam', 'discount' => '7%', 'rating' => '4.9', 'sold' => '34', 'image' => asset('image/lapangan volly.jpeg')], ['title' => 'Kolam Renang', 'price' => 'Rp. 80.000/Jam', 'discount' => '', 'rating' => '4.8', 'sold' => '20', 'image' => asset('image/kolam-renang.jpg')], ['title' => 'Lapangan Golf ', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-golf.jpg')], ['title' => 'Lapangan Tennis ', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-tenis.jpg')], ['title' => 'Lapangan Tenis Meja', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-tmeja.jpg')]] as $product) --}}
                 @foreach ($lapangan as $no =>$product)
                 <a href="{{ route('detaillapangan-owner', $product->id) }}" class="text-decoration-none text-primary">

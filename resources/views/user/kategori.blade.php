@@ -242,7 +242,7 @@
 
                                         <button type="button" class="btn btn-primary w-100 mt-1"
                                             style="height: 30px; font-size: 12px; padding: 0; line-height: 1;">
-                                            Booking
+                                            Pesan
                                         </button>
                                    
                                 </div>

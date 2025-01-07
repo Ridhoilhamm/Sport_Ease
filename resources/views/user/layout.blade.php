@@ -601,21 +601,7 @@
         splide.mount();
     });
 </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var splide = new Splide('.splide-btn', {
-            type: 'loop',
-            autoplay: true,
-            interval: 3000,
-            perPage: 1,
-            pagination: true,
-            arrows: false,
-            snap: true,
-        });
 
-        splide.mount();
-    });
-</script>
 <script>
 
     document.getElementById('tanggalPickerDisplay').addEventListener('click', function() {
@@ -885,6 +871,7 @@ function loadState() {
 loadState();
 
 </script> --}}
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -975,6 +962,7 @@ buttons.forEach(button => {
 
 </script>
 
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const description = document.getElementById('description');
@@ -1015,54 +1003,88 @@ buttons.forEach(button => {
 
     // Fungsi untuk menghitung durasi
     function calculateDuration(start, end) {
-        const duration = (end - start) / (1000 * 60 * 60);  // Durasi dalam jam
-        const durationText = duration >= 1 ? `${duration} jam` : `${(duration * 60).toFixed(0)} menit`;
-        return durationText;
+        const duration = (end - start) / (1000 * 60 * 60); // Durasi dalam jam
+        return duration >= 1 ? `${duration} jam` : `${(duration * 60).toFixed(0)} menit`;
     }
 
-    // Menambahkan event listener ke setiap button
+    // Fungsi untuk memperbarui tampilan tombol
+    function updateButtonStyles() {
+        // Reset semua tombol
+        timeButtons.forEach(button => button.classList.remove('btn-warning', 'btn-primary'));
+
+        if (selectedTimes.length === 2) {
+            // Urutkan waktu berdasarkan urutan
+            const [startTime, endTime] = selectedTimes.map(time => convertToDate(time)).sort((a, b) => a - b);
+
+            // Menyorot tombol di antara dua waktu yang dipilih
+            let isBetween = false;
+            timeButtons.forEach(button => {
+                const buttonTime = button.getAttribute('data-time');
+                const buttonTimeDate = convertToDate(buttonTime);
+
+                if (buttonTime === selectedTimes[0]) {
+                    isBetween = true;
+                    button.classList.add('btn-primary'); // Tanda otomatis terseleksi
+                }
+
+                if (isBetween) {
+                    button.classList.add('btn-primary'); // Tanda otomatis terseleksi
+                }
+
+                if (buttonTime === selectedTimes[1]) {
+                    isBetween = false;
+                    button.classList.add('btn-primary'); // Tanda otomatis terseleksi
+                }
+            });
+
+            // Hitung durasi
+            const durationText = calculateDuration(startTime, endTime);
+            durasiDiv.textContent = `Durasi penyewaan: ${durationText}`;
+        } else {
+            durasiDiv.textContent = 'Durasi penyewaan: ';
+        }
+    }
+
+    // Menambahkan event listener ke setiap tombol
     timeButtons.forEach(button => {
         button.addEventListener('click', function () {
             const selectedTime = this.getAttribute('data-time');
 
-            // Tambahkan waktu yang dipilih ke dalam array
-            if (selectedTimes.length < 2 && !selectedTimes.includes(selectedTime)) {
+            // Jika tombol sudah dipilih, hapus dari pilihan
+            if (selectedTimes.includes(selectedTime)) {
+                selectedTimes = selectedTimes.filter(time => time !== selectedTime);
+                this.classList.remove('btn-primary');
+            } else if (selectedTimes.length < 2) {
+                // Tambahkan waktu ke pilihan
                 selectedTimes.push(selectedTime);
-                this.classList.add('btn-primary');  // Tandai button yang dipilih
+                this.classList.add('btn-primary');
             }
 
-            // Jika sudah ada dua waktu yang dipilih
-            if (selectedTimes.length === 2) {
-                // Urutkan waktu berdasarkan urutan
-                const [startTime, endTime] = selectedTimes.map(time => convertToDate(time)).sort((a, b) => a - b);
-                const durationText = calculateDuration(startTime, endTime);
-                durasiDiv.textContent = `Durasi penyewaan: ${durationText}`;
-
-                // Menyorot tombol di antara dua waktu yang dipilih
-                let isBetween = false;
-                timeButtons.forEach(button => {
-                    const buttonTime = button.getAttribute('data-time');
-                    if (buttonTime === selectedTimes[0]) {
-                        isBetween = true;
-                    }
-                    if (isBetween && buttonTime !== selectedTimes[1]) {
-                        button.classList.add('btn-warning');  // Beri warna berbeda untuk tombol di antara
-                    }
-                    if (buttonTime === selectedTimes[1]) {
-                        isBetween = false;
-                    }
-                });
-            }
-
-            // Jika sudah memilih dua waktu, disable tombol lain
+            // Jika sudah memilih dua waktu, disable tombol lainnya
             if (selectedTimes.length === 2) {
                 timeButtons.forEach(button => {
                     if (!selectedTimes.includes(button.getAttribute('data-time'))) {
-                        button.disabled = true;  // Disable tombol yang tidak dipilih
+                        button.disabled = true;
                     }
                 });
+            } else {
+                // Aktifkan semua tombol kembali jika kurang dari dua waktu dipilih
+                timeButtons.forEach(button => button.disabled = false);
             }
+
+            // Perbarui tampilan tombol dan durasi
+            updateButtonStyles();
         });
+    });
+
+    // Event listener untuk reset tombol (opsional, jika ingin tombol reset)
+    document.getElementById('resetButton').addEventListener('click', function () {
+        selectedTimes = [];
+        timeButtons.forEach(button => {
+            button.classList.remove('btn-primary', 'btn-warning');
+            button.disabled = false;
+        });
+        durasiDiv.textContent = 'Durasi penyewaan: ';
     });
 });
 
@@ -1188,6 +1210,41 @@ buttons.forEach(button => {
 });
 
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const tanggalPicker = document.getElementById('tanggalPickerDisplay');
+        const timeButtons = document.querySelectorAll('#timeButtons button');
+    
+        // Fungsi untuk mengaktifkan tombol jam
+        function enableTimeButtons() {
+            timeButtons.forEach(button => {
+                button.removeAttribute('disabled');
+            });
+        }
+    
+        // Fungsi untuk menonaktifkan tombol jam
+        function disableTimeButtons() {
+            timeButtons.forEach(button => {
+                button.setAttribute('disabled', 'true');
+            });
+        }
+    
+        // Nonaktifkan tombol jam saat pertama kali halaman dimuat
+        disableTimeButtons();
+    
+        // Event listener untuk validasi pemilihan tanggal
+        tanggalPicker.addEventListener('click', function () {
+            // Simulasi pemilihan tanggal
+            const tanggalTerpilih = true; // Ganti dengan logika validasi tanggal sesuai kebutuhan
+    
+            if (tanggalTerpilih) {
+                enableTimeButtons();
+            }
+        });
+    });
+    </script>
+    
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

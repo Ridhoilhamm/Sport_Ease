@@ -26,13 +26,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/detailkategory', function () {
     return view('user.detail-kategory');
 });
-// auth
-// Route::post('/login', AuthController::class)->name('login');
+Route::get('/favorite/lapangan', function () {
+    return view('user.favorite');
+});
 
-
-// Route::get('/user', function () {
-//     return view('user.user');
-// });
 Route::get('/detaillapangan', function () {
     return view('user.detail-lapangan');
 });
@@ -92,6 +89,12 @@ Route::get('/hightlight', [HightLight::class, 'data'])->name('data');
 Route::get('/owner', [OwnerController::class, 'index'])->name('owner');
 Route::get('/owner/lapangan', [lapanganOwnerController::class, 'index'])->name('owner.lapangan');
 Route::get('/owner/detaillapangan/{id}', [lapanganOwnerController::class, 'showlapangan'])->name('detaillapangan-owner');
+Route::get('/owner/tambahlapangan', [lapanganOwnerController::class, 'tambahlapangan'])->name('tambahlapangan-owner');
+Route::get('/owner/edit/{id}', [lapanganOwnerController::class, 'editlapangan'])->name('editlapangan-owner');
+
+
+// logout
+Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
 
 

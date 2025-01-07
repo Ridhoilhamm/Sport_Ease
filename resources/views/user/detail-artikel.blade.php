@@ -179,7 +179,7 @@
                             <div class="card-body rounded text-start">
                                 <img src="{{ asset('storage/'.$data->image_artikel) }}" class="card-img-top rounded" alt="Artikel 1">
                             </div>
-                            <p style="font-size: 12px" class="fw-medium text-start">{{ $data->judul_artikel }}</p>
+                            <p style="font-size: 12px" class="fw-medium text-start mt-1">{{ $data->judul_artikel }}</p>
                         </div>
                     </a>
                     

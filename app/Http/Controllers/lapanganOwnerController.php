@@ -19,8 +19,21 @@ class lapanganOwnerController extends Controller
         return view('owner.detail-lapangan', compact('lapangan'));
     }
         
+    public function tambahlapangan(){
+        return view('owner.form-tambah-lapangan');
     }
 
+    public function editlapangan($id){
+{
+    // Ambil data lapangan berdasarkan ID
+    $lapangan = Lapangan::findOrFail($id); // Mengambil data dengan ID, error jika tidak ditemukan
+
+    // Tampilkan view edit dengan data lapangan
+    return view('owner.form-edit-lapangan', compact('lapangan'));
+}
+
+    }
+}
     
     
         

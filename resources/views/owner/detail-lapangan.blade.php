@@ -422,7 +422,7 @@
                     <p class="text-muted small mb-2 mt-2">Tersedia: <strong>{{ $lapangan->jumlah_lapangan }}</strong></p>
                     <button type="button" class="btn btn-success w-100" style="background-color:#5cb85c"
                         data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <p class="fw-semibold mb-0" style="color: #ffffff">Edit Lapangan</p>
+                        <a href="{{ route('editlapangan-owner', $lapangan->id) }}" class="fw-semibold mb-0" style="color: #ffffff">Edit Lapangan</a>
                     </button>
                 </div>
             </div>

@@ -465,8 +465,8 @@
                             </div>
                             <label name="jam_sewa" for="jam_sewa" class="form-label">Jam Sewa</label>
                             <div class="d-flex flex-wrap gap-0" id="timeButtons">
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="08:00">08:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="09:00">09:00</button>
+                                <button type="button" class="btn btn-outline-success btn-sm" data-time="08:00" disabled>08:00</button>
+                                <button type="button" class="btn btn-outline-success btn-sm" data-time="09:00" disabled>09:00</button>
                                 <button type="button" class="btn btn-outline-success btn-sm" data-time="10:00">10:00</button>
                                 <button type="button" class="btn btn-outline-success btn-sm" data-time="11:00">11:00</button>
                                 <button type="button" class="btn btn-outline-success btn-sm" data-time="12:00">12:00</button>

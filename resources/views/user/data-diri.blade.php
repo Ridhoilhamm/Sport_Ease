@@ -294,22 +294,23 @@
                         </span>
                         <!-- Teks -->
                         <p class="mb-0 text-center ms-1">Favorite Lapangan</p>
-                        <div class="me-3 ms-auto" data-bs-toggle="modal" data-bs-target="#favorite">
-
-                            <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        <div class="me-3 ms-auto" >
+                            <a href="/favorite/lapangan">
+                                <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
                                 stroke-linecap="round" stroke-linejoin="round"
                                 class="icon icon-tabler icon-tabler-chevron-right" class="">
-
+                                
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path d="M9 6l6 6l-6 6" />
                             </svg>
+                        </a>
                         </div>
                     </li>
-                    <li class="list-group-item d-flex align-items-center justify-content-start gap-3  mb-2"
+                    {{-- <li class="list-group-item d-flex align-items-center justify-content-start gap-3  mb-2"
                         data-bs-toggle="modal" data-bs-target="#pembayaran">
                         <!-- Ikon -->
-                        <span class="icon d-flex align-items-center justify-content-center" data-bs-toggle="modal"
+                        <span class="icon d-flex align-items-center justify-content-center" data-bs-toggle="modal"DDD
                             data-bs-target="#pembayaran">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
@@ -335,7 +336,7 @@
                                 <path d="M9 6l6 6l-6 6" />
                             </svg>
                         </div>
-                    </li>
+                    </li> --}}
                     {{-- <li class="list-group-item d-flex align-items-center justify-content-start gap-3 ms-2 mb-2">
                         <!-- Ikon -->
                         <span class="icon d-flex align-items-center justify-content-center">
@@ -615,23 +616,38 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="logout">Konfirmasi</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
                             <p>Apakah anda yakin ingin keluar dari akun ini?</p>
-
+            
                             <!-- Button "IYA" dan "TIDAK" secara vertikal -->
                             <div class="d-grid gap-2 mt-3">
-                                <button type="button" style="background-color: #A9DA05; color:#F5F5F5" class="btn">IYA</button>
-                                <button type="button" class="btn btn-outline-primary"
-                                    data-bs-dismiss="modal">TIDAK</button>
+                                <!-- Form Logout -->
+                                <form id="logoutForm" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <!-- Tombol "IYA" -->
+                                   <button type="button" style="background-color: #A9DA05; color:#F5F5F5" class="btn w-100" id="confirmLogout">IYA</button>
+
+                                </form>
+                                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">TIDAK</button>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+            <script>
+                // Menambahkan event listener untuk tombol "IYA"
+                document.getElementById('confirmLogout').addEventListener('click', function () {
+                    // Menutup modal
+                    var modal = new bootstrap.Modal(document.getElementById('logout'));
+                    modal.hide(); // Menutup modal
+                    
+                    // Mengirimkan form logout
+                    document.getElementById('logoutForm').submit(); // Submit form logout
+                });
+            </script>
+            
 
             {{-- modals daftar rekening --}}
             <div class="modal fade" id="tambahrekening" tabindex="-1" role="dialog" aria-labelledby="tambahrekening"
