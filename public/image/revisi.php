@@ -1,37 +1,19 @@
-jumat 20 desember 2024
-hari ini
-card fasilitas 
-deskripsi
+super admin Revisi->
 
-booking lapangan harus menempel cardnya
+melakukan nonaktifkan/blog user
 
-pilih tanggal sewa Jarak
+admin harus tahu apa aja->jumlah karayawan jumlah user berdasarkan gender, lapangan mana yang paling banyak dibooking apa,
 
-pilhtanggal sewa harus bisa menambah hari jam sewa juga
+jumlah lapangan ada berapa jumlah artikel ada berapa, jadi tahu artikel udah diupload apa tidak
 
-Jarak harus konsisten 
+pendapatan bulan ini dan pendapatan((harian mingguan bulanan dan tahunan  top 3->lapangan paling banyak dipesan))
 
-garis di pembayaran
-dibuat card logo pembayaran
-catatan harus masuk div semua bisa diklik
-sport ease di artikel dihapus
+jam sewa paling banyak jam berapa
 
-fixed love and row
-durasi sewa di atas jam
+filtering transaksi booking mulai harian atau mingguan dan tahunan 
 
+pendapatan yang sudah booking
 
-jarak 
-image kurang besar dan badminton terlalu besar
-bisa dibesarkan lagi 
+pendapatan statistik bulan ini dan tahun ini tampilkan dengan grafik
 
-
-deskripsi
-revisi pembayaran
-
-
-bahasa harus lebih konsisten
-tidak usah menggunakan tanda kembali ketika ada navbar 
-masih rounded pada halaman profile
-untuk jarak harus konsisten sama halaman sebelumnya
-
-tanggal harus memilih 2 saja ketika 22 24 maka 23 include ke dalamnya
+quick akses crud artikel tambah lapangan

@@ -115,7 +115,8 @@
                                 Menunggu hari
                             </button>
                         </a>
-                    </li>
+                    </li>  
+                    
                     <!-- Tab untuk status "Selesai" -->
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="completed-tab" data-bs-toggle="tab" href="#completed" role="tab"
@@ -147,6 +148,7 @@
                 <!-- Content untuk tab "Pending" -->
                 <div class="tab-pane fade show active" id="waiting" role="tabpanel" aria-labelledby="pending-tab">
 
+                    @foreach ($riwayat as $no =>$data )
                     <a href="">
                         <div class="container mt-2">
                             <!-- Custom Card -->
@@ -169,16 +171,18 @@
                                         Menunggu Hari
                                     </button>
                                 </div>
+
+                                    
                                 <div class="d-flex justify-content-between">
                                     <!-- Konten Kiri -->
                                     <div class="d-flex align-items-center">
                                         <img src="{{ asset('image/futsal.jpeg') }}" alt="Restaurant" class="me-3"
-                                            style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                                        style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
                                         <div>
                                             <div class="title" style="color: rgba(0, 0, 0, 0.695); font-weight: bold;">
-                                                Lapangan Volly</div>
-                                            <div class="d-flex align-items-center icon-text text-muted">
-                                                <i class="bi bi-clock me-1"></i> Booking &bull; <i
+                                                {{ $data->lapangan }}</div>
+                                                <div class="d-flex align-items-center icon-text text-muted">
+                                                    <i class="bi bi-clock me-1"></i> Booking &bull; <i
                                                     class="bi bi-geo me-1 ms-2"></i> 2Jam
                                             </div>
                                             <div class="icon-text text-muted">
@@ -190,113 +194,16 @@
                                     <!-- Button Kanan -->
                                 </div>
                                 <button class="btn btn-primary rounded-pill fw-semibold w-100 mt-3"
-                                    style="font-size: 12px; padding: 6px 12px;">
-                                    Booking Lagi
-                                </button>
-                            </div>
+                                style="font-size: 12px; padding: 6px 12px;">
+                                Booking Lagi
+                            </button>
                         </div>
-
-                    </a>
-                    <a href="">
-                        <div class="container mt-2">
-                            <!-- Custom Card -->
-                            <div class="custom-card border rounded p-3 shadow-sm">
-                                <div class="d-flex flex-column align-items-end">
-                                    <button class="btn btn-success btn-sm rounded-pill opacity-75 mb-2"
-                                        style="font-size: 12px; padding: 4px 10px;">
-                                        <span class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M12 9v4" />
-                                                <path
-                                                    d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
-                                                <path d="M12 16h.01" />
-                                            </svg>
-                                        </span>
-                                        Menunggu Hari
-                                    </button>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <!-- Konten Kiri -->
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{ asset('image/futsal.jpeg') }}" alt="Restaurant" class="me-3"
-                                            style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
-                                        <div>
-                                            <div class="title" style="color: rgba(0, 0, 0, 0.695); font-weight: bold;">
-                                                Lapangan Volly</div>
-                                            <div class="d-flex align-items-center icon-text text-muted">
-                                                <i class="bi bi-clock me-1"></i> Booking &bull; <i
-                                                    class="bi bi-geo me-1 ms-2"></i> 2Jam
-                                            </div>
-                                            <div class="icon-text text-muted">
-                                                <i class="bi bi-geo-alt-fill me-1"></i> Jalan Nginden surabaya
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Button Kanan -->
-                                </div>
-                                <button class="btn btn-primary rounded-pill fw-semibold w-100 mt-3"
-                                    style="font-size: 12px; padding: 6px 12px;">
-                                    Booking Lagi
-                                </button>
-                            </div>
-                        </div>
-
-                    </a>
-                    <a href="">
-                        <div class="container mt-2">
-                            <!-- Custom Card -->
-                            <div class="custom-card border rounded p-3 shadow-sm">
-                                <div class="d-flex flex-column align-items-end">
-                                    <button class="btn btn-success btn-sm rounded-pill opacity-75 mb-2"
-                                        style="font-size: 12px; padding: 4px 10px;">
-                                        <span class="icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M12 9v4" />
-                                                <path
-                                                    d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
-                                                <path d="M12 16h.01" />
-                                            </svg>
-                                        </span>
-                                        Menunggu Hari
-                                    </button>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <!-- Konten Kiri -->
-                                    <div class="d-flex align-items-center">
-                                        <img src="{{ asset('image/futsal.jpeg') }}" alt="Restaurant" class="me-3"
-                                            style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
-                                        <div>
-                                            <div class="title" style="color: rgba(0, 0, 0, 0.695); font-weight: bold;">
-                                                Lapangan Volly</div>
-                                            <div class="d-flex align-items-center icon-text text-muted">
-                                                <i class="bi bi-clock me-1"></i> Booking &bull; <i
-                                                    class="bi bi-geo me-1 ms-2"></i> 2Jam
-                                            </div>
-                                            <div class="icon-text text-muted">
-                                                <i class="bi bi-geo-alt-fill me-1"></i> Jalan Nginden surabaya
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Button Kanan -->
-                                </div>
-                                <button class="btn btn-primary rounded-pill fw-semibold w-100 mt-3"
-                                    style="font-size: 12px; padding: 6px 12px;">
-                                    Booking Lagi
-                                </button>
-                            </div>
-                        </div>
-
-                    </a>
+                    </div>
+                    
+                </a>
+                @endforeach
+                    
+                   
                 </div>
             </div>
 

@@ -281,7 +281,7 @@
                     Nama Lengkap
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    Joko
+                    {{ $user->name }}
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -289,10 +289,10 @@
             </div>
             <div class="d-flex align-items-center container">
                 <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                    No Handphone
+                    Email
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    08970915625
+                    {{ $user->email }}
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -303,7 +303,7 @@
                     Pesan untuk Tgl
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    13-14 Januari 2024
+                    {{ $tanggalSewa }}
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -314,7 +314,7 @@
                     Jam Dipilih
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    12:00-14:00
+                    {{ $jamSewa }}
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -335,9 +335,9 @@
                         <img src="{{ asset('image/futsal.jpeg') }}" style="height: 80px; width:80px"
                             class="img-fluid rounded me-3" alt="Produk">
                         <div>
-                            <h6 class="mb-1">Lapangan Futsal Hokky</h6>
-                            <small class="text-muted">Sewa: 14:00 - 16:00</small>
-                            <p class="fw-bold mt-1" style="color: #101010c2">Rp240.000</p>
+                            <h6 class="mb-1">{{ $lapangan->name }}</h6>
+                            <small class="text-muted">Jam Sewa:  {{ $jamSewa }}</small>
+                            <p class="fw-bold mt-1" style="color: #101010c2">Rp. {{ $lapangan->harga }}</p>
                         </div>
                     </div>
                 </div>
@@ -393,7 +393,7 @@
                         Biaya Lapangan
                     </p>
                     <div class="ms-auto" style="font-size:14px">
-                        Rp.240.000
+                      Rp. {{ $lapangan->harga }}
                     </div>
                 </div>
                 <div class="d-flex align-items-center container">
@@ -406,7 +406,7 @@
                 </div>
                 <div class="d-flex align-items-center container">
                     <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                        Biaya Aplikasi
+                        Biaya Admin
                     </p>
                     <div class="ms-auto" style="font-size:14px">
                         Rp.1.000
@@ -418,19 +418,14 @@
                         Total Pembayaran
                     </p>
                     <div class="ms-auto fw-bold" style="font-size:16px;color:#A9DA05">
-                        Rp242.000
+                       {{ $lapangan->harga }}
                     </div>
                 </div>
             </div>
         </div>
-
-
     </div>
     <div class="container mt-1">
-
-
-
-        <!-- Modal -->
+       <!-- Modal -->
 
         <div class="modal" id="modal">
             <div class="modal-content">
@@ -566,20 +561,7 @@
         <!-- Tombol Checkout -->
     </div>
 
-    <div class=" fixed-bottom bg-white" style="padding-top: 3px; padding-bottom:20px; ">
-        <div class=" container text-center d-flex justify-items-center" style="padding-top: 10px; font-family: ubuntu">
-            <p class="fw-bold" style="font-size: 18px; color:#A9DA05">
-                Rp.242.000
-            </p>
-            <button class=" ms-auto btn btn-success  custom-button" data-bs-toggle="modal"
-                data-bs-target="#detail-pembayaran"
-                style="background-color: #A9DA05; color: #ffffff; padding: 12px; border-radius: 8px; border: none; font-weight: bold;">
-                Lanjutkan
-            </button>
-        </div>
-
-        {{-- modal --}}
-    </div>
+    
 
     </div>
 
@@ -630,92 +612,8 @@
     </div>
 
     {{-- modals detail-pembayaran --}}
-    <div class="modal fade" id="detail-pembayaran" tabindex="-1" aria-labelledby="detaipembayaran" aria-hidden="true" style="font-family: ubuntu">
-        <div class="modal-dialog  modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-start" id="exampleModalLabel">Detail Pemesanan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="container fw-semibold mb-0 justify-content-center">
-                        Data Pemesan
-                    </p>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
-                            Nama lengkap
-                        </p>
-                        <div class="ms-auto" style="font-size:14px">
-                        Joko User
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
-                            No Handphone
-                        </p>
-                        <div class="ms-auto" style="font-size:14px">
-                        08970915625
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
-                            Sewa
-                        </p>
-                        <div class="ms-auto" style="font-size:14px">
-                        Lapagan Kesatria
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px;">
-                            Jam Sewa
-                        </p>
-                        <div class="ms-auto" style="font-size:14px">
-                        14.00-16.00
-                        </div>
-                    </div>
-                    <p class=" container fw-semibold mt-2 justify-content-center mb-0">
-                    Pembayaran
-                    </p>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">
-                            Motade Pembayaran
-                        </p>
-                        <div class="ms-auto" style="font-size:14px">
-                        Transfer
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">
-                            No Rekening
-                        </p>
-                        <div class="ms-auto" style="font-size:14px">
-                        122333444
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">
-                            Total Pembayaran
-                        </p>
-                        <div class="ms-auto" style="font-size:14px">
-                        Rp.362.000
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">
-                            Nama Bank
-                        </p>
-                        <div class="ms-auto" style="font-size:14px">
-                        Bca(a.n Sport Ease)
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
+    <livewire:transaksi-pembayaran :lapangan="$lapangan" :user="$user" :jam-sewa="$jamSewa" :tanggal-sewa="$tanggalSewa" />
 
-                    <button type="button" class="btn fw-semibold"  style="background-color: #a8da05; color: #ffff">Bayar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @php

@@ -125,16 +125,16 @@
 
         /* Warna tombol ketika dipilih */
         /* .btn.selected {
-                        background-color: #5cb85c;
-                        color: white;
-                        border-color: #5cb85c;
-                    }
+                                                        background-color: #5cb85c;
+                                                        color: white;
+                                                        border-color: #5cb85c;
+                                                    }
 
-                    .btn:hover {
-                        color: #495057;
-                        background-color: #f8f9fa;
-                        border-color: var(--bs-btn-hover-border-color);
-                    } */
+                                                    .btn:hover {
+                                                        color: #495057;
+                                                        background-color: #f8f9fa;
+                                                        border-color: var(--bs-btn-hover-border-color);
+                                                    } */
         /* Default style untuk semua button */
         .btn {
             padding: 10px 10px;
@@ -200,24 +200,30 @@
         }
 
         #header {
-    background-color: transparent; /* Default background */
-    z-index: 1000;
-    transition: background-color 0.3s ease; /* Transisi latar belakang */
-}
+            background-color: transparent;
+            /* Default background */
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+            /* Transisi latar belakang */
+        }
 
-#header.scrolled {
-    background-color: #cad3db; /* Warna gelap ketika digulir */
-}
+        #header.scrolled {
+            background-color: #cad3db;
+            /* Warna gelap ketika digulir */
+        }
 
-#header a, #header button {
-    transition: background-color 0.3s ease; /* Efek transisi untuk tombol */
-}
+        #header a,
+        #header button {
+            transition: background-color 0.3s ease;
+            /* Efek transisi untuk tombol */
+        }
 
-/* Penyesuaian tombol ketika digulir */
-#header.scrolled a, #header.scrolled button {
-    background-color: rgba(255, 255, 255, 0.953); /* Warna tombol */
-}
-
+        /* Penyesuaian tombol ketika digulir */
+        #header.scrolled a,
+        #header.scrolled button {
+            background-color: rgba(255, 255, 255, 0.953);
+            /* Warna tombol */
+        }
     </style>
 @endsection
 
@@ -257,8 +263,8 @@
 
             <!-- Card -->
             <div class=" position-relative" style="margin-top: -20px; z-index: 10; padding-bottom:50px;">
-                
-                
+
+
 
                 <div class="card shadow-sm rounded-4 overflow-hidden mx-auto" style="max-width: 400px;">
                     <!-- Image -->
@@ -268,26 +274,30 @@
                             <div id="header" class="d-flex justify-content-between align-items-center p-2">
                                 <!-- Tombol Kembali -->
                                 <a href="/kategory" id="row" class="btn btn-light rounded-circle p-2 shadow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
                                         class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M15 6l-6 6l6 6" />
                                     </svg>
                                 </a>
-                    
+
                                 <!-- Tombol Suka -->
-                                <button id="like" class="btn btn-light rounded-circle p-2 shadow like-btn" data-state="not-liked">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                <button id="like" class="btn btn-light rounded-circle p-2 shadow like-btn"
+                                    data-state="not-liked">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
                                         class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                                        <path
+                                            d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                                     </svg>
                                 </button>
                             </div>
                         </div>
-                    
+
                     </div>
                     <!-- Card Content -->
                     <div class="card-body mb-4">
@@ -296,7 +306,8 @@
                         </p>
                         <!-- Rating -->
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <span class="badge bg-warning text-dark" style="font-size: 18px">Rp.{{ $lapangan->harga }}</span>
+                            <span class="badge bg-warning text-dark"
+                                style="font-size: 18px">Rp.{{ $lapangan->harga }}</span>
 
                         </div>
                         <!-- Features -->
@@ -410,12 +421,13 @@
                             <!-- Kolom Kanan -->
                             <div class="w-100 ps-1 text-start">
                                 <p class="text-secondary" id="description" style="text-align: justify;">
-                                   
+
                                     {{ $lapangan->deskripsi }}
                                 </p>
                                 <button id="readMoreBtn" class="btn btn-link p-0 text-primary"
-                                style="background: none; border: none; text-decoration: none;">Lihat Selengkapnya</button>
-                        
+                                    style="background: none; border: none; text-decoration: none;">Lihat
+                                    Selengkapnya</button>
+
                             </div>
                         </div>
 
@@ -424,80 +436,9 @@
                     </div>
                 </div>
             </div>
-            <div class="fixed-bottom mt-1 mb-0 container bg-white shadow-lg rounded-lg">
-                <div class="mb-1 mt-0 me-2">
-                    <p class="text-muted small mb-2 mt-2">Tersedia: <strong>{{ $lapangan->jumlah_lapangan }}</strong></p>
-                    <button type="button" class="btn btn-success w-100" style="background-color:#5cb85c"
-                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <p class="fw-semibold mb-0" style="color: #ffffff">Booking Lapangan</p>
-                    </button>
-                </div>
-            </div>
+            <livewire:booking.booking :lapangan='$lapangan'>
 
         </div>
-        <div class="modal fade" id="staticBackdrop"  data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable container">
-            <div class="modal-content container">
-                <div class="modal-header d-flex justify-content-center">
-                    <h5 class="modal-title text-center" id="bottomModalLabel">Pilih Tanggal Sewa</h5>
-                </div>
-                <div class="modal-body1">
-                    <form action="{{ route('booking') }}" method="POST" class="mt-2">
-                        @csrf
-                        <!-- Input Tanggal Sewa -->
-                        <div class="mb-3">
-                            <label  name="tanggal_sewa" for="tanggalPickerDisplay" class="form-label">Tanggal Sewa</label>
-                            <div class="input-group justify-content-center">
-                                <span class="input-group-text bg-light">
-                                    <i class="fas fa-calendar-alt"></i>
-                                </span>
-                                <div  name="tanggal_sewa" id="tanggalPickerDisplay" class="form-control w-50 bg-white" style="cursor: pointer;">
-                                    Pilih Tanggal
-                                </div>
-                            </div>
-                        </div>
-    
-                        <!-- Pilih Jam Sewa -->
-                        <div class="mb-3">
-                            <div class="mb-3">
-                                <label id="durasi" class="form-label">Durasi Sewa</label>
-                            </div>
-                            <label name="jam_sewa" for="jam_sewa" class="form-label">Jam Sewa</label>
-                            <div class="d-flex flex-wrap gap-0" id="timeButtons">
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="08:00" disabled>08:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="09:00" disabled>09:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="10:00">10:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="11:00">11:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="12:00">12:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="13:00">13:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="14:00">14:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="15:00">15:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="16:00">16:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="17:00">17:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="18:00">18:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="19:00">19:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="20:00">20:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="21:00">21:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="22:00">22:00</button>
-                                <button type="button" class="btn btn-outline-success btn-sm" data-time="23:00">23:00</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <!-- Tombol Batal -->
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    
-                    <!-- Tombol Lanjutkan -->
-                    <a href="/pembayaran">
-                        <button type="button" class="btn" style="background-color: #5cb85c; color:#ffffff">Lanjutkan</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     </div>
 
 

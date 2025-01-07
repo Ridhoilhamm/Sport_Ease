@@ -20,36 +20,25 @@ use App\Livewire\BookingForm;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('user.user');
-// });
 Route::get('/detailkategory', function () {
     return view('user.detail-kategory');
 });
 Route::get('/favorite/lapangan', function () {
     return view('user.favorite');
 });
-
-Route::get('/detaillapangan', function () {
-    return view('user.detail-lapangan');
-});
-// Route::get('/detailartikel', function () {
-//     return view('user.detail-artikel');
-// });
 Route::get('/pembayaran', function () {
     return view('user.pembayaran');
 });
+
+
 Route::get('/tes', function () {
     return view('user.tes');
 });
 Route::get('/informasi-pembayaran', function () {
     return view('user.informasi-pembayaran');
 });
-// Route::get('/tambahkartu', function () {
-    //     return view('user.tambah-kartu');
-    // });
-    Route::get('/kartudebit', function () {
-        return view('user.form-kartu-debit');
+Route::get('/kartudebit', function () {
+    return view('user.form-kartu-debit');
 });
 Route::get('/riwayat', function () {
     return view('user.riwayat');
@@ -58,19 +47,22 @@ Route::get('/riwayat-owner', function () {
     return view('owner.riwayat');
 })->name('owner-riwayat');
 
-    Route::middleware('auth')->group(function (): void {
-        
-        Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
-    });
+Route::middleware('auth')->group(function (): void {
+
+    Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
+});
 Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
 
-Route::get('/data-diri',[DatadiriController::class, 'index'])->name('datadiri');
+Route::get('/data-diri', [DatadiriController::class, 'index'])->name('datadiri');
 
 
 
 Route::get('/kategory', [LapanganController::class, 'index'])->name('lapangan');
 Route::get('/detaillapangan/{id}', [LapanganController::class, 'show'])->name('detaillapangan');
-Route::post('/detaillapangan', [LapanganController::class, 'BookingLapangan'])->name('booking');
+Route::post('/detaillapangan', [LapanganController::class, 'storelapangan'])->name('storelapangan');
+Route::get('/pembayaran', [LapanganController::class, 'showPembayaran'])->name('user.pembayaran');
+
+
 
 //halaman artikel
 Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel');
@@ -95,6 +87,3 @@ Route::get('/owner/edit/{id}', [lapanganOwnerController::class, 'editlapangan'])
 
 // logout
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-
-
-

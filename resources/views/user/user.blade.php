@@ -56,16 +56,24 @@
             height: auto;
             object-fit: cover;
         }
+
         a {
-    text-decoration: none;
-    color: inherit;
+            text-decoration: none;
+            color: inherit;
+        }
+        footer {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
-    </style>
+
+    </style>   
 @endsection
 
 {{-- <img src="{{ asset('image/download.jpeg') }}" alt="" style="height:100px; width:150px;" --}}
 {{-- style="background-color: #2A2A2A; padding:45px;"> --}}
 @section('content')
+<div>
     <div class="bg-white">
 
         <!-- Promo Section -->
@@ -105,25 +113,26 @@
             <p href="" class="ms-auto mt-1 mb-0 text-success">Lihat Semua</p>
         </div>
         <div class="row row-cols-4 g-2 text-center items-center blackdop-blur-sm ">
-           <a href="/detailkategory">
+            <a href="/detailkategory">
 
-               <div class="col">
-                   <div class="card rounded border-0  " style="padding: 22px">
-                       <div class="d-flex justify-content-center align-items-center " style="color: #A9DA05;">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
-                           fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                           stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-football">
-                           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                           <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                           <path d="M12 7l4.76 3.45l-1.76 5.55h-6l-1.76 -5.55z" />
-                           <path
-                           d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45" />
-                        </svg>
+                <div class="col">
+                    <div class="card rounded border-0  " style="padding: 22px">
+                        <div class="d-flex justify-content-center align-items-center " style="color: #A9DA05;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-ball-football">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                                <path d="M12 7l4.76 3.45l-1.76 5.55h-6l-1.76 -5.55z" />
+                                <path
+                                    d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45" />
+                            </svg>
+                        </div>
                     </div>
+                    <p class="mt-1" style="font-size:12px;">Futsal</p>
                 </div>
-                <p class="mt-1" style="font-size:12px;">Futsal</p>
-            </div>
-        </a>
+            </a>
             <div class="col">
                 <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
@@ -253,16 +262,15 @@
             <div style="overflow-x: auto; white-space: nowrap; position: relative;">
                 <div style="display: inline-flex; min-width: 100%; width: fit-content;">
                     <!-- Slide 1 -->
-                    @foreach ($rekomendasi as $lapangan )
-                        
-                    <div style="flex-shrink: 0; width: 120px; margin-right: 10px; position: relative;">
-                        <img src="{{ asset('storage/'.$lapangan->foto) }}" alt="Lapangan" class="rounded d-block"
-                        style="height: 140px; width: 100%; border: none; box-shadow: none; object-fit: cover;">
-                        <div class="mt-1 text-center">
-                            <p class="mb-0 " style="font-size: 12px">{{ $lapangan->jenis }}</p>
-                            
+                    @foreach ($rekomendasi as $lapangan)
+                        <div style="flex-shrink: 0; width: 120px; margin-right: 10px; position: relative;">
+                            <img src="{{ asset('storage/' . $lapangan->foto) }}" alt="Lapangan" class="rounded d-block"
+                                style="height: 140px; width: 100%; border: none; box-shadow: none; object-fit: cover;">
+                            <div class="mt-1 text-center">
+                                <p class="mb-0 " style="font-size: 12px">{{ $lapangan->jenis }}</p>
+
+                            </div>
                         </div>
-                    </div>
                     @endforeach
 
                     <!-- Slide 2 -->
@@ -284,40 +292,40 @@
 
         <div class="col mb-2">
             @foreach ($terdekat as $data)
-            <div class="card mb-2 me-3 ms-3 border-2 position-relative"
-                style=" border-top-left-radius: 16px; border-bottom-left-radius: 16px;">
-                <a href="{{ route('detaillapangan', $data->id) }}">
-                <div class="d-flex">
-                    <!-- Bagian Gambar -->
-                    <div style="flex-shrink: 0;">
-                        <img src="{{ asset('storage/'.$data->foto) }}"
-                            style="height: 100%; width: 110px; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
-                            alt="image artikel">
-                    </div>
-                    <!-- Bagian Teks -->
-                    <div class="ms-2 text-start mt-2" style="flex-grow: 1;">
-                        <div class="ms-2">
-                            <p class="mb-0" style="font-size:16px;">{{ $data->name }}</p>
-                            <p class="mb-4 text-secondary" style="font-size:12px;">{{ $data->lokasi_tempat }}</p>
+                <div class="card mb-2 me-3 ms-3 border-2 position-relative"
+                    style=" border-top-left-radius: 16px; border-bottom-left-radius: 16px;">
+                    <a href="{{ route('detaillapangan', $data->id) }}">
+                        <div class="d-flex">
+                            <!-- Bagian Gambar -->
+                            <div style="flex-shrink: 0;">
+                                <img src="{{ asset('storage/' . $data->foto) }}"
+                                    style="height: 100%; width: 110px; object-fit: cover; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
+                                    alt="image artikel">
+                            </div>
+                            <!-- Bagian Teks -->
+                            <div class="ms-2 text-start mt-2" style="flex-grow: 1;">
+                                <div class="ms-2">
+                                    <p class="mb-0" style="font-size:16px;">{{ $data->name }}</p>
+                                    <p class="mb-4 text-secondary" style="font-size:12px;">{{ $data->lokasi_tempat }}</p>
+                                </div>
+                                <p class=" ms-2 mb-0 text-secondary" style="font-size:12px;">2 KM</p>
+                                <p class=" ms-2 mb-2 mt-0" style="font-size:12px;">Rp.{{ $data->harga }}</p>
+                            </div>
+                            <!-- Button (hidden from flex) -->
                         </div>
-                        <p class=" ms-2 mb-0 text-secondary" style="font-size:12px;">2 KM</p>
-                        <p class=" ms-2 mb-2 mt-0" style="font-size:12px;">Rp.{{ $data->harga }}</p>
-                    </div>
-                    <!-- Button (hidden from flex) -->
-                </div>
-                <!-- Button -->
+                        <!-- Button -->
 
-                    <button type="button" class="btn btn-primary position-absolute"
-                        style="height: 30px; width: 70px; font-size: 12px; padding: 0; bottom: 8px; right: 10px;">
-                        Pesan
-                    </button>
-                </a>
-            </div>
+                        <button type="button" class="btn btn-primary position-absolute"
+                            style="height: 30px; width: 70px; font-size: 12px; padding: 0; bottom: 8px; right: 10px;">
+                            Pesan
+                        </button>
+                    </a>
+                </div>
             @endforeach
         </div>
-        
-        
-     
+
+
+
 
 
     </div>
@@ -334,21 +342,24 @@
                     <div style="display: inline-flex; min-width: 100%; width: fit-content;" class="mt-0">
                         <!-- Slide 1 -->
                         @foreach ($seputarOlahraga as $news)
-                        <a href="{{ route('artikel-show', $news->id) }}">
-                        <div style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
-                            <img src="{{ asset('storage/'.$news->image_artikel) }}" alt="L. volly" class="rounded d-block"
-                            style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover; padding-bottom:37px">
+                            <a href="{{ route('artikel-show', $news->id) }}">
+                                <div
+                                style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
+                                <img src="{{ asset('storage/' . $news->image_artikel) }}" alt="L. volly"
+                                    class="rounded d-block"
+                                    style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover;">
                             
-                            <div
-                            class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1">
-                            <p class="mb-0" style="font-size: 12px">{{ $news->judul_artikel }}</p>
-                            <p class="mb-0" style="font-size: 10px">{{ Str::limit($news->isi_artikel, 25) }}</p>
-                        </div>
-                    
-                    </div>
-                    @endforeach
+                                <!-- Text Container -->
+                                <div
+                                    class="position-absolute rounded-2 bottom-0 start-0 text-white bg-dark bg-opacity-80 fs-9 w-100 text-center p-1"
+                                    style="transform: translateY(25%); padding-top: 10px; padding-bottom: 5px"> <!-- Geser ke atas 25% -->
+                                    <p class="mb-0" style="font-size: 12px; margin-bottom: -10px;">{{ $news->judul_artikel }}</p>
+                                </div>
+                            </div>
+                            
+                        @endforeach
 
-                      
+
 
 
 
@@ -358,19 +369,13 @@
                 </div>
         </div>
     </section>
-    </div>
-    </div>
-
-    {{-- Artikel --}}
-
-
-    </div>
-
-    </section>
+    
 
 
 
 
 
-    </div>
+</div>
 @endsection
+
+   
