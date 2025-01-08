@@ -125,9 +125,19 @@
             transition: background-color 0.3s ease;
             /* Efek transisi untuk tombol */
         }
+        #header hallo,
+        #header button {
+            transition: background-color 0.3s ease;
+            /* Efek transisi untuk tombol */
+        }
 
         /* Penyesuaian tombol ketika digulir */
         #header.scrolled a,
+        #header.scrolled button {
+            background-color: rgba(255, 255, 255, 0.953);
+            /* Warna tombol */
+        }
+        #header.scrolled hallo,
         #header.scrolled button {
             background-color: rgba(255, 255, 255, 0.953);
             /* Warna tombol */
@@ -138,6 +148,14 @@
             text-decoration: none;
             /* Menghilangkan garis bawah */
         }
+      
+        hallo{
+            color: inherit;
+            /* Mengambil warna dari elemen pembungkus */
+            text-decoration: none;
+            /* Menghilangkan garis bawah */
+        }
+      
     </style>
 @endsection
 
@@ -155,8 +173,12 @@
                         <path d="M15 6l-6 6l6 6" />
                     </svg>
                 </a>
+                <div  class="d-flex  w-100 top-0 start-0 bg-transparent transition-all" >
+                    <p id="hallo" style="font-size: 18px;" class="ms-2 fw-medium mb-0  items-transparent transition-all">{{ $artikel->judul_artikel }}</p>
+                </div>
             </div>
         </div>
+        
         <img src="{{ asset('storage/'.$artikel->image_artikel) }}" alt="Slide 02" class="splide__image1" />
 
          

@@ -61,12 +61,15 @@
             text-decoration: none;
             color: inherit;
         }
-        footer {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+.item:last-child {
+    margin-right: 0; /* Hilangkan margin kanan untuk elemen terakhir */
 }
-
+.limit-text {
+    white-space: nowrap;          /* Mencegah teks membungkus ke baris berikutnya */
+    overflow: hidden;             /* Menyembunyikan teks yang melebihi batas elemen */
+    text-overflow: ellipsis;      /* Menambahkan elipsis (...) di akhir teks yang terpotong */
+    max-width: 150px;             /* Menentukan lebar maksimal elemen */
+}
     </style>   
 @endsection
 
@@ -110,10 +113,11 @@
     <div class="container px-3">
         <div class="d-flex align-items-center">
             <p class="mt-3 mb-2" style="font-size:20px;">Kategori</p>
-            <p href="" class="ms-auto mt-1 mb-0 text-success">Lihat Semua</p>
+            <a href="/kategory" class="ms-auto mt-1 mb-0 text-success">Lihat Semua</a>
         </div>
+        <form action="{{ url('jenis') }}">
         <div class="row row-cols-4 g-2 text-center items-center blackdop-blur-sm ">
-            <a href="/detailkategory">
+            <a href="/lapangan/cari?query=futsal">
 
                 <div class="col">
                     <div class="card rounded border-0  " style="padding: 22px">
@@ -134,27 +138,31 @@
                 </div>
             </a>
             <div class="col">
-                <div class="card rounded border-0  " style="padding: 22px">
-                    <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-ball-basketball">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                            <path d="M5.65 5.65l12.7 12.7" />
-                            <path d="M5.65 18.35l12.7 -12.7" />
-                            <path d="M12 3a9 9 0 0 0 9 9" />
-                            <path d="M3 12a9 9 0 0 1 9 9" />
-                        </svg>
+                <a href="/lapangan/cari?query=basket">
+                    <div class="card rounded border-0  " style="padding: 22px">
+                        <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-ball-basketball">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                                <path d="M5.65 5.65l12.7 12.7" />
+                                <path d="M5.65 18.35l12.7 -12.7" />
+                                <path d="M12 3a9 9 0 0 0 9 9" />
+                                <path d="M3 12a9 9 0 0 1 9 9" />
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <p class="mt-1" style="font-size:12px;">Basket</p>
+                    <p class="mt-1" style="font-size:12px;">Basket</p>
+                </a>
             </div>
-            <div class="col">
-                <div class="card rounded border-0  " style="padding: 22px">
-                    <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
+            <a href="lapangan/cari?query=volly">
+
+                <div class="col">
+                    <div class="card rounded border-0  " style="padding: 22px">
+                        <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
                             stroke-linejoin="round"
                             class="icon icon-tabler icons-tabler-outline icon-tabler-ball-volleyball">
@@ -171,6 +179,7 @@
                 </div>
                 <p class="mt-1" style="font-size:12px;">Volly</p>
             </div>
+        </a>
             <div class="col backdrop-blur-2xl">
                 <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
@@ -194,9 +203,9 @@
                 <div class="card rounded border-0  " style="padding: 22px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
                         <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                            stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-tennis">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-ball-tennis">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
                             <path d="M6 5.3a9 9 0 0 1 0 13.4" />
                             <path d="M18 5.3a9 9 0 0 0 0 13.4" />
@@ -206,12 +215,14 @@
                 <p class="mt-1" style="font-size:12px;">Tenis</p>
             </div>
             <div class="col m-0">
+                <a href="/lapangan/cari?query=badminton">
                 <div class="card rounded border-0  " style="padding: 28px">
                     <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
                         <img src="{{ asset('image/shuttlecock.png') }}" style="width: 30px; height:30px;" alt="">
                     </div>
                 </div>
                 <p class="mt-1" style="font-size:12px;">Badminton</p>
+            </a>
             </div>
             <div class="col m-0">
                 <div class="card  rounded border-0  " style="padding: 22px">
@@ -246,7 +257,7 @@
                 <p class="mt-1" style="font-size:12px;">Biliard</p>
             </div>
         </div>
-
+        </form>
 
     </div>
     <!-- Quick Transfer -->
@@ -255,7 +266,7 @@
         <div class="m-0">
             <div class="d-flex align-items-center">
                 <h5 class="mt-3 mb-0 ms-3" style="font-size: 20px">Rekomedasi</h5>
-                <p href="" class="ms-auto mt-4 mb-1 me-3" style="color: #A9DA05; ">Lihat semua</p>
+                <a href="/kategory" class="ms-auto mt-4 mb-1 me-3" style="color: #A9DA05; ">Lihat semua</a>
             </div>
         </div>
         <section class="px-3 pt-2">
@@ -263,14 +274,16 @@
                 <div style="display: inline-flex; min-width: 100%; width: fit-content;">
                     <!-- Slide 1 -->
                     @foreach ($rekomendasi as $lapangan)
-                        <div style="flex-shrink: 0; width: 120px; margin-right: 10px; position: relative;">
+                    <a href={{ route('detaillapangan', $lapangan->id) }}>
+                        <div style="flex-shrink: 0; width: 120px; {{ $loop->last ? '' : 'margin-right: 10px;' }}  position: relative;">
                             <img src="{{ asset('storage/' . $lapangan->foto) }}" alt="Lapangan" class="rounded d-block"
                                 style="height: 140px; width: 100%; border: none; box-shadow: none; object-fit: cover;">
                             <div class="mt-1 text-center">
-                                <p class="mb-0 " style="font-size: 12px">{{ $lapangan->jenis }}</p>
+                                <p class="mb-0 limit-text " style="font-size: 12px">{{ $lapangan->name }}</p>
 
                             </div>
                         </div>
+                    </a>
                     @endforeach
 
                     <!-- Slide 2 -->
@@ -335,7 +348,7 @@
         <div class="bg-white" style="padding-bottom:40px; overflow: hidden; ">
             <div class="d-flex align-items-center">
                 <p style="font-size:20px " class="mt-0 mb-1 ms-3">Seputar Olahraga</p>
-                <a href="{{ route('artikel') }}" class="ms-auto mt-1 mb-0 text-success me-3">Lihat Semua</a>
+                <a href="{{ route('artikel') }}" class="ms-auto mt-1 mb-1 text-success me-3">Lihat Semua</a>
             </div>
             <section class="px-3 pt-2" style="padding-bottom: 10px">
                 <div style="overflow-x: auto; white-space: nowrap; position: relative;" class="pt-0">
@@ -343,8 +356,7 @@
                         <!-- Slide 1 -->
                         @foreach ($seputarOlahraga as $news)
                             <a href="{{ route('artikel-show', $news->id) }}">
-                                <div
-                                style="flex-shrink: 0; height:180px; width: 250px; margin-right: 10px; position: relative;">
+                                <div style="flex-shrink: 0; height:180px; width: 250px; {{ $loop->last ? '' : 'margin-right: 10px;' }} position: relative;">
                                 <img src="{{ asset('storage/' . $news->image_artikel) }}" alt="L. volly"
                                     class="rounded d-block"
                                     style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover;">
@@ -369,12 +381,6 @@
                 </div>
         </div>
     </section>
-    
-
-
-
-
-
 </div>
 @endsection
 

@@ -18,11 +18,12 @@ use App\Http\Controllers\UserController;
 use App\Livewire\Authh;
 use App\Livewire\BookingForm;
 use Illuminate\Routing\Route as RoutingRoute;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/detailkategory', function () {
-    return view('user.detail-kategory');
-});
+// Route::get('/detailkategory', function () {
+//     return view('user.detail-kategory');
+// });
 Route::get('/favorite/lapangan', function () {
     return view('user.favorite');
 });
@@ -58,6 +59,9 @@ Route::get('/data-diri', [DatadiriController::class, 'index'])->name('datadiri')
 
 
 Route::get('/kategory', [LapanganController::class, 'index'])->name('lapangan');
+// Route::get('/kategory/{}', [LapanganController::class, 'cariLapangan'])->name('query.lapangan');
+Route::get('/lapangan/cari', [LapanganController::class, 'cari']);
+Route::get('/detailkategory', [LapanganController::class, 'index'])->name('detail.kategory');
 Route::get('/detaillapangan/{id}', [LapanganController::class, 'show'])->name('detaillapangan');
 Route::post('/detaillapangan', [LapanganController::class, 'storelapangan'])->name('storelapangan');
 Route::get('/pembayaran', [LapanganController::class, 'showPembayaran'])->name('user.pembayaran');
@@ -87,3 +91,4 @@ Route::get('/owner/edit/{id}', [lapanganOwnerController::class, 'editlapangan'])
 
 // logout
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+

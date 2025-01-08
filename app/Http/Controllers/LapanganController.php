@@ -12,8 +12,31 @@ class LapanganController extends Controller
     public function index()
     {
         $lapangan = Lapangan::get();
-        return view('user.kategori', compact('lapangan'));
+        $notFound = $lapangan->isEmpty();
+        return view('user.kategori', compact('lapangan','notFound'));
     }
+    public function jenis(Request $request)
+    {
+        $jenis = $request->input('jenis'); // Ambil parameter jenis dari URL atau form
+        $lapangan = Lapangan::where('jenis', $jenis)->get(); // Filter berdasarkan jenis
+        return view('user.kategori', compact('detail.kategory'));
+    }
+
+    public function cari(Request $request)
+    {
+        
+        $query = $request->input('query');
+        
+        // Cari lapangan berdasarkan nama
+        $lapangan = Lapangan::where('name', 'like', "%{$query}%")->get();
+        // dd($lapangan);  // Untuk memeriksa hasil query
+        
+        // Jika tidak ditemukan, set flag notFound
+        $notFound = $lapangan->isEmpty();
+        
+        return view('user.kategori', compact('lapangan', 'notFound'));
+    }
+
 
     public function show($id)
     {
