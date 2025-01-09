@@ -82,11 +82,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer d-flex justify-content-between">
+                    <p class="mb-0">
+                        Total Pembayaran <br/>
+                        Rp.
+                    {{ $lapangan->harga}}     
+                </p>
                     <button type="button" class="btn fw-semibold" style="background-color: #a8da05; color: #ffff" wire:click="simpanTransaksi" data-bs-dismiss="modal">
                         Bayar
                     </button>
                 </div>
+                
             </div>
         </div>
     </div>

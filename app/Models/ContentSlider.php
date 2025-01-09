@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class detaillapangan extends Model
+class ContentSlider extends Model
 {
-    use HasFactory;    protected $guarded=[];
+    use HasFactory;
+
+    protected $guarded=[];
 }

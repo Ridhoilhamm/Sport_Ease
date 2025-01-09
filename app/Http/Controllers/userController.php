@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\artikel;
+use App\Models\ContentSlider;
 use App\Models\Lapangan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,13 +15,14 @@ class UserController extends Controller
     // Menampilkan halaman dashboard user
     public function dashboard()
     {
+        $slider = ContentSlider::get();
         $terdekat = Lapangan::latest()->take(3)->get(); // Atau sesuaikan query sesuai kebutuhan
         $rekomendasi = Lapangan::latest()->take(6)->get();
         // Ambil data berita seputar olahraga
         $seputarOlahraga = artikel::latest()->take(5)->get(); // Atau sesuaikan query sesuai kebutuhan
 
         // Kirim data ke view
-        return view('user.user', compact('terdekat', 'seputarOlahraga','rekomendasi'));
+        return view('user.user', compact('terdekat', 'seputarOlahraga','rekomendasi','slider'));
         
     }
 

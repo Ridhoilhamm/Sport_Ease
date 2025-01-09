@@ -8,7 +8,7 @@ use Livewire\Component;
 class TransaksiPembayaran extends Component
 {
 
-    public $user_id, $lapangan_id, $jamSewa, $metode_pembayaran, $no_rekening, $harga, $nama_bank, $tanggalSewa;
+    public $user_id, $lapangan_id, $jamSewa, $metode_pembayaran, $no_rekening, $nama_bank, $tanggalSewa;
     public $lapangan;
     public $user;
 

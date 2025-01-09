@@ -18,7 +18,6 @@
                 overflow-x: auto;
             }
         }
-
     </style>
 @endsection
 
@@ -217,63 +216,58 @@
 
             <div class="ms-3 me-3 mt-2">
                 @if ($notFound)
-                <p class="text-center text-danger" style="padding-top: 10px;">Tidak ada lapangan ditemukan untuk
-                    "{{ request()->query('query') }}"</p>
-                    @else
-                <div class="row row-cols-2 g-2 bg-white">
-                    
-                   
+                    <p class="text-center text-danger" style="padding-top: 10px;">Tidak ada lapangan ditemukan untuk
+                        "{{ request()->query('query') }}"</p>
+                @else
+                    <div class="row row-cols-2 g-2 bg-white">
 
-                       
-                        
-                        
-                    @foreach ($lapangan as $no => $product)
-                    <a href="{{ route('detaillapangan', $product->id) }}">
-                        
-                        <div class="col mt-1">
-                            <div class="card shadow-sm" style="max-width: 200px;">
-                                <div class="position-relative">
-                                    <img src="{{ asset('storage/' . $product->foto) }}" alt="{{ $product->name }}"
-                                    style="width:100%; height: 130px; object-fit: cover; font-size: 12px;"
-                                    class="rounded-top">
-                                        @if (!empty($product->harga))
-                                            {{-- <span class="badge bg-danger position-absolute top-0 start-0 m-2">Terbaru</span> --}}
-                                        @endif
-                                    </div>
-                                    <div class="card-body mb-0 me-2 ms-2" style="padding: 5px">
-                                        <!-- Hilangkan padding-bottom -->
-                                        <h6 class="card-title mb-2 mt-1 text-truncate" style="font-size: 14px;">
-                                            {{ $product->name }}</h6>
-                                            <p class="card-text  mb-1 text-success fw-medium text-center"
-                                            style="font-size: 16px;">
-                                            {{ $product->harga }}
+
+
+
+
+
+                        @foreach ($lapangan as $no => $product)
+                            <a href="{{ route('detaillapangan', $product->id) }}">
+
+                                <div class="col mt-1">
+                                    <div class="card shadow-sm" style="max-width: 200px;">
+                                        <div class="position-relative">
+                                            <img src="{{ asset('storage/' . $product->foto) }}" alt="{{ $product->name }}"
+                                                style="width:100%; height: 130px; object-fit: cover; font-size: 12px;"
+                                                class="rounded-top">
                                             @if (!empty($product->harga))
+                                                {{-- <span class="badge bg-danger position-absolute top-0 start-0 m-2">Terbaru</span> --}}
                                             @endif
-                                        </p>
-                                        
-                                        
-                                        
-                                        
-                                        <button type="button" class="btn btn-primary w-100 mt-1"
-                                            style="height: 30px; font-size: 12px; padding: 0; line-height: 1;">
-                                            Pesan
-                                        </button>
-
+                                        </div>
+                                        <div class="card-body mb-0 me-2 ms-2" style="padding: 5px">
+                                            <!-- Hilangkan padding-bottom -->
+                                            <h6 class="card-title mb-2 mt-1 text-truncate" style="font-size: 14px;">
+                                                {{ $product->name }}</h6>
+                                            <p class="card-text  mb-1 text-success fw-medium text-center"
+                                                style="font-size: 16px;">
+                                                {{ $product->harga }}
+                                                @if (!empty($product->harga))
+                                                @endif
+                                            </p>
+                                            <button type="button" class="btn btn-primary w-100 mt-1"
+                                                style="height: 30px; font-size: 12px; padding: 0; line-height: 1;">
+                                                Pesan
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
                         @endforeach
-                        @endif{{-- @foreach ([['title' => 'Hokky Lapagan Futsal Hokky Lapagan Futsal', 'price' => 'Rp.120.000/Jam', 'discount' => '5%', 'rating' => '4.9', 'sold' => '56', 'image' => asset('image/futsal.jpeg')], ['title' => 'Lapangan Volly', 'price' => 'Rp. 60.000/Jam', 'discount' => '7%', 'rating' => '4.9', 'sold' => '34', 'image' => asset('image/lapangan volly.jpeg')], ['title' => 'Kolam Renang', 'price' => 'Rp. 80.000/Jam', 'discount' => '', 'rating' => '4.8', 'sold' => '20', 'image' => asset('image/kolam-renang.jpg')], ['title' => 'Lapangan Golf ', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-golf.jpg')], ['title' => 'Lapangan Tennis ', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-tenis.jpg')], ['title' => 'Lapangan Tenis Meja', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-tmeja.jpg')]] as $product) --}}
-                </div>
-
-                <!-- Tambahkan Card Lainnya -->
+                @endif{{-- @foreach ([['title' => 'Hokky Lapagan Futsal Hokky Lapagan Futsal', 'price' => 'Rp.120.000/Jam', 'discount' => '5%', 'rating' => '4.9', 'sold' => '56', 'image' => asset('image/futsal.jpeg')], ['title' => 'Lapangan Volly', 'price' => 'Rp. 60.000/Jam', 'discount' => '7%', 'rating' => '4.9', 'sold' => '34', 'image' => asset('image/lapangan volly.jpeg')], ['title' => 'Kolam Renang', 'price' => 'Rp. 80.000/Jam', 'discount' => '', 'rating' => '4.8', 'sold' => '20', 'image' => asset('image/kolam-renang.jpg')], ['title' => 'Lapangan Golf ', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-golf.jpg')], ['title' => 'Lapangan Tennis ', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-tenis.jpg')], ['title' => 'Lapangan Tenis Meja', 'price' => 'Rp 75.000/Jam', 'discount' => '', 'rating' => '4.7', 'sold' => '10', 'image' => asset('image/lapangan-tmeja.jpg')]] as $product) --}}
             </div>
 
-
-            <!-- Footer Navigation -->
+            <!-- Tambahkan Card Lainnya -->
         </div>
-    @endsection
-    @php
-        $hideNavbar = true;
-    @endphp
+
+
+        <!-- Footer Navigation -->
+    </div>
+@endsection
+@php
+    $hideNavbar = true;
+@endphp

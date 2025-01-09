@@ -125,16 +125,16 @@
 
         /* Warna tombol ketika dipilih */
         /* .btn.selected {
-                                                        background-color: #5cb85c;
-                                                        color: white;
-                                                        border-color: #5cb85c;
-                                                    }
+                                                            background-color: #5cb85c;
+                                                            color: white;
+                                                            border-color: #5cb85c;
+                                                        }
 
-                                                    .btn:hover {
-                                                        color: #495057;
-                                                        background-color: #f8f9fa;
-                                                        border-color: var(--bs-btn-hover-border-color);
-                                                    } */
+                                                        .btn:hover {
+                                                            color: #495057;
+                                                            background-color: #f8f9fa;
+                                                            border-color: var(--bs-btn-hover-border-color);
+                                                        } */
         /* Default style untuk semua button */
         .btn {
             padding: 10px 10px;
@@ -237,25 +237,15 @@
 
                 <!-- Splide Slides -->
                 <div class="splide__track">
-
                     <ul class="splide__list">
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/kolam-renang.jpg') }}" alt="Slide 01" class="splide__image1 " />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/badminton.jpg') }}" alt="Slide 02" class="splide__image1" />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/lapangan volly.jpeg') }}" alt="Slide 03" class="splide__image1 " />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/download.jpeg') }}" alt="Slide 04" class="splide__image1" />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/lapangan-golf.jpg') }}" alt="Slide 05" class="splide__image1 " />
-                        </li>
-                    </ul>
-                </div>
+                            @foreach ($lapangan->gambar_lapangan as $gambar)
+                            <li class="splide__slide">
+                                <img src="{{ asset('storage/' . $gambar->url) }}" alt="Slide 01" class="splide__image1 " />
+
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
             </section>
 
 
@@ -339,8 +329,8 @@
                                         class="text-center">
                                         <div class="text-center mt-1 mr-0">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                                stroke-linecap="round" stroke-linejoin="round"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
                                                 class="icon icon-tabler icons-tabler-outline icon-tabler-parking">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                 <path
@@ -440,7 +430,19 @@
 
         </div>
     </div>
-
+    <script>
+        const header = document.getElementById('header');
+    
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.style.backgroundColor = 'white'; // Ubah menjadi putih
+                header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; // Tambahkan bayangan (opsional)
+            } else {
+                header.style.backgroundColor = 'transparent'; // Kembali ke transparan
+                header.style.boxShadow = 'none'; // Hilangkan bayangan
+            }
+        });
+    </script>
 
 
     {{-- modals --}}

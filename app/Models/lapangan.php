@@ -15,4 +15,8 @@ class Lapangan extends Model
     {
         return $this->hasMany(detaillapangan::class);  // Karena satu lapangan bisa memiliki banyak detail
     }
+    public function gambar_lapangan()
+    {
+        return $this->hasMany(gambar_lapangan::class, 'lapangan_id', 'id');
+    }
 }

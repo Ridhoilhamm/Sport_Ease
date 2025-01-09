@@ -7,6 +7,8 @@ use App\Filament\Resources\LapanganResource\RelationManagers;
 use App\Models\Lapangan;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -31,6 +33,16 @@ class LapanganResource extends Resource
                 TextInput::make('name')->label('Nama Lapangan')->placeholder('Masukan Nama Lapangan'),
                 TextInput::make('jenis')->label('Jenis Lapangan')->placeholder('Masukan Jenis Lapangan'),
                 FileUpload::make('foto')->label('Image')->directory('lapangans')
+                    ->required(),
+                    Repeater::make('gambar') // Menggunakan repeater untuk banyak gambar
+                    ->relationship('gambar_lapangan') // Relasi ke tabel gambar
+                    ->schema([
+                        FileUpload::make('url')
+                            ->label('Upload Gambar')
+                            ->directory('lapangan_images') // Folder penyimpanan
+                            ->required(),
+                    ])
+                    ->label('Gambar Lapangan')
                     ->required(),
                 TextInput::make('lokasi_tempat')->label('Lokasi')->placeholder('Masukkan Lokasi Tempat'),
                 TextInput::make('harga')->label('Harga')->placeholder('Masukkan Harga')->numeric(),

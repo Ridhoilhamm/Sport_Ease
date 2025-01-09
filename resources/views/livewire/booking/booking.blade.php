@@ -43,11 +43,12 @@
                                 <div id="tanggalPickerDisplay" class="form-control w-50 bg-white"
                                     style="cursor: pointer;>
 
-                                    <input type="date" class="form-control" wire:model.live="date">
+                                    <<input type="date" class="form-control" wire:model="date">
+
                                     pilih Tanggal
+                           
                                 </div>
                             </div>
-
                             @error('date')
                                 {{ $message }}
                             @enderror

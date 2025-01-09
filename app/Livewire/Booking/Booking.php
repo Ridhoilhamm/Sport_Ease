@@ -62,7 +62,6 @@ class Booking extends Component
         $data = [
             'tanggal_sewa' => $this->date,
             'jam_sewa' => $this->get_time,
-            'harga' => $harga,
             'lapangan' => $lapangan,
         ];
     
