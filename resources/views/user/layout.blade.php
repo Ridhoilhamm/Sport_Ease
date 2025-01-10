@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -22,7 +23,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
 
     @livewireStyles
+    @stack('styles')
     <style>
+        
+    .selected-time {
+        background-color: #28a745 !important;
+        color: white;
+    }
+
+    .selected-time:hover {
+        background-color: #218838 !important;
+    }
+
         body {
             color: rgb(57, 47, 47);
         }
@@ -555,8 +567,8 @@
 <body style="background-color: hsl(210, 17%, 93%);">
     <div style="font-family: 'Ubuntu', sans-serif;">
         <div>
-
-            @livewireScripts
+            
+            
             @yield('styles')
 
             @if (!isset($hideNavbar) || !$hideNavbar)

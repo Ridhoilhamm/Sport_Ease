@@ -77,6 +77,33 @@
             max-width: 150px;
             /* Menentukan lebar maksimal elemen */
         }
+
+        .notification-bar {
+
+            background-color: #fefefe;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+            padding: 10px;
+        }
+
+        .notification-header {
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .notification-content strong {
+            font-size: 14px;
+            color: #000;
+        }
+
+        .notification-content p {
+            font-size: 13px;
+            color: #333;
+            margin: 0;
+        }
     </style>
 @endsection
 
@@ -93,33 +120,38 @@
             <div class="container px-3" style="margin-top:56px; padding-bottom:10px;">
                 <section class="splide position-relative">
                     <!-- Left Button -->
-    
+
                     <!-- Splide Slides -->
                     <div class="splide__track">
                         <ul class="splide__list">
-                                @foreach ($slider as $gambar)
+                            @foreach ($slider as $gambar)
                                 <li class="splide__slide">
-                                    <img src="{{ asset('storage/' . $gambar->image1) }}" alt="Slide 01" class="splide__image " />
+                                    <img src="{{ asset('storage/' . $gambar->image1) }}" alt="Slide 01"
+                                        class="splide__image " />
                                 </li>
                                 <li class="splide__slide">
-                                    <img src="{{ asset('storage/' . $gambar->image2) }}" alt="Slide 01" class="splide__image " />
-    
-                                </li>
-                                <li class="splide__slide">
-                                    <img src="{{ asset('storage/' . $gambar->image3) }}" alt="Slide 01" class="splide__image " />
-    
-                                </li>
-                                <li class="splide__slide">
-                                    <img src="{{ asset('storage/' . $gambar->image4) }}" alt="Slide 01" class="splide__image " />
-    
-                                </li>
-                                <li class="splide__slide">
-                                    <img src="{{ asset('storage/' . $gambar->image5) }}" alt="Slide 01" class="splide__image " />
+                                    <img src="{{ asset('storage/' . $gambar->image2) }}" alt="Slide 01"
+                                        class="splide__image " />
 
                                 </li>
-                                @endforeach
-                            </ul>
-                        </div>
+                                <li class="splide__slide">
+                                    <img src="{{ asset('storage/' . $gambar->image3) }}" alt="Slide 01"
+                                        class="splide__image " />
+
+                                </li>
+                                <li class="splide__slide">
+                                    <img src="{{ asset('storage/' . $gambar->image4) }}" alt="Slide 01"
+                                        class="splide__image " />
+
+                                </li>
+                                <li class="splide__slide">
+                                    <img src="{{ asset('storage/' . $gambar->image5) }}" alt="Slide 01"
+                                        class="splide__image " />
+
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </section>
 
 
@@ -197,40 +229,45 @@
                         </div>
                     </a>
                     <div class="col backdrop-blur-2xl">
-                        <div class="card rounded border-0  " style="padding: 22px">
-                            <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="icon icon-tabler icons-tabler-outline icon-tabler-bowling">
-                                    <path stroke="none" d="M0 0h30v30H0z" fill="none" />
-                                    <path d="M7 11v.01" />
-                                    <path d="M11 10v.01" />
-                                    <path d="M10 14v.01" />
-                                    <path d="M11.059 6.07a8 8 0 1 0 .32 15.81" />
-                                    <path d="M15.969 9h4" />
-                                    <path
-                                        d="M14.969 5c0 1.5 1 2 1 4c0 2.5 -2 4.5 -2 7c0 2.6 1.9 6 1.9 6h4.1s2 -3.4 2 -6c0 -2.5 -2 -4.5 -2 -7c0 -2 1 -2.5 1 -4a3 3 0 1 0 -6 0" />
-                                </svg>
+                        <a href="/lapangan/cari?query=bowling">
+                            <div class="card rounded border-0  " style="padding: 22px">
+                                <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-bowling">
+                                        <path stroke="none" d="M0 0h30v30H0z" fill="none" />
+                                        <path d="M7 11v.01" />
+                                        <path d="M11 10v.01" />
+                                        <path d="M10 14v.01" />
+                                        <path d="M11.059 6.07a8 8 0 1 0 .32 15.81" />
+                                        <path d="M15.969 9h4" />
+                                        <path
+                                            d="M14.969 5c0 1.5 1 2 1 4c0 2.5 -2 4.5 -2 7c0 2.6 1.9 6 1.9 6h4.1s2 -3.4 2 -6c0 -2.5 -2 -4.5 -2 -7c0 -2 1 -2.5 1 -4a3 3 0 1 0 -6 0" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-                        <p class="mt-1" style="font-size:12px;">Bowling</p>
+                            <p class="mt-1" style="font-size:12px;">Bowling</p>
+                        </a>
+
                     </div>
                     <div class="col m-0">
-                        <div class="card rounded border-0  " style="padding: 22px">
-                            <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="icon icon-tabler icons-tabler-outline icon-tabler-ball-tennis">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                                    <path d="M6 5.3a9 9 0 0 1 0 13.4" />
-                                    <path d="M18 5.3a9 9 0 0 0 0 13.4" />
-                                </svg>
+                        <a href="/lapangan/cari?query=tenis">
+                            <div class="card rounded border-0  " style="padding: 22px">
+                                <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-ball-tennis">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+                                        <path d="M6 5.3a9 9 0 0 1 0 13.4" />
+                                        <path d="M18 5.3a9 9 0 0 0 0 13.4" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-                        <p class="mt-1" style="font-size:12px;">Tenis</p>
+                            <p class="mt-1" style="font-size:12px;">Tenis</p>
+                        </a>
                     </div>
                     <div class="col m-0">
                         <a href="/lapangan/cari?query=badminton">
@@ -242,45 +279,86 @@
                             </div>
                             <p class="mt-1" style="font-size:12px;">Badminton</p>
                         </a>
+
                     </div>
                     <div class="col m-0">
-                        <div class="card  rounded border-0  " style="padding: 22px">
-                            <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="icon icon-tabler icons-tabler-outline icon-tabler-ping-pong">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path
-                                        d="M12.718 20.713a7.64 7.64 0 0 1 -7.48 -12.755l.72 -.72a7.643 7.643 0 0 1 9.105 -1.283l2.387 -2.345a2.08 2.08 0 0 1 3.057 2.815l-.116 .126l-2.346 2.387a7.644 7.644 0 0 1 -1.052 8.864" />
-                                    <path d="M14 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                                    <path d="M9.3 5.3l9.4 9.4" />
-                                </svg>
+                        <a href="/lapangan/cari?query=tenismeja">
+                            <div class="card  rounded border-0  " style="padding: 22px">
+                                <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-ping-pong">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M12.718 20.713a7.64 7.64 0 0 1 -7.48 -12.755l.72 -.72a7.643 7.643 0 0 1 9.105 -1.283l2.387 -2.345a2.08 2.08 0 0 1 3.057 2.815l-.116 .126l-2.346 2.387a7.644 7.644 0 0 1 -1.052 8.864" />
+                                        <path d="M14 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                        <path d="M9.3 5.3l9.4 9.4" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-                        <p class="mt-1" style="font-size:12px;">Tenis Meja</p>
+                            <p class="mt-1" style="font-size:12px;">Tenis Meja</p>
+                        </a>
                     </div>
+
                     <div class="col m-0">
-                        <div class="card  rounded border-0  " style="padding: 19px">
-                            <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                    stroke-linecap="round" stroke-linejoin="round"
-                                    class="icon icon-tabler icons-tabler-outline icon-tabler-sport-billard">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M12 10m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                                    <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-                                    <path d="M12 12m-8 0a8 8 0 1 0 16 0a8 8 0 1 0 -16 0" />
-                                </svg>
+                        <a href="/lapangan/cari?query=biliard">
+                            <div class="card  rounded border-0  " style="padding: 19px">
+                                <div class="d-flex justify-content-center align-items-center" style="color: #A9DA05">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-sport-billard">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M12 10m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M12 12m-8 0a8 8 0 1 0 16 0a8 8 0 1 0 -16 0" />
+                                    </svg>
+                                </div>
                             </div>
-                        </div>
-                        <p class="mt-1" style="font-size:12px;">Biliard</p>
+                            <p class="mt-1" style="font-size:12px;">Biliard</p>
+                        </a>
+
                     </div>
                 </div>
             </form>
 
         </div>
         <!-- Quick Transfer -->
+        {{-- notify bar --}}
+
+        <div class="container my-4">
+            @foreach ($transaksi as $data)
+            <div class="card shadow-sm mb-3 w-100">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                            stroke-linejoin="round" class="me-2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                            <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                            <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" />
+                            <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" />
+                        </svg>
+                        <p class="mb-0 text-nowrap" style="font-size: 14px;">{{ $data->lapangan }}</p>
+                    </div>
+                    
+                    <p class="card-text mt-2">
+                        Status:
+                        <span class="badge {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
+                            {{ $data->status }}
+                        </span>
+                    </p>
+                </div>
+            </div>
+            
+            @endforeach
+        </div>
+
+
+
+
         <section class="m-0 flex-grow-1 bg-white"
             style="padding-bottom: 10px; border-radius: 15px 15px 0 0; overflow: hidden;">
             <div class="m-0">
@@ -368,9 +446,10 @@
                 <div style="overflow-x: auto; white-space: nowrap; position: relative;" class="pt-0">
                     <div style="display: inline-flex; min-width: 100%; width: fit-content;" class="mt-0">
                         @foreach ($seputarOlahraga as $news)
-                        <!-- Slide 1 -->
+                            <!-- Slide 1 -->
                             <a href="{{ route('artikel-show', $news->id) }}">
-                                <div style="flex-shrink: 0; height:180px; width: 250px; {{ $loop->last ? '' : 'margin-right: 10px;' }} position: relative;">
+                                <div
+                                    style="flex-shrink: 0; height:180px; width: 250px; {{ $loop->last ? '' : 'margin-right: 10px;' }} position: relative;">
                                     <img src="{{ asset('storage/' . $news->image_artikel) }}" alt="L. volly"
                                         class="rounded d-block"
                                         style="height: 100%; width: 100%; border: none; box-shadow: none; object-fit: cover;">
@@ -402,7 +481,7 @@
                     <p style="font-size:20px " class="mt-0 mb-1 ms-3"></p>
                     <a href="{{ route('artikel') }}" class="ms-auto mt-1 mb-1 text-success me-3"></a>
                 </div>
-                
+
             </div>
         </section>
     </div>

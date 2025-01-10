@@ -63,7 +63,7 @@ class LapanganResource extends Resource
                 TextColumn::make('jenis'),
                 TextColumn::make('id_user'),
                 ImageColumn::make('foto')
-                ->limit(25)
+                ->size(150)
                 ->disk('public') // Menyatakan disk public
                 ->label('Foto Lapangan'),// Label kolom
                 TextColumn::make('lokasi_tempat'),

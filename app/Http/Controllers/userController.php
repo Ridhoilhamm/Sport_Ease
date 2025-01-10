@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\artikel;
 use App\Models\ContentSlider;
 use App\Models\Lapangan;
+use App\Models\transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -18,11 +19,12 @@ class UserController extends Controller
         $slider = ContentSlider::get();
         $terdekat = Lapangan::latest()->take(3)->get(); // Atau sesuaikan query sesuai kebutuhan
         $rekomendasi = Lapangan::latest()->take(6)->get();
+        $transaksi = transaksi::whereIn('status', ['pending', 'menunggu hari'])->get();
         // Ambil data berita seputar olahraga
         $seputarOlahraga = artikel::latest()->take(5)->get(); // Atau sesuaikan query sesuai kebutuhan
 
         // Kirim data ke view
-        return view('user.user', compact('terdekat', 'seputarOlahraga','rekomendasi','slider'));
+        return view('user.user', compact('terdekat', 'seputarOlahraga','rekomendasi','slider','transaksi'));
         
     }
 

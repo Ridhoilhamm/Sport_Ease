@@ -29,12 +29,13 @@ class LapanganController extends Controller
         
         // Cari lapangan berdasarkan nama
         $lapangan = Lapangan::where('name', 'like', "%{$query}%")->get();
+        
         // dd($lapangan);  // Untuk memeriksa hasil query
         
         // Jika tidak ditemukan, set flag notFound
         $notFound = $lapangan->isEmpty();
         
-        return view('user.kategori', compact('lapangan', 'notFound'));
+        return view('user.kategori', compact('lapangan', 'notFound' ));
     }
 
 

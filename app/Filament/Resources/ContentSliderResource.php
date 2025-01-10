@@ -43,9 +43,21 @@ class ContentSliderResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make('foto')
+                ImageColumn::make('image1')
                 ->disk('public') // Menyatakan disk public
-                ->label('Foto Lapangan'),
+                ->label('Content Slider 1'),
+                ImageColumn::make('image2')
+                ->disk('public') // Menyatakan disk public
+                ->label('Content Slider 2'),
+                ImageColumn::make('image3')
+                ->disk('public') // Menyatakan disk public
+                ->label('Content Slider 3'),
+                ImageColumn::make('image4')
+                ->disk('public') // Menyatakan disk public
+                ->label('Content Slider 4'),
+                ImageColumn::make('image5')
+                ->disk('public') // Menyatakan disk public
+                ->label('Content Slider 5'),
             ])
             ->filters([
                 //
@@ -71,7 +83,7 @@ class ContentSliderResource extends Resource
     {
         return [
             'index' => Pages\ListContentSliders::route('/'),
-            'create' => Pages\CreateContentSlider::route('/create'),
+            // 'create' => Pages\CreateContentSlider::route('/create'),
             'edit' => Pages\EditContentSlider::route('/{record}/edit'),
         ];
     }

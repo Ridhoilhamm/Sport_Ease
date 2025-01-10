@@ -27,6 +27,16 @@ class BookingForm extends Component
 
     public function render()
     {
-        return view('livewire.booking-form');
+        return view('livewire.booking-form')->with(
+            ['<style>
+            .selected-time {
+                background-color: #28a745 !important;
+                color: white;
+            }      
+            .selected-time:hover {
+                background-color: #218838 !important;
+            }
+        </style>']
+        );
     }
 }

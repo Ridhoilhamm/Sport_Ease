@@ -48,8 +48,8 @@
                             class="text-center ">
                             <div class="text-center mt-1 mr-0 ">
 
-
-                                <div class="hello border rounded hover-active"
+                                <a href="/lapangan/cari?query=volly">
+                                    <div class="hello border rounded hover-active"
                                     style="padding-top: 15px; padding-bottom: 15px; color: #A9DA05;">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
@@ -65,6 +65,8 @@
                                         <path d="M15.549 15.147a12 12 0 0 0 1.38 -10.611" />
                                     </svg>
                                 </div>
+                                </a>
+                                
 
 
 
@@ -77,8 +79,8 @@
                             class="text-center">
                             <div class="text-center mt-1 mr-0 ">
 
-
-                                <div class="hello border rounded hover-active relative"
+                                <a href="/lapangan/cari?query=bowling">
+                                    <div class="hello border rounded hover-active relative"
                                     style="padding-top: 15px; padding-bottom: 15px;  bg-hover color: #A9DA05; position: relative; color: #A9DA05">
                                     <div class="bg-hover absolute inset-0 opacity-0 hover:opacity-100"
                                         style="background-color: #D0D0D0; z-index: 0; transition: opacity 0.3s;"></div>
@@ -97,6 +99,8 @@
                                             d="M14.969 5c0 1.5 1 2 1 4c0 2.5 -2 4.5 -2 7c0 2.6 1.9 6 1.9 6h4.1s2 -3.4 2 -6c0 -2.5 -2 -4.5 -2 -7c0 -2 1 -2.5 1 -4a3 3 0 1 0 -6 0" />
                                     </svg>
                                 </div>
+                                </a>
+                                
 
 
 
@@ -110,7 +114,8 @@
                         <div style="flex-shrink: 0; width: 75px; margin-right: 5px; position: relative;"
                             class="text-center">
                             <div class="text-center mt-1 mr-0">
-                                <div class="hello border rounded hover-active"
+                                <a href="/lapangan/cari?query=tennis">
+                                    <div class="hello border rounded hover-active"
                                     style="padding-top:15px; padding-bottom:15px; color: #A9DA05">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
@@ -123,6 +128,8 @@
                                         <path d="M18 5.3a9 9 0 0 0 0 13.4" />
                                     </svg>
                                 </div>
+                                </a>
+                                
                                 <div class="mt-2 text-center">
                                     <p class="mb-0" style="font-size: 12px; color: #333;">Tennis</p>
                                 </div>
@@ -131,7 +138,8 @@
                         <div style="flex-shrink: 0; width: 75px; margin-right: 5px; position: relative;"
                             class="text-center">
                             <div class="text-center mt-1 mr-0">
-                                <div class="hello border rounded hover-active "
+                                <a href="/lapangan/cari?query=badminton">
+                                    <div class="hello border rounded hover-active "
                                     style="padding-top: 15px; padding-bottom:15px;color: #A9DA05">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
@@ -145,6 +153,8 @@
                                             d="M12 7v-4m3 13l2.5 3m-.74 -8.55l3.74 -1.45m-11.44 7.05l-2.56 2.95m.74 -8.55l-3.74 -1.45" />
                                     </svg>
                                 </div>
+                                </a>
+                               
                                 <div class="mt-2 text-center">
                                     <p class="mb-0" style="font-size: 12px; color: #333;">Badminton</p>
                                 </div>
@@ -153,7 +163,8 @@
                         <div style="flex-shrink: 0; width: 75px; margin-right: 5px; position: relative;"
                             class="text-center">
                             <div class="text-center mt-1 mr-0">
-                                <div class="hello border rounded hover-active"
+                                <a href="/lapangan/cari?query=tenis meja">
+                                    <div class="hello border rounded hover-active"
                                     style="padding-top: 15px; padding-bottom:15px;color: #A9DA05">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
@@ -167,6 +178,8 @@
                                         <path d="M9.3 5.3l9.4 9.4" />
                                     </svg>
                                 </div>
+                                </a>
+                               
                                 <div class="mt-2 text-center">
                                     <p class="mb-0" style="font-size: 12px; color: #333;">T.Meja</p>
                                 </div>
@@ -175,7 +188,8 @@
                         <div style="flex-shrink: 0; width: 75px; margin-right: 10px; position: relative;"
                             class="text-center">
                             <div class="text-center mt-1 mr-0 ">
-                                <div class="hello border rounded hover-active "
+                                <a href="/lapangan/cari?query=biliard">
+                                    <div class="hello border rounded hover-active "
                                     style="padding-top: 15px; padding-bottom:15px; color: #A9DA05">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
@@ -188,14 +202,13 @@
                                             d="M12 12h-1a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-2a1 1 0 0 0 -1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1 -1v-2a1 1 0 0 0 -1 -1" />
                                     </svg>
                                 </div>
+                                </a>
+                                
                                 <div class="mt-2 text-center">
                                     <p class="mb-0" style="font-size: 12px; color: #333;">Biliard</p>
                                 </div>
                             </div>
                         </div>
-
-
-
 
                         <!-- Slide 2 -->
 

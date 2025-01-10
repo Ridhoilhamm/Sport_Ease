@@ -45,7 +45,20 @@ class TransaksiResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make()->label(''),
+                
+                Tables\Actions\Action::make('approve')
+                ->label('Approve')
+                ->action(function ($record) {
+                    // Logika untuk mengubah status menjadi 'success'
+                    $record->update(['status' => 'selesai']);
+                })
+                ->color('success') // Menentukan warna tombol approve
+                ->icon('heroicon-s-check-circle') // Menambahkan ikon
+                ->visible(function ($record) {
+                    // Hanya tampilkan tombol approve jika status masih 'pending'
+                    return $record->status === 'pending';
+                }),
+                Tables\Actions\EditAction::make()->label('')
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
