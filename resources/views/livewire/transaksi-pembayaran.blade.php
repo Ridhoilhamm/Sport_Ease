@@ -46,7 +46,7 @@
                     <div class="d-flex align-items-center container">
                         <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Tanggal Pemesanan</p>
                         <div class="ms-auto" style="font-size:14px">
-                            {{ $tanggalSewa }}
+                            {{ $tanggalSewa }} Januari 2025
                          </div>
                     </div> 
                     <div class="d-flex align-items-center container">
@@ -85,9 +85,8 @@
                 <div class="modal-footer d-flex justify-content-between">
                     <p class="mb-0">
                         Total Pembayaran <br/>
-                        Rp.
-                    {{ $lapangan->harga}}     
-                </p>
+                         <span style="color: #A9DA05; font-size: 18px" class="fw-semibold">Rp. {{ $lapangan->harga+(2000) }}</span>     
+                    </p>
                     <button type="button" class="btn fw-semibold" style="background-color: #a8da05; color: #ffff" wire:click="simpanTransaksi" data-bs-dismiss="modal">
                         Bayar
                     </button>

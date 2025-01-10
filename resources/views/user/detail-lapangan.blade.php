@@ -224,7 +224,25 @@
             background-color: rgba(255, 255, 255, 0.953);
             /* Warna tombol */
         }
-        
+              
+        a {
+            color: inherit;
+            /* Mengambil warna dari elemen pembungkus */
+            text-decoration: none;
+            /* Menghilangkan garis bawah */
+        }
+        .hidden {
+    opacity: 0;
+    transform: translateY(-20px); /* Menggeser elemen ke atas */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transisi untuk halus */
+}
+
+.visible {
+    opacity: 1;
+    transform: translateY(0); /* Kembalikan posisi normal */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transisi untuk halus */
+}
+
   
         
     </style>
@@ -264,7 +282,7 @@
                     <div class="">
 
                         <div id="" class="position-fixed w-100 top-0 start-0 bg-transparent transition-all">
-                            <div id="header" class="d-flex justify-content-between align-items-center p-2">
+                            <div id="header" class="d-flex  align-items-center p-2 w-100">
                                 <!-- Tombol Kembali -->
                                 <a href="/kategory" id="row" class="btn btn-light rounded-circle p-2 shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -275,19 +293,9 @@
                                         <path d="M15 6l-6 6l6 6" />
                                     </svg>
                                 </a>
-
-                                <!-- Tombol Suka -->
-                                <button id="like" class="btn btn-light rounded-circle p-2 shadow like-btn"
-                                    data-state="not-liked">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path
-                                            d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                                    </svg>
-                                </button>
+                                <p class="transition-all hidden ms-3 mb-0">{{ $lapangan->name }}</p> <!-- Elemen yang akan tampil/hilang -->
+                        
+                                <!-- Judul Artikel -->
                             </div>
                         </div>
 
@@ -446,6 +454,46 @@
             }
         });
     </script>
+    <script>
+        // const header = document.getElementById('header');
+    
+        // window.addEventListener('scroll', () => {
+        //     if (window.scrollY > 10) {
+        //         header.style.backgroundColor = 'white'; // Ubah menjadi putih
+        //         header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; // Tambahkan bayangan (opsional)
+        //         // Tambahkan bayangan (opsional)
+        //     } else {
+        //         header.style.backgroundColor = 'transparent'; // Kembali ke transparan
+        //         header.style.boxShadow = 'none'; // Hilangkan bayangan
+        //     }
+        // });
+        document.addEventListener("DOMContentLoaded", function () {
+    const paragraph = document.querySelector("#header p"); // Pilih elemen p
+    let lastScrollTop = 0; // Variabel untuk menyimpan posisi scroll terakhir
+
+    window.addEventListener("scroll", function () {
+        let currentScrollTop = window.scrollY; // Posisi scroll saat ini
+
+        if (currentScrollTop > lastScrollTop) {
+            // Jika pengguna scroll ke bawah
+            header.style.backgroundColor = 'white'; // Ubah menjadi putih
+            header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; // Tambahkan bayangan (opsional)
+            paragraph.classList.add("visible");
+            paragraph.classList.remove("hidden");
+        } else {
+            // Jika pengguna scroll ke atas
+            paragraph.classList.add("hidden");
+            paragraph.classList.remove("visible");
+            header.style.backgroundColor = 'transparent'; // Kembali ke transparan
+                 header.style.boxShadow = 'none'; // Hilangkan bayangan
+        }
+
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Menghindari scroll negatif
+    });
+});
+
+    </script>
+    
 
 
     {{-- modals --}}

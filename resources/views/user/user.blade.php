@@ -329,7 +329,7 @@
 
         <div class="container my-4">
             @foreach ($transaksi as $data)
-            <div class="card shadow-sm mb-3 w-100">
+            <div class="card shadow-sm mb-1 w-100">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
