@@ -231,25 +231,15 @@
 
                 <!-- Splide Slides -->
                 <div class="splide__track">
-
                     <ul class="splide__list">
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/kolam-renang.jpg') }}" alt="Slide 01" class="splide__image1 " />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/badminton.jpg') }}" alt="Slide 02" class="splide__image1" />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/lapangan volly.jpeg') }}" alt="Slide 03" class="splide__image1 " />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/download.jpeg') }}" alt="Slide 04" class="splide__image1" />
-                        </li>
-                        <li class="splide__slide">
-                            <img src="{{ asset('image/lapangan-golf.jpg') }}" alt="Slide 05" class="splide__image1 " />
-                        </li>
-                    </ul>
-                </div>
+                            @foreach ($lapangan->gambar_lapangan as $gambar)
+                            <li class="splide__slide">
+                                <img src="{{ asset('storage/' . $gambar->url) }}" alt="Slide 01" class="splide__image1 " />
+
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
             </section>
 
 

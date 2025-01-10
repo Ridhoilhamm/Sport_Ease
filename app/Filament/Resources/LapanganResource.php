@@ -16,6 +16,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Illuminate\Container\Attributes\Auth;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -44,6 +45,8 @@ class LapanganResource extends Resource
                     ])
                     ->label('Gambar Lapangan')
                     ->required(),
+                    Forms\Components\Hidden::make('id_user')  // Menyembunyikan input untuk id_user
+                    ->default(fn () => auth()->id()),  
                 TextInput::make('lokasi_tempat')->label('Lokasi')->placeholder('Masukkan Lokasi Tempat'),
                 TextInput::make('harga')->label('Harga')->placeholder('Masukkan Harga')->numeric(),
                 TextInput::make('fasilitas')->label('Fasilitas')->placeholder('Masukkan Fasilitas'),
@@ -58,6 +61,7 @@ class LapanganResource extends Resource
             ->columns([
                 TextColumn::make('name'),
                 TextColumn::make('jenis'),
+                TextColumn::make('id_user'),
                 ImageColumn::make('foto')
                 ->limit(25)
                 ->disk('public') // Menyatakan disk public

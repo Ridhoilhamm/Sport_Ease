@@ -9,7 +9,7 @@
 <div class="bg-white mt-2" style="padding-bottom: 10px;">
     <div class="ms-3">
         <div class="d-flex align-items-center" style="padding-top: 5px">
-            <h5 class="mb-0 ms-3" style="font-size: 20px;">Lapangan Anda</h5>
+            <h5 class="mb-0 ms-3" style="font-size: 20px;">Lapangan , {{ Auth::user()->name }}</h5>
             <a href="/owner/tambahlapangan" class=" btn ms-auto mt-2 mb-1 me-4 rounded-pill border-0" style="background-color: #A9DA05; color: white; font-size: 12px">Tambah</a>
         </div>
     </div>

@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 class OwnerController extends Controller
 {
     public function index(){
-        $haji= Lapangan::get();
+        $lapangan = Lapangan::where('id_user', auth()->id())  // Filter berdasarkan user yang sedang login
+        ->with('gambar_lapangan')  // Memuat relasi gambar lapangan jika ada
+        ->get();
 
-        return view('owner.home', compact('haji'));
+        return view('owner.home', compact('lapangan'));
     }
-    // return view('owner.home');
+    
 }

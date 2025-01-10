@@ -248,7 +248,6 @@ padding: 12px;
             
             
     </div>
-    
 
 @endsection
 
