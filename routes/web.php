@@ -13,6 +13,7 @@ use App\Http\Controllers\Owner;
 use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\riwayatController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
 // use App\Livewire\AuthController;
 use App\Livewire\Authh;
@@ -55,6 +56,7 @@ Route::middleware('auth')->group(function (): void {
 Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
 
 Route::get('/data-diri', [DatadiriController::class, 'index'])->name('datadiri');
+Route::get('/detailtransaksi/{id}', [TransaksiController::class, 'transaksibyid'])->name('detail-transaksi');
 
 
 

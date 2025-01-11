@@ -35,4 +35,20 @@ class TransaksiController extends Controller
     
         return redirect()->route('user.pembayaran')->with('success', 'Transaksi berhasil dibuat.');
     }
+
+    public function transaksibyid($id)
+    {
+        // Cari transaksi berdasarkan ID
+        $transaksi = Transaksi::find($id);
+
+        // Periksa apakah data ditemukan
+        if (!$transaksi) {
+            return redirect()->back()->with('error', 'Transaksi tidak ditemukan.');
+        }
+
+        // Kembalikan view dengan data transaksi
+        return view('user.detail-transaksi', compact('transaksi'));
+    }
+
+    
 }

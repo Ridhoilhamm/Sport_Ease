@@ -257,7 +257,7 @@
                                             <h6 class="card-title mb-2 mt-1 text-truncate" style="font-size: 14px;">
                                                 {{ $product->name }}</h6>
                                             <p class="card-text  mb-1 text-success fw-medium text-center"
-                                                style="font-size: 16px;">
+                                                style="font-size: 16px;"> Rp.
                                                 {{ $product->harga }}
                                                 @if (!empty($product->harga))
                                                 @endif

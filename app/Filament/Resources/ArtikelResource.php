@@ -40,17 +40,27 @@ class ArtikelResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('judul_artikel'),
-                ImageColumn::make('image_artikel')
-                ->disk('public'),
-                TextColumn::make('isi_artikel')
-                ->limit(50)
-            ])
-            ->filters([
-                //
+                ImageColumn::make('image_artikel')->disk('public'),
+                TextColumn::make('isi_artikel')->limit(50),
+                TextColumn::make('status')
+                    ->label('Status')
+                    ->badge()
+                    ->colors([
+                        'success' => true,
+                        'danger' => false,
+                    ])
+                    ->formatStateUsing(fn ($state) => $state ? 'Aktif' : 'Nonaktif'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label(''),
                 Tables\Actions\DeleteAction::make()->label(''),
+                Tables\Actions\Action::make('toggleStatus')
+                    ->label('Toggle Status')
+                    ->action(function ($record) {
+                        $record->update(['status' => !$record->status]);
+                    })
+                    ->icon(fn ($record) => $record->status ? 'heroicon-s-check-circle' : 'heroicon-s-x-circle')
+                    ->color(fn ($record) => $record->status ? 'success' : 'danger'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -58,6 +68,7 @@ class ArtikelResource extends Resource
                 ]),
             ]);
     }
+    
 
     public static function getRelations(): array
     {

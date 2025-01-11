@@ -21,7 +21,9 @@ class UserController extends Controller
         $rekomendasi = Lapangan::latest()->take(6)->get();
         $transaksi = transaksi::whereIn('status', ['pending', 'menunggu hari'])->get();
         // Ambil data berita seputar olahraga
-        $seputarOlahraga = artikel::latest()->take(5)->get(); // Atau sesuaikan query sesuai kebutuhan
+        $seputarOlahraga = Artikel::where('status', '!=', 'aktif')->latest()->get();
+
+ // Atau sesuaikan query sesuai kebutuhan
 
         // Kirim data ke view
         return view('user.user', compact('terdekat', 'seputarOlahraga','rekomendasi','slider','transaksi'));
