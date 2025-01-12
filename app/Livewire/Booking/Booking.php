@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Booking extends Component
 {
-    public $lapangan, $date, $times, $get_time;
+    public $lapangan, $date, $times, $get_time, $lama_sewa;
 
     public function mount($lapangan)
     {
@@ -63,6 +63,7 @@ class Booking extends Component
             'tanggal_sewa' => $this->date,
             'jam_sewa' => $this->get_time,
             'lapangan' => $lapangan,
+            'lama_sewa'=> $this->lama_sewa
         ];
     
         session()->put('data', $data);

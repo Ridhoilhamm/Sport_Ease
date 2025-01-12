@@ -9,4 +9,8 @@ class transaksi extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user'); // pastikan 'id_user' adalah foreign key yang benar
+    }
 }

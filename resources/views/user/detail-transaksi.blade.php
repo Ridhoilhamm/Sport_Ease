@@ -34,7 +34,9 @@
                 <div class="card-body">
                     <h5 class="card-title " style="font-size: 16px">Lapangan: {{ $transaksi->lapangan }}</h5>
                     <p class="card-text mb-0" style="font-size: 12px;">Status: {{ $transaksi->status }}</p>
-                    {{-- <p class="card-text mb-0" style="font-size: 12px;">Status: {{ $transaksi->user->name }}</p> --}}
+                    <p class="card-text mb-0" style="font-size: 12px;">Nama Pemesan: {{ $transaksi->user->name }}</p>
+                    <p class="card-text mb-0" style="font-size: 12px;">Jam Sewa: {{ $transaksi->jam_sewa }}</p>
+                    <p class="card-text mb-0" style="font-size: 12px;">Lama Sewa:{{ $transaksi->lama_sewa }}</p>
                     <p class="card-text mt-0" style="font-size: 12px">Tanggal Dibuat: {{ $transaksi->created_at->format('d-m-Y H:i') }}</p> <!-- Format tanggal -->
                 </div>
              </div>

@@ -314,7 +314,18 @@
                     Jam Dipilih
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    {{ $jamSewa }}
+                    {{ $jamSewa }} 
+                </div>
+                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
+                    {{-- Icon atau tombol lainnya --}}
+                </div>
+            </div>
+            <div class="d-flex align-items-center container">
+                <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                    Lama Sewa
+                </p>
+                <div class="ms-auto" style="font-size:14px">
+                    {{ $lamaSewa }} Jam
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -336,7 +347,8 @@
                             class="img-fluid rounded me-3" alt="Produk">
                         <div>
                             <h6 class="mb-1">{{ $lapangan->name }}</h6>
-                            <small class="text-muted">Jam Sewa:  {{ $jamSewa }}</small>
+                            <small class="text-muted">Jam Sewa:  {{ $jamSewa }}</small> <br/>
+                            <small class="text-muted">Lama Sewa:  {{ $lamaSewa }} Jam</small>
                             <p class="fw-bold mt-1" style="color: #101010c2">Rp. {{ $lapangan->harga }}</p>
                         </div>
                     </div>
@@ -445,84 +457,7 @@
 
     </div>
     </div>
-    <div class="modal fade" id="promoModal" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" style="font-family: ubuntu">
-            <div class="modal-content">
-                <!-- Header Modal -->
-                <div class="modal-header modal-header-custom" style="background-color: #A9DA05">
-                    <h5 class="modal-title" id="promoModalLabel">Spesial buat kamu!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <!-- Body Modal -->
-                <div class="modal-body">
-                    <!-- Promo Aktif -->
-                    <div class="promo-card mb-3 ms-auto">
-                        <span class="promo-card-icon">
-                            <label class="toggle-switch ms-auto">
-                                <input type="checkbox">
-                                <span class="slider"></span>
-                            </label>
-                        </span>
-                        <h6 class="mb-1 fw-bold text-success">Pembookingan Pertama</h6>
-                        <p class="mb-0 text-muted">Promo khusus pengguna baru</p>
-                        <p class="mb-0 text-muted">Berakhir dalam <strong>6 hari</strong></p>
-                    </div>
-                    <div class="promo-card mb-3 ms-auto">
-                        <span class="promo-card-icon">
-                            <label class="toggle-switch ms-auto">
-                                <input type="checkbox">
-                                <span class="slider"></span>
-                            </label>
-                        </span>
-                        <h6 class="mb-1 fw-bold text-success">Pembookingan Pertama</h6>
-                        <p class="mb-0 text-muted">Promo khusus pengguna baru</p>
-                        <p class="mb-0 text-muted">Berakhir dalam <strong>2 hari</strong></p>
-                    </div>
-
-                    <!-- Promo Tidak Aktif -->
-                    <div class="promo-card mb-3" style="background-color: #f9f9f9;">
-                        <span class="promo-card-icon text-danger">❌</span>
-                        <h6 class="mb-1 fw-bold text-secondary">Pembokingan ke-5</h6>
-                        <p class="mb-0 text-muted">Rp11.500 <span class="fw-normal">Khusus Reguler</span></p>
-                        <p class="mb-0 text-warning">Belum bisa dipakai dengan promo yang dipilih.</p>
-                    </div>
-
-
-                </div>
-
-                <!-- Footer Modal -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-back rounded-pill"
-                        data-bs-dismiss="modal">Balik</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Promo -->
-    {{-- <div class=" promo-banner  mb-2 text-center d-flex ">
-        <div class="container d-flex">
-
-            <i class="bi bi-tag-fill me-1"></i> Yuk, pakai kupon promo! <strong>Bisa hemat hingga Rp30.000</strong>
-            <div class="ms-auto me-2 mt-2" data-bs-toggle="modal" data-bs-target="#promoModal">
-                <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                    stroke-linejoin="round" class="icon icon-tabler icon-tabler-chevron-right">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M9 6l6 6l-6 6" />
-                </svg>
-            </div>
-        </div> --}}
-        {{-- <div class="ms-auto">
-
-            <label class="toggle-switch">
-                <input type="checkbox">
-                <span class="slider"></span>
-            </label>
-        </div> --}}
-    {{-- </div> --}}
+    
 
 
     <div class="container">
@@ -612,7 +547,16 @@
     </div>
 
     {{-- modals detail-pembayaran --}}
-    <livewire:transaksi-pembayaran :lapangan="$lapangan" :user="$user" :jam-sewa="$jamSewa" :tanggal-sewa="$tanggalSewa" />
+    <livewire:transaksi-pembayaran 
+    :lapangan="$lapangan" 
+    :user="$user" 
+    :jam-sewa="$jamSewa" 
+    :tanggal-sewa="$tanggalSewa" 
+    :lama-sewa="$lamaSewa"
+    
+/>
+
+
 
 @endsection
 

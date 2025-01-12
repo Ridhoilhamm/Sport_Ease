@@ -12,6 +12,9 @@ class BookingForm extends Component
     public $tanggal_sewa;
     public $durasi_sewa;
     public $jam_sewa;
+    public $lama_sewa;
+    
+
 
     // Method untuk menyimpan data ke session
     public function saveBooking()
@@ -19,6 +22,7 @@ class BookingForm extends Component
         // Menyimpan data di session
         session()->put('tanggal_sewa', $this->tanggal_sewa);
         session()->put('durasi_sewa', $this->durasi_sewa);
+        session()->put('lama_sewa', $this->lama_sewa);
         session()->put('jam_sewa', $this->jam_sewa);
 
         // Redirect ke halaman pembayaran

@@ -39,7 +39,8 @@ class TransaksiController extends Controller
     public function transaksibyid($id)
     {
         // Cari transaksi berdasarkan ID
-        $transaksi = Transaksi::find($id);
+        $transaksi = Transaksi::with('user')->find($id);
+
 
         // Periksa apakah data ditemukan
         if (!$transaksi) {

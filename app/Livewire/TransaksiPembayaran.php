@@ -8,34 +8,38 @@ use Livewire\Component;
 class TransaksiPembayaran extends Component
 {
 
-    public $user_id, $lapangan_id, $jamSewa, $metode_pembayaran, $no_rekening, $nama_bank, $tanggalSewa;
+    public $user_id, $lapangan_id, $jamSewa, $tanggalSewa,$lamaSewa,$harga;
     public $lapangan;
-    public $user;
+    public $user;   
 
     // Validasi input
     public function simpanTransaksi()
     {
-        // dd($this->lapangan, $this->tanggalSewa, $this->jamSewa, $this->harga);
-        // Mengakses data dalam array lapangan
-        $lapanganNama = $this->lapangan['name'];  // Akses nama lapangan
-        $lapanganHarga = $this->lapangan['harga'];  // Akses harga lapangan
-
-        // Membuat entri transaksi
-        $transaksi = new Transaksi();
-        $transaksi->id_user = auth()->user()->id;  // Ambil ID user yang sedang login
-        $transaksi->lapangan = $lapanganNama;  // Nama lapangan yang disewa
-        $transaksi->tanggal_sewa = $this->tanggalSewa;  // Tanggal sewa
-        $transaksi->jam_sewa = $this->jamSewa;  // Jam sewa
-        $transaksi->harga = $lapanganHarga;  // Harga lapangan yang sewa
-        $transaksi->status = 'pending';  // Misalnya status awalnya adalah 'pending'
-        // Menyimpan transaksi ke database
-        $transaksi->save();
-        // Memberikan pesan sukses setelah menyimpan
+        // Pastikan akses harga dengan benar
+        $lapanganNama = $this->lapangan['name'] ?? '';  // Nama lapangan
+        $harga = $this->lapangan['harga'] ?? 0;  // Ambil harga lapangan jika ada, jika tidak ada maka default 0
+    
+        // Debugging untuk memastikan data yang diterima
+        // dd($this->lapangan, $this->tanggalSewa, $this->jamSewa, $this->lamaSewa, $harga); // Pastikan $harga terisi dengan nilai yang benar
+    
+        // Simpan data transaksi
+        Transaksi::create([
+            'id_user' => auth()->id(),
+            'lapangan' => $lapanganNama,  // Nama lapangan yang disewa
+            'tanggal_sewa' => $this->tanggalSewa,  // Tanggal sewa
+            'jam_sewa' => $this->jamSewa,  // Jam sewa
+            'lama_sewa' => $this->lamaSewa,  // Lama sewa
+            'harga' => $this->$harga,  // Harga lapangan
+            'status' => 'pending'  // Status transaksi
+        ]);
+        
+        // Kirim pesan sukses   
         session()->flash('message', 'Transaksi berhasil disimpan!');
-        // Reset data atau tampilkan pesan sukses
-        session()->flash('message', 'Transaksi berhasil disimpan.');
-        $this->reset(); // Reset form
+        
+        // Reset form setelah transaksi disimpan
+        $this->reset();
     }
+    
     public function render()
     {
         return view('livewire.transaksi-pembayaran');

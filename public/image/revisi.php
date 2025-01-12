@@ -16,4 +16,4 @@ pendapatan yang sudah booking
 
 pendapatan statistik bulan ini dan tahun ini tampilkan dengan grafik
 
-quick akses crud artikel tambah lapangan
+quick akses crud artikel tambah lapangan   

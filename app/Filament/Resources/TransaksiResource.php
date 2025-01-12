@@ -24,9 +24,7 @@ class TransaksiResource extends Resource
     public static function form(Form $form): Form
     {
         return $form
-            ->schema([
-                
-            ]);
+            ->schema([]);
     }
 
     public static function table(Table $table): Table
@@ -45,31 +43,31 @@ class TransaksiResource extends Resource
                 //
             ])
             ->actions([
-                
-                Tables\Actions\Action::make('approve')
-                ->label('Approve')
-                ->action(function ($record) {
-                    // Logika untuk mengubah status menjadi 'success'
-                    $record->update(['status' => 'menunggu hari']);
-                })
-                ->color('success') // Menentukan warna tombol approve
-                ->icon('heroicon-s-check-circle') // Menambahkan ikon
-                ->visible(function ($record) {
-                    // Hanya tampilkan tombol approve jika status masih 'pending'
-                    return $record->status === 'pending';
-                }),
-                Tables\Actions\Action::make('approve')
-                ->label('Akhiri Transaksi')
-                ->action(function ($record) {
-                    // Logika untuk mengubah status menjadi 'success'
-                    $record->update(['status' => 'selesai']);
-                })
-                ->color('success') // Menentukan warna tombol approve
-                ->icon('heroicon-s-check-circle') // Menambahkan ikon
-                ->visible(function ($record) {
-                    // Hanya tampilkan tombol approve jika status masih 'pending'
-                    return $record->status === 'menunggu hari';
-                }),
+
+                Tables\Actions\Action::make('approvePending')
+                    ->label('Approve')
+                    ->action(function ($record) {
+                        // Logika untuk mengubah status menjadi 'menunggu hari'
+                        $record->update(['status' => 'menunggu hari']);
+                    })
+                    ->color('success') // Menentukan warna tombol approve
+                    ->icon('heroicon-s-check-circle') // Menambahkan ikon
+                    ->visible(function ($record) {
+                        // Hanya tampilkan tombol approve jika status masih 'pending'
+                        return $record->status === 'pending';
+                    }),
+                Tables\Actions\Action::make('approveCompleted')
+                    ->label('Akhiri Transaksi')
+                    ->action(function ($record) {
+                        // Logika untuk mengubah status menjadi 'selesai'
+                        $record->update(['status' => 'selesai']);
+                    })
+                    ->color('success') // Menentukan warna tombol approve
+                    ->icon('heroicon-s-check-circle') // Menambahkan ikon
+                    ->visible(function ($record) {
+                        // Hanya tampilkan tombol approve jika status masih 'menunggu hari'
+                        return $record->status === 'menunggu hari';
+                    }),
                 Tables\Actions\EditAction::make()->label('')
             ])
             ->bulkActions([

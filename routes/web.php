@@ -49,10 +49,10 @@ Route::get('/riwayat-owner', function () {
     return view('owner.riwayat');
 })->name('owner-riwayat');
 
-Route::middleware('auth')->group(function (): void {
+Route::middleware('Rolemiddlware')->group(function (): void {
 
-    Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
 });
+Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
 Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
 
 Route::get('/data-diri', [DatadiriController::class, 'index'])->name('datadiri');

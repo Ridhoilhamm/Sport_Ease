@@ -50,11 +50,13 @@ class LapanganController extends Controller
     {
         $request->validate([
             'tanggal_sewa' => 'required|date',
-            'jam_sewa' => 'required|date_format:H:i',
+            'lamaSewa' => 'required|numeric',
+            'jamSewa' => 'required|date_format:H:i',
         ]);
         $data = [
             'tanggal_sewa' => $request->input('tanggal_sewa'),
-            'jam_sewa' => $request->input('jam_sewa'),
+            'lamaSewa' => $request->input('lama_sewa'),
+            'jamSewa' => $request->input('jam_sewa'),
         ];
 
         dd($data);
@@ -71,12 +73,13 @@ class LapanganController extends Controller
 
     
     $tanggalSewa = $data['tanggal_sewa'] ?? null;
-    $jamSewa = $data['jam_sewa'] ?? null;
     // $harga = $data['harga'] ?? 0;
+    $jamSewa = $data['jam_sewa'] ?? null;
+    $lamaSewa = $data['lama_sewa'] ?? null;
     $lapangan = $data['lapangan'] ?? 'Tidak diketahui'; // Nama lapangan yang dipilih
     $user = Auth::user();
 
     // Kirim data transaksi dan pengguna ke view
-    return view('user.pembayaran', compact('tanggalSewa', 'jamSewa', 'lapangan', 'user'));
+    return view('user.pembayaran', compact('tanggalSewa', 'jamSewa', 'lapangan', 'user','lamaSewa'));
     }
 }
