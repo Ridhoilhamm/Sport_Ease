@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class transaksi extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $guarded = [];
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_user'); // pastikan 'id_user' adalah foreign key yang benar
+        return $this->belongsTo(User::class, 'id_user');
+    }
+    public function getlapangan()
+    {
+        return $this->belongsTo(Lapangan::class, 'id_lapangan');
     }
 }

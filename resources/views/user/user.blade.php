@@ -40,7 +40,9 @@
         .splide-slide-list {
             display: flex;
             gap: 10px;
+            /* Jarak antar slide */
             transition: transform 0.3s ease-in-out;
+            padding-right: 10px;/
         }
 
         .splide-slide-item {
@@ -48,6 +50,8 @@
             width: 100%;
             border-radius: 10px;
             overflow: hidden;
+            margin-right: 10px;
+            /* Jarak antar slide */
         }
 
         .splide-slide-image {
@@ -112,6 +116,7 @@
 @section('content')
     <div>
         <div class="bg-white">
+            
 
             <!-- Promo Section -->
 
@@ -125,33 +130,30 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             @foreach ($slider as $gambar)
-                                <li class="splide__slide">
+                                <li class="splide__slide me-3">
                                     <img src="{{ asset('storage/' . $gambar->image1) }}" alt="Slide 01"
-                                        class="splide__image " />
+                                        class="splide__image" />
                                 </li>
-                                <li class="splide__slide">
+                                <li class="splide__slide me-3">
                                     <img src="{{ asset('storage/' . $gambar->image2) }}" alt="Slide 01"
-                                        class="splide__image " />
-
+                                        class="splide__image" />
                                 </li>
-                                <li class="splide__slide">
+                                <li class="splide__slide me-3">
                                     <img src="{{ asset('storage/' . $gambar->image3) }}" alt="Slide 01"
-                                        class="splide__image " />
-
+                                        class="splide__image" />
                                 </li>
-                                <li class="splide__slide">
+                                <li class="splide__slide me-3">
                                     <img src="{{ asset('storage/' . $gambar->image4) }}" alt="Slide 01"
-                                        class="splide__image " />
-
+                                        class="splide__image" />
                                 </li>
-                                <li class="splide__slide">
+                                <li class="splide__slide me-3">
                                     <img src="{{ asset('storage/' . $gambar->image5) }}" alt="Slide 01"
-                                        class="splide__image " />
-
+                                        class="splide__image" />
                                 </li>
                             @endforeach
                         </ul>
                     </div>
+                    
                 </section>
 
 
@@ -327,35 +329,46 @@
         <!-- Quick Transfer -->
         {{-- notify bar --}}
 
+        <x-flash-message />
         <div class="container my-4">
             @foreach ($transaksi as $data)
-            <a href="{{ route('detail-transaksi', $data->id) }}">
-                <div class="card shadow-sm mb-1 w-100">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                                stroke-linejoin="round" class="me-2">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
-                                <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                                <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" />
-                                <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" />
-                            </svg>
-                            <p class="mb-0 text-nowrap" style="font-size: 14px;">{{ $data->lapangan }}</p>
+                <a href="{{ route('detail-transaksi', $data->id) }}">
+                    <div class="card shadow-sm mb-1 w-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round" class="me-2">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                                    <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" />
+                                    <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" />
+                                </svg>
+                                <p class="mb-0 text-nowrap" style="font-size: 14px;">Pemesanan Lapangan</p>
+                            </div>
+
+                            <p class="card-text mt-0 mb-0" style="font-size: 12px">
+                                Status:
+                                <span
+                                    class="badge {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
+                                    {{ $data->status }}
+                                </span>
+                                <p class="fw-medium mt-0 mb-0" style="font-size: 11px">
+                                    Digunakan pada {{ $data->tanggal_sewa }} Januari 2025
+                                </p>
+                                <p class="fw-medium mt-0 mb-0" style="font-size: 11px">
+                                    Jam Sewa {{ $data->jam_sewa }} :00
+                                </p>
+                                <p class="fw-medium mt-0 mb-0" style="font-size: 11px">
+                                    Lama Sewa {{ $data->lama_sewa }}
+                                </p>
+                            </p>
+            
                         </div>
-                        
-                        <p class="card-text mt-2">
-                            Status:
-                            <span class="badge {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
-                                {{ $data->status }}
-                            </span>
-                        </p>
                     </div>
-                </div>
-            </a>
-            
-            
+                </a>
             @endforeach
         </div>
 

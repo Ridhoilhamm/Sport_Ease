@@ -9,6 +9,7 @@ use App\Models\transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -19,7 +20,16 @@ class UserController extends Controller
         $slider = ContentSlider::get();
         $terdekat = Lapangan::latest()->take(3)->get(); // Atau sesuaikan query sesuai kebutuhan
         $rekomendasi = Lapangan::latest()->take(6)->get();
-        $transaksi = transaksi::whereIn('status', ['pending', 'menunggu hari'])->get();
+        // $transaksi = transaksi::where('id_user', auth()->id()) // Filter berdasarkan pengguna yang login
+        // ->whereIn('status', ['pending', 'menunggu hari']) // Filter berdasarkan status 'pending' atau 'menunggu hari'
+        // ->whereDate('tanggal_sewa', '>=', Carbon::today()) // Filter tanggal sewa yang dimulai dari hari ini atau lebih
+        // ->latest() // Urutkan berdasarkan waktu terbaru
+        // ->take(3)  // Ambil hanya 3 transaksi terakhir
+        // ->get();   // 
+        $transaksi = transaksi::where('id_user', auth()->id()) // Filter berdasarkan id_user
+        ->whereIn('status', ['pending', 'menunggu hari']) // Filter berdasarkan status
+        ->get(); // Dapatkan hasil
+    
         // Ambil data berita seputar olahraga
         $seputarOlahraga = Artikel::where('status', '!=', 'aktif')->latest()->get();
 

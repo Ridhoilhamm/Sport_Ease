@@ -24,7 +24,21 @@
 @section('content')
     <div>
 
+        <a href="/kategory" id="row" class="btn btn-light rounded-circle p-2 shadow" 
+    @if (Request::is('kategory*') && Request::has('somequery')) style="display: block;" @else style="display: none;" @endif>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round"
+        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M15 6l-6 6l6 6" />
+    </svg>
+</a>
+
         <div class="flex bg-white p-0 rounded-lg shadow-md" style="margin-top: 40px; margin-bottom: 20px;">
+                <!-- Tombol Kembali -->
+              
+            
             <form action="{{ url('lapangan/cari') }}" method="GET"
                 class="fixed-top bg-white d-flex justify-content-between align-items-center mb-4 mt-0"
                 style="padding-bottom: 20px;">
@@ -229,14 +243,31 @@
 
             <div class="ms-3 me-3 mt-2">
                 @if ($notFound)
-                    <p class="text-center text-danger" style="padding-top: 10px;">Tidak ada lapangan ditemukan untuk
-                        "{{ request()->query('query') }}"</p>
+                <div class="bg-white mt-2" id="chat-animation" style="width: 100%: 200px; padding-bottom:22px" >
+                    <div class="justify-content-center" style="padding-top: 20px">
+                        <p class= " text-center">Belum Ada Lapangan</p>
+                    </div>
+                    <script>
+                    var chatAnimation = lottie.loadAnimation({
+                        container: document.getElementById('chat-animation'),
+                        renderer: 'svg',
+                        loop: true,
+                        autoplay: true,
+                        path: '{{ asset('image/Animation - 1736749790291.json') }}' // Sesuaikan dengan lokasi file JSON
+                    });
+                </script>
+                </div>
+                     
+                                              @php    
+    $hideNavbar = true;
+    $hideFooter = true;
+@endphp
                 @else
                     <div class="row row-cols-2 g-2 bg-white">
-
-
-
-
+                        @php
+                        $hideFooter = true;
+                        
+                    @endphp
 
 
                         @foreach ($lapangan as $no => $product)

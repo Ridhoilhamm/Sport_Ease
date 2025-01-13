@@ -53,7 +53,7 @@ Route::middleware('Rolemiddlware')->group(function (): void {
 
 });
 Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
-Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat');
+Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat.show');
 
 Route::get('/data-diri', [DatadiriController::class, 'index'])->name('datadiri');
 Route::get('/detailtransaksi/{id}', [TransaksiController::class, 'transaksibyid'])->name('detail-transaksi');
@@ -67,6 +67,7 @@ Route::get('/detailkategory', [LapanganController::class, 'index'])->name('detai
 Route::get('/detaillapangan/{id}', [LapanganController::class, 'show'])->name('detaillapangan');
 Route::post('/detaillapangan', [LapanganController::class, 'storelapangan'])->name('storelapangan');
 Route::get('/pembayaran', [LapanganController::class, 'showPembayaran'])->name('user.pembayaran');
+// Route::get('/pembayaran/{id}', [TransaksiController::class, 'transaksibyid'])->name('detail-transaksi');
 
 
 

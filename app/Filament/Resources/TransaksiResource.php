@@ -36,7 +36,7 @@ class TransaksiResource extends Resource
                 TextColumn::make('tanggal_sewa'),
                 TextColumn::make('jam_sewa'),
                 TextColumn::make('created_at')->label('Di buat'),
-                TextColumn::make('harga'),
+                TextColumn::make('total_pembayaran'),
                 TextColumn::make('status')
             ])
             ->filters([

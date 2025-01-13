@@ -1,8 +1,18 @@
 <div>
+    @if (session()->has('message'))
+        <div id="flash-message" class="alert alert-success mt-3">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <div class="fixed-bottom bg-white" style="padding-top: 3px; padding-bottom:20px;">
         <div class="container text-center d-flex justify-items-center" style="padding-top: 10px; font-family: ubuntu">
             <p class="fw-bold" style="font-size: 18px; color:#A9DA05">
-                Rp. {{ $lapangan->harga }}
+                @if ($lamaSewa && $lapangan->harga)
+                Rp. {{ number_format($lapangan->harga * $lamaSewa, 0, ',', '.') }}
+            @else
+                Harga atau lama sewa tidak tersedia.
+            @endif
             </p>
             <button class="ms-auto btn btn-success custom-button" data-bs-toggle="modal"
                 data-bs-target="#detail-pembayaran"
@@ -24,7 +34,7 @@
                     <p class="container fw-semibold mb-0 justify-content-center">
                         Data Pemesan
                     </p>
-                    <div class="d-flex align-items-center container">
+                    {{-- <div class="d-flex align-items-center container">
                         <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Nama lengkap</p>
                         <div class="ms-auto" style="font-size:14px">
                             {{ $user->name }}
@@ -35,12 +45,12 @@
                         <div class="ms-auto" style="font-size:14px">
                             {{ $user->email }}
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="d-flex align-items-center container">
                         <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Sewa</p>
-                        <div class="ms-auto" style="font-size:14px">
+                        {{-- <div class="ms-auto" style="font-size:14px">
                             {{ $lapangan->name }}
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="d-flex align-items-center container">
                         <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Tanggal Pemesanan</p>
@@ -84,7 +94,13 @@
                 <div class="modal-footer d-flex justify-content-between">
                     <p class="mb-0">
                         Total Pembayaran <br/>
-                        <span style="color: #A9DA05; font-size: 18px" class="fw-semibold">Rp. {{ $lapangan->harga }} </span>
+                        <span style="color: #A9DA05; font-size: 18px" class="fw-semibold">
+                            @if ($lamaSewa && $lapangan->harga)
+                                Rp. {{ number_format($lapangan->harga * $lamaSewa, 0, ',', '.') }}
+                            @else
+                                Harga atau lama sewa tidak tersedia.
+                            @endif
+                        </span>
                     </p>
                     <button type="button" class="btn fw-semibold" style="background-color: #a8da05; color: #ffff" wire:click="simpanTransaksi" data-bs-dismiss="modal">
                         Bayar

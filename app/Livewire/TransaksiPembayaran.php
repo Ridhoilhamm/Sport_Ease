@@ -8,36 +8,33 @@ use Livewire\Component;
 class TransaksiPembayaran extends Component
 {
 
-    public $user_id, $lapangan_id, $jamSewa, $tanggalSewa,$lamaSewa,$harga;
+    public $user_id, $lapangan_id, $jamSewa, $tanggalSewa,$lamaSewa,$total_pembayaran;
     public $lapangan;
     public $user;   
 
     // Validasi input
     public function simpanTransaksi()
     {
-        // Pastikan akses harga dengan benar
-        $lapanganNama = $this->lapangan['name'] ?? '';  // Nama lapangan
-        $harga = $this->lapangan['harga'] ?? 0;  // Ambil harga lapangan jika ada, jika tidak ada maka default 0
-    
+        $lapanganNama = $this->lapangan->name ?? '';  // Nama lapangan
+        $total_pembayaran = $this->lapangan->harga * $this->lamaSewa ?? 0;  // Perhitungan total pembayaran berdasarkan harga lapangan dan lama sewa
+
         // Debugging untuk memastikan data yang diterima
-        // dd($this->lapangan, $this->tanggalSewa, $this->jamSewa, $this->lamaSewa, $harga); // Pastikan $harga terisi dengan nilai yang benar
-    
+        // dd($this->lapangan, $this->tanggalSewa, $this->jamSewa, $this->lamaSewa, $total_pembayaran); // Pastikan $total_pembayaran terisi dengan nilai yang benar
+
         // Simpan data transaksi
         Transaksi::create([
             'id_user' => auth()->id(),
-            'lapangan' => $lapanganNama,  // Nama lapangan yang disewa
+            'lapangan' => $lapanganNama, 
+            'id_lapangan' => $this->lapangan->id, 
             'tanggal_sewa' => $this->tanggalSewa,  // Tanggal sewa
             'jam_sewa' => $this->jamSewa,  // Jam sewa
             'lama_sewa' => $this->lamaSewa,  // Lama sewa
-            'harga' => $this->$harga,  // Harga lapangan
+            'total_pembayaran' => $total_pembayaran,  // Total pembayaran (harga lapangan * lama sewa)
             'status' => 'pending'  // Status transaksi
         ]);
-        
+
         // Kirim pesan sukses   
-        session()->flash('message', 'Transaksi berhasil disimpan!');
-        
-        // Reset form setelah transaksi disimpan
-        $this->reset();
+        return redirect()->route('user.user')->with('message', 'Transaksi berhasil disimpan!');
     }
     
     public function render()

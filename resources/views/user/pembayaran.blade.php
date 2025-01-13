@@ -247,6 +247,7 @@
 @section('content')
     <!-- Header -->
     <div class="mb-1 bg-white rounded" style="padding-bottom: 10px">
+       
         <div class="container" style="padding-top: 10px">
             <div class="mb-2 d-flex align-items-center justify-content-between">
                 <a href="/kategory">
@@ -343,7 +344,7 @@
             <div class="mt-3 container">
                 <div class="">
                     <div class="d-flex">
-                        <img src="{{ asset('image/futsal.jpeg') }}" style="height: 80px; width:80px"
+                        <img src="{{ asset('storage/' . $lapangan->foto) }}"  style="height: 80px; width:80px"
                             class="img-fluid rounded me-3" alt="Produk">
                         <div>
                             <h6 class="mb-1">{{ $lapangan->name }}</h6>

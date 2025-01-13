@@ -82,39 +82,7 @@
 <div style="padding-top: 50px;">
     <!-- Konten Anda -->
 
-    <section class="m-0 flex-grow-1 bg-white"
-            style="padding-bottom: 10px; border-radius: 15px 15px 0 0; overflow: hidden;">
-            <div class="m-0">
-                <div class="d-flex align-items-center">
-                    <h5 class="mt-3 mb-0 ms-3" style="font-size: 20px">Lapangan, {{ Auth::user()->name }}</h5>
-                    <a href="/owner/lapangan" class="ms-auto mt-4 mb-1 me-3" style="color: #A9DA05; ">Lihat semua</a>
-                </div>
-            </div>
-            <section class="px-3 pt-2">
-                <div style="overflow-x: auto; white-space: nowrap; position: relative;">
-                    <div style="display: inline-flex; min-width: 100%; width: fit-content;">
-                        <!-- Slide 1 -->
-                        @foreach ($lapangan as $data)
-                            <a href={{ route('detaillapangan-owner', $data->id) }}>
-                                <div
-                                    style="flex-shrink: 0; width: 120px; {{ $loop->last ? '' : 'margin-right: 10px;' }}  position: relative;">
-                                    <img src="{{ asset('storage/' . $data->foto) }}" alt="Lapangan"
-                                        class="rounded d-block"
-                                        style="height: 140px; width: 100%; border: none; box-shadow: none; object-fit: cover;">
-                                    <div class="mt-1 text-center">
-                                        <p class="mb-0 limit-text " style="font-size: 12px">{{ $data->name }}</p>
-
-                                    </div>
-                                </div>
-                            </a>
-                        @endforeach
-
-                        <!-- Slide 2 -->
-                    </div>
-                </div>
-            </section>
-
-        </section>
+   
     </div>
     <div class="bg-white mt-2" id="chat-animation" style="width: 100%: 200px; padding-bottom:22px" >
         <div class="justify-content-center" style="padding-top: 20px">
@@ -126,7 +94,7 @@
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: '{{ asset('image/Animation - 1736136887568.json') }}' // Sesuaikan dengan lokasi file JSON
+            path: '{{ asset('image/Animation - 1736755063867.json') }}' // Sesuaikan dengan lokasi file JSON
         });
     </script>
     </div>
