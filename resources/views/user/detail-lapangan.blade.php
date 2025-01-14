@@ -293,9 +293,7 @@
                                         <path d="M15 6l-6 6l6 6" />
                                     </svg>
                                 </a>
-                                <p class="transition-all hidden ms-3 mb-0">{{ $lapangan->name }}</p> <!-- Elemen yang akan tampil/hilang -->
-                        
-                                <!-- Judul Artikel -->
+                                <p class="transition-all hidden ms-3 mb-0">Detail Lapangan</p>
                             </div>
                         </div>
 
@@ -454,6 +452,7 @@
             }
         });
     </script>
+    
     <script>
         // const header = document.getElementById('header');
     
@@ -494,7 +493,32 @@
 
     </script>
     
-
+    <script>
+        // Mendapatkan elemen input tanggal
+        const tanggalInput = document.getElementById('tanggalPickerDisplay');
+    
+        // Menentukan tanggal minimum yang bisa dipilih (hari ini)
+        const today = new Date();
+        const todayString = today.toISOString().split('T')[0]; // Format YYYY-MM-DD
+    
+        // Set tanggal minimal untuk input
+        tanggalInput.setAttribute('min', todayString);
+    
+        tanggalInput.addEventListener('click', function() {
+            // Logika untuk memilih tanggal
+            // Bisa menambah logika tambahan jika perlu
+        });
+    
+        // Menambahkan event listener untuk waktu
+        var timeButtons = document.querySelectorAll('#timeButtons button');
+        timeButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var jam = this.getAttribute('data-time');
+                document.getElementById('jam_sewa_input').value = jam;
+            });
+        });
+    </script>
+    
 
     {{-- modals --}}
 @endsection

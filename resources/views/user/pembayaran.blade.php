@@ -301,7 +301,7 @@
             </div>
             <div class="d-flex align-items-center container">
                 <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                    Pesan untuk Tgl
+                    Tgl Pemesanan
                 </p>
                 <div class="ms-auto" style="font-size:14px">
                     {{ $tanggalSewa }}
@@ -350,7 +350,7 @@
                             <h6 class="mb-1">{{ $lapangan->name }}</h6>
                             <small class="text-muted">Jam Sewa:  {{ $jamSewa }}</small> <br/>
                             <small class="text-muted">Lama Sewa:  {{ $lamaSewa }} Jam</small>
-                            <p class="fw-bold mt-1" style="color: #101010c2">Rp. {{ $lapangan->harga }}</p>
+                            <p class="fw-bold mt-1" style="color: #101010c2">Rp. {{ number_format($lapangan->harga, 0, ',', '.') }}</p>
                         </div>
                     </div>
                 </div>
@@ -406,7 +406,8 @@
                         Biaya Lapangan
                     </p>
                     <div class="ms-auto" style="font-size:14px">
-                      Rp. {{ $lapangan->harga }}
+                        <p>Rp. {{ number_format($lapangan->harga, 0, ',', '.') }}</p>
+
                     </div>
                 </div>
                 <div class="d-flex align-items-center container">
@@ -431,7 +432,11 @@
                         Total Pembayaran
                     </p>
                     <div class="ms-auto fw-bold" style="font-size:16px;color:#A9DA05">
-                       {{ $lapangan->harga }}
+                        @if ($lamaSewa && $lapangan->harga)
+                        Rp. {{ number_format($lapangan->harga * $lamaSewa, 0, ',', '.') }}
+                    @else
+                        Harga atau lama sewa tidak tersedia.
+                    @endif
                     </div>
                 </div>
             </div>

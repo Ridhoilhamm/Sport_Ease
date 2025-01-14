@@ -20,12 +20,15 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/css/bootstrap-timepicker.min.css"> --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
 
     @livewireStyles
     @stack('styles')
+    @stack('scripts')
     <style>
         
     .selected-time {
@@ -563,7 +566,7 @@
             border-color: #28a745 !important;
         }
     </style>
-
+     
 </head>
 
 <body style="background-color: hsl(210, 17%, 93%);">
@@ -580,7 +583,7 @@
             @if (!isset($hideFooter) || !$hideFooter)
                 @include('user.footer')
             @endif
-
+            @stack('scripts')
         </div>
 
     </div>
@@ -619,21 +622,33 @@
     });
 </script>
 
-<script>
-    document.getElementById('tanggalPickerDisplay').addEventListener('click', function() {
+
+{{-- <script>
+    // Mendapatkan elemen input tanggal
+    const tanggalInput = document.getElementById('tanggalPickerDisplay');
+
+    // Menentukan tanggal minimum yang bisa dipilih (hari ini)
+    const today = new Date();
+    const todayString = today.toISOString().split('T')[0]; // Format YYYY-MM-DD
+
+    // Set tanggal minimal untuk input
+    tanggalInput.setAttribute('min', todayString);
+
+    tanggalInput.addEventListener('click', function() {
         // Logika untuk memilih tanggal
-        var tanggal = '2025-01-01'; // Contoh tanggal
-        document.getElementById('tanggal_sewa_input').value = tanggal;
+        // Bisa menambah logika tambahan jika perlu
     });
 
+    // Menambahkan event listener untuk waktu
     var timeButtons = document.querySelectorAll('#timeButtons button');
     timeButtons.forEach(function(button) {
         button.addEventListener('click', function() {
             var jam = this.getAttribute('data-time');
             document.getElementById('jam_sewa_input').value = jam;
         });
-    })
-</script>
+    });
+</script> --}}
+
 
 {{-- digunakan untuk menyimpan jam pilihan user --}}
 <script>

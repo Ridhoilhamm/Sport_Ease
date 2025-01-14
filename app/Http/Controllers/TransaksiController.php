@@ -12,7 +12,7 @@ class TransaksiController extends Controller
     {
         $validated = $request->validate([
             'lapangan' => 'required|string',
-            'tanggal_sewa' => 'required',
+            'tanggal_sewa' => 'required|date_format:Y-m-d',
             'jam_sewa' => 'required|string',
             'harga' => 'required|numeric',
             'status' => 'required|string',

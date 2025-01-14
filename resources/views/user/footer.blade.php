@@ -18,7 +18,7 @@
                         d="M19 3a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-14a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h14zm-2 12h-10l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h10l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm0 -4h-10l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h10l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm0 -4h-10l-.117 .007a1 1 0 0 0 0 1.986l.117 .007h10l.117 -.007a1 1 0 0 0 0 -1.986l-.117 -.007z" />
                 </svg>
             </a>
-            <h6 class="m-0 {{ request()->is('artikel') ? 'fw-normal' : 'fw-light' }}" style="font-size: 12px;">
+            <h6 class="m-0 {{ request()->is('artikel') ? 'fw-semibold' : 'fw-light' }}" style="font-size: 12px;">
                 Artikel
             </h6>
         </div>
@@ -27,7 +27,10 @@
             <a href="/kategory" class="{{ request()->is('kategory') ? 'text-success' : 'text-secondary' }}">
                 <i class="fas fa-university fa-lg"></i>
             </a>
-            <h6 class="m-0" style="font-size: 12px; font-weight: {{ request()->is('kategory') ? '330' : '300' }};">
+            {{-- <h6 class="m-0" style="font-size: 12px; font-weight: {{ request()->is('kategory') ? '330' : '300' }};">
+                Lapangan
+            </h6> --}}
+            <h6 class="m-0 {{ request()->is('kategory') ? 'fw-semibold' : 'fw-light' }}" style="font-size: 12px;">
                 Lapangan
             </h6>
         </div>
@@ -36,14 +39,19 @@
             <a href="/riwayat" class="{{ request()->is('riwayat') ? 'text-success' : 'text-secondary' }}">
                 <i class="fa-solid fa-wallet fa-lg"></i>
             </a>
-            <p class="m-0" style="font-size: 12px;">Riwayat</p>
+            {{-- <p class="m-0" style="font-size: 12px;">Riwayat</p> --}}
+            <h6 class="m-0 {{ request()->is('riwayat') ? 'fw-semibold' : 'fw-light' }}" style="font-size: 12px;">
+                Riwayat
+            </h6>
         </div>
         <!-- Menu Profil -->
         <div class="d-flex flex-column align-items-center justify-content-center">
             <a href="/data-diri" class="{{ request()->is('data-diri') ? 'text-success' : 'text-secondary' }}">
                 <i class="fas fa-user fa-lg"></i>
             </a>
-            <p class="m-0" style="font-size: 12px;">Profil</p>
+            <h6 class="m-0 {{ request()->is('data-diri') ? 'fw-semibold' : 'fw-light' }}" style="font-size: 12px;">
+                Profil
+            </h6>
         </div>
     </footer>
 </div>

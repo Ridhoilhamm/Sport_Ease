@@ -70,10 +70,10 @@
                     </div>
                     <div class="d-flex align-items-center container">
                         <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                            Pesan untuk Tgl
+                            Tgl Pemesanan
                         </p>
                         <div class="ms-auto" style="font-size:14px">
-                            {{ $transaksi->tanggal_sewa }}
+                            {{ $transaksi->tanggal_sewa }} 
                         </div>
                         <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                             {{-- Icon atau tombol lainnya --}}
@@ -118,7 +118,7 @@
 
                                         <!-- Mengakses nama lapangan -->
                                         <h6 class="mb-1"> {{ $transaksi->getlapangan->name }}</h6>
-                                        <small class="text-muted " style="font-size:12px">Sewa Untuk Tanggal {{ $transaksi->tanggal_sewa }} Janua </small> <br/>
+                                        <small class="text-muted " style="font-size:12px">Sewa Untuk Tanggal {{ $transaksi->tanggal_sewa }}  </small> <br/>
                                         <small class="text-muted" style="font-size:12px">Jam Sewa {{ $transaksi->jam_sewa }} </small> <br/>
                                         <small class="text-muted" style="font-size:12px">Lama Sewa {{ $transaksi->lama_sewa }}  Jam</small>
                                         {{-- <p class="fw-bold mt-1" style="color: #101010c2">Rp. {{ number_format($transaksi->getlapangans->harga, 0, ',', '.') }}</p> --}}
@@ -162,7 +162,16 @@
                             Motade Pembayaran
                         </p>
                         <div class="ms-auto" style="font-size:14px">
-                            Bca a.n(Sport Ease)
+                            Bca 
+                        </div>
+    
+                    </div>
+                    <div class="d-flex align-items-center container">
+                        <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                            Nomer Rekening
+                        </p>
+                        <div class="ms-auto" style="font-size:14px">
+                            122333478
                         </div>
     
                     </div>

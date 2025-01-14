@@ -39,10 +39,16 @@ class ArtikelResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('judul_artikel'),
-                ImageColumn::make('image_artikel')->disk('public'),
-                TextColumn::make('isi_artikel')->limit(50),
+                TextColumn::make('judul_artikel')
+                ->alignCenter(),
+                ImageColumn::make('image_artikel')
+                ->alignCenter()
+                ->disk('public'),
+                TextColumn::make('isi_artikel')
+                ->alignCenter()
+                ->limit(50),
                 TextColumn::make('status')
+                ->alignCenter()
                     ->label('Status')
                     ->badge()
                     ->colors([
@@ -55,7 +61,7 @@ class ArtikelResource extends Resource
                 Tables\Actions\EditAction::make()->label(''),
                 Tables\Actions\DeleteAction::make()->label(''),
                 Tables\Actions\Action::make('toggleStatus')
-                    ->label('Toggle Status')
+                    ->label('status')
                     ->action(function ($record) {
                         $record->update(['status' => !$record->status]);
                     })

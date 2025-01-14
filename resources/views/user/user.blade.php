@@ -116,7 +116,7 @@
 @section('content')
     <div>
         <div class="bg-white">
-            
+
 
             <!-- Promo Section -->
 
@@ -130,30 +130,30 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             @foreach ($slider as $gambar)
-                                <li class="splide__slide me-3">
+                                <li class="splide__slide me-1">
                                     <img src="{{ asset('storage/' . $gambar->image1) }}" alt="Slide 01"
                                         class="splide__image" />
                                 </li>
-                                <li class="splide__slide me-3">
+                                <li class="splide__slide me-1">
                                     <img src="{{ asset('storage/' . $gambar->image2) }}" alt="Slide 01"
                                         class="splide__image" />
                                 </li>
-                                <li class="splide__slide me-3">
+                                <li class="splide__slide me-1">
                                     <img src="{{ asset('storage/' . $gambar->image3) }}" alt="Slide 01"
                                         class="splide__image" />
                                 </li>
-                                <li class="splide__slide me-3">
+                                <li class="splide__slide me-1">
                                     <img src="{{ asset('storage/' . $gambar->image4) }}" alt="Slide 01"
                                         class="splide__image" />
                                 </li>
-                                <li class="splide__slide me-3">
+                                <li class="splide__slide me-1">
                                     <img src="{{ asset('storage/' . $gambar->image5) }}" alt="Slide 01"
                                         class="splide__image" />
                                 </li>
                             @endforeach
                         </ul>
                     </div>
-                    
+
                 </section>
 
 
@@ -330,53 +330,70 @@
         {{-- notify bar --}}
 
         <x-flash-message />
-        <div class="container my-4">
-            @foreach ($transaksi as $data)
-                <a href="{{ route('detail-transaksi', $data->id) }}">
-                    <div class="card shadow-sm mb-1 w-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                    stroke-linecap="round" stroke-linejoin="round" class="me-2">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path
-                                        d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
-                                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-                                    <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" />
-                                    <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" />
-                                </svg>
-                                <p class="mb-0 text-nowrap" style="font-size: 14px;">Pemesanan Lapangan</p>
-                            </div>
-
-                            <p class="card-text mt-0 mb-0" style="font-size: 12px">
-                                Status:
-                                <span
-                                    class="badge {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
-                                    {{ $data->status }}
-                                </span>
-                                <p class="fw-medium mt-0 mb-0" style="font-size: 11px">
-                                    Digunakan pada {{ $data->tanggal_sewa }} Januari 2025
-                                </p>
-                                <p class="fw-medium mt-0 mb-0" style="font-size: 11px">
-                                    Jam Sewa {{ $data->jam_sewa }} :00
-                                </p>
-                                <p class="fw-medium mt-0 mb-0" style="font-size: 11px">
-                                    Lama Sewa {{ $data->lama_sewa }}
-                                </p>
-                            </p>
+        <div id="transaksiCarousel" class="carousel slide my-2" data-bs-ride="carousel" >
+            <div class="carousel-inner">
+                @foreach ($transaksi as $key => $data)
+                    <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
+                        <a href="{{ route('detail-transaksi', $data->id) }}">
+                            <div class="container">
+                                <div class="mt-2 rounded px-1" style="background-color: #a8da05ad">
+                                    <div class="container d-flex align-items-center justify-content-between border-bottom py-2">
             
-                        </div>
+                                        <!-- Icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                            stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-dot">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5" />
+                                            <path d="M16 3v4" />
+                                            <path d="M8 3v4" />
+                                            <path d="M4 11h16" />
+                                            <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                        </svg>
+                                    
+        
+                                        <!-- Text -->
+                                        <p class="fw-normal mb-0 text-white">
+                                            Pemesanan Lapangan
+                                        </p>
+                                         
+                                        <!-- Status Badge -->
+                                        <div class="d-flex flex-column align-items-end">
+                                            <span class="badge {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
+                                                {{ $data->status }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex align-items-center container">
+                                        <p class="fw-medium mb-0 text-white" style="flex: 1; padding-bottom: 5px; font-size:12px">
+                                            Nama Lapangan
+                                        </p>
+                                        <div class="ms-auto text-white" style="font-size:12px">
+                                            {{ $data->lapangan }}
+                                        </div>
+                                    </div>
+        
+                                    <div class="d-flex align-items-center container">
+                                        <p class="fw-medium mb-0 text-white" style="flex: 1; font-size:12px; padding-bottom: 5px;">
+                                            Jadwal Sewa
+                                        </p>
+                                        <div class="ms-auto text-white" style="font-size:12px">
+                                            {{ $data->tanggal_sewa }} 
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            @endforeach
+                @endforeach
+            </div>
         </div>
+        
 
-
-
-
-        <section class="m-0 flex-grow-1 bg-white"
-            style="padding-bottom: 10px; border-radius: 15px 15px 0 0; overflow: hidden;">
+        <section class="m-0 flex-grow-1 bg-white mt-2"
+            style="padding-bottom: 2px; border-radius: 15px 15px 0 0; overflow: hidden;">
             <div class="m-0">
                 <div class="d-flex align-items-center">
                     <h5 class="mt-3 mb-0 ms-3" style="font-size: 20px">Rekomedasi</h5>
@@ -413,7 +430,8 @@
 
 
 
-        <div class="bg-white" <section class="mt-0 flex-grow-1" style="padding-bottom:10px;">
+        <div class="bg-white" 
+        <section class="mt-0 flex-grow-1" style="padding-bottom:10px;">
             <div class="d-flex align-items-center mb-2">
                 <p class="mt-2 mb-0 ms-3" style="font-size:20px;">Terdekat</p>
             </div>
@@ -487,7 +505,6 @@
                 </div>
             </section>
 
-
         </div>
 
         {{-- halaman  --}}
@@ -501,4 +518,60 @@
             </div>
         </section>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var carouselElement = document.getElementById('transaksiCarousel');
+    var carousel = new bootstrap.Carousel(carouselElement, {
+        interval: 3000,
+        touch: true
+    });
+
+    // Tambahkan event listener untuk drag (manual swipe)
+    var startX, endX;
+
+    carouselElement.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+    });
+
+    carouselElement.addEventListener('touchmove', function(e) {
+        endX = e.touches[0].clientX;
+    });
+
+    carouselElement.addEventListener('touchend', function() {
+        if (startX > endX) {
+            carousel.next(); // geser ke kanan
+        } else {
+            carousel.prev(); // geser ke kiri
+        }
+    });
+
+    // Jika menggunakan mouse, memungkinkan geser dengan mouse
+    let isMouseDown = false;
+    let startMouseX;
+
+    carouselElement.addEventListener('mousedown', function(e) {
+        isMouseDown = true;
+        startMouseX = e.clientX;
+    });
+
+    carouselElement.addEventListener('mousemove', function(e) {
+        if (!isMouseDown) return;
+        endX = e.clientX;
+    });
+
+    carouselElement.addEventListener('mouseup', function() {
+        if (!isMouseDown) return;
+        isMouseDown = false;
+        if (startMouseX > endX) {
+            carousel.next(); // geser ke kanan
+        } else {
+            carousel.prev(); // geser ke kiri
+        }
+    });
+});
+
+    </script>
+   
+    
 @endsection

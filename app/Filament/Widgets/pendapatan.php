@@ -15,12 +15,12 @@ class Pendapatan extends BaseWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Jumlah Artikel', transaksi::count())
+            Stat::make('Jumlah Transaksi', transaksi::count())
             ->description('Artikel yang Aktive')
             ->descriptionIcon('heroicon-m-flag', IconPosition::Before)
             ->chart([1,4,5,7])
             ->color('#A9DA05'), 
-            Stat::make('Pendapatan', Transaksi::whereNotNull('harga')->sum('harga'))
+            Stat::make('Pendapatan', Transaksi::whereNotNull('total_pembayaran')->sum('total_pembayaran'))
             ->description('Pendapatan')
             ->descriptionIcon('heroicon-m-flag', IconPosition::Before)
             ->chart([1,4,5,7])

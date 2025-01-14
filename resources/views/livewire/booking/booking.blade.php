@@ -30,31 +30,27 @@
                         <form wire:submit.prevent="submit()">
 
                             <div class="mb-3">
-                                <label name="tanggal_sewa" for="tanggalPickerDisplay" class="form-label">Tanggal
-                                    Sewa</label>
+                                <label for="tanggalPickerDisplay" class="form-label">Tanggal Sewa</label>
                                 <div class="input-group justify-content-center">
                                     <span class="input-group-text bg-light">
                                         <i class="fas fa-calendar-alt"></i>
                                     </span>
-                                    {{-- <div name="tanggal_sewa" id="tanggalPickerDisplay" class="form-control w-50 bg-white"
-                                style="cursor: pointer;">
-                                Pilih Tanggal
-                            </div> --}}
-                                    <div id="tanggalPickerDisplay" class="form-control w-50 bg-white"
-                                        style="cursor: pointer;"  wire:model.defer="date">
-                            pilih Tanggal
-
-                                    </div>
+                            
+                                    <!-- Input tanggal dengan wire:model -->
+                                    <input type="date" id="tanggalPickerDisplay" class="form-control w-50 bg-white" 
+                                        wire:model.defer="date" placeholder="Pilih Tanggal" />
+                            
                                 </div>
                                 @error('date')
-                                    {{ $message }}
+                                    <div class="text-danger">{{ $message }}</div>
                                 @enderror
                             </div>
+                            
+                               
 
                             <div class="mb-3">
-                                <label id="durasi" class="form-label">Durasi Sewa</label>
                                 <label name="jam_sewa" for="jam_sewa" class="form-label">Jam Sewa</label>
-                                <div class="d-flex flex-wrap gap-2">
+                                <div class="d-flex flex-wrap gap-0">
                                     @foreach ($times as $time)
                                         <button 
                                             type="button" 
@@ -90,5 +86,6 @@
             </div>
 
         </div>
+        
     </div>
 

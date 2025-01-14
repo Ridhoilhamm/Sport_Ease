@@ -45,7 +45,7 @@
                 <input type="text" name="query" class="form-control mt-4 ms-2" placeholder="Cari Lapangan"
                     value="{{ request()->query('query') }}">
                 <button class="btn btn-outline-danger ms-2 mt-4 me-2" type="submit">
-                    <i class="bi bi-filter"></i> Cari
+                     Cari
                 </button>
             </form>
 
@@ -265,7 +265,7 @@
                 @else
                     <div class="row row-cols-2 g-2 bg-white">
                         @php
-                        $hideFooter = true;
+                        
                         
                     @endphp
 
@@ -288,8 +288,8 @@
                                             <h6 class="card-title mb-2 mt-1 text-truncate" style="font-size: 14px;">
                                                 {{ $product->name }}</h6>
                                             <p class="card-text  mb-1 text-success fw-medium text-center"
-                                                style="font-size: 16px;"> Rp.
-                                                {{ $product->harga }}
+                                                style="font-size: 16px;">
+                                                Rp.{{ number_format($product->harga, 0, ',', '.') }}
                                                 @if (!empty($product->harga))
                                                 @endif
                                             </p>

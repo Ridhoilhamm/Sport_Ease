@@ -20,13 +20,14 @@ class TransaksiPembayaran extends Component
 
         // Debugging untuk memastikan data yang diterima
         // dd($this->lapangan, $this->tanggalSewa, $this->jamSewa, $this->lamaSewa, $total_pembayaran); // Pastikan $total_pembayaran terisi dengan nilai yang benar
-
+        
         // Simpan data transaksi
         Transaksi::create([
             'id_user' => auth()->id(),
             'lapangan' => $lapanganNama, 
             'id_lapangan' => $this->lapangan->id, 
-            'tanggal_sewa' => $this->tanggalSewa,  // Tanggal sewa
+            'tanggal_sewa' => $this->tanggalSewa,
+            // Tanggal sewa
             'jam_sewa' => $this->jamSewa,  // Jam sewa
             'lama_sewa' => $this->lamaSewa,  // Lama sewa
             'total_pembayaran' => $total_pembayaran,  // Total pembayaran (harga lapangan * lama sewa)

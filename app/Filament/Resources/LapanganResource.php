@@ -59,9 +59,11 @@ class LapanganResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
+                TextColumn::make('name')
+                ->alignCenter(),
                 TextColumn::make('jenis'),
-                TextColumn::make('id_user'),
+                TextColumn::make('id_user')
+                ->alignCenter(),
                 ImageColumn::make('foto')
                 ->size(150)
                 ->disk('public') // Menyatakan disk public
