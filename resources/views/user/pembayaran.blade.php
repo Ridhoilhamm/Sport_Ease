@@ -245,8 +245,10 @@
 @endsection
 
 @section('content')
+
     <!-- Header -->
-    <div class="mb-1 bg-white rounded" style="padding-bottom: 10px">
+    {{-- <x-flash-message /> --}}
+
        
         <div class="container" style="padding-top: 10px">
             <div class="mb-2 d-flex align-items-center justify-content-between">
@@ -315,7 +317,9 @@
                     Jam Dipilih
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    {{ $jamSewa }} 
+                    {{-- <p>{{ implode(', ', $get_time) }}</p> --}}
+                    {{ $jamSewa }}
+
                 </div>
                 <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -551,6 +555,19 @@
             </div>
         </div>
     </div>
+    @if (session()->has('message'))
+    <div class="alert alert-success mt-3" id="flash-message">
+        {{ session('message') }}
+    </div>
+
+    <script>
+        // Menunggu 3 detik lalu menghilangkan pesan
+        setTimeout(function() {
+            document.getElementById('flash-message').style.display = 'none';
+        }, 3000); // Menghilangkan alert setelah 3 detik
+    </script>
+@endif
+
 
     {{-- modals detail-pembayaran --}}
     <livewire:transaksi-pembayaran 

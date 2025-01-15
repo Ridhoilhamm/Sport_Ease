@@ -19,4 +19,9 @@ class Lapangan extends Model
     {
         return $this->hasMany(gambar_lapangan::class, 'lapangan_id', 'id');
     }
+    public function favoriteByUsers()
+{
+    return $this->belongsToMany(User::class, 'favoritelapangan');
+}
+
 }

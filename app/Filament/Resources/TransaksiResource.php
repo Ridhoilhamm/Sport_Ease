@@ -9,6 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -35,6 +36,10 @@ class TransaksiResource extends Resource
                 TextColumn::make('lapangan'),
                 TextColumn::make('tanggal_sewa'),
                 TextColumn::make('jam_sewa'),
+                ImageColumn::make('bukti_pembayaran')
+                ->size(150)
+                ->disk('public') // Menyatakan disk public
+                ->label('foto'),
                 TextColumn::make('created_at')->label('Di buat'),
                 TextColumn::make('total_pembayaran'),
                 TextColumn::make('status')

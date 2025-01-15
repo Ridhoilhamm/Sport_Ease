@@ -40,9 +40,13 @@
         background-color: #218838 !important;
     }
 
-        body {
-            color: rgb(57, 47, 47);
-        }
+    body, img {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 
         .text-success {
             color: #A9DA05 !important;
@@ -589,6 +593,13 @@
     </div>
 
 
+        @livewireScripts
+      
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
+        <x-livewire-alert::scripts />
+        
+      
 
 
 

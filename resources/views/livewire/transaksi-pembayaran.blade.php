@@ -1,9 +1,6 @@
 <div>
-    @if (session()->has('message'))
-        <div id="flash-message" class="alert alert-success mt-3">
-            {{ session('message') }}
-        </div>
-    @endif
+   
+   
 
     <div class=" bg-white" style="padding-top: 3px; padding-bottom:20px;">
         <div class="container text-center d-flex justify-items-center" style="padding-top: 10px; font-family: ubuntu">
@@ -25,7 +22,7 @@
     <!-- Modal -->
     <div class="modal fade" id="detail-pembayaran" tabindex="-1" aria-labelledby="detaipembayaran" aria-hidden="true"
         style="font-family: ubuntu " data-bs-backdrop="static" data-bs-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-start" id="exampleModalLabel">Detail Pemesanan</h5>

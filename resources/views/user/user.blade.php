@@ -251,7 +251,6 @@
                             </div>
                             <p class="mt-1" style="font-size:12px;">Bowling</p>
                         </a>
-
                     </div>
                     <div class="col m-0">
                         <a href="/lapangan/cari?query=tenis">
@@ -326,72 +325,67 @@
             </form>
 
         </div>
-        <!-- Quick Transfer -->
-        {{-- notify bar --}}
+       
+       
+        
 
-        <x-flash-message />
-        <div id="transaksiCarousel" class="carousel slide my-2" data-bs-ride="carousel" >
-            <div class="carousel-inner">
-                @foreach ($transaksi as $key => $data)
-                    <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
-                        <a href="{{ route('detail-transaksi', $data->id) }}">
-                            <div class="container">
-                                <div class="mt-2 rounded px-1" style="background-color: #a8da05ad">
-                                    <div class="container d-flex align-items-center justify-content-between border-bottom py-2">
+        <section class="m-0 flex-grow-1"
+            style=" border-radius: 15px 15px 0 0; overflow: hidden;">
             
+            <section class="px-3">
+                <div style="overflow-x: auto; white-space: nowrap; position: relative;">
+                    <div style="display: inline-flex; min-width: 100%; width: fit-content;">
+                        <!-- Slide 1 -->
+                        @foreach ($transaksi as $key => $data)
+                        <a href="{{ route('detail-transaksi', $data->id) }}" class="text-decoration-none">
+                            <div class="card mb-1 shadow-sm" style="background-color: #a8da05ad; border: none; {{ $loop->last ? '' : 'margin-right: 8px;' }}">
+                                <div class="card-body py-2 px-2">
+                                    <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
                                         <!-- Icon -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                                            stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-dot">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5" />
-                                            <path d="M16 3v4" />
-                                            <path d="M8 3v4" />
-                                            <path d="M4 11h16" />
-                                            <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                                        </svg>
-                                    
-        
-                                        <!-- Text -->
-                                        <p class="fw-normal mb-0 text-white">
-                                            Pemesanan Lapangan
-                                        </p>
-                                         
+                                        <div class="d-flex align-items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-dot me-2">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5" />
+                                                <path d="M16 3v4" />
+                                                <path d="M8 3v4" />
+                                                <path d="M4 11h16" />
+                                                <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                                            </svg>
+                                            <p class="fw-semibold text-white mb-0 me-2">Pemesanan Lapangan</p>
+                                        </div>
+                    
                                         <!-- Status Badge -->
-                                        <div class="d-flex flex-column align-items-end">
-                                            <span class="badge {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
-                                                {{ $data->status }}
-                                            </span>
+                                        <span class="badge 
+                                            {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
+                                            {{ $data->status }}
+                                        </span>
+                                    </div>
+                    
+                                    <!-- Detail Section -->
+                                    <div class="mt-3">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="fw-medium mb-1 text-white" style="font-size: 12px;">Nama Lapangan:</p>
+                                            <p class="text-white mb-1" style="font-size: 12px;">{{ $data->lapangan }}</p>
+                                        </div>
+                    
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="fw-medium mb-1 text-white" style="font-size: 12px;">Jadwal Sewa:</p>
+                                            <p class="text-white mb-1" style="font-size: 12px;">{{ $data->tanggal_sewa }}</p>
                                         </div>
                                     </div>
-                                    
-                                    <div class="d-flex align-items-center container">
-                                        <p class="fw-medium mb-0 text-white" style="flex: 1; padding-bottom: 5px; font-size:12px">
-                                            Nama Lapangan
-                                        </p>
-                                        <div class="ms-auto text-white" style="font-size:12px">
-                                            {{ $data->lapangan }}
-                                        </div>
-                                    </div>
-        
-                                    <div class="d-flex align-items-center container">
-                                        <p class="fw-medium mb-0 text-white" style="flex: 1; font-size:12px; padding-bottom: 5px;">
-                                            Jadwal Sewa
-                                        </p>
-                                        <div class="ms-auto text-white" style="font-size:12px">
-                                            {{ $data->tanggal_sewa }} 
-                                        </div>
-                                    </div>
-        
                                 </div>
                             </div>
                         </a>
+                    @endforeach
+                    
+                        <!-- Slide 2 -->
                     </div>
-                @endforeach
-            </div>
-        </div>
-        
+                </div>
+            </section>
 
+        </section>
         <section class="m-0 flex-grow-1 bg-white mt-2"
             style="padding-bottom: 2px; border-radius: 15px 15px 0 0; overflow: hidden;">
             <div class="m-0">

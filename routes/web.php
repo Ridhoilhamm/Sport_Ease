@@ -18,6 +18,7 @@ use App\Http\Controllers\UserController;
 // use App\Livewire\AuthController;
 use App\Livewire\Authh;
 use App\Livewire\BookingForm;
+use App\Livewire\BuktiPembayaran;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,7 @@ Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat.show')
 
 Route::get('/data-diri', [DatadiriController::class, 'index'])->name('datadiri');
 Route::get('/detailtransaksi/{id}', [TransaksiController::class, 'transaksibyid'])->name('detail-transaksi');
+Route::get('/detailtransaksi/{transaksiId}', BuktiPembayaran::class)->name('detail-transaksi');
 
 
 

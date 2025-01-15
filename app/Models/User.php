@@ -27,6 +27,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Lapangan::class);
     }
+    public function lapanganFavorites()
+{
+    return $this->belongsToMany(Lapangan::class, 'favoritelapangan');
+}
+
 
 
     /**
