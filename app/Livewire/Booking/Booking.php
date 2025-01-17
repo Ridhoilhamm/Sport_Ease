@@ -109,7 +109,7 @@ class Booking extends Component
         'tanggal_sewa' => $this->date,
         'jam_sewa' => implode(', ', $this->get_time),
         'lapangan' => $lapangan,
-        'lama_sewa' => $this->lama_sewa
+        // 'lama_sewa' => $this->lama_sewa
     ];
 
     // Menyimpan data transaksi di session untuk digunakan pada pembayaran

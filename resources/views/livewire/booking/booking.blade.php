@@ -62,16 +62,6 @@
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                       
-
-                        <div class="mb-3">
-                            <label for="lama_sewa" class="form-label">Lama Sewa (Jam)</label>
-                            <input type="number" min="1" class="form-control w-50" id="lama_sewa"
-                                wire:model.defer="lama_sewa" placeholder="Masukkan lama sewa">
-                            @error('lama_sewa')
-                                <div class="text-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
 
                         <button class="btn w-100 " style="background-color: #5cb85c; color:#ffffff" type="submit">
                             Lanjutkan</button>

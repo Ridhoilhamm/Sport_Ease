@@ -1,23 +1,27 @@
 <div>
    
-   
-
-    <div class=" bg-white" style="padding-top: 3px; padding-bottom:20px;">
-        <div class="container text-center d-flex justify-items-center" style="padding-top: 10px; font-family: ubuntu">
-            <p class="fw-bold" style="font-size: 18px; color:#A9DA05">
-                @if ($lamaSewa && $lapangan->harga)
-                    Rp. {{ number_format($lapangan->harga * $lamaSewa, 0, ',', '.') }}
-                @else
-                    Harga atau lama sewa tidak tersedia.
-                @endif
-            </p>
-            <button class="ms-auto btn btn-success custom-button" data-bs-toggle="modal"
-                data-bs-target="#detail-pembayaran"
+    <div class="bg-white" style="padding-top: 3px; padding-bottom:20px;">
+        <div class="container d-flex align-items-center justify-content-between" style="padding-top: 10px; font-family: ubuntu;">
+            <!-- Total Pembayaran dan Harga -->
+            <div>
+                <!-- Total Pembayaran -->
+                <p class="fw-bold mb-1" style="font-size: 18px; color:#A9DA05;">
+                    Total Pembayaran
+                </p>
+                <!-- Harga -->
+                <p class="fw-bold mb-0" style="font-size: 18px; color:#A9DA05;">
+                    Rp. {{ number_format($lapangan->harga * 2, 0, ',', '.') }}
+                </p>
+            </div>
+            <!-- Tombol Lanjutkan -->
+            <button class="btn btn-success custom-button" data-bs-toggle="modal" data-bs-target="#detail-pembayaran"
                 style="background-color: #A9DA05; color: #ffffff; padding: 12px; border-radius: 8px; border: none; font-weight: bold;">
                 Lanjutkan
             </button>
         </div>
     </div>
+    
+    
 
     <!-- Modal -->
     <div class="modal fade" id="detail-pembayaran" tabindex="-1" aria-labelledby="detaipembayaran" aria-hidden="true"
@@ -32,26 +36,9 @@
                     <p class="container fw-semibold mb-0 justify-content-center">
                         Data Pemesan
                     </p>
-                    {{-- <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Nama lengkap</p>
-                        <div class="ms-auto" style="font-size:14px">
-                            {{ $user->name }}
-                        </div>
-                    </div>
+                    
                     <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Email</p>
-                        <div class="ms-auto" style="font-size:14px">
-                            {{ $user->email }}
-                        </div>
-                    </div> --}}
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Sewa</p>
-                        {{-- <div class="ms-auto" style="font-size:14px">
-                            {{ $lapangan->name }}
-                        </div> --}}
-                    </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Tanggal Pemesanan</p>
+                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Tgl Pemesanan</p>
                         <div class="ms-auto" style="font-size:14px">
                             {{ $tanggalSewa }}
                         </div>
@@ -62,50 +49,65 @@
                             {{ $jamSewa }}
                         </div>
                     </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Lama Sewa</p>
-                        <div class="ms-auto" style="font-size:14px">
-                            {{ $lamaSewa }}
+                   
+
+                    <div class="container ">
+                        <!-- Header -->
+                        
+                    
+                        <!-- Metode Pembayaran -->
+                        <div class="d-flex align-items-center mb-3">
+                            <p class="fw-medium mb-0" style="font-size:14px;">Metode Pembayaran</p>
+                            <div class="ms-auto" style="font-size:14px;">
+                                Transfer
+                            </div>
+                        </div>
+                    
+                        <!-- Nomor Rekening -->
+                        <p class=" fw-semibold mb-0 justify-content-center">
+                            Data Pemesan
+                        </p>
+                        <div class="d-flex align-items-center mb-2">
+                            <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">No Rekening</p>
+                            <div class="ms-auto d-flex align-items-center">
+                                <p class="mb-0 me-2" style="font-size:14px;">122333444</p>
+                                <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                    class="icon icon-tabler icon-tabler-copy" style="cursor: pointer;">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
+                                    <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+                                </svg>
+                            </div>
+                        </div>
+                    
+                        <!-- Custom Alert -->
+                        <div id="custom-alert" class="alert alert-success" style="display: none;">
+                            <strong>Success!</strong> Nomor rekening berhasil disalin!
+                        </div>
+                    
+                        <!-- Nama Bank -->
+                        <div class="d-flex align-items-center mb-2">
+                            <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Nama Bank</p>
+                            <div class="ms-auto" style="font-size:14px;">
+                                BCA (a.n Sport Ease)
+                            </div>
+                        </div>
+                    
+                        <!-- Atas Nama -->
+                        <div class="d-flex align-items-center mb-3">
+                            <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Atas Nama</p>
+                            <div class="ms-auto" style="font-size:14px;">
+                                Sport Ease
+                            </div>
                         </div>
                     </div>
-
-                    <p class="container fw-semibold mt-2 justify-content-center mb-0">Pembayaran</p>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Metode Pembayaran</p>
-                        <div class="ms-auto" style="font-size:14px">
-                            Transfer
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-1" style="flex: 1; font-size:14px;">No Rekening</p>
-                        <div class="ms-auto d-flex justify-between" style="font-size:14px">
-                            
-                            <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-copy">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
-                                <path
-                                    d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
-                            </svg>
-                            <p>
-                                122333444
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <!-- Custom Alert -->
-                    <div id="custom-alert" class="alert alert-success" style="display: none;">
-                        <strong>Success!</strong> Nomor rekening berhasil disalin!
-                    </div>
-
-                    <!-- Script untuk Menyalin Nomor dan Menampilkan Custom Alert -->
+                    
+                    <!-- Script untuk Menyalin Nomor Rekening -->
                     <script>
-                        document.getElementById('copy-icon').addEventListener('click', function() {
+                        document.getElementById('copy-icon').addEventListener('click', function () {
                             // Salin nomor rekening ke clipboard
-                            const textToCopy = '122333444'; // Ganti dengan nomor rekening yang sesuai
+                            const textToCopy = '122333444'; // Nomor rekening
                             navigator.clipboard.writeText(textToCopy)
                                 .then(() => {
                                     // Tampilkan alert setelah berhasil menyalin
@@ -113,10 +115,10 @@
                                     alert.className = 'alert';
                                     alert.textContent = 'Nomor rekening berhasil disalin!';
                                     document.body.appendChild(alert);
-
+                    
                                     // Ganti warna ikon menjadi hijau
                                     document.getElementById('copy-icon').classList.add('icon-success');
-
+                    
                                     // Hapus alert setelah beberapa detik
                                     setTimeout(() => {
                                         alert.remove();
@@ -127,8 +129,8 @@
                                 });
                         });
                     </script>
-
-                    <!-- Custom CSS untuk Alert -->
+                    
+                    <!-- Custom CSS -->
                     <style>
                         .alert {
                             position: fixed;
@@ -144,31 +146,24 @@
                             z-index: 1050;
                             transition: opacity 0.5s ease;
                         }
-
+                    
                         .icon-success {
-
-                            /* Hijau setelah berhasil */
-                            stroke: #28a745;
+                            stroke: #28a745; /* Warna hijau setelah berhasil */
                         }
                     </style>
-
-                    <div class="d-flex align-items-center container">
-                        <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Nama Bank</p>
-                        <div class="ms-auto" style="font-size:14px">
-                            BCA (a.n Sport Ease)
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="modal-footer d-flex justify-content-between">
                     <p class="mb-0">
                         Total Pembayaran <br />
                         <span style="color: #A9DA05; font-size: 18px" class="fw-semibold">
-                            @if ($lamaSewa && $lapangan->harga)
-                                Rp. {{ number_format($lapangan->harga * $lamaSewa, 0, ',', '.') }}
-                            @else
-                                Harga atau lama sewa tidak tersedia.
-                            @endif
+                            @if (is_numeric($lapangan->harga) && $lapangan->harga > 0)
+                            Rp. {{ number_format((float)$lapangan->harga * 2, 0, ',', '.') }}
+                        @else
+                            Harga atau lama sewa tidak tersedia.
+                        @endif
                         </span>
+                        
                     </p>
                     <button type="button" class="btn fw-semibold" style="background-color: #a8da05; color: #ffff"
                         wire:click="simpanTransaksi" data-bs-dismiss="modal">

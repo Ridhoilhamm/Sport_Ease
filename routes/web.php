@@ -54,7 +54,8 @@ Route::middleware('Rolemiddlware')->group(function (): void {
 
 });
 Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
-Route::get('/riwayat', [riwayatController::class, 'show'])->name('riwayat.show');
+Route::get('/riwayat/filter/{status}', action: [riwayatController::class, 'filter'])->name('transaksi.filter');
+// Route::get('/riwayat/filter/{status}', [riwayatController::class, 'filter'])->name('transaksi.filter');
 
 Route::get('/data-diri', [DatadiriController::class, 'index'])->name('datadiri');
 Route::get('/detailtransaksi/{id}', [TransaksiController::class, 'transaksibyid'])->name('detail-transaksi');
@@ -69,6 +70,8 @@ Route::get('/detailkategory', [LapanganController::class, 'index'])->name('detai
 Route::get('/detaillapangan/{id}', [LapanganController::class, 'show'])->name('detaillapangan');
 Route::post('/detaillapangan', [LapanganController::class, 'storelapangan'])->name('storelapangan');
 Route::get('/pembayaran', [LapanganController::class, 'showPembayaran'])->name('user.pembayaran');
+// Route::get('/transaksi/filter/{status}', [TransaksiController::class, 'filter'])->name('transaksi.filter');
+
 // Route::get('/pembayaran/{id}', [TransaksiController::class, 'transaksibyid'])->name('detail-transaksi');
 
 

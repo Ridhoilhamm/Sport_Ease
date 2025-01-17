@@ -325,61 +325,65 @@
             </form>
 
         </div>
-       
-       
-        
 
-        <section class="m-0 flex-grow-1"
-            style=" border-radius: 15px 15px 0 0; overflow: hidden;">
-            
-            <section class="px-3">
+
+
+
+        <section class="m-0 flex-grow-1 bg-white">
+            <div class="m-0">
+                <div class="d-flex align-items-center">
+                    <h5 class="mt-3  ms-3 mb-2" style="font-size: 20px">Pesanan Anda</h5>
+
+                </div>
+            </div>
+
+            <section class="px-3" style="padding-bottom: 10px">
                 <div style="overflow-x: auto; white-space: nowrap; position: relative;">
                     <div style="display: inline-flex; min-width: 100%; width: fit-content;">
                         <!-- Slide 1 -->
                         @foreach ($transaksi as $key => $data)
-                        <a href="{{ route('detail-transaksi', $data->id) }}" class="text-decoration-none">
-                            <div class="card mb-1 shadow-sm" style="background-color: #a8da05ad; border: none; {{ $loop->last ? '' : 'margin-right: 8px;' }}">
-                                <div class="card-body py-2 px-2">
-                                    <div class="d-flex align-items-center justify-content-between border-bottom pb-2">
-                                        <!-- Icon -->
-                                        <div class="d-flex align-items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-dot me-2">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path d="M12.5 21h-6.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v5" />
-                                                <path d="M16 3v4" />
-                                                <path d="M8 3v4" />
-                                                <path d="M4 11h16" />
-                                                <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                                            </svg>
-                                            <p class="fw-semibold text-white mb-0 me-2">Pemesanan Lapangan</p>
-                                        </div>
-                    
-                                        <!-- Status Badge -->
-                                        <span class="badge 
+                            <a href="{{ route('detail-transaksi', $data->id) }}" class="text-decoration-none">
+                                <div class="card mb-1 shadow-sm"
+                                    style="background-color: transparent;  /* Buat latar belakang kartu transparan */
+    border: 2px solid #A9DA05; ;  {{ $loop->last ? '' : 'margin-right: 8px;' }} paddi">
+                                    <div class="card-body py-2 px-2" style="padding-bottom: 10px">
+                                        <div class="d-flex align-items-center justify-content-between pb-2 mb-2"
+                                            style="border-bottom: 2px solid #A9DA05; ;">
+                                            <!-- Icon -->
+                                            <div class="d-flex align-items-center">
+
+                                                <p class="  mb-0 me-2">Pemesanan Lapangan</p>
+                                            </div>
+
+                                            <!-- Status Badge -->
+                                            <span
+                                                class="badge 
                                             {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
-                                            {{ $data->status }}
-                                        </span>
-                                    </div>
-                    
-                                    <!-- Detail Section -->
-                                    <div class="mt-3">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="fw-medium mb-1 text-white" style="font-size: 12px;">Nama Lapangan:</p>
-                                            <p class="text-white mb-1" style="font-size: 12px;">{{ $data->lapangan }}</p>
+                                                {{ $data->status }}
+                                            </span>
                                         </div>
-                    
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <p class="fw-medium mb-1 text-white" style="font-size: 12px;">Jadwal Sewa:</p>
-                                            <p class="text-white mb-1" style="font-size: 12px;">{{ $data->tanggal_sewa }}</p>
+
+                                        <!-- Detail Section -->
+                                        <div class="mt-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="fw-medium mb-1 text-black" style="font-size: 12px;">Nama
+                                                    Lapangan</p>
+                                                <p class="text-black mb-1" style="font-size: 12px;">{{ $data->lapangan }}
+                                                </p>
+                                            </div>
+
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="fw-medium mb-1 text-black" style="font-size: 12px;">Jadwal Sewa
+                                                </p>
+                                                <p class="text-black mb-1" style="font-size: 12px;">
+                                                    {{ $data->tanggal_sewa }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    @endforeach
-                    
+                            </a>
+                        @endforeach
+
                         <!-- Slide 2 -->
                     </div>
                 </div>
@@ -424,8 +428,7 @@
 
 
 
-        <div class="bg-white" 
-        <section class="mt-0 flex-grow-1" style="padding-bottom:10px;">
+        <div class="bg-white" <section class="mt-0 flex-grow-1" style="padding-bottom:10px;">
             <div class="d-flex align-items-center mb-2">
                 <p class="mt-2 mb-0 ms-3" style="font-size:20px;">Terdekat</p>
             </div>
@@ -450,7 +453,8 @@
                                         </p>
                                     </div>
                                     <p class=" ms-2 mb-0 text-secondary" style="font-size:12px;">2 KM</p>
-                                    <p class=" ms-2 mb-2 mt-0" style="font-size:12px;">Rp.{{ $data->harga }}</p>
+                                    <p class=" ms-2 mb-2 mt-0" style="font-size:12px;">
+                                        Rp.{{ number_format($data->harga, 0, ',', '.') }}</p>
                                 </div>
                                 <!-- Button (hidden from flex) -->
                             </div>
@@ -515,57 +519,54 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-    var carouselElement = document.getElementById('transaksiCarousel');
-    var carousel = new bootstrap.Carousel(carouselElement, {
-        interval: 3000,
-        touch: true
-    });
+            var carouselElement = document.getElementById('transaksiCarousel');
+            var carousel = new bootstrap.Carousel(carouselElement, {
+                interval: 3000,
+                touch: true
+            });
 
-    // Tambahkan event listener untuk drag (manual swipe)
-    var startX, endX;
+            // Tambahkan event listener untuk drag (manual swipe)
+            var startX, endX;
 
-    carouselElement.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX;
-    });
+            carouselElement.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+            });
 
-    carouselElement.addEventListener('touchmove', function(e) {
-        endX = e.touches[0].clientX;
-    });
+            carouselElement.addEventListener('touchmove', function(e) {
+                endX = e.touches[0].clientX;
+            });
 
-    carouselElement.addEventListener('touchend', function() {
-        if (startX > endX) {
-            carousel.next(); // geser ke kanan
-        } else {
-            carousel.prev(); // geser ke kiri
-        }
-    });
+            carouselElement.addEventListener('touchend', function() {
+                if (startX > endX) {
+                    carousel.next(); // geser ke kanan
+                } else {
+                    carousel.prev(); // geser ke kiri
+                }
+            });
 
-    // Jika menggunakan mouse, memungkinkan geser dengan mouse
-    let isMouseDown = false;
-    let startMouseX;
+            // Jika menggunakan mouse, memungkinkan geser dengan mouse
+            let isMouseDown = false;
+            let startMouseX;
 
-    carouselElement.addEventListener('mousedown', function(e) {
-        isMouseDown = true;
-        startMouseX = e.clientX;
-    });
+            carouselElement.addEventListener('mousedown', function(e) {
+                isMouseDown = true;
+                startMouseX = e.clientX;
+            });
 
-    carouselElement.addEventListener('mousemove', function(e) {
-        if (!isMouseDown) return;
-        endX = e.clientX;
-    });
+            carouselElement.addEventListener('mousemove', function(e) {
+                if (!isMouseDown) return;
+                endX = e.clientX;
+            });
 
-    carouselElement.addEventListener('mouseup', function() {
-        if (!isMouseDown) return;
-        isMouseDown = false;
-        if (startMouseX > endX) {
-            carousel.next(); // geser ke kanan
-        } else {
-            carousel.prev(); // geser ke kiri
-        }
-    });
-});
-
+            carouselElement.addEventListener('mouseup', function() {
+                if (!isMouseDown) return;
+                isMouseDown = false;
+                if (startMouseX > endX) {
+                    carousel.next(); // geser ke kanan
+                } else {
+                    carousel.prev(); // geser ke kiri
+                }
+            });
+        });
     </script>
-   
-    
 @endsection

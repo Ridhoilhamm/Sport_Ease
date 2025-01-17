@@ -20,15 +20,11 @@ class UserController extends Controller
         $slider = ContentSlider::get();
         $terdekat = Lapangan::latest()->take(3)->get(); // Atau sesuaikan query sesuai kebutuhan
         $rekomendasi = Lapangan::latest()->take(6)->get();
-        // $transaksi = transaksi::where('id_user', auth()->id()) // Filter berdasarkan pengguna yang login
-        // ->whereIn('status', ['pending', 'menunggu hari']) // Filter berdasarkan status 'pending' atau 'menunggu hari'
-        // ->whereDate('tanggal_sewa', '>=', Carbon::today()) // Filter tanggal sewa yang dimulai dari hari ini atau lebih
-        // ->latest() // Urutkan berdasarkan waktu terbaru
-        // ->take(3)  // Ambil hanya 3 transaksi terakhir
-        // ->get();   // 
-        $transaksi = transaksi::where('id_user', auth()->id()) // Filter berdasarkan id_user
-        ->whereIn('status', ['pending', 'menunggu hari']) // Filter berdasarkan status
-        ->get(); // Dapatkan hasil
+        $transaksi = Transaksi::where('id_user', auth()->id()) // Filter berdasarkan id_user
+    ->whereIn('status', ['pending', 'menunggu hari']) // Filter berdasarkan status
+    ->orderBy('created_at', 'desc') // Urutkan berdasarkan waktu terbaru (created_at)
+    ->get();
+// Dapatkan hasil
     
         // Ambil data berita seputar olahraga
         $seputarOlahraga = Artikel::where('status', '!=', 'aktif')->latest()->get();

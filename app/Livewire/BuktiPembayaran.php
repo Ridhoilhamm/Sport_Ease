@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Transaksi;
+use Illuminate\Support\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -20,11 +21,25 @@ class BuktiPembayaran extends Component
     public function mount($transaksiId)
     {
         $this->transaksiId = $transaksiId;
-
-        // Cari transaksi, dapatkan status dan URL bukti pembayarannya
         $transaksi = Transaksi::find($transaksiId);
-        $this->transaksiStatus = $transaksi ? $transaksi->status : null;
-        $this->buktiUrl = $transaksi ? $transaksi->bukti_pembayaran : null;
+
+        if ($transaksi) {
+            $this->transaksiStatus = $transaksi->status;
+
+            // Cek apakah sudah lebih dari 5 menit dari transaksi dibuat
+            $createdAt = Carbon::parse($transaksi->created_at);
+            $now = Carbon::now();
+
+            if ($createdAt->diffInMinutes($now) > 5 && $transaksi->status === 'pending') {
+                // Hapus transaksi jika lebih dari 5 menit dan statusnya pending
+                $transaksi->delete();
+                $this->alert('error', 'Transaksi telah dihapus karena melebihi batas waktu!');
+                return redirect()->route('user.user'); // Redirect ke halaman lain
+            }
+
+            // Simpan URL bukti pembayaran jika transaksi masih valid
+            $this->buktiUrl = $transaksi->bukti_pembayaran;
+        }
     }
 
     public function uploadBuktiPembayaran()

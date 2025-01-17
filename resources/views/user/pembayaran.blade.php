@@ -250,7 +250,7 @@
     {{-- <x-flash-message /> --}}
 
        
-        <div class="container" style="padding-top: 10px">
+        <div class="container bg-white" style="padding-top: 10px">
             <div class="mb-2 d-flex align-items-center justify-content-between">
                 <a href="/kategory">
 
@@ -262,7 +262,7 @@
                 </svg>
             </a>
                 
-                <div style="flex: 1; display: flex; justify-content: center;">
+                <div style="flex: 1; display:">
                     <h5 class="fw-medium mt-2">Informasi Pemesanan</h5>
                 </div>
             </div>
@@ -273,10 +273,8 @@
     <div>
 
     </div>
-    <div class="container ">
-
-        <div class="mt-3 bg-white rounded" style="padding: 10px 0 20px;">
-
+    <div class="mt-3 container bg-white rounded" style="padding: 10px 0 20px;">
+        <div class="ms-3 me-3" style="border: 1px solid #A9DA05; border-radius: 8px; padding: 15px; ">
             <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Data Pemesan
             </p>
             <div class="d-flex align-items-center container">
@@ -286,7 +284,7 @@
                 <div class="ms-auto" style="font-size:14px">
                     {{ $user->name }}
                 </div>
-                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
+                <div class="mb-3 " data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
                 </div>
             </div>
@@ -297,7 +295,7 @@
                 <div class="ms-auto" style="font-size:14px">
                     {{ $user->email }}
                 </div>
-                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
+                <div class="mb-3 " data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
                 </div>
             </div>
@@ -308,7 +306,7 @@
                 <div class="ms-auto" style="font-size:14px">
                     {{ $tanggalSewa }}
                 </div>
-                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
+                <div class="mb-3 " data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
                 </div>
             </div>
@@ -319,30 +317,18 @@
                 <div class="ms-auto" style="font-size:14px">
                     {{-- <p>{{ implode(', ', $get_time) }}</p> --}}
                     {{ $jamSewa }}
-
+    
                 </div>
-                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
-                    {{-- Icon atau tombol lainnya --}}
-                </div>
+                
             </div>
-            <div class="d-flex align-items-center container">
-                <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                    Lama Sewa
-                </p>
-                <div class="ms-auto" style="font-size:14px">
-                    {{ $lamaSewa }} Jam
-                </div>
-                <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
-                    {{-- Icon atau tombol lainnya --}}
-                </div>
-            </div>
-
         </div>
+
+       
+
     </div>
-    <div class="container ">
+    <div class="mt-3 bg-white rounded" style="padding: 10px 0 20px;">
 
-        <div class="mt-3 bg-white rounded" style="padding: 10px 0 20px;">
-
+        <div class="ms-3  me-3" style="border: 1px solid #A9DA05; border-radius: 8px; padding: 15px; ">
             <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Detail
                 Sewa</p>
             <div class="mt-3 container">
@@ -359,23 +345,12 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="mt-3 mb-4 bg-white rounded" style="padding: 10px 0 20px;">
 
-            {{-- <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Motade
-                Pembayaran</p>
-            <div class="mt-0 container">
-                <div class="mt-2">
-                    <!-- Pilih Opsi Pembayaran -->
-                    <select id="bankSelector" class="form-select"  required>
-                        <option value="BRI" data-image="{{ asset('image/bri.png') }}">Bank BRI</option>
-                        <option value="BCA" data-image="{{ asset('image/bca.png') }}">Bank BCA</option>
-                        <option value="BNI" data-image="{{ asset('image/bniupdate.jpg') }}">Bank BNI</option>
-                    </select>
-                </div>
+    </div>
+    <div class="mt-3 mb-2 bg-white rounded" style="padding: 10px 0 20px;">
 
-            </div> --}}
+        <div class="ms-3">
             <div class="container mt-3">
 
                 <div class="card-body d-flex align-items-center justify-content-between">
@@ -383,7 +358,7 @@
                     <h6 class="fw-bold mb-0" style="margin-bottom: 4px;">
                         Kasih Catatan
                     </h6>
-
+    
                     <!-- Ikon dengan fungsi klik -->
                     <div data-bs-toggle="modal" data-bs-target="#noteModal">
                         <p class="mb-0" style="cursor: pointer;">
@@ -405,48 +380,50 @@
                 <h6 class="fw-semibold">
                     Rincian Pembayaran
                 </h6>
-                <div class="d-flex align-items-center container">
+                <div class="d-flex align-items-center ">
                     <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
                         Biaya Lapangan
                     </p>
-                    <div class="ms-auto" style="font-size:14px">
+                    <div class="ms-auto me-3" style="font-size:14px">
                         <p>Rp. {{ number_format($lapangan->harga, 0, ',', '.') }}</p>
-
+    
                     </div>
                 </div>
-                <div class="d-flex align-items-center container">
+                <div class="d-flex align-items-center ">
                     <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
                         Biaya Aplikasi
                     </p>
-                    <div class="ms-auto" style="font-size:14px">
+                    <div class="ms-auto me-3" style="font-size:14px">
                         Rp.1.000
                     </div>
                 </div>
-                <div class="d-flex align-items-center container">
+                <div class="d-flex align-items-center ">
                     <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
                         Biaya Admin
                     </p>
-                    <div class="ms-auto" style="font-size:14px">
+                    <div class="ms-auto me-3" style="font-size:14px">
                         Rp.1.000
                     </div>
-
+    
                 </div>
-                <div class="d-flex align-items-center container">
-                    <p class="fw-bold mb-0 " style="flex: 1; font: size 16px; padding-bottom: 5px; color:#A9DA05">
+                <div class="d-flex align-items-center ">
+                    <p class="fw-bold mb-0  " style="flex: 1; font: size 16px; padding-bottom: 5px; color:#A9DA05">
                         Total Pembayaran
                     </p>
-                    <div class="ms-auto fw-bold" style="font-size:16px;color:#A9DA05">
-                        @if ($lamaSewa && $lapangan->harga)
-                        Rp. {{ number_format($lapangan->harga * $lamaSewa, 0, ',', '.') }}
-                    @else
-                        Harga atau lama sewa tidak tersedia.
-                    @endif
+                    <div class="ms-auto me-3 fw-bold" style="font-size:16px;color:#A9DA05">
+                        <span style="color: #A9DA05; font-size: 18px" class="fw-semibold ">
+                            @if ($lapangan->harga)  <!-- Pastikan harga ada -->
+                                Rp. {{ number_format($lapangan->harga * 2+200, 0, ',', '.') }} <!-- Hitung dengan perkalian 2 jam -->
+                            @else
+                                Harga atau lama sewa tidak tersedia. <!-- Jika harga tidak ada -->
+                            @endif
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container mt-1">
+    <div class="container mt-0">
        <!-- Modal -->
 
         <div class="modal" id="modal">
@@ -515,7 +492,7 @@
         style="font-family: ubuntu">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header" style="background-color: #a8da05">
+                <div class="modal-header" style="background-color: #a8da05; padding-bottom:5px;">
                     <h5 class="modal-title" id="pemesananLabel">Informasi Pemesan</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -575,7 +552,6 @@
     :user="$user" 
     :jam-sewa="$jamSewa" 
     :tanggal-sewa="$tanggalSewa" 
-    :lama-sewa="$lamaSewa"
     
 />
 

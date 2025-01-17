@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lapangan;
+use App\Models\transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Str;
@@ -82,4 +83,8 @@ class LapanganController extends Controller
     // Kirim data transaksi dan pengguna ke view
     return view('user.pembayaran', compact('tanggalSewa', 'jamSewa', 'lapangan', 'user','lamaSewa'));
     }
+
+   
+
+
 }

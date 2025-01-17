@@ -7,9 +7,20 @@ use Illuminate\Http\Request;
 
 class riwayatController extends Controller
 {
-    public function show(){
-        $riwayat = transaksi::get();
+    // public function show(){
+    //     $transaksi = transaksi::all();
+    //     return view('user.riwayat', compact('transaksi'));
+    // }
 
-        return view('user.riwayat', compact('riwayat'));
+    public function filter($status)
+    {
+        // Ambil data transaksi berdasarkan status
+        $transaksi = transaksi::where('status', $status)->get();
+
+        // Kirim data ke view
+        return view('user.riwayat', [
+            'transaksi' => $transaksi,
+            'status' => $status,
+        ]);
     }
 }

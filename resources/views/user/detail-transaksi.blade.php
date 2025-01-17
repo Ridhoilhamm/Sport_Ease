@@ -1,7 +1,7 @@
 @extends('user.layout')
 
 @section('content')
-    <div class="container my-4">
+    <div class=" my-3">
         <!-- Bagian Header -->
         <div id="header-container" class="fixed-top bg-white shadow-sm">
             <div id="header" class="d-flex align-items-center p-3 w-100">
@@ -29,19 +29,9 @@
 
             <!-- Detail Transaksi -->
             @if (isset($transaksi))
-                {{-- <div class="card shadow-sm mt-4">
-                <div class="card-body">
-                    <h5 class="card-title " style="font-size: 16px">Lapangan: {{ $transaksi->lapangan }}</h5>
-                    <p class="card-text mb-0" style="font-size: 12px;">Status: {{ $transaksi->status }}</p>
-                    <p class="card-text mb-0" style="font-size: 12px;">Nama Pemesan: {{ $transaksi->user->name }}</p>
-                    <p class="card-text mb-0" style="font-size: 12px;">Jam Sewa: {{ $transaksi->jam_sewa }}</p>
-                    <p class="card-text mb-0" style="font-size: 12px;">Lama Sewa:{{ $transaksi->lama_sewa }}</p>
-                    <p class="card-text mt-0" style="font-size: 12px">Tanggal Dibuat: {{ $transaksi->created_at->format('d-m-Y H:i') }}</p> <!-- Format tanggal -->
-                </div>
-             </div> --}}
-                <div class="container ">
+                <div class=" ">
 
-                    <div class="mt-3 bg-white rounded" style="padding: 10px 0 20px;">
+                    <div class="mt-4 bg-white rounded" style="padding: 10px 0 20px;">
 
                         <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">
                             Data Pemesan
@@ -90,23 +80,13 @@
                                 {{-- Icon atau tombol lainnya --}}
                             </div>
                         </div>
-                        <div class="d-flex align-items-center container">
-                            <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                                Lama Sewa
-                            </p>
-                            <div class="ms-auto" style="font-size:14px">
-                                {{ $transaksi->lama_sewa }} Jam
-                            </div>
-                            <div class="mb-3 me-3" data-bs-toggle="modal" data-bs-target="#pemesanan">
-                                {{-- Icon atau tombol lainnya --}}
-                            </div>
-                        </div>
+                       
 
                     </div>
-                    <div class="mt-2 bg-white rounded" style="padding: 10px 0 20px;">
+                    <div class="mt-3 bg-white rounded" style="padding: 10px 0 20px;">
 
                         <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">
-                            Detail Pesanan
+                            Detail Lapangan
                             {{-- <p>Sewa</p> --}}
                         <div class="mt-3 container">
                             <div>
@@ -123,30 +103,28 @@
                                             {{ $transaksi->tanggal_sewa }} </small> <br />
                                         <small class="text-muted" style="font-size:12px">Jam Sewa {{ $transaksi->jam_sewa }}
                                         </small> <br />
-                                        <small class="text-muted" style="font-size:12px">Lama Sewa
-                                            {{ $transaksi->lama_sewa }} Jam</small>
+                                        
+                                           
                                         {{-- <p class="fw-bold mt-1" style="color: #101010c2">Rp. {{ number_format($transaksi->getlapangans->harga, 0, ',', '.') }}</p> --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-
                     </div>
-                    <div class=" mt-2 bg-white rounded">
-                        <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom"
-                            style="padding-top: 10px; padding-bottom:10px">Detail Pesanan</p>
+                    <div class=" mt-2 bg-white rounded" style="padding-bottom:10px;">
+                        <p class=" text-secondary container mb-0 mt-0 border-bottom"
+                            style="padding-top: 10px; padding-bottom:10px; font-size:16px;">Detail Pembayaran </p>
                         <div class="d-flex align-items-center container">
                             <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
                                 Biaya Lapangan
                             </p>
                             <div class="ms-auto" style="font-size:14px">
                                 Rp.
-                                {{ number_format($transaksi->getlapangan->harga * $transaksi->lama_sewa, 0, ',', '.') }}
-
+                                {{ number_format($transaksi->getlapangan->harga *2, 0, ',', '.') }}
                             </div>
                         </div>
-                        <div class="d-flex align-items-center container">
+                        <div class="d-flex align-items-center container" >
                             <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
                                 Biaya Aplikasi
                             </p>
@@ -168,27 +146,101 @@
                                 Motade Pembayaran
                             </p>
                             <div class="ms-auto" style="font-size:14px">
-                                Bca
+                                Transfer
                             </div>
 
                         </div>
                         <div class="d-flex align-items-center container">
+                            <p class="fw-medium mb-1" style="flex: 1; font-size:14px;">No Rekening</p>
+                            <div class="ms-auto d-flex justify-between" style="font-size:14px">
+                                
+                                <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-copy">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
+                                    <path
+                                        d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
+                                </svg>
+                                <p>
+                                    122333444
+                                </p>
+                            </div>
+                        </div>
+    
+    
+                        <!-- Custom Alert -->
+                        <div id="custom-alert" class="alert alert-success" style="display: none;">
+                            <strong>Success!</strong> Nomor rekening berhasil disalin!
+                        </div>
+    
+                        <!-- Script untuk Menyalin Nomor dan Menampilkan Custom Alert -->
+                        <script>
+                            document.getElementById('copy-icon').addEventListener('click', function() {
+                                // Salin nomor rekening ke clipboard
+                                const textToCopy = '122333444'; // Ganti dengan nomor rekening yang sesuai
+                                navigator.clipboard.writeText(textToCopy)
+                                    .then(() => {
+                                        // Tampilkan alert setelah berhasil menyalin
+                                        const alert = document.createElement('div');
+                                        alert.className = 'alert';
+                                        alert.textContent = 'Nomor rekening berhasil disalin!';
+                                        document.body.appendChild(alert);
+    
+                                        // Ganti warna ikon menjadi hijau
+                                        document.getElementById('copy-icon').classList.add('icon-success');
+    
+                                        // Hapus alert setelah beberapa detik
+                                        setTimeout(() => {
+                                            alert.remove();
+                                        }, 3000);
+                                    })
+                                    .catch(() => {
+                                        alert('Gagal menyalin nomor rekening');
+                                    });
+                            });
+                        </script>
+    
+                        <!-- Custom CSS untuk Alert -->
+                        <style>
+                            .alert {
+                                position: fixed;
+                                top: 20px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                padding: 15px;
+                                font-size: 14px;
+                                border-radius: 5px;
+                                background-color: #28a745;
+                                color: white;
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                                z-index: 1050;
+                                transition: opacity 0.5s ease;
+                            }
+    
+                            .icon-success {
+    
+                                /* Hijau setelah berhasil */
+                                stroke: #28a745;
+                            }
+                        </style>
+                        <div class="d-flex align-items-center container">
                             <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                                Nomer Rekening
+                                Atas Nama
                             </p>
                             <div class="ms-auto" style="font-size:14px">
-                                122333478
+                                Sport Ease
                             </div>
 
                         </div>
                         <div class="d-flex align-items-center container border-top">
-                            <p class="fw-bold mb-0 mt-2  "
-                                style="flex: 1; font: size 16px; padding-bottom: 5px; color:#A9DA05">
+                            <p class="fw-bold mb-0 mt-2" style="font-size:15px; padding-bottom: 5px; color:#A9DA05">
                                 Total Pembayaran
                             </p>
                             <div class="ms-auto fw-bold " style="font-size:16px;color:#A9DA05; padding-top">
                                 Rp.
-                                {{ number_format($transaksi->getlapangan->harga * $transaksi->lama_sewa, 0, ',', '.') }}
+                                {{ number_format($transaksi->getlapangan->harga * 2+2000, 0, ',', '.') }}
                             </div>
                         </div>
                     </div>
@@ -199,36 +251,7 @@
         </div>
         
 
-        {{-- <div class="container rounded ">
-            <div class="mt-2 container  bg-white rounded py-2">
-                <label for="bukti_pembayaran" class="block text-sm font-medium text-gray-700">Upload Bukti Pembayaran</label>
-                
-                <!-- Flex Container for File Selection -->
-                <div class="flex items-center mt-3 d-flex">
-                    <!-- File Input (Hidden) -->
-                    <label for="bukti_pembayaran" class="flex items-center justify-center px-4 py-2 bg-blue-500 text-black rounded-md cursor-pointer hover:bg-blue-600" ">
-                        <i class="fas fa-upload mr-2" ></i> 
-                    </label>
-                    <input type="file" id="bukti_pembayaran" name="bukti_pembayaran" class="hidden" wire:model="buktiPembayaran">
-                    
-                    <!-- Pilih File Button -->
-            
-                    <!-- Display File Name -->
-                </div>
-                <div class="text-center">
-    
-                    <button class="btn btn-success">
-                        Upload Bukti
-                    </button>
-                </div>
-                
-            
-                <!-- Progress bar or error message (optional) -->
-                @error('buktiPembayaran')
-                    <div class="text-red-500 text-sm mt-2">{{ $message }}</div>
-                @enderror
-            </div>
-        </div> --}}
+       
         
         
 
