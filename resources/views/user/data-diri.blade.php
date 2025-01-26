@@ -146,54 +146,39 @@
         }
 
         .position-relative {
-    position: relative;
-}
+            position: relative;
+        }
 
-.pencil-icon {
-    position: absolute;
-    bottom: 52px; /* Sesuaikan jarak vertikal dengan gambar */
-    left: 50%;    /* Posisikan di tengah */
-    transform: translateX(-50%);
-    background-color: white; /* Opsional, jika ingin membuat latar belakang untuk ikon */
-    border-radius: 50%;      /* Opsional, untuk memberikan efek lingkaran */
-    padding: 5px;            /* Opsional, untuk memberi jarak di sekitar ikon */
-}
+        .pencil-icon {
+            position: absolute;
+            bottom: 52px;
+            /* Sesuaikan jarak vertikal dengan gambar */
+            left: 50%;
+            /* Posisikan di tengah */
+            transform: translateX(-50%);
+            background-color: white;
+            /* Opsional, jika ingin membuat latar belakang untuk ikon */
+            border-radius: 50%;
+            /* Opsional, untuk memberikan efek lingkaran */
+            padding: 5px;
+            /* Opsional, untuk memberi jarak di sekitar ikon */
+        }
 
-.card-profile{
-    border-radius: 0 0 15px 15px; 
-    background-color: #fff; 
-}
+        .card-profile {
+            border-radius: 0 0 15px 15px;
+            background-color: #fff;
+        }
     </style>
 @endsection
 
 @section('content')
     <div>
-
         <body>
             <div class="">
-                <a href="/user">
-                    <button class="btn btn-light position-absolute top-0 start-0 m-3 rounded-circle p-2 shadow">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M15 6l-6 6l6 6" />
-                        </svg>
-                    </button>
-                </a>
                 <div class="card-profile shadow p-4 mx-auto" style="max-width: 400px;">
-                    <!-- Profile Picture & Info -->
-                    <div class="text-center mb-3 position-relative">
-                        <img src="{{ asset('image/Perfil.png') }}" alt="Profile Picture" class="profile-pic mb-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-pencil-minus pencil-icon">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-                            <path d="M13.5 6.5l4 4" />
-                            <path d="M16 19h6" />
-                        </svg>
-                        <h4 class="fw-bold mb-0">{{ $user->name }}</h4>
+                    <livewire:profile-image-upload />
+                    <div class="d-flex flex-column justify-content-center align-items-center mb-2">
+                        <h4 class="fw-bold mb-1">{{ $user->name }}</h4>
                         <p class="text-secondary">{{ $user->email }}</p>
                     </div>
                     
@@ -235,8 +220,6 @@
                                 <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                             </svg>
                         </span>
-                        <!-- Teks -->
-                        {{-- type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" --}}
                         <p class="mb-0 text-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Informasi
                             Pribadi</p>
                         <div class="me-3 ms-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -269,7 +252,7 @@
                         <p class="mb-0 text-center ms-1">Pesanan Kamu</p>
 
                         <div class="me-3 ms-auto">
-                            <a href="/riwayat">
+                            <a href="/riwayat/status?query=all">
 
                                 <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
@@ -294,75 +277,20 @@
                         </span>
                         <!-- Teks -->
                         <p class="mb-0 text-center ms-1">Favorite Lapangan</p>
-                        <div class="me-3 ms-auto" >
+                        <div class="me-3 ms-auto">
                             <a href="/favorite/lapangan">
                                 <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="icon icon-tabler icon-tabler-chevron-right" class="">
-                                
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M9 6l6 6l-6 6" />
-                            </svg>
-                        </a>
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="icon icon-tabler icon-tabler-chevron-right" class="">
+
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M9 6l6 6l-6 6" />
+                                </svg>
+                            </a>
                         </div>
                     </li>
-                    {{-- <li class="list-group-item d-flex align-items-center justify-content-start gap-3  mb-2"
-                        data-bs-toggle="modal" data-bs-target="#pembayaran">
-                        <!-- Ikon -->
-                        <span class="icon d-flex align-items-center justify-content-center" data-bs-toggle="modal"DDD
-                            data-bs-target="#pembayaran">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="icon icon-tabler icons-tabler-outline icon-tabler-credit-card">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M3 5m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z" />
-                                <path d="M3 10l18 0" />
-                                <path d="M7 15l.01 0" />
-                                <path d="M11 15l2 0" />
-                            </svg>
-                        </span>
-                        <!-- Teks -->
-                        <p class="mb-0 text-center ms-1">Pembayaran</p>
-                        <div class="me-3 ms-auto">
 
-                            <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="icon icon-tabler icon-tabler-chevron-right" class="">
-
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M9 6l6 6l-6 6" />
-                            </svg>
-                        </div>
-                    </li> --}}
-                    {{-- <li class="list-group-item d-flex align-items-center justify-content-start gap-3 ms-2 mb-2">
-                        <!-- Ikon -->
-                        <span class="icon d-flex align-items-center justify-content-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                                stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-lock">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z" />
-                                <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
-                                <path d="M8 11v-4a4 4 0 1 1 8 0v4" />
-                            </svg>
-                        </span> --}}
-                    <!-- Teks -->
-                    {{-- <p class="mb-0 text-center ms-1">Keamanan</p>
-                        <div class="me-3 ms-auto" data-bs-toggle="modal" data-bs-target="#favorite">
-
-                            <svg id="toggleIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                stroke-linecap="round" stroke-linejoin="round"
-                                class="icon icon-tabler icon-tabler-chevron-right" class="">
-
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M9 6l6 6l-6 6" />
-                            </svg>
-                        </div> --}}
-                    {{-- </li> --}}
                     <li class="list-group-item d-flex align-items-center justify-content-start gap-3 ms-2 mb-2 "
                         data-bs-toggle="modal" data-bs-target="#logout">
                         <!-- Ikon -->
@@ -385,57 +313,41 @@
 
             <div>
                 {{-- modal --}}
-                <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="true" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered container">
                         <div class="modal-content">
-                            <div class="modal-header border-2 bg-success">
+                            <div class="modal-header " style="background-color:#28a745">
                                 <h5 class="modal-title" id="staticBackdropLabel" style="color: #f8f9fa">Informasi Pribadi
                                 </h5>
-                                
                             </div>
                             <div class="modal-body2 container">
-                                <form>
-                                    <!-- Checklist Name -->
-                                    <div class="mb-3 container mt-2">
-                                        <label for="checklistName" class="form-label">Nama Pengguna</label>
-                                        <p type="text" class="form-control" id="checklistName"
-                                            >{{$user->name }}</p>
+                                <form wire:submit.prevent="save">
+                                    <!-- Nama Pengguna -->
+                                    <div class="mb-3 container mt-2 rounded">
+                                        <label for="userName" class="form-label">Nama Pengguna</label>
+                                        <p type="text" class="form-control rounded" id="userName">{{ $user->name }}</p>
                                     </div>
+
+                                    <!-- Email Pengguna -->
                                     <div class="mb-3 container">
-                                        <label for="checklistName" class="form-label">No Telpon</label>
-                                        <input type="text" class="form-control" id="checklistName"
-                                            placeholder="0897091565">
-                                    </div>
-                                    <div class="mb-3 container">
-                                        <label for="checklistName" class="form-label">Email Pengguna</label>
-                                        <p type="text" class="form-control" rows="3" id="checklistName"
-                                            >{{ $user->email }}</p>
+                                        <label for="userEmail" class="form-label rounded">Email Pengguna</label>
+                                        <p type="text" class="form-control rounded" id="userEmail">{{ $user->email }}</p>
                                     </div>
 
-
-                                    <!-- Description -->
-                                    <div class="mb-3 container">
-                                        <label for="description" class="form-label">Alamat Pengguna
-                                                </label>
-                                        <textarea class="form-control" id="description" rows="3" placeholder="Jalan Patimura uang 1000perak Kanan jalan"></textarea>
-                                    </div>
-
-
-
+                                    <!-- Komponen Livewire untuk Update Data Pengguna -->
+                                    <livewire:data-profile-upload />
                                 </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                                <button type="button" class="btn btn-primary">Simpan</button>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
+
             </div>
 
             {{-- modals favorite --}}
-            <div class="modal fade" id="favorite" tabindex="-1" aria-labelledby="favorite" aria-hidden="true">
+        <div class="modal fade" id="favorite" tabindex="-1" aria-labelledby="favorite" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable container">
                     <div class="modal-content">
                         <div class="modal-header bg-success">
@@ -445,7 +357,7 @@
                         </div>
                         <div class="modal-body">
                             <div>
-                                
+
                             </div>
                             <div class="container rounded"
                                 style="background-color: #F5F5F5; padding-top:10px; padding-bottom:10px">
@@ -541,7 +453,8 @@
                                 <p class="items-center fw-semibold" style="font-size: 18px">Motade Pembayaran Belum
                                     <br />Tersedia
                                 </p>
-                                <p class="text-secondary" style="font-size:12px">Silahkan Tambahkan Kartu debit atau E-wallet anda untuk mempermudah proses pembayaran
+                                <p class="text-secondary" style="font-size:12px">Silahkan Tambahkan Kartu debit atau
+                                    E-wallet anda untuk mempermudah proses pembayaran
                                     anda</p>
                             </div>
                             <div class="container mt-4">
@@ -554,18 +467,19 @@
                                         <p class="title">Tambah Kartu Debit / Kredit</p>
                                         <div class="d-flex justify-items-center">
 
-                                            <p class="subtitle" style="font-size: 12px">Saat ini Anda dapat menghubungkan kartu debit / kredit
+                                            <p class="subtitle" style="font-size: 12px">Saat ini Anda dapat menghubungkan
+                                                kartu debit / kredit
                                                 Mandiri
                                             </p>
                                             <a href="/kartudebit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                            stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                                            class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right mb-2 ms-3">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path d="M9 6l6 6l-6 6" />
-                                        </svg>
-                                    </a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right mb-2 ms-3">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M9 6l6 6l-6 6" />
+                                                </svg>
+                                            </a>
 
                                         </div>
                                     </div>
@@ -584,7 +498,8 @@
                                         <div class="d-flex justify-items-center" data-toggle="modal"
                                             data-target="#tambahrekening">
 
-                                            <p class="subtitle" style="font-size: 12px">Anda dapat menghubungkan e-Wallet Anda untuk memudahkan
+                                            <p class="subtitle" style="font-size: 12px">Anda dapat menghubungkan e-Wallet
+                                                Anda untuk memudahkan
                                                 pembayaran.
                                             </p>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45"
@@ -616,21 +531,24 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="logout">Konfirmasi</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
                             <p>Apakah anda yakin ingin keluar dari akun ini?</p>
-            
+
                             <!-- Button "IYA" dan "TIDAK" secara vertikal -->
                             <div class="d-grid gap-2 mt-3">
                                 <!-- Form Logout -->
                                 <form id="logoutForm" method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <!-- Tombol "IYA" -->
-                                   <button type="button" style="background-color: #A9DA05; color:#F5F5F5" class="btn w-100" id="confirmLogout">IYA</button>
+                                    <button type="button" style="background-color: #A9DA05; color:#F5F5F5"
+                                        class="btn w-100" id="confirmLogout">IYA</button>
 
                                 </form>
-                                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">TIDAK</button>
+                                <button type="button" class="btn btn-outline-primary"
+                                    data-bs-dismiss="modal">TIDAK</button>
                             </div>
                         </div>
                     </div>
@@ -638,16 +556,16 @@
             </div>
             <script>
                 // Menambahkan event listener untuk tombol "IYA"
-                document.getElementById('confirmLogout').addEventListener('click', function () {
+                document.getElementById('confirmLogout').addEventListener('click', function() {
                     // Menutup modal
                     var modal = new bootstrap.Modal(document.getElementById('logout'));
                     modal.hide(); // Menutup modal
-                    
+
                     // Mengirimkan form logout
                     document.getElementById('logoutForm').submit(); // Submit form logout
                 });
             </script>
-            
+
 
             {{-- modals daftar rekening --}}
             <div class="modal fade" id="tambahrekening" tabindex="-1" role="dialog" aria-labelledby="tambahrekening"
@@ -670,7 +588,6 @@
                     </div>
                 </div>
             </div>
-            
         @endsection
         @php
             $hideNavbar = true;

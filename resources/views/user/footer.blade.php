@@ -36,14 +36,14 @@
         </div>
         <!-- Menu History -->
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <a href="/riwayat" class="{{ request()->is('riwayat') ? 'text-success' : 'text-secondary' }}">
+            <a href="/riwayat/status" class="{{ request()->is('riwayat/status') ? 'text-success' : 'text-secondary' }}">
                 <i class="fa-solid fa-wallet fa-lg"></i>
             </a>
-            {{-- <p class="m-0" style="font-size: 12px;">Riwayat</p> --}}
-            <h6 class="m-0 {{ request()->is('riwayat') ? 'fw-semibold' : 'fw-light' }}" style="font-size: 12px;">
+            <h6 class="m-0 {{ request()->is('riwayat/status') ? 'fw-semibold' : 'fw-light' }}" style="font-size: 12px;">
                 Riwayat
             </h6>
         </div>
+        
         <!-- Menu Profil -->
         <div class="d-flex flex-column align-items-center justify-content-center">
             <a href="/data-diri" class="{{ request()->is('data-diri') ? 'text-success' : 'text-secondary' }}">

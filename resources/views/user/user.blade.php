@@ -111,8 +111,6 @@
     </style>
 @endsection
 
-{{-- <img src="{{ asset('image/download.jpeg') }}" alt="" style="height:100px; width:150px;" --}}
-{{-- style="background-color: #2A2A2A; padding:45px;"> --}}
 @section('content')
     <div>
         <div class="bg-white">
@@ -329,65 +327,69 @@
 
 
 
-        <section class="m-0 flex-grow-1 bg-white">
+        <section class="m-0 flex-grow-1 mt-2 bg-white">
             <div class="m-0">
                 <div class="d-flex align-items-center">
-                    <h5 class="mt-3  ms-3 mb-2" style="font-size: 20px">Pesanan Anda</h5>
+                    <h5 class="mt-2  ms-3 mb-2" style="font-size: 20px">Pesanan Anda</h5>
 
                 </div>
             </div>
 
             <section class="px-3" style="padding-bottom: 10px">
                 <div style="overflow-x: auto; white-space: nowrap; position: relative;">
-                    <div style="display: inline-flex; min-width: 100%; width: fit-content;">
-                        <!-- Slide 1 -->
-                        @foreach ($transaksi as $key => $data)
+                    <div class="transaction-wrapper" style="display: inline-flex; width: auto; gap: 8px;">
+                        <!-- Loop untuk setiap transaksi -->
+                        @php
+                            \Carbon\Carbon::setLocale('id');
+                        @endphp
+                        @foreach ($transaksi as $data)
                             <a href="{{ route('detail-transaksi', $data->id) }}" class="text-decoration-none">
-                                <div class="card mb-1 shadow-sm"
-                                    style="background-color: transparent;  /* Buat latar belakang kartu transparan */
-    border: 2px solid #A9DA05; ;  {{ $loop->last ? '' : 'margin-right: 8px;' }} paddi">
+                                <div class="card mb-1 shadow-sm transaction-card" style="width: 300px; height: 105px;">
                                     <div class="card-body py-2 px-2" style="padding-bottom: 10px">
                                         <div class="d-flex align-items-center justify-content-between pb-2 mb-2"
-                                            style="border-bottom: 2px solid #A9DA05; ;">
-                                            <!-- Icon -->
-                                            <div class="d-flex align-items-center">
+                                            style="border-bottom: 2px solid #A9DA05;">
 
-                                                <p class="  mb-0 me-2">Pemesanan Lapangan</p>
-                                            </div>
-
-                                            <!-- Status Badge -->
-                                            <span
-                                                class="badge 
-                                            {{ $data->status === 'menunggu hari' ? 'bg-success' : ($data->status === 'pending' ? 'bg-danger text-white' : 'bg-warning text-dark') }}">
+                                            <span class="badge fw-medium rounded-pill text-center"
+                                                style="{{ $data->status === 'pending'
+                                                    ? 'background-color: red; color: black;'
+                                                    : ($data->status === 'menunggu hari'
+                                                        ? 'background-color: #14a44ea7; color: rgba(0, 0, 0, 0.647);'
+                                                        : 'background-color: #FFC107; color: black;') }}">
                                                 {{ $data->status }}
                                             </span>
+
+                                            <div>
+                                                <p class="text-black mb-1" style="font-size: 12px;">
+                                                    {{ \Carbon\Carbon::parse($data->tanggal_sewa)->locale('id')->isoFormat('dddd, D MMMM YYYY') }}
+                                                </p>
+                                            </div>
                                         </div>
 
                                         <!-- Detail Section -->
                                         <div class="mt-3">
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <p class="fw-medium mb-1 text-black" style="font-size: 12px;">Nama
-                                                    Lapangan</p>
-                                                <p class="text-black mb-1" style="font-size: 12px;">{{ $data->lapangan }}
-                                                </p>
+                                                <p class="fw-medium mb-1 text-black" style="font-size: 12px;">Nama</p>
+                                                <p class="text-black mb-1 ms-auto"
+                                                    style="font-size: 12px; margin-left: 20px;">{{ $data->lapangan }}</p>
                                             </div>
 
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <p class="fw-medium mb-1 text-black" style="font-size: 12px;">Jadwal Sewa
-                                                </p>
+                                                <p class="fw-medium mb-1 text-black" style="font-size: 12px;">Jam Sewa</p>
                                                 <p class="text-black mb-1" style="font-size: 12px;">
-                                                    {{ $data->tanggal_sewa }}</p>
+                                                    {{ $data->jam_sewa }}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         @endforeach
-
-                        <!-- Slide 2 -->
                     </div>
                 </div>
             </section>
+
+
+
 
         </section>
         <section class="m-0 flex-grow-1 bg-white mt-2"

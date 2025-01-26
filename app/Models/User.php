@@ -12,25 +12,26 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-   
+
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
-    protected $guarded = [
-        
-
-    ];
+    protected $guarded = [];
     public function lapangans()
     {
         return $this->hasMany(Lapangan::class);
     }
     public function lapanganFavorites()
-{
-    return $this->belongsToMany(Lapangan::class, 'favoritelapangan');
-}
+    {
+        return $this->belongsToMany(Lapangan::class, 'favoritelapangan');
+    }
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class, 'id_user'); // Sesuaikan dengan nama kolom id_user
+    }
 
 
 

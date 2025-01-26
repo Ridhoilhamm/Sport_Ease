@@ -9,24 +9,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> --}}
-    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/styles.css') }}"> --}}
 
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="/your-path-to-uicons/css/uicons-[your-style].css" rel="stylesheet">
-    <link href="/your-path-to-uicons/css/uicons-rounded-regular.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/css/splide.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/css/bootstrap-timepicker.min.css"> --}}
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
 
     @livewireStyles
+    
     @stack('styles')
     @stack('scripts')
     <style>
@@ -284,92 +283,7 @@
             border-radius: 0;
         }
 
-        /* modal catatan .modal {
-            position: fixed-bottom;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            visibility: visible;
-            opacity: 1;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
         
-        .modal.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* Modal content */
-        /* .modal-content {
-            background-color: white;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(229, 227, 227, 0.1);
-        }
-
-        .modal-header {
-            padding: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            background-color: #f7f7f7;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .modal-body {
-            padding: 15px;
-            font-size: 14px;
-            color: #333333;
-        }
-
-        /* .modal-body textarea {
-            width: 100%;
-            height: 80px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            font-size: 14px;
-            box-sizing: border-box;
-            resize: none;
-        }
-
-        .modal-body textarea:focus {
-            border: 1px solid #ddd;
-            outline: none;
-            box-shadow: none;
-        }
-
-        .modal-footer {
-            padding: 10px;
-            text-align: right;
-            background-color: #f7f7f7;
-            border-top: 1px solid #ddd;
-        }
-
-        .modal-footer button {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .modal-footer .close-btn {
-            background-color: #ddd;
-            color: #333333;
-        }
-
-        .modal-footer .save-btn {
-            background-color: #007bff;
-            color: white;
-        } */
         */ .card-body {
             display: flex;
             flex-direction: column;
@@ -451,60 +365,7 @@
             cursor: pointer;
         }
 
-        /* modals */
-
-        /* Modal Background */
-        /* .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.3s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Modal Active State */
-        /* .modal.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        Modal Content */
-        /* .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            width: 400px;
-            max-width: 90%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        } */
-        */
-
-        /* .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-header h2 {
-            margin: 0;
-        }
-
-        .modal-body {
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .modal-footer {
-            display: flex;
-            justify-content: flex-end;
-        } */
+        
         */ */ .modal-header-custom {
             background: linear-gradient(to right, #6bd6f3, #6a96f3);
             color: white;
@@ -570,7 +431,8 @@
             border-color: #28a745 !important;
         }
     </style>
-     
+      @vite('resources/css/app.css')
+
 </head>
 
 <body style="background-color: hsl(210, 17%, 93%);">
@@ -603,20 +465,7 @@
 
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const toggleIcon = document.getElementById('toggleIcon');
-        const paymentOptions = document.getElementById('paymentOptions');
 
-        paymentOptions.addEventListener('show.bs.collapse', function() {
-            toggleIcon.classList.add('rotate');
-        });
-
-        paymentOptions.addEventListener('hide.bs.collapse', function() {
-            toggleIcon.classList.remove('rotate');
-        });
-    });
-</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var splide = new Splide('.splide', {
@@ -634,31 +483,7 @@
 </script>
 
 
-{{-- <script>
-    // Mendapatkan elemen input tanggal
-    const tanggalInput = document.getElementById('tanggalPickerDisplay');
 
-    // Menentukan tanggal minimum yang bisa dipilih (hari ini)
-    const today = new Date();
-    const todayString = today.toISOString().split('T')[0]; // Format YYYY-MM-DD
-
-    // Set tanggal minimal untuk input
-    tanggalInput.setAttribute('min', todayString);
-
-    tanggalInput.addEventListener('click', function() {
-        // Logika untuk memilih tanggal
-        // Bisa menambah logika tambahan jika perlu
-    });
-
-    // Menambahkan event listener untuk waktu
-    var timeButtons = document.querySelectorAll('#timeButtons button');
-    timeButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            var jam = this.getAttribute('data-time');
-            document.getElementById('jam_sewa_input').value = jam;
-        });
-    });
-</script> --}}
 
 
 {{-- digunakan untuk menyimpan jam pilihan user --}}
@@ -710,15 +535,15 @@
 </script> --}}
 
 {{-- validasi tanggal --}}
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> --}}
+{{-- <script>
     flatpickr("#tanggal", {
         minDate: "today", // hanya bisa memilih hari ini atau setelahnya
         dateFormat: "Y-m-d", // format tanggal yang diinginkan
-    });
-</script>
+    }); --}}
+{{-- </script> --}}
 
-<script>
+{{-- <script>
     // Ambil elemen dengan ID "current-date"
     const dateElement = document.getElementById('current-date');
 
@@ -733,9 +558,9 @@
 
     // Tampilkan tanggal di elemen
     dateElement.textContent = formattedDate;
-</script>
+</script> --}}
 
-<script>
+{{-- <script>
     document.querySelector('.like-btn').addEventListener('click', function() {
         const button = this;
         const currentState = button.getAttribute('data-state');
@@ -786,7 +611,7 @@
     }
 
     // Panggil fungsi saat halaman dimuat
-</script>
+</script> --}}
 {{-- modal kasih catatan --}}
 
 
@@ -919,14 +744,14 @@ loadState();
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-<script>
+{{-- <script>
     const myModal = document.getElementById('myModal')
     const myInput = document.getElementById('myInput')
 
     myModal.addEventListener('shown.bs.modal', () => {
         myInput.focus()
     })
-</script>
+</script> --}}
 <script>
     var triggerTabList = [].slice.call(document.querySelectorAll('#filterTabs a'));
     triggerTabList.forEach(function(triggerEl) {
@@ -950,7 +775,7 @@ loadState();
     });
 </script>
 
-<script>
+{{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
         const display = document.getElementById("tanggalPickerDisplay");
 
@@ -1005,34 +830,12 @@ loadState();
             tanggalPicker.open();
         });
     });
-</script>
+</script> --}}
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const description = document.getElementById('description');
-        const fullText = description.textContent; // Simpan teks asli
-        const truncatedText = fullText.substring(0, 500) + '...'; // Potong teks hingga 100 karakter
 
-        let isTruncated = true; // Status teks terpotong atau penuh
 
-        // Tampilkan teks terpotong
-        description.textContent = truncatedText;
-
-        document.getElementById('readMoreBtn').addEventListener('click', function() {
-            if (isTruncated) {
-                description.textContent = fullText; // Tampilkan teks penuh
-                this.textContent = 'Tampilkan Lebih Sedikit';
-            } else {
-                description.textContent = truncatedText; // Kembali ke teks terpotong
-                this.textContent = 'Lihat Selengkapnya';
-            }
-            isTruncated = !isTruncated; // Ubah status
-        });
-    });
-</script>
-
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         let selectedTimes = [];
         const timeButtons = document.querySelectorAll('#timeButtons button');
@@ -1134,7 +937,7 @@ loadState();
         });
     });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script> --}}
 
 {{-- <script>
     document.getElementById('confirmTransaction').addEventListener('click', function() {
@@ -1190,7 +993,7 @@ loadState();
 
 </script>
 
-<script>
+{{-- <script>
     document.getElementById("readMoreBtn").addEventListener("click", function() {
         const dots = document.getElementById("dots");
         const moreText = document.getElementById("more");
@@ -1206,7 +1009,7 @@ loadState();
             btnText.textContent = "Tampilkan Lebih Sedikit";
         }
     });
-</script>
+</script> --}}
 
 
 
@@ -1249,7 +1052,7 @@ loadState();
     // 
 </script>
 
-<script>
+{{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         const tanggalPicker = document.getElementById('tanggalPickerDisplay');
         const timeButtons = document.querySelectorAll('#timeButtons button');
@@ -1281,7 +1084,7 @@ loadState();
             }
         });
     });
-</script>
+</script> --}}
 
 
 

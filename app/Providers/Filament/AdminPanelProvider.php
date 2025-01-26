@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use App\Filament\Widgets\JumlahLapangan;
 use App\Filament\Widgets\JumlahUser;
 use App\Filament\Widgets\Pendapatan;
+use App\Filament\Widgets\QuickAccess;
 use Filament\Contracts\Plugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -47,7 +48,7 @@ class AdminPanelProvider extends PanelProvider
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
-                
+                QuickAccess::class,
                 JumlahUser::class,
                 
 

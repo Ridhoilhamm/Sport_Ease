@@ -29,9 +29,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/favorite/lapangan', function () {
     return view('user.favorite');
 });
-Route::get('/pembayaran', function () {
-    return view('user.pembayaran');
-});
+// Route::get('/pembayaran', function () {
+//     return view('user.pembayaran');
+// });
 
 
 Route::get('/tes', function () {
@@ -43,9 +43,9 @@ Route::get('/informasi-pembayaran', function () {
 Route::get('/kartudebit', function () {
     return view('user.form-kartu-debit');
 });
-Route::get('/riwayat', function () {
-    return view('user.riwayat');
-});
+// Route::get('/riwayat', function () {
+//     return view('user.riwayat');
+// });
 Route::get('/riwayat-owner', function () {
     return view('owner.riwayat');
 })->name('owner-riwayat');
@@ -54,8 +54,9 @@ Route::middleware('Rolemiddlware')->group(function (): void {
 
 });
 Route::get('/user', [UserController::class, 'dashboard'])->name('user.user');
-Route::get('/riwayat/filter/{status}', action: [riwayatController::class, 'filter'])->name('transaksi.filter');
+// Route::get('/riwayat', action: [riwayatController::class, 'show']);
 // Route::get('/riwayat/filter/{status}', [riwayatController::class, 'filter'])->name('transaksi.filter');
+Route::get('/riwayat/status', [riwayatController::class, 'cari'])->name('riwayat-status');
 
 Route::get('/data-diri', [DatadiriController::class, 'index'])->name('datadiri');
 Route::get('/detailtransaksi/{id}', [TransaksiController::class, 'transaksibyid'])->name('detail-transaksi');
@@ -100,4 +101,3 @@ Route::get('/owner/edit/{id}', [lapanganOwnerController::class, 'editlapangan'])
 
 // logout
 Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-

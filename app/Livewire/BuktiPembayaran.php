@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Events\TransaksiStatusUpdated;
 use App\Models\Transaksi;
 use Illuminate\Support\Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -56,13 +57,14 @@ class BuktiPembayaran extends Component
             $transaksi->bukti_pembayaran = $filePath;
             $transaksi->status = 'menunggu hari';
             $transaksi->save();
-
+            event(new TransaksiStatusUpdated($transaksi));
             // Perbarui URL bukti pembayaran
             $this->buktiUrl = $filePath;
 
             $this->alert('success', 'Bukti pembayaran berhasil diunggah dan status telah diperbarui!');
+            return redirect('/detailtransaksi/{id}');
         } else {
-            $this->alert('error', 'Transaksi tidak ditemukan!');
+            $this->alert('error', 'Maaf ukuran file foto terlalu besar');
         }
     }
 

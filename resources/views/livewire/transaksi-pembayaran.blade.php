@@ -1,23 +1,27 @@
 <div>
    
-    <div class="bg-white" style="padding-top: 3px; padding-bottom:20px;">
+    <div class="bg-white " style="fixed-bottom padding-top: 3px; padding-bottom:20px;">
         <div class="container d-flex align-items-center justify-content-between" style="padding-top: 10px; font-family: ubuntu;">
             <!-- Total Pembayaran dan Harga -->
-            <div>
+            <div class="ms-2">
                 <!-- Total Pembayaran -->
-                <p class="fw-bold mb-1" style="font-size: 18px; color:#A9DA05;">
+                <p class="fw-semibold mb-1 " style="font-size: 18px; color:#000000a6">
                     Total Pembayaran
                 </p>
                 <!-- Harga -->
-                <p class="fw-bold mb-0" style="font-size: 18px; color:#A9DA05;">
-                    Rp. {{ number_format($lapangan->harga * 2, 0, ',', '.') }}
+                <p class="fw-bold mb-0 " style="font-size: 20px; color:#A9DA05;">
+                    Rp.{{ number_format($lapangan->harga * 2+2000, 0, ',', '.') }}
                 </p>
             </div>
             <!-- Tombol Lanjutkan -->
-            <button class="btn btn-success custom-button" data-bs-toggle="modal" data-bs-target="#detail-pembayaran"
-                style="background-color: #A9DA05; color: #ffffff; padding: 12px; border-radius: 8px; border: none; font-weight: bold;">
-                Lanjutkan
-            </button>
+            <div class="me-1">
+
+                <button class=" btn btn-success custom-button mt-3" data-bs-toggle="modal" data-bs-target="#detail-pembayaran"
+                    style="background-color: #A9DA05; color: #ffffff; padding: 12px; border-radius: 8px; border: none; font-weight: bold;">
+                    Lanjutkan
+                </button>
+            </div>
+
         </div>
     </div>
     
@@ -30,7 +34,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-start" id="exampleModalLabel">Detail Pemesanan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <p class="container fw-semibold mb-0 justify-content-center">
@@ -56,18 +59,24 @@
                         
                     
                         <!-- Metode Pembayaran -->
-                        <div class="d-flex align-items-center mb-3">
+                        <!-- Nomor Rekening -->
+                        <p class=" fw-semibold mt-2 mb-0 justify-content-center">
+                            Motade Pemesanan
+                        </p>
+                        <div class="d-flex align-items-center mb-0">
                             <p class="fw-medium mb-0" style="font-size:14px;">Metode Pembayaran</p>
                             <div class="ms-auto" style="font-size:14px;">
                                 Transfer
                             </div>
                         </div>
+                        <div class="d-flex align-items-center mb-0">
+                            <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Nama Bank</p>
+                            <div class="ms-auto" style="font-size:14px;">
+                                BCA
+                            </div>
+                        </div>
                     
-                        <!-- Nomor Rekening -->
-                        <p class=" fw-semibold mb-0 justify-content-center">
-                            Data Pemesan
-                        </p>
-                        <div class="d-flex align-items-center mb-2">
+                        <div class="d-flex align-items-center mb-0">
                             <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">No Rekening</p>
                             <div class="ms-auto d-flex align-items-center">
                                 <p class="mb-0 me-2" style="font-size:14px;">122333444</p>
@@ -87,12 +96,7 @@
                         </div>
                     
                         <!-- Nama Bank -->
-                        <div class="d-flex align-items-center mb-2">
-                            <p class="fw-medium mb-0" style="flex: 1; font-size:14px;">Nama Bank</p>
-                            <div class="ms-auto" style="font-size:14px;">
-                                BCA (a.n Sport Ease)
-                            </div>
-                        </div>
+                        
                     
                         <!-- Atas Nama -->
                         <div class="d-flex align-items-center mb-3">
@@ -134,13 +138,13 @@
                     <style>
                         .alert {
                             position: fixed;
-                            top: 20px;
+                            top: 140px;
                             left: 50%;
                             transform: translateX(-50%);
                             padding: 15px;
                             font-size: 14px;
                             border-radius: 5px;
-                            background-color: #28a745;
+                            background-color: #28a746a2;
                             color: white;
                             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                             z-index: 1050;
@@ -158,7 +162,7 @@
                         Total Pembayaran <br />
                         <span style="color: #A9DA05; font-size: 18px" class="fw-semibold">
                             @if (is_numeric($lapangan->harga) && $lapangan->harga > 0)
-                            Rp. {{ number_format((float)$lapangan->harga * 2, 0, ',', '.') }}
+                            Rp. {{ number_format((float)$lapangan->harga * 2+2000, 0, ',', '.') }}
                         @else
                             Harga atau lama sewa tidak tersedia.
                         @endif

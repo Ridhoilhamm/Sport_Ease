@@ -44,7 +44,8 @@ class LapanganController extends Controller
     {
         $lapangan= Lapangan::with('gambar_lapangan')->get();
         $lapangan = Lapangan::find($id);
-        return view('user.detail-lapangan', compact('lapangan'));
+        $lapanganTerkait= Lapangan::where('id', '!=', $id)->take(4)->get();
+        return view('user.detail-lapangan', compact('lapangan','lapanganTerkait'));
     }
 
     public function storelapangan(Request $request)
@@ -67,6 +68,7 @@ class LapanganController extends Controller
     }
     public function showPembayaran()
     {
+        
         // Mengambil data transaksi dari session
     $data = session()->get('data');
 
@@ -79,6 +81,7 @@ class LapanganController extends Controller
     $lamaSewa = $data['lama_sewa'] ?? null;
     $lapangan = $data['lapangan'] ?? 'Tidak diketahui'; // Nama lapangan yang dipilih
     $user = Auth::user();
+    // dd($data);
 
     // Kirim data transaksi dan pengguna ke view
     return view('user.pembayaran', compact('tanggalSewa', 'jamSewa', 'lapangan', 'user','lamaSewa'));

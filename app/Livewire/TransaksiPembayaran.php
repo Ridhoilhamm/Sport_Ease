@@ -26,12 +26,9 @@ class TransaksiPembayaran extends Component
                                         ->where('jam_sewa', $this->jamSewa)
                                         ->where('id_lapangan', $this->lapangan->id)
                                         ->first();
-    
         // Jika transaksi sudah ada, kembalikan pesan error
         if ($existingTransaction) {
-            $this->alert('error', 'Transaksi di Tgl & Jam ini sudah ada');
-
-            
+            $this->alert('error', 'Transaksi di Tgl & Jam ini sudah ada'); 
             return redirect("/pembayaran");
         }
     
@@ -52,11 +49,6 @@ class TransaksiPembayaran extends Component
     }
     public $rekening = '122333444';
 
-    public function copyRekening()
-    {
-        // Emit event ke frontend untuk memicu alert
-        $this->emit('rekeningDisalin');
-    }
 
     public function render()
     {

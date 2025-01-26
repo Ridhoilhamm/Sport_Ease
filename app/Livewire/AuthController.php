@@ -26,8 +26,7 @@ class AuthController extends Component
             'password' => 'required|min:8',
         ], $this->messages);
 
-        $user = User::where('email', $this->email)->first();
-
+        $user = User::where('email', $this->email)->first();    
         if (!$user || !Hash::check($this->password, $user->password)) {
             return $this->alert('error', 'Login Gagal', [
                 'text' => 'Email atau password salah!',

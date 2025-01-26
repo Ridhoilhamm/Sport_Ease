@@ -251,21 +251,21 @@
 
        
         <div class="container bg-white" style="padding-top: 10px">
-            <div class="mb-2 d-flex align-items-center justify-content-between">
-                <a href="/kategory">
-
+            <div class="d-flex align-items-center" style="padding-bottom: 10px;">
+                <a href="{{ route('detaillapangan', ['id' => $lapangan->id]) }}" class="me-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                    class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" style="color: black">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M15 6l-6 6l6 6" />
-                </svg>
-            </a>
-                
-                <div style="flex: 1; display:">
-                    <h5 class="fw-medium mt-2">Informasi Pemesanan</h5>
-                </div>
+                        stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left" style="color: black">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M15 6l-6 6l6 6" />
+                    </svg>
+                </a>
+                <h5 class="fw-semibold mb-0" style="color:#000000c3">Informasi Pemesanan</h5>
             </div>
+            
+            
+            
+            
 
         </div>
 
@@ -273,8 +273,8 @@
     <div>
 
     </div>
-    <div class="mt-3 container bg-white rounded" style="padding: 10px 0 20px;">
-        <div class="ms-3 me-3" style="border: 1px solid #A9DA05; border-radius: 8px; padding: 15px; ">
+    <div class="mt-2 container bg-white rounded" style="padding: 10px 0 20px;">
+        <div class="" style="  ">
             <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Data Pemesan
             </p>
             <div class="d-flex align-items-center container">
@@ -301,10 +301,24 @@
             </div>
             <div class="d-flex align-items-center container">
                 <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                    Tgl Pemesanan
+                    No.tlp
                 </p>
                 <div class="ms-auto" style="font-size:14px">
-                    {{ $tanggalSewa }}
+                    {{$user->phone}}
+                </div>
+                <div class="mb-3 " data-bs-toggle="modal" data-bs-target="#pemesanan">
+                    {{-- Icon atau tombol lainnya --}}
+                </div>
+            </div>
+            <div class="d-flex align-items-center container">
+                <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
+                    Tgl. Pemesanan
+                </p>
+                @php
+                    \Carbon\Carbon::setLocale('id');
+                @endphp
+                <div class="ms-auto" style="font-size:14px">
+                    {{ \Carbon\Carbon::parse($tanggalSewa)->locale('id')->isoFormat('dddd, D MMMM YYYY') }}
                 </div>
                 <div class="mb-3 " data-bs-toggle="modal" data-bs-target="#pemesanan">
                     {{-- Icon atau tombol lainnya --}}
@@ -326,9 +340,9 @@
        
 
     </div>
-    <div class="mt-3 bg-white rounded" style="padding: 10px 0 20px;">
+    <div class="mt-2 bg-white rounded" style="padding: 10px 0 20px;">
 
-        <div class="ms-3  me-3" style="border: 1px solid #A9DA05; border-radius: 8px; padding: 15px; ">
+        <div>
             <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Detail
                 Sewa</p>
             <div class="mt-3 container">
@@ -339,7 +353,6 @@
                         <div>
                             <h6 class="mb-1">{{ $lapangan->name }}</h6>
                             <small class="text-muted">Jam Sewa:  {{ $jamSewa }}</small> <br/>
-                            <small class="text-muted">Lama Sewa:  {{ $lamaSewa }} Jam</small>
                             <p class="fw-bold mt-1" style="color: #101010c2">Rp. {{ number_format($lapangan->harga, 0, ',', '.') }}</p>
                         </div>
                     </div>
@@ -348,35 +361,38 @@
         </div>
 
     </div>
-    <div class="mt-3 mb-2 bg-white rounded" style="padding: 10px 0 20px;">
+    <div class="bg-white">
+        <div class="container mt-2"  style="padding-top:10px">
 
-        <div class="ms-3">
-            <div class="container mt-3">
+            <div class="card-body d-flex align-items-center justify-content-between">
+                <!-- Teks dengan modal -->
+                <h6 class="fw-bold mb-0" style="margin-bottom: 4px;">
+                    Kasih Catatan
+                </h6>
 
-                <div class="card-body d-flex align-items-center justify-content-between">
-                    <!-- Teks dengan modal -->
-                    <h6 class="fw-bold mb-0" style="margin-bottom: 4px;">
-                        Kasih Catatan
-                    </h6>
-    
-                    <!-- Ikon dengan fungsi klik -->
-                    <div data-bs-toggle="modal" data-bs-target="#noteModal">
-                        <p class="mb-0" style="cursor: pointer;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
-                                stroke-linejoin="round" class="icon icon-tabler icon-tabler-chevron-right">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M9 6l6 6l-6 6" />
-                            </svg>
-                        </p>
-                    </div>
+                <!-- Ikon dengan fungsi klik -->
+                <div data-bs-toggle="modal" data-bs-target="#noteModal">
+                    <p class="mt-3 mb-0" style="cursor: pointer;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                            stroke-linejoin="round" class="icon icon-tabler icon-tabler-chevron-right" class="mt-2">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M9 6l6 6l-6 6" />
+                        </svg>
+                    </p>
                 </div>
             </div>
-            <!-- Catatan -->
-            <p id="note-display" class="mb-2 ms-3 mt-0 text-secondary" style="margin-top: 4px; margin-bottom: 0;">
-                Belum ada catatan.
-            </p>
-            <div class="container mt-3">
+        </div>
+        <!-- Catatan -->
+        <p id="note-display" class="container mb-2 mt-0 text-secondary" style="margin-top: 4px; padding-bottom:10px;">
+            Belum ada catatan.
+        </p>
+    </div>
+    <div class="mt-2 mb-2 bg-white rounded" style="padding: 10px 0 20px;">
+
+        <div class="ms-3">
+          
+            <div class=" mt-3">
                 <h6 class="fw-semibold">
                     Rincian Pembayaran
                 </h6>
@@ -432,6 +448,8 @@
                 <div class="modal-body">
                     <textarea id="order-note" placeholder="Pastikan tidak ada data pribadi, ya."></textarea>
                 </div>
+                
+
                 <div class="modal-footer">
                     <button class="close-btn" onclick="closeModal()">Batal</button>
                     <button class="save-btn" onclick="saveNote()">Simpan</button>
@@ -468,6 +486,7 @@
                                 </div>
                             </div>
                         </form>
+                        <livewire:add-catatan />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">

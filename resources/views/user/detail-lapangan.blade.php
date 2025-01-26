@@ -123,18 +123,35 @@
 
         }
 
+        .image-container {
+            width: 100%;
+            height: 100px;
+            /* Sesuaikan tinggi sesuai kebutuhan */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Memastikan gambar terpotong agar tetap memenuhi ukuran */
+            object-position: center;
+            /* Memusatkan gambar */
+        }
+
         /* Warna tombol ketika dipilih */
         /* .btn.selected {
-                                                                background-color: #5cb85c;
-                                                                color: white;
-                                                                border-color: #5cb85c;
-                                                            }
+                                                                                    background-color: #5cb85c;
+                                                                                    color: white;
+                                                                                    border-color: #5cb85c;
+                                                                                }
 
-                                                            .btn:hover {
-                                                                color: #495057;
-                                                                background-color: #f8f9fa;
-                                                                border-color: var(--bs-btn-hover-border-color);
-                                                            } */
+                                                                                .btn:hover {
+                                                                                    color: #495057;
+                                                                                    background-color: #f8f9fa;
+                                                                                    border-color: var(--bs-btn-hover-border-color);
+                                                                                } */
         /* Default style untuk semua button */
         .btn {
             padding: 10px 10px;
@@ -275,11 +292,11 @@
 
 
             <!-- Card -->
-            <div class=" position-relative" style="margin-top: -20px; z-index: 10; padding-bottom:50px;">
+            <div class=" position-relative" style="margin-top: -20px; z-index: 10; padding-bottom:30px;">
 
 
 
-                <div class="card shadow-sm rounded-4 overflow-hidden mx-auto" style="max-width: 400px;">
+                <div class="card shadow-sm rounded-4 overflow-hidden mx-auto" style="max-width:400px;">
                     <!-- Image -->
                     <div class="">
 
@@ -287,32 +304,40 @@
                             <div id="header" class="d-flex align-items-center p-2 w-100">
                                 <!-- Tombol Kembali -->
                                 <a href="/kategory" id="row" class="btn btn-light rounded-circle p-2 shadow">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M15 6l-6 6l6 6" />
                                     </svg>
                                 </a>
                                 <p class="transition-all hidden ms-3 mb-0">Detail Lapangan</p>
-                                <!-- Ikon Love di kanan -->
+                               
                                 <a href="" id="row" class="btn btn-light rounded-circle p-2 shadow ms-auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                                        <path
+                                            d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                                     </svg>
                                 </a>
                             </div>
-                            
+
                         </div>
                     </div>
                     <!-- Card Content -->
-                    <div class="card-body mb-4">
+                    <div class="card-body ">
                         <h5 class="card-title fw-bold text-black-10">{{ $lapangan->name }}</h5>
                         <p class="text-muted mb-2 text-secondary" style="font-size: 14px;">{{ $lapangan->lokasi_tempat }}
                         </p>
                         <!-- Rating -->
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <span class="badge bg-warning text-dark"
-                                style="font-size: 18px">Rp.{{ $lapangan->harga }}</span>
+                            <span class="badge bg-warning text-dark" style="font-size: 18px">
+                                Rp.{{ number_format($lapangan->harga, 0, ',', '.') }}
+                            </span>
 
                         </div>
                         <!-- Features -->
@@ -323,93 +348,86 @@
                                 <div
                                     style="display: inline-flex; min-width: 100%; width: fit-content; padding-bottom:5px; padding-top:10px">
                                     <!-- Slide 1 -->
-                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
-                                        class="text-center">
-                                        <div class="text-center mt-1 mr-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-droplet-half">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path
-                                                    d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z" />
-                                                <path d="M12 3v18" />
-                                            </svg>
-                                            <div class="mt-2 text-center">
-                                                <p class="mb-0" style="font-size: 12px; color: #333;">Air Mineral</p>
-                                            </div>
+                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: absolute; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+                                        class="d-flex flex-column align-items-center justify-content-center text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-droplet-half">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z" />
+                                            <path d="M12 3v18" />
+                                        </svg>
+                                        <div class="mt-2">
+                                            <p class="mb-0" style="font-size: 12px; color: #333;">Air Mineral</p>
                                         </div>
                                     </div>
+
                                     <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
-                                        class="text-center">
-                                        <div class="text-center mt-1 mr-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-parking">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path
-                                                    d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" />
-                                                <path
-                                                    d="M10 16v-8h2.667c.736 0 1.333 .895 1.333 2s-.597 2 -1.333 2h-2.667" />
-                                            </svg>
-                                            <div class="mt-2 text-center">
-                                                <p class="mb-0" style="font-size: 12px; color: #333;">Tempat Parkir</p>
-                                            </div>
+                                        class="d-flex flex-column align-items-center justify-content-center text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-parking">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" />
+                                            <path d="M10 16v-8h2.667c.736 0 1.333 .895 1.333 2s-.597 2 -1.333 2h-2.667" />
+                                        </svg>
+                                        <div class="mt-2">
+                                            <p class="mb-0" style="font-size: 12px; color: #333;">Tempat Parkir</p>
                                         </div>
                                     </div>
+
                                     <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
-                                        class="text-center">
-                                        <div class="text-center mt-1 mr-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
-                                                stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-tools-kitchen-2">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path
-                                                    d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12zm0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3" />
-                                            </svg>
-                                            <div class="mt-2 text-center">
-                                                <p class="mb-0" style="font-size: 12px; color: #333;">Kantin</p>
-                                            </div>
+                                        class="d-flex flex-column align-items-center justify-content-center text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-tools-kitchen-2">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12zm0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3" />
+                                        </svg>
+                                        <div class="mt-2">
+                                            <p class="mb-0" style="font-size: 12px; color: #333;">Kantin</p>
                                         </div>
                                     </div>
+
                                     <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
-                                        class="text-center">
-                                        <div class="text-center mt-1 mr-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-armchair">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path
-                                                    d="M5 11a2 2 0 0 1 2 2v2h10v-2a2 2 0 1 1 4 0v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-4a2 2 0 0 1 2 -2z" />
-                                                <path d="M5 11v-5a3 3 0 0 1 3 -3h8a3 3 0 0 1 3 3v5" />
-                                                <path d="M6 19v2" />
-                                                <path d="M18 19v2" />
-                                            </svg>
-                                            <div class="mt-2 text-center">
-                                                <p class="mb-0" style="font-size: 12px; color: #333;">Kursi Penonton</p>
-                                            </div>
+                                        class="d-flex flex-column align-items-center justify-content-center text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-armchair">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M5 11a2 2 0 0 1 2 2v2h10v-2a2 2 0 1 1 4 0v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-4a2 2 0 0 1 2 -2z" />
+                                            <path d="M5 11v-5a3 3 0 0 1 3 -3h8a3 3 0 0 1 3 3v5" />
+                                            <path d="M6 19v2" />
+                                            <path d="M18 19v2" />
+                                        </svg>
+                                        <div class="mt-2">
+                                            <p class="mb-0" style="font-size: 12px; color: #333;">Kursi Penonton</p>
                                         </div>
                                     </div>
+
                                     <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
-                                        class="text-center">
-                                        <div class="text-center mt-1 mr-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
-                                                class="icon icon-tabler icons-tabler-outline icon-tabler-hanger">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                <path
-                                                    d="M14 6a2 2 0 1 0 -4 0c0 1.667 .67 3 2 4h-.008l7.971 4.428a2 2 0 0 1 1.029 1.749v.823a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-.823a2 2 0 0 1 1.029 -1.749l7.971 -4.428" />
-                                            </svg>
-                                            </svg>
-                                            <div class="mt-2 text-center">
-                                                <p class="mb-0" style="font-size: 12px; color: #333;">Kamar Ganti</p>
-                                            </div>
+                                        class="d-flex flex-column align-items-center justify-content-center text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="icon icon-tabler icons-tabler-outline icon-tabler-hanger">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <path
+                                                d="M14 6a2 2 0 1 0 -4 0c0 1.667 .67 3 2 4h-.008l7.971 4.428a2 2 0 0 1 1.029 1.749v.823a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-.823a2 2 0 0 1 1.029 -1.749l7.971 -4.428" />
+                                        </svg>
+                                        <div class="mt-2">
+                                            <p class="mb-0" style="font-size: 12px; color: #333;">Kamar Ganti</p>
                                         </div>
                                     </div>
+
 
                                     <!-- Slide 2 -->
                                     <!-- Add More Duplicated Slides if Needed -->
@@ -424,7 +442,7 @@
                         <div class="d-flex justify-content-between align-items-center mb-3  rounded">
                             <!-- Kolom Kiri -->
                             <!-- Kolom Kanan -->
-                            <div class="w-100 ps-1 text-start">
+                            <div class="w-100 text-start">
                                 <p class="text-secondary" id="description" style="text-align: justify;">
 
                                     {{ $lapangan->deskripsi }}
@@ -432,15 +450,37 @@
                                 <button id="readMoreBtn" class="btn btn-link p-0 text-primary"
                                     style="background: none; border: none; text-decoration: none;">Lihat
                                     Selengkapnya</button>
-
                             </div>
                         </div>
 
 
                         <!-- Button -->
                     </div>
+                    <div class="container mt-1 " style="padding-bottom: 100px">
+                        <p class="mb-3 text-start" style="font-size: 18px">Lapangan Lainnya</p>
+                        <div class="row row-cols-2 row-cols-md-3 g-3">
+                            @foreach ($lapanganTerkait as $no => $data)
+                                <!-- Card 1 -->
+                                <a href="{{ route('detaillapangan', $data->id) }}">
+                                    <div class="col">
+                                        <div class="rounded text-start">
+                                            <!-- Mengatur ukuran gambar agar konsisten menjadi lanskap -->
+                                            <div class="image-container">
+                                                <img src="{{ asset('storage/' . $data->foto) }}"
+                                                    class="card-img-top rounded" alt="Artikel 1">
+                                            </div>
+                                        </div>
+                                        <p style="font-size: 12px" class="fw-medium text-start mt-1 text-center">
+                                            {{ $data->name }}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
             <livewire:booking.booking :lapangan='$lapangan'>
 
         </div>
@@ -483,7 +523,7 @@
                     // Jika pengguna scroll ke bawah
                     header.style.backgroundColor = 'white'; // Ubah menjadi putih
                     header.style.boxShadow =
-                    '0 2px 4px rgba(0, 0, 0, 0.1)'; // Tambahkan bayangan (opsional)
+                        '0 2px 4px rgba(0, 0, 0, 0.1)'; // Tambahkan bayangan (opsional)
                     paragraph.classList.add("visible");
                     paragraph.classList.remove("hidden");
                 } else {
@@ -521,6 +561,29 @@
             button.addEventListener('click', function() {
                 var jam = this.getAttribute('data-time');
                 document.getElementById('jam_sewa_input').value = jam;
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const description = document.getElementById('description');
+            const fullText = description.textContent; // Simpan teks asli
+            const truncatedText = fullText.substring(0, 500) + '...'; // Potong teks hingga 100 karakter
+    
+            let isTruncated = true; // Status teks terpotong atau penuh
+    
+            // Tampilkan teks terpotong
+            description.textContent = truncatedText;
+    
+            document.getElementById('readMoreBtn').addEventListener('click', function() {
+                if (isTruncated) {
+                    description.textContent = fullText; // Tampilkan teks penuh
+                    this.textContent = 'Tampilkan Lebih Sedikit';
+                } else {
+                    description.textContent = truncatedText; // Kembali ke teks terpotong
+                    this.textContent = 'Lihat Selengkapnya';
+                }
+                isTruncated = !isTruncated; // Ubah status
             });
         });
     </script>
