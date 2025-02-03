@@ -176,13 +176,13 @@
         <body>
             <div class="">
                 <div class="card-profile shadow p-4 mx-auto" style="max-width: 400px;">
-                    <livewire:profile-image-upload />
                     <div class="d-flex flex-column justify-content-center align-items-center mb-2">
+                        <livewire:profile-image-upload />
                         <h4 class="fw-bold mb-1">{{ $user->name }}</h4>
                         <p class="text-secondary">{{ $user->email }}</p>
                     </div>
                     
-                    <!-- Stats -->
+                    
                     <div class="row text-center mb-4">
                         <div class="col-4">
                             <div class="stat-card">

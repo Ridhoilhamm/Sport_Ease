@@ -44,16 +44,24 @@
         height: 100px;
         padding-right: 20px;
     }
+    .input-group .form-control {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group .btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
 </style>
 
 <div>
     <!-- Jarak antara "hallo" dan form login -->
-    <div class="bg-image d-flex align-items-center mt-0">
-        <div class="customm-rounded bg-white d-flex justify-content-center align-items-center mb-4" style="width: 50%; height: 100px;">
-            <img src="{{ asset('image/logo.png') }}" alt="" style="width: auto; height: 50px; object-fit: contain;">
-        </div>
-
-        <div class="border custom-rounded px-3 py-3 ms-3 bg-white shadow" style="width: 100%; height:75%; max-width: 450px; padding-right: 20px;">
+    <div class="bg-image d-flex justify-content-center align-items-center min-vh-100 px-3">
+        <div class="border mx-3 bg-white shadow p-4 rounded" style="width: 100%; max-width: 450px;">
             <h1 class="text-center mb-4">Login</h1>
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -64,27 +72,46 @@
                     </ul>
                 </div>
             @endif
-            <form action="" method="POST">
+            <form action="{{route('auth-login')}}" method="POST">
                 @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" value="{{ old('email') }}" name="email" class="form-control">
+                    <input type="email" value="{{ old('email') }}" name="email" class="form-control rounded" placeholder="example@gmail.com">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <div class="input-group">
-                        <input id="password" type="password" value="{{ old('password') }}" name="password" class="form-control">
-                        <button type="button rounded" class="btn  btn-outline-secondary" id="togglePassword">
+                        <input id="password" type="password" value="{{ old('password') }}" name="password" class="form-control" placeholder="Password">
+                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">
                             <i id="eyeIcon" class="bi bi-eye"></i>
                         </button>
                     </div>
+                    <p class="text-muted small mt-1 text-end">
+                        Lupa Sandi? <a href="/reset/password" class="fw-semibold text-success">Reset Password</a>
+                    </p>
                 </div>
-                <div class="custom-card mb-3 d-grid">
+                <div class="d-grid mt-0">
                     <button name="submit" type="submit" class="btn btn-primary">Masuk</button>
                 </div>
+                <p class="text-muted small mt-3">
+                    Belum punya akun? <a href="/registrasi" class="fw-semibold text-success">Registrasi</a>
+                </p>
+                <div class="d-flex gap-2 mt-1">
+                    @foreach ($sosmed as $data)
+                    <div class="d-flex flex-column align-items-center">
+                        <img src="{{ asset('storage/'.$data->foto) }}" 
+                             class="rounded-circle" 
+                             style="height:40px; width:40px; object-fit: cover;">
+                
+                        <p class="small m-0 text-center">{{ $data->name }}</p>
+                    </div>
+                    @endforeach
+                </div>
+                
             </form>
         </div>
     </div>
+    
 </div>
 <script>
     // JavaScript untuk men-toggle password

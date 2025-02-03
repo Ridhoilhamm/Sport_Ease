@@ -44,7 +44,6 @@ class ProfileImageUpload extends Component
         
             $this->success = true; // Tandai sukses
             $this->alert('success', 'Gambar Profil berhasil diganti');
-            return redirect('/data-diri');
         } catch (\Illuminate\Validation\ValidationException $e) {
             
             $this->alert('error', $e->validator->errors()->first('profile_image'));

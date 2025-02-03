@@ -12,6 +12,7 @@ use Filament\Widgets\StatsOverviewWidget\Stat;
 
 class JumlahUser extends BaseWidget
 {
+
     protected function getStats(): array
     {
         return [
@@ -21,7 +22,9 @@ class JumlahUser extends BaseWidget
             ->chart([1,4,5,7])
             ->color(
                 '#A9DA05'
-            ),
+            )
+            ->extraAttributes(['class' => 'custom-chart-size'])
+            ,
             Stat::make('Jumlah Lapangan', Lapangan::count())
             ->description('lapangan yang tersedia')
             ->descriptionIcon('heroicon-m-flag', IconPosition::Before)
@@ -32,6 +35,17 @@ class JumlahUser extends BaseWidget
             ->descriptionIcon('heroicon-m-flag', IconPosition::Before)
             ->chart([1,4,5,7])
             ->color('#A9DA05'), 
+            Stat::make('Pendapatan', transaksi::sum('total_pembayaran'))  // Gunakan `sum()` untuk menghitung total pembayaran
+                ->description('Total Pembayaran')
+                ->descriptionIcon('heroicon-m-currency-dollar', IconPosition::Before)
+                ->chart([1, 4, 5, 7])  // Contoh data chart
+                ->color('#A9DA05'),
+            Stat::make('Jumlah Transaksi', transaksi::count())  // Gunakan `sum()` untuk menghitung total pembayaran
+                ->description('Total Pembayaran')
+                ->descriptionIcon('heroicon-m-currency-dollar', IconPosition::Before)
+                ->chart([1, 4, 5, 7])  // Contoh data chart
+                ->color('#A9DA05')
+             
            
         ];
     }

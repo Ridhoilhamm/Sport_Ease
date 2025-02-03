@@ -36,12 +36,13 @@
 <body style="background-color: hsl(210, 17%, 93%);">
     <div style="font-family: 'Ubuntu', sans-serif;">
 
+        @yield('styles')
         @if (!isset($hideSidebar) || !$hideSidebar)
         @include('owner.footer-owner')
+        @endif
+        @yield('content')
+        @if (!isset($hideNavbar) || !$hideNavbar)
         @include('owner.nav-owner')
-    @endif
-    @yield('content')
-    @if (!isset($hideNavbar) || !$hideNavbar)
     @endif
     </div>
 

@@ -47,4 +47,13 @@ class TransaksiController extends Controller
         }
         return view('user.detail-transaksi', compact('transaksi'));
     }
+    public function view($id)
+    {
+        $transaksi = Transaksi::with(['user', 'getlapangan'])->find($id);
+
+        if (!$transaksi) {
+            return redirect()->back()->with('error', 'Transaksi tidak ditemukan.');
+        }
+        return view('user.detail-riwayat', compact('transaksi'));
+    }
 }

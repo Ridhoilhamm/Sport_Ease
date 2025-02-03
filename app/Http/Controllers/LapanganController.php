@@ -72,7 +72,7 @@ class LapanganController extends Controller
         // Mengambil data transaksi dari session
     $data = session()->get('data');
 
-    // dd($data); // Lihat isi session untuk memastikan lapangan dan harga ada
+     // dd($data); // Lihat isi session untuk memastikan lapangan dan harga ada
 
     
     $tanggalSewa = $data['tanggal_sewa'] ?? null;

@@ -326,7 +326,7 @@
 
 
 
-
+        @if ($transaksi->count() > 0)
         <section class="m-0 flex-grow-1 mt-2 bg-white">
             <div class="m-0">
                 <div class="d-flex align-items-center">
@@ -387,8 +387,13 @@
                     </div>
                 </div>
             </section>
+            @else
+            <section class="px-3" style="padding-bottom: 10px">
+                <div class="py-1" style="background-color: hsl(210, 17%, 93%);">
 
-
+                </div>
+            </section>
+        @endif
 
 
         </section>

@@ -163,7 +163,7 @@
         <div id="" class="position-fixed w-100 top-0 start-0 bg-transparent transition-all">
             <div id="header" class="d-flex  align-items-center p-2 w-100">
                 <!-- Tombol Kembali -->
-                <a href="/kategory" id="row" class="btn btn-light rounded-circle p-2 shadow">
+                <a href="/artikel" id="row" class="btn btn-light rounded-circle p-2 shadow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round"
@@ -172,9 +172,8 @@
                         <path d="M15 6l-6 6l6 6" />
                     </svg>
                 </a>
-                <p class="transition-all hidden ms-3 mb-0">{{ $artikel->judul_artikel }}</p> <!-- Elemen yang akan tampil/hilang -->
+                <p class="transition-all hidden ms-3 mb-0">Artikel</p> <!-- Elemen yang akan tampil/hilang -->
         
-                <!-- Judul Artikel -->
             </div>
         </div>
         

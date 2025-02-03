@@ -14,110 +14,134 @@ class Booking extends Component
     public $get_time = [];
 
     public function mount($lapangan)
-    {
-        $this->lapangan = $lapangan;
+{
+    $this->lapangan = $lapangan;
 
-        $this->times = [
-            "08:00-10:00",
-            "10:00-12:00",
-            "12:00-14:00",
-            "14:00-16:00",
-            "16:00-18:00",
-            "18:00-20:00",
-            "20:00-22:00",
-            "22:00-24:00"
-        ];
-    }
+    // Inisialisasi waktu slot
+    $this->times = [
+        "08:00-10:00",
+        "10:00-12:00",
+        "12:00-14:00",
+        "14:00-16:00",
+        "16:00-18:00",
+        "18:00-20:00",
+        "20:00-22:00",
+        "22:00-24:00"
+    ];
+
+    // Defaultkan tanggal ke null, user harus memilih tanggal
+    $this->date = null;
+
+    // Inisialisasi array waktu yang dipilih
+    $this->get_time = [];
+}
+
 
     public function choiceTime($time)
-    {
-        // Jika waktu sudah dipilih, hapus
-        if (in_array($time, $this->get_time)) {
-            $this->get_time = array_diff($this->get_time, [$time]);
-        } else {
-            // Jika tidak dipilih, tambahkan
-            $this->get_time = [$time]; // Hanya satu waktu yang dipilih
+{
+    // Pastikan tanggal sudah dipilih
+    if (!$this->date) {
+        session()->flash('error', 'Pilih tanggal terlebih dahulu.');
+        return;
+    }
+
+    // Periksa apakah tanggal yang dipilih adalah hari ini
+    $isToday = Carbon::parse($this->date)->isToday();
+
+    // Ambil bagian jam awal dari slot waktu (misal "08:00" dari "08:00-10:00")
+    $selectedTime = substr($time, 0, 5); // Hanya ambil jam awal (misal: "08:00")
+
+    // Validasi jika tanggal adalah hari ini dan waktu sudah lewat
+    if ($isToday && $selectedTime <= Carbon::now()->format('H:i')) {
+        session()->flash('error', 'Waktu ini sudah berlalu dan tidak dapat dipilih.');
+        return;
+    }
+
+    // Tambahkan atau hapus waktu dari pilihan
+    if (in_array($time, $this->get_time)) {
+        // Jika waktu sudah dipilih, hapus dari daftar
+        $this->get_time = array_diff($this->get_time, [$time]);
+    } else {
+        // Jika belum dipilih, tambahkan ke daftar
+        $this->get_time = [$time]; // Hanya satu waktu dapat dipilih
+    }
+}
+
+
+public function submit()
+{
+    $currentTime = Carbon::now(); // Ambil waktu sekarang
+
+    // Validasi input
+    $this->validate([
+        'date' => 'required|date',
+        'get_time' => ['required', 'array', 'min:1', function ($attribute, $value, $fail) {
+            // Pastikan waktu yang dipilih ada dalam daftar waktu yang disediakan
+            if (array_diff($value, $this->times)) {
+                $fail('Invalid time selection.');
+            }
+        }]
+    ]);
+
+    // Jika tanggal yang dipilih adalah hari ini, pastikan waktu yang dipilih lebih besar dari waktu sekarang
+    if (Carbon::parse($this->date)->isToday()) {
+        foreach ($this->get_time as $time) {
+            list($start_time, $end_time) = explode('-', $time);
+            $start = Carbon::createFromFormat('H:i', $start_time);
+
+            // Jika waktu mulai lebih kecil atau sama dengan waktu sekarang, tampilkan pesan error
+            if ($currentTime->greaterThan($start)) {
+                session()->flash('error', 'The selected time must be later than the current time.');
+                return; // Hentikan eksekusi
+            }
         }
     }
 
-    public function submit()
-    {
-        $currentTime = Carbon::now();
+    // Cek apakah waktu yang dipilih tumpang tindih dengan waktu yang sudah ada
+    foreach ($this->get_time as $time) {
+        list($start_time, $end_time) = explode('-', $time);
+        $newStart = Carbon::createFromFormat('H:i', $start_time);
+        $newEnd = Carbon::createFromFormat('H:i', $end_time);
 
-        $this->validate([
-            'date' => 'required',
-            'get_time' => ['required', 'array', 'min:1', function ($attribute, $value, $fail) {
-                if (array_diff($value, $this->times)) {
-                    $fail('Invalid time selection.');
-                }
-            }]
-        ]);
-
-        // Cek waktu untuk memastikan transaksi tidak lebih kecil dari waktu sekarang
-        foreach ($this->times as $time) {
-            if (!empty($this->get_time)) {
-                foreach ($this->get_time as $get_time) {
-                    list($start_time, $end_time) = explode('-', $get_time);
-                    $start = Carbon::createFromFormat('H:i', $start_time);
-                    $end = Carbon::createFromFormat('H:i', $end_time);
-
-                    if ($currentTime->greaterThan($end)) {
-                        return false;
-                    }
-                }
-            }
-        }
-
-        // Ambil data lapangan dan cek apakah ada transaksi yang tumpang tindih
-        $lapangan = $this->lapangan;
-        $lapanganData = Lapangan::where('name', $lapangan)->first();
-        $harga = $lapanganData ? $lapanganData->harga : 0;
-
-        // Cek apakah ada transaksi yang sudah ada di lapangan dan tanggal yang sama
-        $existingTransactions = transaksi::where('lapangan', $lapangan)
+        // Periksa apakah waktu baru tumpang tindih dengan transaksi yang sudah ada
+        $existingTransactions = transaksi::where('lapangan', $this->lapangan)
             ->where('tanggal_sewa', $this->date)
             ->get();
 
-        // Loop melalui transaksi yang ada dan periksa apakah ada waktu yang tumpang tindih
         foreach ($existingTransactions as $transaction) {
-            foreach ($this->get_time as $get_time) {
-                list($start_time, $end_time) = explode('-', $get_time);
-                $newStart = Carbon::createFromFormat('H:i', $start_time);
-                $newEnd = Carbon::createFromFormat('H:i', $end_time);
+            list($existingStart, $existingEnd) = explode('-', $transaction->jam_sewa);
+            $existingStart = Carbon::createFromFormat('H:i', $existingStart);
+            $existingEnd = Carbon::createFromFormat('H:i', $existingEnd);
 
-                // Ambil waktu dari transaksi yang sudah ada
-                list($existingStart, $existingEnd) = explode('-', $transaction->jam_sewa);
-                $existingStart = Carbon::createFromFormat('H:i', $existingStart);
-                $existingEnd = Carbon::createFromFormat('H:i', $existingEnd);
-
-                // Periksa apakah waktu baru tumpang tindih dengan transaksi yang sudah ada
-                if (
-                    ($newStart->between($existingStart, $existingEnd, true)) ||
-                    ($newEnd->between($existingStart, $existingEnd, true)) ||
-                    ($existingStart->between($newStart, $newEnd, true)) ||
-                    ($existingEnd->between($newStart, $newEnd, true))
-                ) {
-                    // Jika ada tumpang tindih, tampilkan pesan error dan hentikan proses
-                    session()->flash('error', 'Time slot is already booked for this field.');
-                    return;  // Menghentikan eksekusi lebih lanjut
-                }
+            // Periksa apakah waktu baru tumpang tindih dengan transaksi yang sudah ada
+            if (
+                ($newStart->between($existingStart, $existingEnd, true)) ||
+                ($newEnd->between($existingStart, $existingEnd, true)) ||
+                ($existingStart->between($newStart, $newEnd, true)) ||
+                ($existingEnd->between($newStart, $newEnd, true))
+            ) {
+                // Jika ada tumpang tindih, tampilkan pesan error dan hentikan proses
+                session()->flash('error', 'Time slot is already booked for this field.');
+                return;  // Menghentikan eksekusi lebih lanjut
             }
         }
-
-        // Jika tidak ada tumpang tindih, lanjutkan proses untuk menyimpan transaksi
-        $data = [
-            'tanggal_sewa' => $this->date,
-            'jam_sewa' => implode(', ', $this->get_time),
-            'lapangan' => $lapangan,
-            // 'lama_sewa' => $this->lama_sewa
-        ];
-
-        // Menyimpan data transaksi di session untuk digunakan pada pembayaran
-        session()->put('data', $data);
-
-        // Redirect ke halaman pembayaran
-        return redirect()->route('user.pembayaran');
     }
+
+    // Jika tidak ada tumpang tindih, lanjutkan proses untuk menyimpan transaksi
+    $data = [
+        'tanggal_sewa' => $this->date,
+        'jam_sewa' => implode(', ', $this->get_time),
+        'lapangan' => $this->lapangan,
+        // 'lama_sewa' => $this->lama_sewa // Pastikan ini ada atau tidak, jika diperlukan
+    ];
+    
+    // Menyimpan data transaksi di session untuk digunakan pada pembayaran
+    session()->put('data', $data);
+
+    // Redirect ke halaman pembayaran
+    return redirect()->route('user.pembayaran');
+}
+
 
 
 

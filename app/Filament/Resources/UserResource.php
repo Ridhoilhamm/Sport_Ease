@@ -10,6 +10,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -40,6 +41,10 @@ class UserResource extends Resource
                 TextColumn::make('name'),
                 TextColumn::make('email'),
                 TextColumn::make('role'),
+                ImageColumn::make('profile_image')
+                ->size(150)
+                ->disk('public') // Menyatakan disk public
+                ->label('Foto'),
                 TextColumn::make('created_at')->label('Di Buat')
             ])
             ->filters([

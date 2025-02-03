@@ -114,7 +114,6 @@
 
         #row,
         #like {
-            /* Styling khusus hanya untuk tombol ini */
             background-color: #f8f9fa;
             color: #495057;
             border: none;
@@ -122,28 +121,21 @@
 
         #header {
             background-color: transparent;
-            /* Default background */
             z-index: 1000;
             transition: background-color 0.3s ease;
-            /* Transisi latar belakang */
         }
 
         #header.scrolled {
             background-color: #cad3db;
-            /* Warna gelap ketika digulir */
         }
 
         #header a,
         #header button {
             transition: background-color 0.3s ease;
-            /* Efek transisi untuk tombol */
         }
-
-        /* Penyesuaian tombol ketika digulir */
         #header.scrolled a,
         #header.scrolled button {
             background-color: rgba(255, 255, 255, 0.953);
-            /* Warna tombol */
         }
     </style>
 @endsection
@@ -152,7 +144,6 @@
     <div>
         <div id="header" class="position-fixed w-100 top-0 start-0 bg-transparent transition-all">
             <div class="d-flex justify-content-between align-items-center p-2">
-                <!-- Tombol Kembali -->
                 <a href="/artikel" class="btn btn-light rounded-circle p-2 shadow">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -163,7 +154,6 @@
                 </a>
             </div>
         </div>
-
     </div>
     <div class="bg-white">
         <div class="flex justify-between items-center bg-white p-3 rounded-lg shadow-md>
@@ -171,14 +161,9 @@
             pt-0 mt-3">
             <div style="overflow-x:scroll; white-space: nowrap; position: relative;">
                 <div style="display: inline-flex; min-width: 100%; width: fit-content;">
-                    <!-- Slide 1 -->
-
-
                     <div style="flex-shrink: 0; width: 75px; margin-right: 5px; position: relative;"
                         class="text-center ">
                         <div class="text-center mt-5 mr-0 ">
-
-
                             <div class="border rounded bg-"
                                 style="padding-top: 15px; padding-bottom: 15px; background-color: #cf2e0d; color: #fff;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
@@ -195,9 +180,6 @@
                                     <path d="M15.549 15.147a12 12 0 0 0 1.38 -10.611" />
                                 </svg>
                             </div>
-
-
-
                             <div class="mt-2 text-center">
                                 <p class="mb-0" style="font-size: 12px; color: #333;">Volly</p>
                             </div>
@@ -227,9 +209,6 @@
                                         d="M14.969 5c0 1.5 1 2 1 4c0 2.5 -2 4.5 -2 7c0 2.6 1.9 6 1.9 6h4.1s2 -3.4 2 -6c0 -2.5 -2 -4.5 -2 -7c0 -2 1 -2.5 1 -4a3 3 0 1 0 -6 0" />
                                 </svg>
                             </div>
-
-
-
 
                             <div class="mt-2 text-center">
                                 <p class="mb-0" style="font-size: 12px; color: #333;">Bowling</p>
@@ -324,13 +303,6 @@
                         </div>
                     </div>
 
-
-
-
-                    <!-- Slide 2 -->
-
-
-                    <!-- Add More Duplicated Slides if Needed -->
                 </div>
             </div>
             </section>
@@ -338,6 +310,7 @@
             <!-- Controls -->
         </div>
     </div>
+
     <div>
         <div class="bg-white" style="padding-bottom: 65px;">
 
@@ -367,10 +340,6 @@
                                             @if (!empty($product->harga))
                                             @endif
                                         </p>
-
-                                        <!-- Tombol berada di bawah teks -->
-
-
                                         <button type="button" class="btn btn-primary w-100 mt-1"
                                             style="height: 30px; font-size: 12px; padding: 0; line-height: 1;">
                                             Booking
@@ -382,14 +351,10 @@
                         </a>
                     @endforeach
                 </div>
-
-                <!-- Tambahkan Card Lainnya -->
             </div>
         </div>
-
     </div>
 @endsection
-
 @php
     $hideNavbar = true;
     $hideFooter = true;

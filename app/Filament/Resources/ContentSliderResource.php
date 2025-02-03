@@ -83,7 +83,7 @@ class ContentSliderResource extends Resource
     {
         return [
             'index' => Pages\ListContentSliders::route('/'),
-            // 'create' => Pages\CreateContentSlider::route('/create'),
+            'create' => Pages\CreateContentSlider::route('/create'),    
             'edit' => Pages\EditContentSlider::route('/{record}/edit'),
         ];
     }

@@ -35,6 +35,9 @@ class riwayatController extends Controller
     $bulan = $request->input('bulan'); // Ambil input bulan
     $tahun = $request->input('tahun'); // Ambil input tahun
 
+    // Ambil user yang sedang login
+    $user = auth()->user();
+
     $transaksi = transaksi::query();
 
     // Filter berdasarkan status
@@ -57,6 +60,9 @@ class riwayatController extends Controller
         $transaksi->whereYear('tanggal_sewa', $tahun);
     }
 
+    // Filter transaksi berdasarkan user yang membuatnya
+    $transaksi->where('id_user', $user->id);
+
     // Ambil transaksi yang sudah difilter
     $transaksi = $transaksi->latest()->get();
 
@@ -64,6 +70,7 @@ class riwayatController extends Controller
 
     return view('user.riwayat', compact('transaksi', 'notFound'));
 }
+
 
     
 

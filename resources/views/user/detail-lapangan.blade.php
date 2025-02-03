@@ -313,17 +313,10 @@
                                     </svg>
                                 </a>
                                 <p class="transition-all hidden ms-3 mb-0">Detail Lapangan</p>
-                               
-                                <a href="" id="row" class="btn btn-light rounded-circle p-2 shadow ms-auto">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path
-                                            d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                                    </svg>
-                                </a>
+                               <div class="ms-auto">
+                                   @livewire('favorite-lapangan', ['lapangan' => $lapangan])
+
+                               </div>
                             </div>
 
                         </div>
@@ -344,11 +337,11 @@
                         <p class="fw-medium mb-0" style="font-size: 18px">Fasilitas</p>
 
                         <section class="px-1 pt-0 mb-4">
-                            <div style="overflow-x:scroll; white-space: nowrap; position: relative;">
+                            <div style="overflow-x:scroll; white-space: nowrap; ">
                                 <div
                                     style="display: inline-flex; min-width: 100%; width: fit-content; padding-bottom:5px; padding-top:10px">
                                     <!-- Slide 1 -->
-                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: absolute; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
                                         class="d-flex flex-column align-items-center justify-content-center text-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
@@ -364,7 +357,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px;  background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
                                         class="d-flex flex-column align-items-center justify-content-center text-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
@@ -380,7 +373,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px;  background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
                                         class="d-flex flex-column align-items-center justify-content-center text-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
@@ -395,7 +388,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
                                         class="d-flex flex-column align-items-center justify-content-center text-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
@@ -413,7 +406,7 @@
                                         </div>
                                     </div>
 
-                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; position: relative; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
+                                    <div style="flex-shrink: 0; width: 100px; margin-right: 10px; background-color: #f0f0f0; border-radius: 8px; padding: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);"
                                         class="d-flex flex-column align-items-center justify-content-center text-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"
@@ -427,14 +420,9 @@
                                             <p class="mb-0" style="font-size: 12px; color: #333;">Kamar Ganti</p>
                                         </div>
                                     </div>
-
-
-                                    <!-- Slide 2 -->
-                                    <!-- Add More Duplicated Slides if Needed -->
                                 </div>
                             </div>
                         </section>
-                        <!-- Price and Availability -->
                         <div class="d-flex align-items-center">
                             <p class="mt-1 mb-2" style="font-size:18px;">Deskripsi</p>
 
@@ -479,10 +467,7 @@
                     </div>
                 </div>
             </div>
-
-
             <livewire:booking.booking :lapangan='$lapangan'>
-
         </div>
     </div>
     <script>
@@ -500,18 +485,7 @@
     </script>
 
     <script>
-        // const header = document.getElementById('header');
-
-        // window.addEventListener('scroll', () => {
-        //     if (window.scrollY > 10) {
-        //         header.style.backgroundColor = 'white'; // Ubah menjadi putih
-        //         header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)'; // Tambahkan bayangan (opsional)
-        //         // Tambahkan bayangan (opsional)
-        //     } else {
-        //         header.style.backgroundColor = 'transparent'; // Kembali ke transparan
-        //         header.style.boxShadow = 'none'; // Hilangkan bayangan
-        //     }
-        // });
+    
         document.addEventListener("DOMContentLoaded", function() {
             const paragraph = document.querySelector("#header p"); // Pilih elemen p
             let lastScrollTop = 0; // Variabel untuk menyimpan posisi scroll terakhir

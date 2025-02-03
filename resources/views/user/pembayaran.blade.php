@@ -246,11 +246,7 @@
 
 @section('content')
 
-    <!-- Header -->
-    {{-- <x-flash-message /> --}}
-
-       
-        <div class="container bg-white" style="padding-top: 10px">
+        <div class="mb-1 fixed-top container bg-white" style="padding-top: 10px">
             <div class="d-flex align-items-center" style="padding-bottom: 10px;">
                 <a href="{{ route('detaillapangan', ['id' => $lapangan->id]) }}" class="me-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -261,19 +257,10 @@
                     </svg>
                 </a>
                 <h5 class="fw-semibold mb-0" style="color:#000000c3">Informasi Pemesanan</h5>
-            </div>
-            
-            
-            
-            
-
+            </div>  
         </div>
 
-    </div>
-    <div>
-
-    </div>
-    <div class="mt-2 container bg-white rounded" style="padding: 10px 0 20px;">
+    <div class="mt-5 container bg-white rounded" style="padding: 10px 0 20px;">
         <div class="" style="  ">
             <p class="fw-normal text-secondary container mb-0 mt-0 border-bottom" style="padding-bottom: 10px">Data Pemesan
             </p>
@@ -301,7 +288,7 @@
             </div>
             <div class="d-flex align-items-center container">
                 <p class="fw-medium mb-0 " style="flex: 1; font-size:14px; padding-bottom: 5px;">
-                    No.tlp
+                    No. Hendphone
                 </p>
                 <div class="ms-auto" style="font-size:14px">
                     {{$user->phone}}
@@ -429,7 +416,7 @@
                     <div class="ms-auto me-3 fw-bold" style="font-size:16px;color:#A9DA05">
                         <span style="color: #A9DA05; font-size: 18px" class="fw-semibold ">
                             @if ($lapangan->harga)  <!-- Pastikan harga ada -->
-                                Rp. {{ number_format($lapangan->harga * 2+200, 0, ',', '.') }} <!-- Hitung dengan perkalian 2 jam -->
+                                Rp. {{ number_format($lapangan->harga * 2+2000, 0, ',', '.') }} <!-- Hitung dengan perkalian 2 jam -->
                             @else
                                 Harga atau lama sewa tidak tersedia. <!-- Jika harga tidak ada -->
                             @endif
@@ -438,25 +425,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container mt-0">
-       <!-- Modal -->
-
-        <div class="modal" id="modal">
-            <div class="modal-content">
-                <div class="modal-header">Catatan buat pesanan ini</div>
-                <div class="modal-body">
-                    <textarea id="order-note" placeholder="Pastikan tidak ada data pribadi, ya."></textarea>
-                </div>
-                
-
-                <div class="modal-footer">
-                    <button class="close-btn" onclick="closeModal()">Batal</button>
-                    <button class="save-btn" onclick="saveNote()">Simpan</button>
-                </div>
-            </div>
-        </div>
-
     </div>
     </div>
 
@@ -474,32 +442,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="noteModalLabel">Catatan buat pesanan ini</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <textarea class="form-control" id="orderNote" placeholder="Pastikan tidak ada data pribadi, ya." rows="4"
-                                    maxlength="200"></textarea>
-                                <div class="d-flex justify-content-between mt-1">
-                                    <small class="text-muted">0/200</small>
-                                </div>
-                            </div>
-                        </form>
                         <livewire:add-catatan />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">
-                            Simpan
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Ringkasan Transaksi -->
-
-        <!-- Tombol Checkout -->
     </div>
 
     

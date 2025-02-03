@@ -124,7 +124,7 @@
                             </div>
                             <div class="col-12 col-sm-6 mb-2">
                                 <select name="bulan" class="form-control">
-                                    <option value="">-- Pilih Bulan --</option>
+                                    <option value="">Pilih Bulan</option>
                                     <option value="1" {{ request('bulan') == 1 ? 'selected' : '' }}>Januari</option>
                                     <option value="2" {{ request('bulan') == 2 ? 'selected' : '' }}>Februari</option>
                                     <option value="3" {{ request('bulan') == 3 ? 'selected' : '' }}>Maret</option>
@@ -140,7 +140,7 @@
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6 mb-2 d-flex align-items-center">
-                                <select name="tahun">
+                                <select name="tahun" class="form-control">
                                     <option value="">Pilih Tahun</option>
                                     @for ($i = date('Y'); $i >= 2000; $i--)
                                         <option value="{{ $i }}">{{ $i }}</option>
@@ -150,7 +150,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Terapkan Filter</button>
+                            <button type="submit" class="btn btn-primary">Filter</button>
                         </div>
                     </form>
                 </div>
@@ -214,7 +214,7 @@
                                         </small>
                                     </div>
                                 </div>
-                                <a href="{{ route('detail-transaksi', $product->id) }}"
+                                <a href="{{ route('detail-riwayat', $product->id) }}"
                                     class="data-link text-decoration-none">
                                     <button class="btn btn-primary w-100 mt-3 rounded-pill fw-semibold"
                                         style="font-size: 14px;">
