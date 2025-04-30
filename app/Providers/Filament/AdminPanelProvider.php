@@ -49,9 +49,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,   // Widget pertama
-                QuickAccess::class,             // Widget kedua
-                ChartWidget::class,   
+                // Widgets\AccountWidget::class,   // Widget pertama
+                // QuickAccess::class,             // Widget kedua
+                // ChartWidget::class,   
                 // JumlahUser::class,              // Widget ketiga
 
                 // Widgets\FilamentInfoWidget::class,
@@ -69,7 +69,6 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
-            
+            ]);  
     }
 }

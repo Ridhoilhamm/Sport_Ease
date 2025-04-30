@@ -37,10 +37,10 @@ class TransaksiResource extends Resource
                 TextColumn::make('tanggal_sewa'),
                 TextColumn::make('jam_sewa'),
                 ImageColumn::make('bukti_pembayaran')
-                ->size(150)
-                ->disk('public') // Menyatakan disk public
-                ->label('foto'),
-                TextColumn::make('created_at')->label('Di buat'),
+                    ->size(150)
+                    ->disk('public') // Menyatakan disk public
+                    ->label('Bukti Pembayaran'),
+                TextColumn::make('created_at')->label('Waktu Trnsaksi'),
                 TextColumn::make('total_pembayaran'),
                 TextColumn::make('status')
             ])
