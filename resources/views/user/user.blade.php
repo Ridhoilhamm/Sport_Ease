@@ -1,115 +1,6 @@
 @extends('user.layout')
 
-@section('styles')
-    <style>
-        .splide-btn {
-            background-color: #f8f9fa;
-            border: none;
-            padding: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-        }
 
-        .splide-btn:hover {
-            background-color: #e9ecef;
-            transform: scale(1.1);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .splide-btn-left {
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-        }
-
-        .splide-btn-right {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-        }
-
-        /* Track dan Slide */
-        .splide-track-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .splide-slide-list {
-            display: flex;
-            gap: 10px;
-            /* Jarak antar slide */
-            transition: transform 0.3s ease-in-out;
-            padding-right: 10px;/
-        }
-
-        .splide-slide-item {
-            flex: 0 0 auto;
-            width: 100%;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-right: 10px;
-            /* Jarak antar slide */
-        }
-
-        .splide-slide-image {
-            display: block;
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .item:last-child {
-            margin-right: 0;
-            /* Hilangkan margin kanan untuk elemen terakhir */
-        }
-
-        .limit-text {
-            white-space: nowrap;
-            /* Mencegah teks membungkus ke baris berikutnya */
-            overflow: hidden;
-            /* Menyembunyikan teks yang melebihi batas elemen */
-            text-overflow: ellipsis;
-            /* Menambahkan elipsis (...) di akhir teks yang terpotong */
-            max-width: 150px;
-            /* Menentukan lebar maksimal elemen */
-        }
-
-        .notification-bar {
-
-            background-color: #fefefe;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-            padding: 10px;
-        }
-
-        .notification-header {
-            font-size: 12px;
-            color: #888;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .notification-content strong {
-            font-size: 14px;
-            color: #000;
-        }
-
-        .notification-content p {
-            font-size: 13px;
-            color: #333;
-            margin: 0;
-        }
-    </style>
-@endsection
 
 @section('content')
     <div>
@@ -523,6 +414,116 @@
             </div>
         </section>
     </div>
+    @section('styles')
+    <style>
+        .splide-btn {
+            background-color: #f8f9fa;
+            border: none;
+            padding: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+        }
+
+        .splide-btn:hover {
+            background-color: #e9ecef;
+            transform: scale(1.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .splide-btn-left {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .splide-btn-right {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+
+        /* Track dan Slide */
+        .splide-track-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .splide-slide-list {
+            display: flex;
+            gap: 10px;
+            /* Jarak antar slide */
+            transition: transform 0.3s ease-in-out;
+            padding-right: 10px;/
+        }
+
+        .splide-slide-item {
+            flex: 0 0 auto;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 10px;
+            /* Jarak antar slide */
+        }
+
+        .splide-slide-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .item:last-child {
+            margin-right: 0;
+            /* Hilangkan margin kanan untuk elemen terakhir */
+        }
+
+        .limit-text {
+            white-space: nowrap;
+            /* Mencegah teks membungkus ke baris berikutnya */
+            overflow: hidden;
+            /* Menyembunyikan teks yang melebihi batas elemen */
+            text-overflow: ellipsis;
+            /* Menambahkan elipsis (...) di akhir teks yang terpotong */
+            max-width: 150px;
+            /* Menentukan lebar maksimal elemen */
+        }
+
+        .notification-bar {
+
+            background-color: #fefefe;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+            padding: 10px;
+        }
+
+        .notification-header {
+            font-size: 12px;
+            color: #888;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .notification-content strong {
+            font-size: 14px;
+            color: #000;
+        }
+
+        .notification-content p {
+            font-size: 13px;
+            color: #333;
+            margin: 0;
+        }
+    </style>
+@endsection
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
