@@ -443,8 +443,6 @@
             right: 10px;
             transform: translateY(-50%);
         }
-
-        /* Track dan Slide */
         .splide-track-wrapper {
             position: relative;
             overflow: hidden;
@@ -454,7 +452,7 @@
         .splide-slide-list {
             display: flex;
             gap: 10px;
-            /* Jarak antar slide */
+           
             transition: transform 0.3s ease-in-out;
             padding-right: 10px;/
         }
@@ -465,7 +463,7 @@
             border-radius: 10px;
             overflow: hidden;
             margin-right: 10px;
-            /* Jarak antar slide */
+         
         }
 
         .splide-slide-image {
@@ -487,11 +485,8 @@
 
         .limit-text {
             white-space: nowrap;
-            /* Mencegah teks membungkus ke baris berikutnya */
             overflow: hidden;
-            /* Menyembunyikan teks yang melebihi batas elemen */
             text-overflow: ellipsis;
-            /* Menambahkan elipsis (...) di akhir teks yang terpotong */
             max-width: 150px;
             /* Menentukan lebar maksimal elemen */
         }
