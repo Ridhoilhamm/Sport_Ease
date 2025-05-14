@@ -546,8 +546,7 @@
                     carousel.prev(); // geser ke kiri
                 }
             });
-
-            // Jika menggunakan mouse, memungkinkan geser dengan mouse
+            
             let isMouseDown = false;
             let startMouseX;
 
@@ -565,9 +564,9 @@
                 if (!isMouseDown) return;
                 isMouseDown = false;
                 if (startMouseX > endX) {
-                    carousel.next(); // geser ke kanan
+                    carousel.next(); 
                 } else {
-                    carousel.prev(); // geser ke kiri
+                    carousel.prev();
                 }
             });
         });

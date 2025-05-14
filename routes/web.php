@@ -74,18 +74,10 @@ Route::get('/detailkategory', [LapanganController::class, 'index'])->name('detai
 Route::get('/detaillapangan/{id}', [LapanganController::class, 'show'])->name('detaillapangan')->middleware('auth');
 Route::post('/detaillapangan', [LapanganController::class, 'storelapangan'])->name('storelapangan');
 Route::get('/pembayaran', [LapanganController::class, 'showPembayaran'])->name('user.pembayaran');
-// Route::get('/transaksi/filter/{status}', [TransaksiController::class, 'filter'])->name('transaksi.filter');
 
-// Route::get('/pembayaran/{id}', [TransaksiController::class, 'transaksibyid'])->name('detail-transaksi');
-
-
-
-//halaman artikel
 Route::get('/artikel', [ArtikelController::class, 'index'])->name('artikel');
 Route::get('/detailartikel/{id}', [ArtikelController::class, 'show'])->name('artikel-show');
 
-// Route::get('/detaillapangan/{id}', [Lapangan::class, 'show'])->name('lapangan');
-//auth
 Route::get('/login', [\App\Http\Controllers\authController::class, 'index'])->name('login');
 Route::post('/login', [\App\Http\Controllers\authController::class, 'login'])->name('auth-login');
 Route::get('/registrasi', Registrasi::class)->name('registrasi');

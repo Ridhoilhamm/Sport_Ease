@@ -56,4 +56,5 @@ class TransaksiController extends Controller
         }
         return view('user.detail-riwayat', compact('transaksi'));
     }
+
 }

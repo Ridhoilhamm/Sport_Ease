@@ -4,7 +4,7 @@
     <style>
         /* Menambahkan gambar sebagai latar belakang halaman */
         .bg-image {
-            background-image: url('{{ asset('image/bg.jpg') }}');
+            background-image: url('{{ asset('image/bg-baru.jpg') }}');
             background-size: cover;
             background-position: center center;
             background-attachment: fixed;

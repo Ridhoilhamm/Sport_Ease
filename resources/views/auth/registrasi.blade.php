@@ -4,7 +4,6 @@
 <style>
     /* Menambahkan gambar sebagai latar belakang halaman */
     .bg-image {
-        background-image: url('{{ asset('image/bg.jpg') }}');
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
@@ -46,9 +45,14 @@
     }
 </style>
 
-<div style="background-image: url('{{ asset('image/bg.jpg') }}'); background-size: cover; background-position: center; padding: 20px; border-radius: 8px;">
-    <livewire:auth.registrasi />
+<div style="background-image: url('{{ asset('image/bg-baru.jpg') }}'); background-size: cover; background-position: center;" class="p-6 md:p-10 rounded-xl">
+   
+    <div class="max-w-md mx-auto pt-2">
+        <livewire:auth.registrasi />
+    </div>
 </div>
+
+
 
 <script>
     // JavaScript untuk men-toggle password
